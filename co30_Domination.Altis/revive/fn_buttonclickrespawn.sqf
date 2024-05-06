@@ -171,6 +171,13 @@ if (!isNull _mhqobj) then {
 		} else {
 			if (d_beam_target == "D_BASE_D") then {
 				player setVehiclePosition [_respawn_pos, [], 2, "NONE"];
+				if (d_vn) then {
+					if (markerPos "base_spawn_1" distance2D [15712, 7157.78, 0] < 10) then {
+						private _pasl = getPosASL player;
+						_pasl set [2, 14.981];
+						player setPosASL _pasl;
+					};
+				};
 			} else {
 				player setVehiclePosition [_respawn_pos, [], 0, "NONE"];
 			};
@@ -206,7 +213,7 @@ if (d_database_found) then {
 
 0 spawn {
 	scriptName "spawn_buttonclickrespawn2";
-	if (d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}) then {
+	if (!d_ifa3 && {!d_spe && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}}) then {
 		player actionNow ["NVGoggles", player];
 	};
 };

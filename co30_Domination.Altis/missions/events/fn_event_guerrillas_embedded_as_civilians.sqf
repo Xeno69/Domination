@@ -76,6 +76,9 @@ for "_i" from 0 to _guerrillaGroupCount do {
 		// guerillas dressed in plain clothes and look like civs
 		removeGoggles _x;
 		removeHeadgear _x;
+		#ifdef __VN__
+			_x addHeadgear selectRandom ["vn_c_conehat_01", "vn_c_conehat_02"];
+		#endif
 		removeVest _x;
 		removeUniform _x;
 		_x removeWeaponGlobal (handgunWeapon _x);

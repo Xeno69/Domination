@@ -36,6 +36,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -43,6 +48,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -50,11 +56,13 @@ makePbo -A -B -P -X %NEW_VER% %NEW_VER%
 rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
 
+rem goto cleanup
 
-rem Blufor Malden
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.malden
-set MISSION_SQM=..\mission_sqm\mission_blufor_malden_bin.sqm
-set X_SETUP=..\mission_sqm\x_setup_blufor_malden.sqf
+
+rem Blufor Normandy
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_ger.SPE_normandy
+set MISSION_SQM=..\mission_sqm\mission_blufor_normandy_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_normandy.sqf
 md %WORK_DIR%
 xcopy %MASTER%\*.* %WORK_DIR% /E /Y
 echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
@@ -65,12 +73,20 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
 rmdir /S /Q ma3a
 cd ..
 cd ..
@@ -78,7 +94,41 @@ makePbo -A -B -P -X %NEW_VER% %NEW_VER%
 rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
 
-rem goto cleanup
+
+rem Independet Normandy
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_usa.SPE_normandy
+set MISSION_SQM=..\mission_sqm\mission_independent_normandy_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_independent_normandy.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rmdir /S /Q ma3a
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
 
 
 rem Independet PRACS
@@ -95,12 +145,18 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rem rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 rmdir /S /Q ma3a
 cd ..
@@ -124,13 +180,20 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
+del i_weapons_SPE.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 rem rmdir /S /Q ma3a
 cd ..
@@ -154,6 +217,48 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+del i_weapons_SPE.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rem rmdir /S /Q ma3a
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor SOG Prairie
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_vn.cam_lao_nam
+set MISSION_SQM=..\mission_sqm\mission_blufor_cam_lao_nam_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_cam_lao_nam.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_default.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_UNSUNG.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -161,8 +266,45 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q ma3a
 rmdir /S /Q ma3m
-rem rmdir /S /Q ma3a
+rmdir /S /Q mifa3
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor Western Sahara
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_ws.sefrouramal
+set MISSION_SQM=..\mission_sqm\mission_blufor_sefrouramal_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_sefrouramal.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rmdir /S /Q ma3a
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
@@ -184,6 +326,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -191,6 +338,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3a
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -213,6 +361,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -220,6 +373,7 @@ rmdir /S /Q ma3a
 rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -242,6 +396,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_default.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -249,6 +408,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -271,6 +431,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -278,7 +443,43 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor Malden
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.malden
+set MISSION_SQM=..\mission_sqm\mission_blufor_malden_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_malden.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q mifa3
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3a
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
@@ -300,6 +501,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -307,6 +513,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -329,6 +536,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_default.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -336,6 +548,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -358,6 +571,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_default.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q ma3a
@@ -365,6 +583,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -387,6 +606,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_default.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q ma3a
@@ -394,6 +618,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -415,7 +640,12 @@ md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
+del i_weapons_IFA3.sqf
 del i_weapons_default.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q ma3a
@@ -423,6 +653,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -444,7 +675,12 @@ md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
+del i_weapons_IFA3.sqf
 del i_weapons_default.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -452,6 +688,7 @@ rmdir /S /Q ma3a
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -473,7 +710,12 @@ md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
+del i_weapons_IFA3.sqf
 del i_weapons_default.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -481,6 +723,7 @@ rmdir /S /Q ma3a
 rmdir /S /Q moa
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -503,6 +746,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -510,7 +758,223 @@ rmdir /S /Q ma3a
 rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor Weferlingen Summer
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.gm_weferlingen_summer
+set MISSION_SQM=..\mission_sqm\mission_blufor_weferlingen_summer.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_weferlingen_summer.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_default.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q ma3a
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rmdir /S /Q ma3s
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor Weferlingen Winter
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.gm_weferlingen_winter
+set MISSION_SQM=..\mission_sqm\mission_blufor_weferlingen_winter.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_weferlingen_winter.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_default.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q ma3a
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rmdir /S /Q ma3s
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor Livonia
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.enoch
+set MISSION_SQM=..\mission_sqm\mission_blufor_enoch_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_enoch.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q ma3a
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rmdir /S /Q ma3s
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Opfor IFA3
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_opfor_ifa3.staszow
+set MISSION_SQM=..\mission_sqm\mission_opfor_ifa3_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_opfor_ifa3.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_default.sqf
+del i_weapons_CUP.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3a
+rmdir /S /Q ma3m
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor Unsung
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_unsung.song_bin_tanh
+set MISSION_SQM=..\mission_sqm\mission_blufor_unsung_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_unsung.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_default.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3a
+rmdir /S /Q ma3m
+rmdir /S /Q mifa3
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Opfor CSLA
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_opfor_csla.stozec
+set MISSION_SQM=..\mission_sqm\mission_opfor_csla_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_opfor_csla.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_default.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3a
+rmdir /S /Q ma3m
+rmdir /S /Q mifa3
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
@@ -532,6 +996,11 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
@@ -539,6 +1008,7 @@ rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
+rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -561,9 +1031,15 @@ xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
+rmdir /S /Q mifa3
 rmdir /S /Q moa
 rmdir /S /Q msara
 rmdir /S /Q ma3t

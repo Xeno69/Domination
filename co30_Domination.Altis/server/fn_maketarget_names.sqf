@@ -2,7 +2,15 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-private _cr = 300;
+private _cr = call {
+	if (d_vn) exitWith {
+		250
+	};
+	if (d_ws) exitWith {
+		200
+	};
+	300
+};
 
 {
 	private _dtar = _x;

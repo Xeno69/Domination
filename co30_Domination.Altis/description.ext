@@ -33,7 +33,7 @@ class CfgWorlds {
 		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
 		loadingTexts[] = {
-			"Domination is available for many mods and islands",
+			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization, S.O.G. Prairie Fire, CSLA, Western Sahara and Spearhead 1944",
 			"There is also a PvPvE Domination TT (Two Teams) version available",
 			"A donation is always welcome... :)",
 			"Did you know that the first Domination version came out 2007 for Arma 1?",
@@ -64,6 +64,9 @@ class Header {
 #ifdef __CUP_SARA__
 	maxPlayers = 41;
 #endif
+#ifdef __IFA3__
+	maxPlayers = 41;
+#endif
 #ifdef __TANOA__
 	maxPlayers = 46;
 #endif
@@ -75,6 +78,21 @@ class Header {
 #endif
 #ifdef __MALDEN__
 	maxPlayers = 41;
+#endif
+#ifdef __LIVONIA__
+	maxPlayers = 46;
+#endif
+#ifdef __GABRETA__
+	maxPlayers = 46;
+#endif
+#ifdef __VNCLN__
+	maxPlayers = 46;
+#endif
+#ifdef __WS__
+	maxPlayers = 21;
+#endif
+#ifdef __SPE__
+	maxPlayers = 46;
 #endif
 #ifdef __JSDF__
 	maxPlayers = 46;
@@ -108,7 +126,6 @@ corpseRemovalMaxTime = 120;
 
 //Sets the mode for automatic wreck removal.
 // Default SP: 0; Default MP: 2;
-// DON'T CHANGE THAT VALUE
 wreckManagerMode = 0;
 //If total number of monitored wrecks are highter than wreckLimit, the wrecks that existed for longer than wreckRemovalMinTime will be considered for removal.
 wreckLimit = 5;
@@ -137,6 +154,9 @@ disposalCheckPeriod = 5; // seconds. Default: 5
 // minPlayerDistance = 30;
 // Array variant of the above that allows setting individual minPlayerDistance for {corpses, wrecks, weaponholders}
 // minPlayerDistance[] = {50, 60, 70}; // meters. Default: {0, 0, 0}
+
+// Only for SOG
+vn_arsenalShowMelee = 1;
 
 missionGroup = "DominationMissionGroup";
 
@@ -298,6 +318,15 @@ class CfgRemoteExec {
 		class d_fnc_lastchanceclient {allowedTargets = 1;};
 		class d_fnc_asfnc {allowedTargets = 2;};
 #endif
+#ifdef __VN__
+		class vn_fnc_music_play {};
+		class vn_fnc_music_stop {};
+		class vn_fnc_drm_setup_client {};
+		class vn_fnc_drm_useractions {};
+		class vn_fnc_drm_usereventhandlers {};
+		class vn_fnc_switchableTurrets_lock {allowedTargets = 2;};
+		class vn_fnc_burnit_action {};
+#endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
 	class Commands {
@@ -321,6 +350,14 @@ class CfgRemoteExec {
 		class triggerDynamicSimulation {allowedTargets = 2;};
 #ifdef __TT__
 		class setMarkerPosLocal {allowedTargets = 1;};
+#endif
+#ifdef __VN__
+		class setShotParents {allowedTargets = 2;};
+		class unassignVehicle {};
+		class moveInCargo {};
+		class lockTurret {};
+		class globalRadio {};
+		class setVehicleAmmo {};
 #endif
 	};
 };
@@ -367,6 +404,10 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
+#ifdef __IFA3__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
+#endif
 #ifdef __MALDEN__
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25"};
@@ -375,6 +416,33 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25"};
 #endif
+#ifdef __GMCWG__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,31};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","31"};
+#endif
+#ifdef __LIVONIA__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,31};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","31"};
+#endif
+#ifdef __UNSUNG__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18"};
+#endif
+#ifdef __GABRETA__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,28};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","28"};
+#endif
+#ifdef __VNCLN__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30,37};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30",37};
+#endif
+#ifdef __WS__
+		values[] = {9998,9999,2,4,6,8,10,12,14};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14"};
+#endif
+#ifdef __SPE__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,31};
+#endif		
 #ifdef __JSDF__
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,34};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","34"};
@@ -400,6 +468,9 @@ class Params {
 #ifdef __CUP_TAKISTAN__
 		default = 7;
 #endif
+#ifdef __IFA3__
+		default = 5;
+#endif
 #ifdef __TT__
 		default = 7;
 #endif
@@ -407,6 +478,27 @@ class Params {
 		default = 7;
 #endif
 #ifdef __MALDEN__
+		default = 7;
+#endif
+#ifdef __GMCWG__
+		default = 7;
+#endif
+#ifdef __LIVONIA__
+		default = 7;
+#endif
+#ifdef __UNSUNG__
+		default = 7;
+#endif
+#ifdef __GABRETA__
+		default = 6;
+#endif
+#ifdef __VNCLN__
+		default = 7;
+#endif
+#ifdef __WS__
+		default = 5;
+#endif
+#ifdef __SPE__
 		default = 7;
 #endif
 #ifdef __JSDF__
@@ -546,6 +638,9 @@ class Params {
 #ifdef __CUP_TAKISTAN__
 		default = 1;
 #endif
+#ifdef __IFA3__
+		default = 1;
+#endif
 #ifdef __TT__
 		default = 1;
 #endif
@@ -553,6 +648,27 @@ class Params {
 		default = 1;
 #endif
 #ifdef __MALDEN__
+		default = 1;
+#endif
+#ifdef __GMCWG__
+		default = 1;
+#endif
+#ifdef __LIVONIA__
+		default = 1;
+#endif
+#ifdef __UNSUNG__
+		default = 0;
+#endif
+#ifdef __GABRETA__
+		default = 1;
+#endif
+#ifdef __VNCLN__
+		default = 0;
+#endif
+#ifdef __WS__
+		default = 1;
+#endif
+#ifdef __SPE__
 		default = 1;
 #endif
 #ifdef __JSDF__
@@ -767,7 +883,11 @@ class Params {
 	class d_enable_fog {
 		title = "$STR_DOM_MISSIONSTRING_1164a";
 		values[] = {0,1};
+#ifndef __WS__
 		default = 0;
+#else
+		default = 1;
+#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -806,6 +926,9 @@ class Params {
 #ifdef __CUP_SARA__
 		default = 0;
 #endif
+#ifdef __IFA3__
+		default = 1;
+#endif
 #ifdef __TTALTIS__
 		default = 1;
 #endif
@@ -813,6 +936,27 @@ class Params {
 		default = 0;
 #endif
 #ifdef __TTMALDEN__
+		default = 1;
+#endif
+#ifdef __GMCWG__
+		default = 1;
+#endif
+#ifdef __LIVONIA__
+		default = 1;
+#endif
+#ifdef __UNSUNG__
+		default = 1;
+#endif
+#ifdef __GABRETA__
+		default = 1;
+#endif
+#ifdef __VNCLN__
+		default = 1;
+#endif
+#ifdef __WS__
+		default = 0;
+#endif
+#ifdef __SPE__
 		default = 1;
 #endif
 #ifdef __JSDF__
@@ -1072,6 +1216,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
+	class d_WithVoicesDisabled {
+		title = "$STR_DOM_MISSIONSTRING_SUPPRESS_VOICES";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+
 	class d_with_3Dicon {
 		title = "$STR_DOM_MISSIONSTRING_1961";
 		values[] = {0,1};
@@ -2486,6 +2637,36 @@ class CfgIdentities {
 		speaker = "Male02GRE";
 	};
 #endif
+#ifdef __IFA3__
+	class DHQ_BF1 {
+		name = "Meier, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03Ger";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Schmitt, HQ";
+		speaker = "Male02Ger";
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Rustov, HQ";
+		speaker = "Male03SU";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Krustshov, HQ";
+		speaker = "Male02SU";
+	};
+	class DHQ_IN1: DHQ_BF1 {
+		name = "Stevens, HQ";
+		speaker = "Male03ENG";
+	};
+	class DHQ_IN2: DHQ_BF1 {
+		name = "Winters, HQ";
+		speaker = "Male02ENG";
+	};
+#endif
 #ifdef __RHS__
 	class RDHQ_OP1: DHQ_BF1 {
 		name = "Ivan, HQ";
@@ -2494,6 +2675,180 @@ class CfgIdentities {
 	class RDHQ_OP2: RDHQ_OP1 {
 		name = "Vasyl, HQ";
 		speaker = "RHS_Male02RUS";
+	};
+#endif
+#ifdef __GMCWG__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng"; 
+	};
+	class GMDHQ_BF1: DHQ_BF1 {
+		name = "Berger, HQ";
+		speaker = "gm_voice_male_deu_04";
+	};
+	class GMDHQ_BF2: GMDHQ_BF1 {
+		name = "Koch, HQ";
+		speaker = "gm_voice_male_deu_08";
+	};
+	class GMDHQ_OP1: GMDHQ_BF1 {
+		name = "Reindel, HQ";
+		speaker = "gm_voice_male_deu_06";
+	};
+	class GMDHQ_OP2: GMDHQ_OP1 {
+		name = "Ehrlich, HQ";
+		speaker = "gm_voice_male_deu_01";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __GABRETA__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __VNCLN__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class VNDHQ_OP1: DHQ_BF1 {
+		name = "Van T� Duong";
+		speaker = "male03chi";
+	};
+	class VNDHQ_OP2: DHQ_BF1 {
+		name = "Min Duong";
+		speaker = "male02chi";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __WS__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __SPE__
+	class DHQ_BF1 {
+		name = "Mayer, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Schmitz, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_IN1: DHQ_BF1 {
+		name = "Winters, HQ";
+		speaker = "Male03ENG";
+	};
+	class DHQ_IN2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
 	};
 #endif
 #ifdef __JSDF__

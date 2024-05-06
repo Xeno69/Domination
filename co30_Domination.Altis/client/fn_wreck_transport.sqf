@@ -90,7 +90,11 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 					};
 
 					_transobj engineOn false;
-					_transobj attachTo [_vec, [0, -15, 0]];
+					if (d_ifa3 || {d_spe}) then {
+						_transobj attachTo [_vec, [0, -15, 1]];
+					} else {
+						_transobj attachTo [_vec, [0, -15, 0]];
+					};
 					_vec setVariable ["d_attachedto_v", _transobj, true];
 					if (d_with_ranked || {d_database_found}) then {
 						[_transobj, player] remoteExecCall ["d_fnc_slopilot", 2];

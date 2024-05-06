@@ -29,6 +29,17 @@ for "_ii" from 1 to (count _posi_array) - 1 do {
 	_tank addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 #endif
 	_tanks_ar pushBack _tank;
+#ifdef __SPE__
+	// workaround for SPE, the SPE satchels virtually don't do any overall damage to tanks. Parts like tracks are destroyed but overall damage stays near 0
+	_tank addEventHandler ["handleDamage", {
+		__TRACE_1("","_this")
+		if ((_this # 4) isKindOf ["TimeBombCore", configFile >> "CfgAmmo"]) then {
+			params ["_tank"];
+			_tank removeEventHandler [_thisEvent, _thisEventHandler];
+			_tank setDamage 1;
+		};
+	}];
+#endif
 	sleep 0.512;
 };
 

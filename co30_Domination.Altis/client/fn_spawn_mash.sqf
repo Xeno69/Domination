@@ -55,9 +55,17 @@ if (([_d_medtent, 1] call d_fnc_getslope) > 0.29) then {
 } else {
 	_medic_tent setVectorUp [0,0,1];
 };
-_medic_tent addItemCargoGlobal ["FirstAidKit", 25];
+call {
+	if (d_gmcwg) exitWith {
+		_medic_tent addItemCargoGlobal ["gm_ge_army_gauzeBandage", 25];
+		_medic_tent addItemCargoGlobal ["gm_ge_army_burnBandage", 25];
+	};
+	if (d_vn) exitWith {
+		_medic_tent addItemCargoGlobal ["vn_b_item_firstaidkit", 25];
+	};
+	_medic_tent addItemCargoGlobal ["FirstAidKit", 25];
+};
 player reveal _medic_tent;
-
 if (d_with_ranked || {d_database_found}) then {
 	_medic_tent setVariable ["d_mplayer", player, true];
 };

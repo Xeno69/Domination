@@ -316,7 +316,31 @@ private _allbars = [];
 private _doexit = false;
 d_bara_trig_ar = [];
 
-private _barcompo = 
+private _barcompo = call {
+	if (d_vn) exitWith {
+		[
+			//["Land_vn_o_shelter_05",[0.397461,-0.0214844,0],0,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[-1.7793,-5.23535,0],0,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[-1.55469,5.90283,0],182,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[2.99609,-5.14209,0],359,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[-5.91113,-2.00537,0],91.0001,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[-5.9082,2.7207,0],91.0001,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[3.40723,5.72363,0],182,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[7.32715,-2.19434,0],270,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[7.26758,2.78857,0],270,1,0,[],"","",true,false]
+		]
+	};
+	if (d_ws) exitWith {
+		[
+			["Land_Wall_IndCnc_4_F",[-6.79297,-3.49902,0],270,1,0,[],"","",true,false],
+			["Land_ConcreteWall_01_l_8m_F",[0.47168,7.73242,0.0022049],0,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[-6.33789,5.1084,0],280,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[7.88184,-3.47754,0.00019455],89.5086,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[-2.95898,-8.21387,0],180.111,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[7.46289,5.07715,0],80,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[4.27734,-8.12598,0],180.111,1,0,[],"","",true,false]
+		]
+	};
 	[
 		["Land_PillboxWall_01_6m_round_F",[-6.79297,-3.49902,0],270,1,0,[],"","",true,false],
 		["Land_ConcreteWall_01_l_8m_F",[0.47168,7.73242,0.0022049],0,1,0,[],"","",true,false],
@@ -325,7 +349,8 @@ private _barcompo =
 		["Land_PillboxWall_01_6m_round_F",[-2.95898,-8.21387,0],180.111,1,0,[],"","",true,false],
 		["Land_PillboxWall_01_6m_round_F",[7.46289,5.07715,0],80,1,0,[],"","",true,false],
 		["Land_PillboxWall_01_6m_round_F",[4.27734,-8.12598,0],180.111,1,0,[],"","",true,false]
-	];
+	]
+};
 
 
 
@@ -459,6 +484,7 @@ if (!d_preemptive_special_event) then {
 		remoteExec ["d_fnc_makebarmhqwait", [0, -2] select isDedicated];
 	};
 
+#ifndef __VN__
 	private _unitstog = [
 		getPos _vec,
 		3,		//_maxNumUnits
@@ -473,6 +499,7 @@ if (!d_preemptive_special_event) then {
 	if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
 		d_delinfsm append _unitstog;
 	};
+#endif
 	sleep 0.1;
 };
 
@@ -483,7 +510,11 @@ if (!d_preemptive_special_event) then {
 [str d_mt_mobile_hq_obj, getPos d_mt_mobile_hq_obj, "ICON", "ColorBlack", [0.5, 0.5], "Mobile forces HQ", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
 
+#ifndef __VN__
 private _wp_array_inf = [_trg_center, _radius + 50 + random 20, 0, 1, 0.3, true] call d_fnc_getwparray;
+#else
+private _wp_array_inf = [_trg_center, _radius + 50 + random 20, 0, 0, 0, true] call d_fnc_getwparray;
+#endif
 private _wp_array_vecs = [_trg_center, _radius + 50 + random 20, 0, 4, 0.7, true] call d_fnc_getwparray;
 
 sleep 0.112;
@@ -993,6 +1024,20 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai
 	// at least one awareness setting is enabled, run the awareness loop
 	d_cur_tgt_awareness_script_handle = [] spawn d_fnc_hallyg_dlegion_Snipe_awareness_loop;
 };
+#endif
+
+#ifdef __VN__
+// on SOG maps AI navigation is broken by dykes around the rice paddies, fix from johnnyboy
+// https://forums.bohemia.net/forums/topic/234952-enable-prairie-fire-dlc-ai-to-navigate-rice-paddies/
+{ 
+	_mapDyke = _x; 
+	_dyke = createSimpleObject ["vn\env_assets_f_vietnam\dykes\vn_dyke_10.p3d", [0,0,0]];
+	_dir = getDir _mapDyke;
+	_pos = getpos _mapDyke;
+	hideObjectGlobal _mapDyke;
+	_dyke setDir _dir; 
+	_dyke setpos [_pos#0,_pos#1,.3];
+} foreach ([nearestTerrainObjects [_trg_center, [], 1000], {(getModelInfo _x # 1) find "vn_dyke"> 0 }] call BIS_fnc_conditionalSelect);
 #endif
 
 diag_log [format ["total count of d_delinfsm: %1", count d_delinfsm]];

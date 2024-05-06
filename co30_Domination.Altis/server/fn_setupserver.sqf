@@ -166,7 +166,9 @@ if (d_with_ranked) then {
 	};
 };
 
+#ifndef __IFA3__
 0 spawn d_fnc_scheck_uav;
+#endif
 
 if (d_force_isstreamfriendlyui != 1) then {
 	0 spawn {

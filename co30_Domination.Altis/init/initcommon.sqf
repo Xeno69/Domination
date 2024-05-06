@@ -100,6 +100,15 @@ if (isNil "d_cas_available_time_low") then {
 if (isServer) then {
 	skipTime d_TimeOfDay;
 
+#ifdef __UNSUNG__
+	d_WithLessArmor = 1;
+	d_WithLessArmor_side = 1;
+#endif
+#ifdef __VN__
+	d_WithLessArmor = 1;
+	d_WithLessArmor_side = 1;
+#endif
+
 	// set enemy mode
 	d_WithLessArmor call d_fnc_setenemymode;
 
@@ -216,6 +225,20 @@ d_p_vecs = [
 	["D_TR8",301,"d_truck8","n_service","ColorGreen","E2",""],["D_TR9",400,"d_truck9","n_support","ColorGreen","T2",""],
 	["D_TR10",401,"d_truck10","n_support","ColorGreen","T1",""]
 ];
+if (d_ifa3 || {d_spe}) then {
+	d_p_vecs pushBack ["D_TR11",500,"d_truck11","n_support","ColorGreen","W1",""];
+};
+if (d_gmcwg) then {
+	d_p_vecs append [
+		["D_TR11",500,"d_truck11","n_support","ColorGreen","W1",""],
+		["D_TR12",501,"d_truck11","n_support","ColorGreen","W2",""],
+		["D_TR13",502,"d_truck12","n_support","ColorGreen","W3",""],
+		["D_TR14",503,"d_truck13","n_support","ColorGreen","W4",""],
+		["D_TR15",504,"d_truck14","n_support","ColorGreen","W5",""],
+		["D_TR16",505,"d_truck15","n_support","ColorGreen","W6",""],
+		["D_TR17",506,"d_truck16","n_support","ColorGreen","W7",""]
+	];
+};
 #else
 d_p_vecs_blufor = [
 	["D_MRR1",0,"d_mobilerespawn1","b_hq","ColorYellow","1",localize "STR_DOM_MISSIONSTRING_12"],["D_MRR2",1,"d_mobilerespawn2","b_hq","ColorYellow","2",localize "STR_DOM_MISSIONSTRING_13"],
@@ -360,6 +383,9 @@ if (hasInterface) then {
 				if (d_pracs) exitWith {
 					["PRACS_UH1H","PRACS_CH53","PRACS_Sa330_Puma"]
 				};
+				if (d_spe) exitWith {
+					[]
+				};
 				["I_Heli_Transport_02_F"]
 			};
 #endif
@@ -368,8 +394,23 @@ if (hasInterface) then {
 				if (d_cup) exitWith {
 					["CUP_B_UH60M_US", "CUP_B_MH6J_USA", "CUP_B_CH47F_USA"]
 				};
+				if (d_gmcwg) exitWith {
+					if (d_gmcwgwinter) exitWith {
+						["gm_ge_army_ch53g_un"]
+					};
+					["gm_ge_army_ch53g"]
+				};
 				if (d_rhs) exitWith {
 					["RHS_UH60M2"]
+				};
+				if (d_unsung) exitWith {
+					["uns_UH1H_m60"]
+				};
+				if (d_vn) exitWith {
+					["vn_b_air_uh1c_07_04"]
+				};
+				if (d_spe) exitWith {
+					[]
 				};
 				["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]
 			};
@@ -378,6 +419,9 @@ if (hasInterface) then {
 			call {
 				if (d_rhs) exitWith {
 					["RHS_Mi8mt_Cargo_vv"]
+				};
+				if (d_csla) exitWith {
+					["CSLA_Mi17"]
 				};
 				if (d_pracs) exitWith {
 					["PRACS_SLA_Mi8amt"]

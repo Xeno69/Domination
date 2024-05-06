@@ -56,6 +56,9 @@ while {true} do {
 			private _skinpoly = [_vec] call d_fnc_getskinpoly;
 			private _aslpos = _vec getVariable "d_posasl";
 			__TRACE_1("","_skinpoly")
+#ifdef __GMCWG__
+			private _attribs = _vec getvariable "GM_VEHICLE_ATTRIBUTES";
+#endif
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
 				deleteVehicleCrew _vec;
@@ -145,6 +148,12 @@ while {true} do {
 					[_vec, 10] spawn d_fnc_enabledynsim;
 				};
 			};
+#ifdef __GMCWG__
+			if (!isNil "_attribs") then {
+				_vec setVariable ["GM_VEHICLE_ATTRIBUTES", _attribs];
+				[_vec] spawn gm_core_vehicles_fnc_vehicleMarkingsInit;
+			};
+#endif
 			sleep 0.01;
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
 			if (isNil {_vec getVariable "d_cwcg_inited"}) then {

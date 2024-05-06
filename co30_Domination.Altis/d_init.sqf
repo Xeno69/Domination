@@ -104,8 +104,10 @@ if (d_dis_servicep == 1) then {
 	if (markerPos "d_base_jet_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [0, [markerPos "d_base_jet_sb", markerDir "d_base_jet_sb"]];
 	};
-	if (markerPos "d_base_chopper_sb" isNotEqualTo [0,0,0]) then {
-		d_service_buildings set [1, [markerPos "d_base_chopper_sb", markerDir "d_base_chopper_sb"]];
+	if (!d_ifa3 && {!d_spe}) then {
+		if (markerPos "d_base_chopper_sb" isNotEqualTo [0,0,0]) then {
+			d_service_buildings set [1, [markerPos "d_base_chopper_sb", markerDir "d_base_chopper_sb"]];
+		};
 	};
 	if (markerPos "d_base_wreck_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [2, [markerPos "d_base_wreck_sb", markerDir "d_base_wreck_sb"]];
@@ -433,7 +435,31 @@ if (isServer) then {
 	call d_fnc_serverinit;
 
 #ifndef __TT__
-	0 spawn d_fnc_createbase;
+	0 spawn {
+		scriptName "spawn_initx_createbase";
+		waitUntil {time > 0};
+		sleep 2;
+
+		private _mmm = markerPos "d_base_sb_ammoload";
+		__TRACE_1("","_mmm")
+
+		if (_mmm isNotEqualTo [0,0,0]) then {
+			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
+			_mmm set [2, 3.3];
+			private _fac = createSimpleObject [_stype # 1, _mmm];
+			_fac setDir (markerDir "d_base_sb_ammoload");
+			_fac setPos _mmm;
+		};
+		if (!isNil "d_base_aa_vec" && {d_base_aa_vec isNotEqualTo ""}) then {
+			[d_own_side, d_base_aa_vec, "d_base_anti_air"] call d_fnc_cgraa;
+		};
+		if (!isNil "d_base_tank_vec" && {d_base_tank_vec isNotEqualTo ""}) then {
+			[d_own_side, d_base_tank_vec, "d_base_tank"] call d_fnc_cgraa;
+		};
+		if (!isNil "d_base_apc_vec" && {d_base_apc_vec isNotEqualTo ""}) then {
+			[d_own_side, d_base_apc_vec, "d_base_apc"] call d_fnc_cgraa;
+		};
+	};
 #endif
 
 	if (d_weather == 0) then {0 spawn d_fnc_weatherserver};
@@ -635,11 +661,16 @@ if (hasInterface) then {
 		if (!isNil "d_jet_trigger") then {
 			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
-		if (!isNil "d_chopper_trigger") then {
+		if (!d_ifa3 && {!d_spe && {!isNil "d_chopper_trigger"}}) then {
 			["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
 		if (!isNil "d_vecre_trigger") then {
-			["d_vec_service", d_vecre_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_4",0,"n_service"] call d_fnc_CreateMarkerLocal;
+			private _text_f = if (!d_spe && {!d_ifa3}) then {
+				localize "STR_DOM_MISSIONSTRING_4"
+			} else {
+				localize "STR_DOM_MISSIONSTRING_4_44"
+			};
+			["d_vec_service", d_vecre_trigger,"ICON","ColorYellow",[1,1],_text_f,0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
 		if (d_carrier) then {
 			["d_service_point", d_serviceall_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
@@ -663,7 +694,7 @@ if (hasInterface) then {
 		if (!isNil "d_jet_trigger") then {
 			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
-		if (!isNil "d_chopper_trigger") then {
+		if (!d_ifa3 && {!d_spe && {!isNil "d_chopper_trigger"}}) then {
 			["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
 		if (!isNil "d_vecre_trigger") then {
@@ -763,6 +794,24 @@ if (hasInterface) then {
 			};
 			if (d_pracs) exitWith {
 				call compileScript ["i_weapons_PRACS.sqf", false];
+			};
+			if (d_ifa3) exitWith {
+				call compileScript ["i_weapons_IFA3.sqf", false];
+			};
+			if (d_gmcwg) exitWith {
+				call compileScript ["i_weapons_gmcwg.sqf", false];
+			};
+			if (d_unsung) exitWith {
+				call compileScript ["i_weapons_UNSUNG.sqf", false];
+			};
+			if (d_vn) exitWith {
+				call compileScript ["i_weapons_vn.sqf", false];
+			};
+			if (d_csla) exitWith {
+				call compileScript ["i_weapons_csla.sqf", false];
+			};
+			if (d_spe) exitWith {
+				call compileScript ["i_weapons_SPE.sqf", false];
 			};
 			call compileScript ["i_weapons_default.sqf", false];
 		};

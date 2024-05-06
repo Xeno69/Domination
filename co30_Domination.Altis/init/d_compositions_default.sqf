@@ -373,7 +373,7 @@ private _common = [
 (_compositions_i # 0) append [["I_HMG_01_high_F",[1.50391,-6.31641,-0.0871181],179.998,1,0,[],"","",true,false]];
 (_compositions_i # 1) append [["I_HMG_01_high_F",[-12.7109,-8.58789,-0.0871181],225.003,1,0,[],"","",true,false]];
 
-if (!d_cup) then {
+if (!d_cup && {!d_gmcwg && {!d_ifa3}}) then {
 #ifdef __OWN_SIDE_BLUFOR__
 d_compositions = _compositions_o;
 #endif

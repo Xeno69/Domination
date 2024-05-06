@@ -275,6 +275,7 @@ private _compositions_i = [
 private _common = [
 ];
 
+if (!d_ifa3) then {
 #ifdef __OWN_SIDE_BLUFOR__
 d_compositions = _compositions_o;
 #endif
@@ -289,4 +290,5 @@ d_compositions = _compositions_i;
 #endif
 if (_common isNotEqualTo []) then {
 	d_compositions append _common;
+};
 };

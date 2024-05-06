@@ -18,7 +18,7 @@ item13[] = {"No_players",4,218,-284.283234,202.971008,-194.283264,252.971008,2.0
 item14[] = {"Delay_1",2,250,-406.135010,243.363831,-316.134979,293.363831,0.000000,"Delay"};
 item15[] = {"Delay_2",4,218,-280.917175,299.913818,-190.917175,349.913818,0.000000,"Delay 2"};
 item16[] = {"",7,210,-82.451607,724.141479,-74.451614,732.141479,0.000000,""};
-item17[] = {"Create_Flare",2,250,-121.982933,492.951965,-31.982948,542.952026,0.000000,"Create Flare"};
+item17[] = {"Create_Flare",2,4346,-121.982933,492.951965,-31.982948,542.952026,0.000000,"Create Flare"};
 item18[] = {"Delay_25plus",4,218,-29.416046,606.052002,60.583977,656.052002,0.000000,"Delay 25plus"};
 item19[] = {"Delete_flare",2,250,52.716091,491.605591,142.716125,541.605591,0.000000,"Delete flare"};
 item20[] = {"_",8,218,45.529533,419.083710,74.940269,437.442657,0.000000,""};
@@ -60,7 +60,7 @@ link29[] = {23,24};
 link30[] = {24,25};
 link31[] = {25,11};
 globals[] = {0.000000,0,0,0,0,640,480,1,32,6316128,1,-564.864563,546.686829,749.062866,-358.875763,923,1236,1};
-window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,941};
+window[] = {2,-1,-1,-1,-1,1004,286,1246,286,3,941};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -295,14 +295,23 @@ class FSM
                          "private _height = 250 + ((random 20) * selectRandom [1, -1]);" \n
                          "_spawnpos set [2, _height];" \n
                          "" \n
-                         "_flare = createVehicle [""F_40mm_White"", _spawnpos, [], 0, ""NONE""];" \n
+                         "private ""_lightp"";" \n
                          "" \n
-                         "private _lightp = ""#lightpoint"" createVehicle (getPosASL _flare);" \n
-                         "_lightp attachTo [_flare, [0, 0, 0]];" \n
+                         "if (!d_vn) then {" \n
+                         "	_flare = createVehicle [""F_40mm_White"", _spawnpos, [], 0, ""NONE""];" \n
                          "" \n
-                         "_lightp remoteExecCall [""d_fnc_flare40"", [0, -2] select isDedicated];" \n
+                         "	_lightp = ""#lightpoint"" createVehicle (getPosASL _flare);" \n
+                         "	_lightp attachTo [_flare, [0, 0, 0]];" \n
                          "" \n
-                         "_timenow = time + (16 + random 5);" \n
+                         "	_lightp remoteExecCall [""d_fnc_flare40"", [0, -2] select isDedicated];" \n
+                         "" \n
+                         "	_timenow = time + (16 + random 5);" \n
+                         "} else {" \n
+                         "	_spawnpos set [2, 220];" \n
+                         "	_flare = createVehicle [""vn_flare_plane_med_w_ammo"", _spawnpos, [], 0, ""NONE""];" \n
+                         "" \n
+                         "	_timenow = time + (12 + random 5);" \n
+                         "};" \n
                          "" \n
                          "_flare setVelocity [0, 0, -0.1];" \n
                          "" \n
@@ -341,7 +350,9 @@ class FSM
                 {
                         name = "Delete_flare";
                         itemno = 19;
-                        init = /*%FSM<STATEINIT""">*/"deleteVehicle _lightp;" \n
+                        init = /*%FSM<STATEINIT""">*/"if (!d_vn) then {" \n
+                         "	deleteVehicle _lightp;" \n
+                         "};" \n
                          "deleteVehicle _flare;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

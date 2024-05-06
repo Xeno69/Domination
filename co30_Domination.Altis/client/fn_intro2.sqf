@@ -49,7 +49,9 @@ _txt = _txt + "Two Teams";
 if (d_with_ranked) then {_txt = _txt + " RANKED"};
 if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 
+#ifndef __IFA3__
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player actionNow ["NVGoggles", player]};
+#endif
 
 titleText ["", "BLACK IN", 3];
 if (!isNil "BIS_fnc_establishingShot_fakeUAV") then {
@@ -74,11 +76,13 @@ sleep 2;
 
 waitUntil {scriptDone _bfehandle};
 enableSaving [false, false];
+#ifndef __VN__
 0 spawn {
 	scriptName "spawn disable environment intro2";
 	sleep 15;
 	enableEnvironment [false, true];
 };
+#endif
 
 "d_Xlabel" cutFadeout 1;
 "d_DomLabel" cutFadeout 1;
@@ -87,7 +91,9 @@ enableSaving [false, false];
 enableRadio true;
 showChat true;
 
+#ifndef __IFA3__
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
+#endif
 
 private _uidcheck_done = false;
 if (d_reserved_slot isNotEqualTo [] && {str player in d_reserved_slot}) then {

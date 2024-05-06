@@ -72,6 +72,9 @@ while {true} do {
 				_vec setVariable ["d_attachedto_v", nil, true];
 			};
 			private _skinpoly = [_vec] call d_fnc_getskinpoly;
+#ifdef __GMCWG__
+			private _attribs = _vec getvariable "GM_VEHICLE_ATTRIBUTES";
+#endif
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
 				deleteVehicleCrew _vec;
@@ -126,6 +129,12 @@ while {true} do {
 			if (_canloadbox) then {
 				_vec setVariable ["d_canloadbox", true, true];
 			};
+#ifdef __GMCWG__
+			if (!isNil "_attribs") then {
+				_vec setVariable ["GM_VEHICLE_ATTRIBUTES", _attribs];
+				[_vec] spawn gm_core_vehicles_fnc_vehicleMarkingsInit;
+			};
+#endif
 #ifdef __TT__
 			if (_vec_a # 1 < 4000) then {
 				[_vec, 1] call d_fnc_setekmode;

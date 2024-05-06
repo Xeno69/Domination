@@ -20,7 +20,7 @@ private _mindists = 5;
 private _mslope = 0.3;
 
 private _dobigtower = call {
-	if (d_cargotower isEqualTo "" || {d_cup}) exitWith {
+	if (d_cargotower isEqualTo "" || {d_cup || {d_ifa3 || {d_gmcwg || {d_unsung || {d_csla || {d_vn || {d_spe}}}}}}}) exitWith {
 		_dobigtower = false;
 		false;
 	};
@@ -321,13 +321,17 @@ if (!isNil "d_sm_speedboat") then {
 
 sleep 0.1;
 if (d_IllumMainTarget == 0) then {
-	[_trg_center, _mtradius] spawn {
-		params ["_trg_center", "_mtradius"];
-		scriptName "spawn_illum createsecondary";
-		for "_i" from 1 to 6 do {
-			[_trg_center, _mtradius] execFSM "fsms\fn_Illum.fsm";
-			sleep (1 + selectRandom [1, 2, 3, 4]);
+	if (!d_spe) then {
+		[_trg_center, _mtradius] spawn {
+			params ["_trg_center", "_mtradius"];
+			scriptName "spawn_illum createsecondary";
+			for "_i" from 1 to 6 do {
+				[_trg_center, _mtradius] execFSM "fsms\fn_Illum.fsm";
+				sleep (1 + selectRandom [1, 2, 3, 4]);
+			};
 		};
+	} else {
+		[_trg_center, _mtradius] spawn d_fnc_spe_illum;
 	};
 };
 if (worldname == "Altis" && {diag_fps > 30}) then {

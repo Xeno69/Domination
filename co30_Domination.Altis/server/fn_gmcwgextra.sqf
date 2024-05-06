@@ -7,6 +7,54 @@ d_additional_trans = [];
 d_additional_wreck = [];
 d_additional_lift = [];
 
+#ifdef __GMCWG__
+if (isClass(configFile>>"CfgVehicles">>"CUP_B_UH1D_GER_KSK")) then {
+	{
+		private _pos = markerPos _x;
+		_pos set [2, 0];
+		private _ne = _pos nearEntities [["Air", "Car", "Tank"], 7];		
+		if (_ne isEqualTo []) then {
+			private _vec = createVehicle ["CUP_B_UH1D_GER_KSK", _pos, [], 0, "NONE"];
+			_vec setDir (markerDir _x);
+			d_additional_mhqs pushBack _vec;
+		};
+	} forEach (allMapMarkers select {_x select [0, 17] == "d_cup_chopper_mhq"});
+
+	{
+		private _pos = markerPos _x;
+		_pos set [2, 0];
+		private _ne = _pos nearEntities [["Air", "Car", "Tank"], 7];		
+		if (_ne isEqualTo []) then {
+			private _vec = createVehicle ["CUP_B_UH1D_GER_KSK", _pos, [], 0, "NONE"];
+			_vec setDir (markerDir _x);
+			d_additional_trans pushBack _vec;
+		};
+	} forEach (allMapMarkers select {_x select [0, 19] == "d_cup_chopper_trans"});
+};
+if (isClass(configFile>>"CfgVehicles">>"CUP_B_CH53E_VIV_GER")) then {
+	{
+		private _pos = markerPos _x;
+		_pos set [2, 0];
+		private _ne = _pos nearEntities [["Air", "Car", "Tank"], 7];		
+		if (_ne isEqualTo []) then {
+			private _vec = createVehicle ["CUP_B_CH53E_VIV_GER", _pos, [], 0, "NONE"];
+			_vec setDir (markerDir _x);
+			d_additional_wreck pushBack _vec;
+		};
+	} forEach (allMapMarkers select {_x select [0, 19] == "d_cup_chopper_wreck"});
+
+	{
+		private _pos = markerPos _x;
+		_pos set [2, 0];
+		private _ne = _pos nearEntities [["Air", "Car", "Tank"], 7];		
+		if (_ne isEqualTo []) then {
+			private _vec = createVehicle ["CUP_B_CH53E_VIV_GER", _pos, [], 0, "NONE"];
+			_vec setDir (markerDir _x);
+			d_additional_lift pushBack _vec;
+		};
+	} forEach (allMapMarkers select {_x select [0, 18] == "d_cup_chopper_lift"});
+};
+#endif
 #ifndef __TT__
 {
 	d_additional_mhqs pushBack _x;

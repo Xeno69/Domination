@@ -15,7 +15,11 @@ if (_water isEqualTo [] || {(getTerrainHeightASL _water) > -5}) exitWith {
 	__TRACE("No water")
 };
 
+#ifdef __VN__
+private _ran = selectRandom [1, 2];
+#else
 private _ran = [2, 4] call d_fnc_getrandomrangeint;
+#endif
 
 for "_i" from 1 to _ran do {
 	private _radiusw = 200;

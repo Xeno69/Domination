@@ -294,7 +294,11 @@ switch (_sec_kind) do {
 		private _forar = _poss call _fnc_makefortress;
 		__TRACE_1("","_forar")
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+#ifndef __VN__
 		private _ctype = "C_man_polo_6_F";
+#else
+		private _ctype = "vn_c_men_02";
+#endif
 		private _vec = _newgroup createUnit [_ctype, _poss, [], 0, "NONE"];
 		[_vec] joinSilent _newgroup;
 		_vec call d_fnc_removenvgoggles_fak;
@@ -315,8 +319,13 @@ switch (_sec_kind) do {
 		_vec disableAI "PATH";
 		d_delinfsm pushBack _vec;
 		d_fixor_var = _vec;
+#ifndef __VN__
 		_vec addMagazines ["16Rnd_9x21_Mag", 2];
 		_vec addWeapon "hgun_Rook40_F";
+#else
+		_vec addMagazines ["vn_hd_mag", 2];
+		_vec addWeapon "vn_hd";
+#endif
 		if ({_x == 1} count d_searchintel < count d_searchintel) then {
 			d_intel_unit = _vec;
 			d_searchbody = _vec; publicVariable "d_searchbody";
@@ -346,7 +355,11 @@ switch (_sec_kind) do {
 		private _forar = _poss call _fnc_makefortress;
 		__TRACE_1("","_forar")
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+#ifndef __VN__
 		private _ctype = "C_man_1_3_F";
+#else
+		private _ctype = "vn_c_men_03";
+#endif
 		private _vec = _newgroup createUnit [_ctype, _poss, [], 0, "NONE"];
 		[_vec] joinSilent _newgroup;
 		_vec call d_fnc_removenvgoggles_fak;

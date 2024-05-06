@@ -21,6 +21,42 @@ enableSaving [false,false];
 enableTeamSwitch false;
 
 private _year = -1;
+#ifdef __IFA3__
+if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 1944..."];
+	private _date = date;
+	_date set [0, 1944];
+	_year = 1944;
+	setDate _date;
+};
+#endif
+#ifdef __VN__
+if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 1971..."];
+	private _date = date;
+	_date set [0, 1971];
+	_year = 1971;
+	setDate _date;
+};
+#endif
+#ifdef __UNSUNG__
+if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 1971..."];
+	private _date = date;
+	_date set [0, 1971];
+	_year = 1971;
+	setDate _date;
+};
+#endif
+#ifdef __SPE__
+if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 1944..."];
+	private _date = date;
+	_date set [0, 1944];
+	_year = 1944;
+	setDate _date;
+};
+#endif
 #ifdef __JSDF__
 if (isServer) then {
 	diag_log ["DOM init.sqf, setting date back to 2022..."];
