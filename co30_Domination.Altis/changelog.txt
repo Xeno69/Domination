@@ -14,6 +14,7 @@
 - Added: NATO as OPFOR faction, by longtimegamer
 - Added: Server parameter to disable Domination weapon and inventory management (d_disable_dom_weapon_mgmt, "Disable Domination weapon and inventory management" in server lobby), by longtimegamer
 - Added: Server parameter "extra" isle defense includes AA if d_WithIsleDefense == 2, by longtimegamer
+- Added: Server parameter to enable or disable randomized guard and patrol groups to allow more administrator control over the number of enemy units, by longtimegamer
 - Changed: Added new 2.18 scripting commands and scripting command changes
 - Changed: AI group respawn times increased again
 - Changed: Better messages if farp/mash position is too close to base or slope is too steep
