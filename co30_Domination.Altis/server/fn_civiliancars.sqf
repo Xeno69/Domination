@@ -67,7 +67,7 @@ if (d_enable_civ_vehs > 0) then {
 #endif
 				// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL
 				// translate pos to the right (+90) by distance (road width * 0.35) to spawn the vehicle on the side of the road
-				_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)] getPos [_road_seg_width * 0.35, (_direction + 90)];
+				_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty + 0.5)] getPos [_road_seg_width * 0.35, (_direction + 90)];
 				_veh = _veh_type createVehicle _pos_flat_empty;
 				if (d_enable_civ_vehs_locked == 1) then {
 					_veh lock true;
@@ -100,6 +100,7 @@ if (d_enable_civ_vehs > 0) then {
 	diag_log [format ["spawned %1 civilian cars in total, expected target was %2 cars", _spawned_count, _expected_car_spawn_count]];
 	
 	sleep 10;
+	// check for bad cars and apply random damage to vehicles
 	_badCars = 0;
 	{
 		if ((vectorUp _x) # 2 < 0.8) then {

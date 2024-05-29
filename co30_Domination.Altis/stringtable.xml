@@ -13039,6 +13039,18 @@
 <Chinese>敵軍步兵 - 步兵巡邏隊數量</Chinese>
 <French>Enemy infantry - patrol infantry group count</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900_ENABLE_RANDOM_GROUPS">
+<English>Enemy infantry - enable randomized guard and patrol groups</English>
+<Spanish>Enemy infantry - enable randomized guard and patrol groups</Spanish>
+<Portuguese>Enemy infantry - enable randomized guard and patrol groups</Portuguese>
+<Korean>Enemy infantry - enable randomized guard and patrol groups</Korean>
+<Japanese>Enemy infantry - enable randomized guard and patrol groups</Japanese>
+<Original>Enemy infantry - enable randomized guard and patrol groups</Original>
+<Russian>Enemy infantry - enable randomized guard and patrol groups</Russian>
+<Chinesesimp>Enemy infantry - enable randomized guard and patrol groups</Chinesesimp>
+<Chinese>Enemy infantry - enable randomized guard and patrol groups</Chinese>
+<French>Enemy infantry - always choose maximum number of groups</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900MAXGROUPS">
 <English>Enemy infantry - always choose maximum number of groups</English>
 <Spanish>Enemy infantry - always choose maximum number of groups</Spanish>

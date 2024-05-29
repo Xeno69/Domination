@@ -246,6 +246,15 @@ private _type_list_patrol = [
 	["jeep_gl", [d_vec_numbers_patrol, 4] call _selectit, [d_vec_numbers_patrol,4] call _selectitvec]
 ];
 
+if (d_enable_randomized_guard_and_patrol == 0) then {
+	// randomized guard and patrol groups have been disabled, set the relevant lists to empty
+	_type_list_guard set [0, ["allmen", 0, 0]];
+	_type_list_guard set [1, ["allmen", 0, 0]];
+	_type_list_guard_static set [0, ["allmen", 0, 0]];
+	_type_list_guard_static set [1, ["allmen", 0, 0]];
+	_type_list_patrol set [1, ["allmen", 0, 0]];
+};
+
 private _d_veh_li = missionNamespace getVariable format ["d_veh_a_%1", d_enemy_side_short];
 
 __TRACE_1("","_d_veh_li")
