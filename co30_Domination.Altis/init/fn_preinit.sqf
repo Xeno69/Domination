@@ -4180,7 +4180,7 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["East","CFP_O_Wagner","SpecOps","cfp_o_wagner_specops_sniper_team"] call d_fnc_GetConfigGroup];
 		};
 		case 18: {
-			// AAF (available in the 2035 base game)
+			// AAF (available in the 2035 base game) // TODO: broken! sometimes does not engage Blufor, sometimes kills scored against Blufor
 			d_veh_a_E = [
 				#include "d_veh_a_G_default.sqf"
 			];
@@ -4207,7 +4207,7 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["East","CUP_O_RU","Infantry_Ratnik_Summer","reconSentry"] call d_fnc_GetConfigGroup];
 		};
 		case 20: {
-			// NATO BLUFOR as OPFOR (available in the 2035 base game)
+			// NATO BLUFOR as OPFOR (available in the 2035 base game) // TODO: broken! sometimes does not engage Blufor, sometimes kills scored against Blufor
 			d_veh_a_E = [
 				#include "d_veh_a_B_default.sqf"
 			];
