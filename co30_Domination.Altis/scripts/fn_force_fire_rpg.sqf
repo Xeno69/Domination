@@ -54,7 +54,7 @@ private _vect = (getPos _u) vectorFromTo (getPos _target) vectorMultiply 2;
 private _missile_start_pos = _missile_start_pos_hand vectorAdd _vect;
 
 // fire the missile, use a basic RPG round to keep this simple TODO: figure out how to use classname (RPG32_F) to get ammo name (R_PG32V_F) 
-[_targetpos, _missile_start_pos, "R_PG32V_F", 0, _u, 300, 200] call d_fnc_moduleCAS_guidedmissile;
+[_targetpos, _missile_start_pos, "R_PG32V_F", 0, _u, 300, 10] call d_fnc_moduleCAS_guidedmissile;
 
 // restore the primary weapon and primary weapon magazines removed earlier, ignore handgun and grenades for now
 _u addMagazines [(_prim_weapon_ammo_mag_arr select 0), 5];
