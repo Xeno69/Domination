@@ -290,6 +290,12 @@
 >    - Yes (0) <br />
 >    - No (1) <br />
 
+#### **d_disable_dom_weapon_mgmt / Disable Domination weapon and inventory management**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - Yes (1) <br />
+>    - No (0) <br />
+
 #### **d_no_mortar_ar / Mortar bag packs in Virtual Arsenal:**
 > Default: 1 - No <br />
 > Available options: <br />
@@ -900,6 +906,7 @@
 > Available options: <br />
 >    - No (0) <br />
 >    - Yes (1) <br />
+>    - Advanced (2) <br />
 
 #### **d_ai_quickammo / AI Advanced - enemy granted frequent ammo refills**
 > Default: 0 - No <br />
@@ -1120,6 +1127,12 @@
 >    - 14 (14) <br />
 >    - 15 (15) <br />
 
+#### **d_enable_randomized_guard_and_patrol / Enemy infantry - enable randomized guard and patrol groups**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
 #### **d_always_max_groups / Enemy infantry - always choose maximum number of groups**
 > Default: 0 - No <br />
 > Available options: <br />
@@ -1277,6 +1290,7 @@
 > Available options: <br />
 >    - Yes (0) <br />
 >    - No (1) <br />
+>    - Extra (additional air defenses) (2) <br />
 
 #### **d_without_sm_bonus / Without sidemission bonus vehicles:**
 > Default: 1 - No <br />
@@ -1306,13 +1320,42 @@
 > Default: 0 - Default <br />
 > Available options: <br />
 >    - Default (0) <br />
->    - Taliban (Community Factions Project) (1) <br />
->    - Asian Insurgents (Asian Factions for CUP) (2) <br />
->    - Central African Rebels (Community Factions Project) (3) <br />
->    - Islamic State (Community Factions Project) (4) <br />
->    - Sudanese Armed Forces (Community Factions Project) (5) <br />
->    - Russian Armed Forces Desert (Community Factions Project) (6) <br />
->    - Russian Armed Forces Winter (Russian Winter Retextures) (7) <br />
+>    - Taliban (CFP Community Factions Project) (1) <br />
+>    - Asian Insurgents (AFC Asian Factions for CUP) (2) <br />
+>    - Central African Rebels (CFP Community Factions Project) (3) <br />
+>    - Islamic State (CFP Community Factions Project) (4) <br />
+>    - Sudanese Armed Forces (CFP Community Factions Project) (5) <br />
+>    - Russian Armed Forces Desert (CFP Community Factions Project) (6) <br />
+>    - Russian Armed Forces Winter (RWR Russian Winter Retextures) (7) <br />
+>    - African Desert Civilian Militia ADG (3CB 3 Commando Brigade) (8) <br />
+>    - ION Urban (3CB 3 Commando Brigade) (9) <br />
+>    - Karzeghistan Royal Guard (3CB 3 Commando Brigade) (10) <br />
+>    - Russian Federation (CUP Community Update Project) (11) <br />
+>    - Russian Ground Forces (Winter) (CUP Community Update Project) (12) <br />
+>    - Takistan (CUP Community Update Project) (13) <br />
+>    - Russian Armed Forced (RHS Red Hammer Studios) (14) <br />
+>    - PMC Wagner Woodland (CFP Community Factions Project) (15) <br />
+>    - PMC Wagner Winter (CFP Community Factions Project) (16) <br />
+>    - PMC Wagner Desert (CFP Community Factions Project) (17) <br />
+>    - skipped n/a (18) <br />
+>    - Russian Ground Forces (Summer) (CUP Community Update Project) (19) <br />
+
+#### **d_guerrilla_factions / MODS REQUIRED - Guerrilla factions (experimental)**
+> Default: 0 - Default <br />
+> Available options: <br />
+>    - Default (0) <br />
+>    - Afghanistan Army (CFP Community Factions Project) (1) <br />
+>    - South Sudan People's Defense Force (CFP Community Factions Project) (2) <br />
+>    - Sudan Revolutionary Front (CFP Community Factions Project) (3) <br />
+>    - East Asia INDFOR (AFC Asian Factions for CUP) (4) <br />
+>    - ION PMC (CUP Community Update Project) (5) <br />
+>    - ION PMC Arctic (CUP Community Update Project) (6) <br />
+>    - Takistani Locals (CUP Community Update Project) (7) <br />
+>    - Western Ultranationalists (CFP Community Factions Project) (8) <br />
+>    - UN Desert (CUP Community Update Project) (9) <br />
+>    - UN Forest (CUP Community Update Project) (10) <br />
+>    - 2035 FIA (no mod required) (11) <br />
+>    - 2035 Syndikat (no mod required) (12) <br />
 
 #### **d_ParaAtBase / Parachute from base:**
 > Default: 0 - Yes <br />

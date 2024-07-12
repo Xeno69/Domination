@@ -193,22 +193,23 @@ if (_Dtargets isNotEqualTo []) then {
 						if (secondaryWeaponMagazine _unit isNotEqualTo []) then {
 							// check if RPG is laser lock (do not force shoot laser weapons for now)
 							// https://forums.bohemia.net/forums/topic/199883-how-to-find-if-a-weapon-can-use-laser-lock/?do=findComment&comment=3126502 post by Grezvany13
-							private _rpg_ammo = (secondaryWeaponMagazine _unit) select 0;
-							private _laser_lock = [(configFile >> "CfgAmmo" >> _rpg_ammo), "laserLock", 0] call BIS_fnc_returnConfigEntry;
-							if (_laser_lock == 0) then {
-								_rpg_is_forceable = true;
+							if (count (secondaryWeaponMagazine _unit) > 0) then {
+								private _rpg_ammo = (secondaryWeaponMagazine _unit) select 0;
+								private _laser_lock = [(configFile >> "CfgAmmo" >> _rpg_ammo), "laserLock", 0] call BIS_fnc_returnConfigEntry;
+								if (_laser_lock == 0 && { !(["titan", secondaryWeapon _unit] call BIS_fnc_inString) }) then {
+									_rpg_is_forceable = true;
+								};
 							};
                         };
-						private _rpgs_force_shoot_minimum_distance = 100;
-						if (d_ai_aggressiveshoot == 2 && {!(_unit in d_units_shooting_rpg) && { !(_unit getVariable ["d_do_not_force_fire_rpg", false]) && {(_unit distance2D _x > _rpgs_force_shoot_minimum_distance) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}}) then {
-							// TODO - check if friendlies are too close before firing the launcher?
-							// must synchronize this immediately to prevent spawning the script twice
-							// cannot use setVariable on _unit because it is not synchronous so must use publicVariable
-							d_units_shooting_rpg pushBack _unit;
-							publicVariable "d_units_shooting_rpg";
+						private _rpgs_force_shoot_minimum_distance = 130; // in meters
+						private _rpgs_force_shoot_maximum_distance = 650; // in meters
+						private _rpgs_force_shoot_minimum_cooldown = 13; // in seconds
+						if (d_ai_aggressiveshoot == 2 && {!(_unit getVariable ["d_is_force_shooting", false]) && { (time - (_unit getVariable ["d_force_fire_rpg_last_attempt_ts", 0]) > _rpgs_force_shoot_minimum_cooldown) && {(_unit distance2D _x > _rpgs_force_shoot_minimum_distance) && { _unit distance2D _x < (_rpgs_force_shoot_maximum_distance min _awarenessRadius) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}}}) then {
 							[_unit, _x] spawn d_fnc_force_fire_rpg;
 						} else {
-							_unit doSuppressiveFire (getPosASL _x);
+							if (!(_unit getVariable ["d_is_force_shooting", false])) then {
+								_unit doSuppressiveFire (getPosASL _x);
+							};
 						};
 					};
 				};
