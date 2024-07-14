@@ -49,4 +49,4 @@ Domination uses a strict whitelist for client remote execution functions and com
 
 # Reset saved mission namespace
 
-Delete the namespace file in `Documents/Arma 3` folder or `Documents/Arma 3 - Other Profiles` folder.
+Reset the mission progress by either a) complete all the maintargets/sidemissions and when the "outro" runs the current save will be deleted or b) delete the namespace file in `Documents/Arma 3` folder or `Documents/Arma 3 - Other Profiles` folder.

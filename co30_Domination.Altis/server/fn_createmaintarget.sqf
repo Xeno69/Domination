@@ -219,6 +219,10 @@ if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTarget
 };
 #endif
 
+if (d_paradrop_no_restrictions == 1 || d_preemptive_special_event) then {
+	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"ParajumpNoRestrictions",d_kbtel_chan];
+};
+
 _type_list_guard = [
 	["allmen", 0, [d_footunits_guard, 0] call _selectitmen],
 	["specops", 0, [d_footunits_guard, 1] call _selectitmen],

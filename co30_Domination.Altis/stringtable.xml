@@ -16211,6 +16211,18 @@
 <Chinese>Disable Domination weapon and inventory management</Chinese>
 <French>Disable Domination weapon and inventory management</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_PARAJUMP_NO_RESTRICTIONS">
+<English>No restrictions on parajump target. Players can jump anywhere.</English>
+<Spanish>No restrictions on parajump target. Players can jump anywhere.</Spanish>
+<Portuguese>No restrictions on parajump target. Players can jump anywhere.</Portuguese>
+<Korean>No restrictions on parajump target. Players can jump anywhere.</Korean>
+<Japanese>No restrictions on parajump target. Players can jump anywhere.</Japanese>
+<Original>No restrictions on parajump target. Players can jump anywhere.</Original>
+<Russian>No restrictions on parajump target. Players can jump anywhere.</Russian>
+<Chinesesimp>No restrictions on parajump target. Players can jump anywhere.</Chinesesimp>
+<Chinese>No restrictions on parajump target. Players can jump anywhere.</Chinese>
+<French>No restrictions on parajump target. Players can jump anywhere.</French>
+</Key>
 </Container>
 </Package>
 </Project>

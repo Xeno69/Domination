@@ -120,3 +120,5 @@ publicVariable "d_mt_event_messages_array";
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
 diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
 deleteMarker _marker;
+d_preemptive_special_event = false;
+publicVariable "d_preemptive_special_event";
