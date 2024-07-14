@@ -906,7 +906,7 @@
 > Available options: <br />
 >    - No (0) <br />
 >    - Yes (1) <br />
->    - Advanced (2) <br />
+>    - Advanced (AI uses RPGs against infantry) (2) <br />
 
 #### **d_ai_quickammo / AI Advanced - enemy granted frequent ammo refills**
 > Default: 0 - No <br />
@@ -1128,7 +1128,7 @@
 >    - 15 (15) <br />
 
 #### **d_enable_randomized_guard_and_patrol / Enemy infantry - enable randomized guard and patrol groups**
-> Default: 0 - No <br />
+> Default: 1 - Yes <br />
 > Available options: <br />
 >    - No (0) <br />
 >    - Yes (1) <br />

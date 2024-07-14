@@ -646,6 +646,11 @@ class Sentences {
 		speech[] = {"XMIT","GetReadyToFight"};
 		class Arguments {};
 	};
+	class ParajumpNoRestrictions {
+		text = "$STR_DOM_MISSIONSTRING_PARAJUMP_NO_RESTRICTIONS";
+		speech[] = {};
+		class Arguments {};
+	};
 };
 class Arguments{};
 class Special{};

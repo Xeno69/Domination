@@ -6,7 +6,7 @@ params ["_u", "_target"];
 // and then b) use d_fnc_moduleCAS_guidedmissile to create the missile in flight
 // note the greater randomPos deviation when further away from the target, just a messy first attempt and probably needs to be tuned
 
-_u setVariable ["d_is_force_shooting", true, true];
+_u setVariable ["d_is_force_shooting", true];
 _u setVariable ["d_force_fire_rpg_last_attempt_ts", time];
 
 // keep weapon and magazine vars so we can remove and later restore
@@ -61,4 +61,4 @@ _u addMagazines [(_prim_weapon_ammo_mag_arr select 0), 5];
 _u addWeaponGlobal _prim_weapon;
 _u setAmmo [_prim_weapon, 999];
 _u selectWeapon primaryWeapon _u;
-_u setVariable ["d_is_force_shooting", false, true];
+_u setVariable ["d_is_force_shooting", false];
