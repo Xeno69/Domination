@@ -19,6 +19,7 @@
 - Added: Civilian cars parked closely together, less intersections blocked, some car types severely damaged, by longtimegamer
 - Added: Faction Islamic State updated vehicles, updated infantry AT, by longtimegamer
 - Added: Force RPG fire script improved, now creates incoming rocket with fn_moduleCAS_guidedmissile, by longtimegamer
+- Added: Pylon loadout change for spawned drones
 - Changed: Added new 2.18 scripting commands and scripting command changes
 - Changed: AI group respawn times increased again
 - Changed: Better messages if farp/mash position is too close to base or slope is too steep

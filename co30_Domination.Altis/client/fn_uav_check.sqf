@@ -3,6 +3,7 @@
 #include "..\x_setup.sqf"
 
 while {true} do {
+	private _has_pylon_action = false;
 	if (!isNull (getConnectedUAV player)) then {
 		private _uav = getConnectedUAV player;
 		__TRACE_1("","_uav")
@@ -14,6 +15,11 @@ while {true} do {
 			};
 			_uav setVariable ["d_vec", ["", "UAV " + d_name_pl, "ColorBlue", d_player_side], true];
 			_uav remoteExecCall ["d_fnc_initvec"];
+			if (d_pylon_lodout == 0 && {isClass ((configOf _uav)>>"Components">>"TransportPylonsComponent")}) then {
+				if (isNil {_uav getVariable "d_plyonloadoutaction"}) then {
+					_uav call d_fnc_addpylon_action;
+				};
+			};
 		};
 		while {!isNull (getConnectedUAV player)} do {
 			if (typeOf _uav == d_UAV_CAS) then {
