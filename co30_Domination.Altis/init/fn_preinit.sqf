@@ -4010,7 +4010,7 @@ if (d_enemy_factions > 0) then {
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction4-islamicstate.sqf"
 			];
-			d_allmen_E = [["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_inf_squad"] call d_fnc_GetConfigGroup];
+			d_allmen_E = [["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_at_team"] call d_fnc_GetConfigGroup];
 			d_specops_E = [
 				["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_wpn_squad"] call d_fnc_GetConfigGroup,
 				["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_hq_squad"] call d_fnc_GetConfigGroup

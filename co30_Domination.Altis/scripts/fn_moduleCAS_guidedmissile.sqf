@@ -10,29 +10,29 @@ nul=[laserTarget player, getPos startLocation, "M_Scalpel_AT", 500] execVM "guid
 */
 
 //initializing parameters
-params ["_target", "_startPos", "_missileType", "_missileHeight", "_instigator"];
+params ["_target", "_startPos", "_missileType", "_missileHeight", "_instigator", ["_missileSpeed", 1300], ["_perSecondsChecks", 100]];
 __TRACE_1("","_this")
 
 //defining parameters
 //the faster the target, the more checks it will need 100 is good for fast moving targets such as aircrafts
-private _perSecondsChecks = 100;
-//actual speed of a AIM-54 Phoenix AA missile
-private _missileSpeed = 6174;
+//private _perSecondsChecks = 100;
+//actual speed of a AIM-54 Phoenix AA missile // Hmmm I don't think so, appears to be ~4680 km/h which is ~1300 m/s  -Longtime
+//private _missileSpeed = 6174;
 
 //if no target is found -> exit
 if (_target isEqualTo []) exitWith {hintSilent "No Target Found!"};
 
-//create missile and setting pos
-_startPos set [2, _missileHeight];
+if (_missileHeight > 0) then {
+	//create missile and setting pos
+	_startPos set [2, _missileHeight];
+};
 
 //creating missile
 private _missile = _missileType createVehicle _startPos;
 _missile setShotParents [_instigator, _instigator];
 __TRACE_3("","_missile","getPos _missile","_missile distance _target")
 
-// todo - orient the missile to point toward the target?
-
-//ajusting missile pos while flying
+//adjusting missile pos while flying
 while {alive _missile && {_missile distance2D _target > 1}} do {
 	//__TRACE_2("flying","_missile","_missile distance2D _target")
 	//if (_missile distance _target > (_missileSpeed / 10)) then {

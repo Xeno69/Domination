@@ -3,20 +3,49 @@
 
 //create civilian vehicles
 //adapted from script by h8ermaker https://www.youtube.com/watch?v=pE47H8lG8uc
+
+_make_veh = {
+	params ["_pos", "_veh_type", "_direction"];
+	private _veh = _veh_type createVehicle _pos;
+	if (d_enable_civ_vehs_locked == 1) then {
+		_veh lock true;
+	};
+	_veh enableSimulationGlobal false;
+	_veh allowDamage false;
+	if (_direction isNotEqualTo []) then {
+		_veh setdir _direction;
+	};
+	d_cur_tgt_civ_vehicles pushBack _veh;
+	
+	private _cars_to_severely_damage = [
+		"bus",
+		"police",
+		"ikarus",
+		"idap",
+		"army",
+		"suv_ion",
+		"ambulance"
+	];
+	{
+		if ([_x, _veh_type] call BIS_fnc_inString) exitWith {
+			// severely damage this car for the visual affect of a broken city
+			_veh setVariable ["d_damage_this_vehicle", true];
+		};
+	} forEach _cars_to_severely_damage;
+};
+
 if (d_enable_civ_vehs > 0) then {
 	// all roads in defined civ radius
-	_road_seg_list_raw = _trg_center nearroads d_enable_civ_vehs_rad;
+	private _road_seg_list_raw = _trg_center nearroads d_enable_civ_vehs_rad;
 	
-	// remove possible intersection road segments, has more than 2 connections or is more than 20m from a building
-	_road_seg_list = _road_seg_list_raw select { count (roadsConnectedTo _x) == 2 && { count (_x nearroads 7) < 2 && { ((nearestBuilding _x) distance2D _x) > 15 && { _x isNotEqualTo [] }}} };
+	// remove bad road segments such as intersections
+	// roadsConnectedTo is 2 and count nearroads within 15m is less than 2 and nearestBuilding is within 10m and road segment is not empty and is not pedestrian and is not bridge and is length (begPos distance2D endPos) greater than 5m
+	private _road_seg_list = _road_seg_list_raw select { count (roadsConnectedTo _x) == 2 && { count (_x nearroads 15) < 2 && { ((nearestBuilding _x) distance2D _x) > 10 && { _x isNotEqualTo [] && { !((getRoadInfo _x) select 2) && { !((getRoadInfo _x) select 8) && { ((getRoadInfo _x) select 6) distance2D ((getRoadInfo _x) select 7) > 5 }}}}}} };
+		
 	_road_seg_list = _road_seg_list call BIS_fnc_arrayShuffle;
 	
-	// sanity check, avoid spawning too many cars
-	private _max_car_count = floor(d_enable_civ_vehs * 2.25);
-	_expected_car_spawn_count = round(_max_car_count * d_enable_civ_vehs / 100) min _max_car_count;
-	if (_expected_car_spawn_count > count _road_seg_list) then {
-		_expected_car_spawn_count = count _road_seg_list;
-	};
+	private _max_car_count = 499;
+	_expected_car_spawn_count = (round((count _road_seg_list) * d_enable_civ_vehs / 100) * 2.5) min _max_car_count; // estimate 2.5 cars per road segment
 	diag_log [format ["creating %1 cars (calculated max cars is %2, road segment count is %3 out of a raw road count of %4)", _expected_car_spawn_count, _max_car_count, count _road_seg_list, count _road_seg_list_raw]];
 	private _spawned_count = 0;
 	private _tries = 0;
@@ -33,6 +62,7 @@ if (d_enable_civ_vehs > 0) then {
 			private _pos_flat_empty = [];
 			private _pos_flat_empty_attempts = 0;
 			private _road_seg_width = ((getRoadInfo _current_road) select 1);
+			private _road_seg_length = ((getRoadInfo _current_road) select 6) distance2D ((getRoadInfo _current_road) select 7);
 			//private _min_distance_nearby_objects = (_road_seg_width * 0.1) min 2.25; // at most 2.25m
 			private _min_distance_nearby_objects = 1;
 			private _tmp_pos = getPosASL _current_road;
@@ -66,41 +96,30 @@ if (d_enable_civ_vehs > 0) then {
 				diag_log [format ["fn_civiliancars found a good position for %1 after %2 attempts", _veh_type, _pos_flat_empty_attempts]];
 #endif
 				// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL
-				// translate pos to the right (+90) by distance (road width * 0.35) to spawn the vehicle on the side of the road
-				_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty + 0.5)] getPos [_road_seg_width * 0.35, (_direction + 90)];
-				_veh = _veh_type createVehicle _pos_flat_empty;
-				if (d_enable_civ_vehs_locked == 1) then {
-					_veh lock true;
+				private _car_length_allowed = 5; // in meters
+				private _num_cars_in_road_segment = (floor ((_road_seg_length * 0.75) / _car_length_allowed)) min 5;
+				private _distance_between_cars = (_road_seg_length / _num_cars_in_road_segment) + 0.75;
+				if (_num_cars_in_road_segment > 0) then {
+					// translate pos from road segment center to the right (+90) by a distance relative to road width (_road_seg_width * 0.35)
+					private _pos_middle_right = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)] getPos [_road_seg_width * 0.35, (_direction + 90)];
+					// translate middle right pos backward (-180) by length / 2
+					private _pos_back_right = _pos_middle_right getPos [(_road_seg_length / 2), (_direction - 180)];
+					private _last_pos = _pos_back_right; // start at back right position
+					for "_i" from 1 to _num_cars_in_road_segment do {
+						_veh_type = selectRandomWeighted d_civ_vehicles_weighted;
+						private _pos_veh = _last_pos getPos [_distance_between_cars, _direction];
+						[_pos_veh, _veh_type, _direction] call _make_veh;
+						_last_pos = _pos_veh;
+						_spawned_count = _spawned_count + 1;
+					};	
 				};
-				_veh enableSimulationGlobal false;
-				_veh allowDamage false;
-				if (_direction isNotEqualTo []) then {
-					_veh setdir _direction;
-				};
-				d_cur_tgt_civ_vehicles pushBack _veh;
-				_spawned_count = _spawned_count + 1;
-				private _cars_to_severely_damage = [
-					"bus",
-					"police",
-					"ikarus",
-					"idap",
-					"army",
-					"suv_ion",
-					"ambulance"
-				];
-				{
-					if ([_x, _veh_type] call BIS_fnc_inString) exitWith {
-						// severely damage this car for the visual affect of a broken city
-						_veh setVariable ["d_damage_this_vehicle", true];
-					};
-				} forEach _cars_to_severely_damage;
 			};
 		};
 	};
 	diag_log [format ["spawned %1 civilian cars in total, expected target was %2 cars", _spawned_count, _expected_car_spawn_count]];
 	
 	sleep 10;
-	// check for bad cars and apply random damage to vehicles
+	// iterate over civilian vehicles, check for bad cars and apply random damage to vehicles
 	_badCars = 0;
 	{
 		if ((vectorUp _x) # 2 < 0.8) then {
@@ -110,9 +129,9 @@ if (d_enable_civ_vehs > 0) then {
 		_x allowDamage true;
 		private _desired_car_damage = random 0.6;
 		if (_x getVariable ["d_damage_this_vehicle", false]) then {
-			_desired_car_damage = 0.90;
+			_desired_car_damage = 0.80;
 		};
 		_x setDamage (_desired_car_damage);
 	} forEach d_cur_tgt_civ_vehicles;
-	//hint format["badCars count: %1", _badCars];
+	//diag_log [format["civilian badCars count: %1", _badCars]];
 };
