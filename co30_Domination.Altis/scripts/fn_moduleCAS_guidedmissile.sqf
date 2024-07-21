@@ -70,7 +70,7 @@ while { alive _missile } do {
 			// minimal guidance, only guide once
 			[] call _guideTheShot;
 		};
-		if (_missile distance _startPos > _initialDistanceToTarget * 1.5 || { _missile distance _startPos > 920 || { time - _startTime > 3 }}) then {
+		if (_missile distance _startPos > 920 || { time - _startTime > 3 }) then {
 			// self detonate
 			_missile setDamage 1;
 		};
