@@ -106,11 +106,14 @@ if (d_enable_civ_vehs > 0) then {
 					private _pos_back_right = _pos_middle_right getPos [(_road_seg_length / 2), (_direction - 180)];
 					private _last_pos = _pos_back_right; // start at back right position
 					for "_i" from 1 to _num_cars_in_road_segment do {
-						_veh_type = selectRandomWeighted d_civ_vehicles_weighted;
 						private _pos_veh = _last_pos getPos [_distance_between_cars, _direction];
-						[_pos_veh, _veh_type, _direction] call _make_veh;
+						// chance for no car
+						if (random 100 < 80) then {
+							_veh_type = selectRandomWeighted d_civ_vehicles_weighted;
+							[_pos_veh, _veh_type, _direction] call _make_veh;
+							_spawned_count = _spawned_count + 1;
+						};
 						_last_pos = _pos_veh;
-						_spawned_count = _spawned_count + 1;
 					};	
 				};
 			};
