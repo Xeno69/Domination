@@ -44,10 +44,8 @@ private _elevationAdjustmentBeforeTargetError = ((_target distance _u) / _projec
 
 // target position should not be exact or the RPG will always perfectly hit the unit
 // calculate an error rate to apply later
-private _targetError = 5; // in meters
-if (_target distance _u > 100) then {
-	_targetError = (_target distance _u) / 20;
-};
+private _targetErrorBase = 2; // in meters
+_targetError = (_target distance _u) / 100 + _targetErrorBase;
 
 // apply the error rate and z elevation
 private _targetposx = ((getPosWorld _target) select 0) + random [(-1 * _targetError), 0, _targetError];
