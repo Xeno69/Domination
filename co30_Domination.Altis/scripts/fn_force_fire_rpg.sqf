@@ -29,32 +29,36 @@ if (unitPos _u == "DOWN") then {
 	_u setUnitPos "MIDDLE";
 };
 _u selectWeapon secondaryWeapon _u;
+sleep 1.75;
 _u reveal _target;
 _u doWatch _target;
 _u doTarget _target;
-sleep 3;
+sleep 1.25;
 
-private _targeterror = 1.5; // in meters
-if (_target distance2D _u > 100) then {
-	_targeterror = 2;
-};
-if (_target distance2D _u > 250) then {
-	_targeterror = 2.5;
-};
-if (_target distance2D _u > 400) then {
-	_targeterror = 3;
-};
-if (_target distance2D _u > 550) then {
-	_targeterror = 3.5;
-};
-private _targetpos = [[[getPosWorld _target, _targeterror]],[]] call BIS_fnc_randomPos;
+// calculate the ballistic drop of the projectile so we can adjust the elevation (Z-axis)
+// distance d, initial velocity v, gravity g (9.8), height h
+// d = v * sqrt(2h/g)
+// h = (d/v)^2 * 9.8 / 2
+private _projectileVelocity = 300; // in meters
+private _elevationAdjustmentBeforeTargetError = ((_target distance _u) / _projectileVelocity) ^ 2 * (9.8 / 2);
+
+// target position should not be exact or the RPG will always perfectly hit the unit
+// calculate an error rate to apply later
+private _targetErrorBase = 2; // in meters
+_targetError = (_target distance _u) / 100 + _targetErrorBase;
+
+// apply the error rate and z elevation
+private _targetposx = ((getPosWorld _target) select 0) + random [(-1 * _targetError), 0, _targetError];
+private _targetposy = ((getPosWorld _target) select 1) + random [(-1 * _targetError), 0, _targetError];
+private _targetposz = ((getPosWorld _target) select 2) + random [(-1 * _targetError), 0, _targetError] + _elevationAdjustmentBeforeTargetError; // add z elevation to compensate for gravity
+private _targetpos = [_targetposx, _targetposy, _targetposz];
 
 private _missile_start_pos_hand = _u modelToWorld (_u selectionPosition "RightHandMiddle1");
-private _vect = (getPos _u) vectorFromTo (getPos _target) vectorMultiply 2;
+private _vect = (getPos _u) vectorFromTo (getPos _target) vectorMultiply 3; // 3x1m forward so AI won't shoot into walls
 private _missile_start_pos = _missile_start_pos_hand vectorAdd _vect;
 
 // fire the missile, use a basic RPG round to keep this simple TODO: figure out how to use classname (RPG32_F) to get ammo name (R_PG32V_F) 
-[_targetpos, _missile_start_pos, "R_PG32V_F", 0, _u, 300, 10] call d_fnc_moduleCAS_guidedmissile;
+[_targetpos, _missile_start_pos, "R_PG32V_F", 0, _u, _projectileVelocity, 10, true] call d_fnc_moduleCAS_guidedmissile;
 
 // restore the primary weapon and primary weapon magazines removed earlier, ignore handgun and grenades for now
 _u addMagazines [(_prim_weapon_ammo_mag_arr select 0), 5];
