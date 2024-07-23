@@ -5,33 +5,59 @@
 //adapted from script by h8ermaker https://www.youtube.com/watch?v=pE47H8lG8uc
 
 _make_veh = {
-	params ["_pos", "_veh_type", "_direction"];
+	params ["_pos", "_veh_type", "_direction", "_current_road"];
 	private _veh = _veh_type createVehicle _pos;
-	if (d_enable_civ_vehs_locked == 1) then {
-		_veh lock true;
+	// measure distance from center, a midline is created by two points (road begPos and endPos) and the third point is the center position of the vehicle
+	// If the line passes through two points P1=(x1,y1) and P2=(x2,y2) then the distance of (x0,y0) from the line is:
+	private _P1 = (getRoadInfo _current_road) select 6; // road begPos
+	private _P2 = (getRoadInfo _current_road) select 7; // road endPos
+	// P1
+	private _x1 = _P1 select 0;
+	private _y1 = _P1 select 1;
+	// P2
+	private _x2 = _P2 select 0;
+	private _y2 = _P2 select 1;
+	// (x0, y0)
+	private _x0 = (getPos _veh) select 0;
+	private _y0 = (getPos _veh) select 1;
+	// calculate
+	private _distanceFromCenterLineOfRoad = abs((_y2 - _y1) * _x0 - (_x2 - _x1) * _y0 + (_x2 * _y1) - (_y2 * _x1)) / (_P1 distance2D _P2);
+	// vehicle checks
+	// check the vehicle after it is created, actual position may not be the same as _pos
+	if (_distanceFromCenterLineOfRoad < 3) exitWith {
+		// too close to the center line, delete the vehicle and exit
+		deleteVehicle _veh;
 	};
-	_veh enableSimulationGlobal false;
+	// vehicle created successfully, add vehicle to global array
+	d_cur_tgt_civ_vehicles pushBack _veh;
+	if (count itemCargo _veh > 0) then {
+		clearItemCargo _veh; // remove cargo items, some cars initialize with items
+	};
+	_veh lock true; // always locked, d_enable_civ_vehs_locked is deprecated
 	_veh allowDamage false;
 	if (_direction isNotEqualTo []) then {
 		_veh setdir _direction;
 	};
-	d_cur_tgt_civ_vehicles pushBack _veh;
-	
-	private _cars_to_severely_damage = [
-		"bus",
-		"police",
-		"ikarus",
-		"idap",
-		"army",
-		"suv_ion",
-		"ambulance"
-	];
-	{
-		if ([_x, _veh_type] call BIS_fnc_inString) exitWith {
-			// severely damage this car for the visual affect of a broken city
-			_veh setVariable ["d_damage_this_vehicle", true];
+	_veh addEventHandler ["HandleDamage",{
+		params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint", "_directHit", "_context"];	
+		if (["glass", _selection] call Bis_fnc_inString || { ["sklo", _selection] call Bis_fnc_inString }) then {
+			// special handling for glass only
+			if (_unit getHit _selection > 0.9) then {
+				_damage = 0.9; // glass completely shatters if damage is 1, don't let it break.
+			} else {
+				_damage = (_damage * 2) min 0.9; // make the glass damage value higher, car glass doesn't show visible damage at low values
+			};
+		} else {
+			// handling for general damage
+			if (_damage > 0.89) then {
+				_damage = 0.89; // max damage to prevent exploding
+			};
 		};
-	} forEach _cars_to_severely_damage;
+		_damage;
+	}];
+	if (d_enable_civ_vehs_damaged_appearance == 1) then {
+		_veh setVariable ["d_damage_this_vehicle", true];
+	};	
 };
 
 if (d_enable_civ_vehs > 0) then {
@@ -110,7 +136,7 @@ if (d_enable_civ_vehs > 0) then {
 						// chance for no car
 						if (random 100 < 80) then {
 							_veh_type = selectRandomWeighted d_civ_vehicles_weighted;
-							[_pos_veh, _veh_type, _direction] call _make_veh;
+							[_pos_veh, _veh_type, _direction, _current_road] call _make_veh;
 							_spawned_count = _spawned_count + 1;
 						};
 						_last_pos = _pos_veh;
@@ -125,14 +151,13 @@ if (d_enable_civ_vehs > 0) then {
 	// iterate over civilian vehicles, check for bad cars and apply random damage to vehicles
 	_badCars = 0;
 	{
+		_x allowDamage true;
 		if ((vectorUp _x) # 2 < 0.8) then {
 			_badCars = _badCars + 1;
 		};
-		_x enableSimulationGlobal true;
-		_x allowDamage true;
-		private _desired_car_damage = random 0.6;
+		private _desired_car_damage = random 0.2;
 		if (_x getVariable ["d_damage_this_vehicle", false]) then {
-			_desired_car_damage = 0.80;
+			_desired_car_damage = 0.5;
 		};
 		_x setDamage (_desired_car_damage);
 	} forEach d_cur_tgt_civ_vehicles;
