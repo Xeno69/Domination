@@ -1408,6 +1408,13 @@ class Params {
 		texts[] = {"150m","250m","350m","450m"};
 	};
 	
+	class d_enable_civ_vehs_damaged_appearance {
+		title = "$STR_DOM_MISSIONSTRING_CIV_VEHICLE_DAMAGED_APPEARANCE";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
 	class d_enable_civ_vehs_locked {
 		title = "$STR_DOM_MISSIONSTRING_1890CIVVEHLOCKED";
 		values[] = {0,1};

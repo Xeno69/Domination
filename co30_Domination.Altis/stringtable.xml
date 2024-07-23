@@ -12619,6 +12619,18 @@
 <Chinese>啟用平民(Civilian vehicles - spawn radius)</Chinese>
 <French>Activer les civils Civilian vehicles - spawn radius</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_VEHICLE_DAMAGED_APPEARANCE">
+<English>Civilian vehicles - damaged appearance</English>
+<Spanish>Civilian vehicles - damaged appearance</Spanish>
+<Portuguese>Civilian vehicles - damaged appearance</Portuguese>
+<Korean>Civilian vehicles - damaged appearance</Korean>
+<Japanese>Civilian vehicles - damaged appearance</Japanese>
+<Original>Civilian vehicles - damaged appearance</Original>
+<Russian>Civilian vehicles - damaged appearance</Russian>
+<Chinesesimp>Civilian vehicles - damaged appearance</Chinesesimp>
+<Chinese>Civilian vehicles - damaged appearance</Chinese>
+<French>Civilian vehicles - damaged appearance</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEHLOCKED">
 <English>Civilian vehicles - lock vehicles</English>
 <Spanish>Vehículos civiles - vehículos de bloqueo</Spanish>
