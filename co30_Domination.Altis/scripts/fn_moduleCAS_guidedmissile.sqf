@@ -52,6 +52,7 @@ _missile setShotParents [_instigator, _instigator];
 private _shotHasBeenGuided = false;
 private _startTime = time;
 private _initialDistanceToTarget = _missile distance _targetPos;
+private _distanceSelfDetonate = 700;
 __TRACE_3("","_missile","getPos _missile","_missile distance _targetPos")
 
 
@@ -70,7 +71,7 @@ while { alive _missile } do {
 			// minimal guidance, only guide once
 			[] call _guideTheShot;
 		};
-		if (_missile distance _startPos > 920 || { time - _startTime > 3 }) then {
+		if (_missile distance _startPos > _distanceSelfDetonate || { time - _startTime > 3 }) then {
 			// self detonate
 			_missile setDamage 1;
 		};

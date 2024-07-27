@@ -205,6 +205,8 @@ if (_Dtargets isNotEqualTo []) then {
 						private _rpgs_force_shoot_maximum_distance = 650; // in meters
 						private _rpgs_force_shoot_minimum_cooldown = 37; // in seconds
 						if (d_ai_aggressiveshoot == 2 && {!(_unit getVariable ["d_is_force_shooting", false]) && { (time - (_unit getVariable ["d_force_fire_rpg_last_attempt_ts", 0]) > _rpgs_force_shoot_minimum_cooldown) && {(_unit distance2D _x > _rpgs_force_shoot_minimum_distance) && { _unit distance2D _x < (_rpgs_force_shoot_maximum_distance min _awarenessRadius) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}}}) then {
+							_unit setVariable ["d_is_force_shooting", true];
+                            _unit setVariable ["d_force_fire_rpg_last_attempt_ts", time];
 							[_unit, _x] spawn d_fnc_force_fire_rpg;
 						} else {
 							if (!(_unit getVariable ["d_is_force_shooting", false])) then {
