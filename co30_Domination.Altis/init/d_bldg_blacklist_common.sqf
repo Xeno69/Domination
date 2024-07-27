@@ -29,4 +29,8 @@
 "i_shed_ind_old_f.p3d", // ?
 "i_garage_v1_dam_f.p3d",
 "slum_house01_f.p3d",
-"scf_01_crystallizer_f.p3d" // ?? 29 positions
+"scf_01_crystallizer_f.p3d", // ?? 29 positions
+"warehouse_01_f.psd",
+"warehouse_02_f.psd",
+"mine_01_warehouse_f.psd",
+"dpp_01_mainfactory_old_f.psd"
