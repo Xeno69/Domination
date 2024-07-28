@@ -419,10 +419,6 @@ if (isNil "d_cur_uav_combat") then {
 	d_cur_uav_combat = [];
 };
 
-if (isNil "d_units_shooting_rpg") then {
-	d_units_shooting_rpg = [];
-};
-
 if (hasInterface) then {
 	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};
 };

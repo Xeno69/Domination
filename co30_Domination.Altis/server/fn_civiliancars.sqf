@@ -51,7 +51,7 @@ _make_veh = {
 	if (_direction isNotEqualTo []) then {
 		_veh setdir _direction;
 	};
-	// make the damage better, more smash and less boom
+	// make the damage to cars better by preventing unrealistic car explosions and adding more realistic shattering of glass
 	_veh addEventHandler ["HandleDamage",{
 		params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint", "_directHit", "_context"];
 		// glass or sklo (Czech)
