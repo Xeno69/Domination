@@ -419,6 +419,10 @@ if (isNil "d_cur_uav_combat") then {
 	d_cur_uav_combat = [];
 };
 
+if (isNil "d_rabbit_killed_by_friendly") then {
+	d_rabbit_killed_by_friendly = "";
+};
+
 if (hasInterface) then {
 	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};
 };
