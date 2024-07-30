@@ -44,6 +44,7 @@ _make_veh = {
 	if (count itemCargo _veh > 0) then {
 		clearItemCargoGlobal _veh;
 	};
+	_veh lockInventory true;
 	if (d_enable_civ_vehs_locked == 1) then {
 		_veh lock true;
 	};
