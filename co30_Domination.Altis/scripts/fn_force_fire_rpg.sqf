@@ -6,8 +6,8 @@ params ["_u", "_target"];
 // and then b) use d_fnc_moduleCAS_guidedmissile to create the missile in flight
 // note the greater randomPos deviation when further away from the target, just a messy first attempt and probably needs to be tuned
 
-_u setVariable ["d_is_force_shooting", true];
-_u setVariable ["d_force_fire_rpg_last_attempt_ts", time];
+_u setVariable ["d_is_force_shooting", true, true];
+_u setVariable ["d_force_fire_rpg_last_attempt_ts", time, true];
 
 // keep weapon and magazine vars so we can remove and later restore
 private _prim_weapon = _u getVariable ["d_prim_weapon", ""];
@@ -56,13 +56,15 @@ private _targetpos = [_targetposx, _targetposy, _targetposz];
 private _missile_start_pos_hand = _u modelToWorld (_u selectionPosition "RightHandMiddle1");
 private _vect = (getPos _u) vectorFromTo (getPos _target) vectorMultiply 3; // 3x1m forward so AI won't shoot into walls
 private _missile_start_pos = _missile_start_pos_hand vectorAdd _vect;
+private _secWeaponMag = (secondaryWeaponMagazine _u) select 0;
+private _ammo = getText (configFile>>"CfgMagazines" >> _secWeaponMag >> "ammo");
 
-// fire the missile, use a basic RPG round to keep this simple TODO: figure out how to use classname (RPG32_F) to get ammo name (R_PG32V_F) 
-[_targetpos, _missile_start_pos, "R_PG32V_F", 0, _u, _projectileVelocity, 10, true] call d_fnc_moduleCAS_guidedmissile;
+// fire the rocket
+[_targetpos, _missile_start_pos, _ammo, 0, _u, _projectileVelocity, 10, true] call d_fnc_moduleCAS_guidedmissile;
 
 // restore the primary weapon and primary weapon magazines removed earlier, ignore handgun and grenades for now
 _u addMagazines [(_prim_weapon_ammo_mag_arr select 0), 5];
 _u addWeaponGlobal _prim_weapon;
 _u setAmmo [_prim_weapon, 999];
 _u selectWeapon primaryWeapon _u;
-_u setVariable ["d_is_force_shooting", false];
+_u setVariable ["d_is_force_shooting", false, true];

@@ -534,6 +534,14 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+	class MTEventSideRescueGenericNameFailFriendlyFire {
+		text = "$STR_DOM_MISSIONSTRING_722_GENERIC_NAME_FRIENDLYFIRE";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
 	class MTEventDetonatePresent {
 		text = "$STR_DOM_MISSIONSTRING_EXPLOSIVES_PRESENT";
 		speech[] = {};
