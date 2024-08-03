@@ -127,6 +127,7 @@ if (d_civ_massacre) then {
 
 private _targets = [];
 private _isDoingSuppressiveFire = false;
+private _unitsDoingForceRPG = []; // keep an array here for speed, takes too long for public setVariable
 
 if (_Dtargets isNotEqualTo []) then {
 	_Dtargets sort true;
@@ -145,9 +146,6 @@ if (_Dtargets isNotEqualTo []) then {
 		if (_isAggressiveShoot > 0) then {
 			__TRACE("Aggressive Shoot")
 			{
-				if(_unit in d_units_shooting_rpg) exitWith {
-					//diag_log ["unit is already busy shooting an rpg", _unit];
-				};
 				if (!(_x getVariable ["xr_pluncon", false]) && {[_unit, _x] call d_fnc_isvisible}) exitWith {
 					if (alive _x && {_x getEntityInfo 0 && {side _x == civilian}}) then {
 						// targeting a civ, make the civ a renegade so enemy will engage
@@ -179,11 +177,15 @@ if (_Dtargets isNotEqualTo []) then {
                         };
 						private _rpgs_force_shoot_minimum_distance = 100; // in meters
 						private _rpgs_force_shoot_maximum_distance = 650; // in meters
-						private _rpgs_force_shoot_minimum_cooldown = 13; // in seconds
-						if (d_ai_aggressiveshoot == 2 && {!(_unit getVariable ["d_is_force_shooting", false]) && { (time - (_unit getVariable ["d_force_fire_rpg_last_attempt_ts", 0]) > _rpgs_force_shoot_minimum_cooldown) && {(_unit distance2D _x > _rpgs_force_shoot_minimum_distance) && { _unit distance2D _x < (_rpgs_force_shoot_maximum_distance min _awarenessRadius) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}}}) then {
+						private _rpgs_force_shoot_minimum_cooldown = 47; // in seconds
+						if (d_ai_aggressiveshoot == 2 && { !(_unit in _unitsDoingForceRPG) && {!(_unit getVariable ["d_is_force_shooting", false]) && { (time - (_unit getVariable ["d_force_fire_rpg_last_attempt_ts", 0]) > _rpgs_force_shoot_minimum_cooldown) && {(_unit distance2D _x > _rpgs_force_shoot_minimum_distance) && { _unit distance2D _x < (_rpgs_force_shoot_maximum_distance min _awarenessRadius) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}}}}) then {
+							_unitsDoingForceRPG pushBack _unit;
 							[_unit, _x] spawn d_fnc_force_fire_rpg;
 						} else {
 							if (!(_unit getVariable ["d_is_force_shooting", false])) then {
+								if (_unit in _unitsDoingForceRPG) then {
+									_unitsDoingForceRPG deleteAt _unit;
+								};
 								_unit doSuppressiveFire (getPosASL _x);
 							};
 						};
@@ -192,7 +194,7 @@ if (_Dtargets isNotEqualTo []) then {
 			} forEach _targets;
 		};
 		
-		if (!_isDoingSuppressiveFire && {!(_unit in d_units_shooting_rpg)}) then {
+		if (!_isDoingSuppressiveFire && {!(_unit in _unitsDoingForceRPG)}) then {
 			_target_move_dest = _targets # 0;
 			__TRACE_1("","_target_move_dest")
 			// if a priority target is defined or a target is within pursue radius then doMove

@@ -1412,7 +1412,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1890CIVVEH";
 		values[] = {0, 10, 25, 50, 75, 100};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_363", "Very Low", "Low","Medium","High","Maximum"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_363", "$STR_DOM_MISSIONSTRING_399_VERYLOW", "$STR_DOM_MISSIONSTRING_399","$STR_DOM_MISSIONSTRING_399B","$STR_DOM_MISSIONSTRING_400","$STR_DOM_MISSIONSTRING_400_VERYHIGH"};
 	};
 	
 	class d_civ_vehs_type {
@@ -1434,6 +1434,13 @@ class Params {
 		values[] = {150,250,350,450};
 		default = 250;
 		texts[] = {"150m","250m","350m","450m"};
+	};
+	
+	class d_enable_civ_vehs_damaged_appearance {
+		title = "$STR_DOM_MISSIONSTRING_CIV_VEHICLE_DAMAGED_APPEARANCE";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_enable_civ_vehs_locked {

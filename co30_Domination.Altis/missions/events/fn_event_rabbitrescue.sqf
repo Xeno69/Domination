@@ -78,7 +78,14 @@ _ai forcespeed 9;
 _ai setanimspeedcoef 1.3;
 
 _rabbit attachTo [_ai,[0,-.4,0]];
-_rabbit addEventHandler ["Killed", {params ["_unit", "_killer", "_instigator", "_useEffects"]; deleteVehicle (attachedTo _unit)}];
+_rabbit addEventHandler ["Killed", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	if (side (group _killer) != d_side_enemy) then {
+		d_rabbit_killed_by_friendly = name _killer;
+		publicVariable "d_rabbit_killed_by_friendly";
+	};
+	deleteVehicle (attachedTo _unit)
+}];
 private _marker = ["d_bunny_marker", _rabbit, "ICON", "ColorBlue", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
 	[_marker, "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
@@ -131,13 +138,26 @@ if (_is_rescued || {!_is_dead}) then {
 		} forEach ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 	};
 } else {
-	d_kb_logic1 kbTell [
-		d_kb_logic2,
-		d_kb_topic_side,
-		"MTEventSideRescueGenericNameFail",
-		["1", "", _bunnyName, []],
-		d_kbtel_chan
-	];
+	if (d_rabbit_killed_by_friendly != "") then {		
+		d_kb_logic1 kbTell [
+			d_kb_logic2,
+			d_kb_topic_side,
+			"MTEventSideRescueGenericNameFailFriendlyFire",
+			["1", "", _bunnyName, []],
+			["2", "", d_rabbit_killed_by_friendly, []],
+			d_kbtel_chan
+		];
+		d_rabbit_killed_by_friendly = "";
+		publicVariable "d_rabbit_killed_by_friendly";
+	} else {
+		d_kb_logic1 kbTell [
+			d_kb_logic2,
+			d_kb_topic_side,
+			"MTEventSideRescueGenericNameFail",
+			["1", "", _bunnyName, []],
+			d_kbtel_chan
+		];
+	};
 };
 
 deleteVehicle [_rabbit, _ai, _trigger];

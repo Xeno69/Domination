@@ -421,8 +421,8 @@ if (isNil "d_cur_uav_combat") then {
 	d_cur_uav_combat = [];
 };
 
-if (isNil "d_units_shooting_rpg") then {
-	d_units_shooting_rpg = [];
+if (isNil "d_rabbit_killed_by_friendly") then {
+	d_rabbit_killed_by_friendly = "";
 };
 
 if (hasInterface) then {
