@@ -329,6 +329,20 @@ class CfgRemoteExec {
 		class vn_fnc_bomb_blu82_crater {};
 		class vn_fnc_pylon_removeUnusedPylonWeapon {};
 #endif
+#ifdef __SPE__
+		class SPE_fnc_applyGas {};
+		class SPE_system_fnc_remoteSetShotParents {allowedTargets = 2;};
+		class SPE_fnc_handleBoltAction_playAction {};
+		class SPE_fnc_incendiary_damage {allowedTargets = 2;};
+		class SPE_Fnc_System_Artillery_Pushing_setAnim {};
+		class SPE_Fnc_System_Tanks_soundEffect {};
+		class SPE_Fnc_System_Tanks_kill_tank {allowedTargets = 2;};
+		class SPE_Fnc_System_Tanks_createParticleEffect {};
+		class SPE_Fnc_System_Tanks_fireEffect {};
+		class SPE_Fnc_System_Tanks_cookOff {};
+		class SPE_Fnc_System_Tanks_create_SmokeEruption {};
+		class SPE_Fnc_System_vehicleHitIndicator_remote {};
+#endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
 	class Commands {
@@ -363,6 +377,11 @@ class CfgRemoteExec {
 		class setVehicleAmmo {};
 		class setPylonLoadout {};
 		class setAmmoOnPylon {};
+#endif
+#ifdef __SPE__
+		class setTurretLimits {};
+		class addweaponTurret {};
+		class setOwner {};
 #endif
 	};
 };
