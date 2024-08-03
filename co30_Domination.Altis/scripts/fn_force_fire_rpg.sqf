@@ -67,4 +67,5 @@ _u addMagazines [(_prim_weapon_ammo_mag_arr select 0), 5];
 _u addWeaponGlobal _prim_weapon;
 _u setAmmo [_prim_weapon, 999];
 _u selectWeapon primaryWeapon _u;
+_u doWatch objNull;
 _u setVariable ["d_is_force_shooting", false, true];
