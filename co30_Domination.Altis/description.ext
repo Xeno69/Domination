@@ -326,6 +326,8 @@ class CfgRemoteExec {
 		class vn_fnc_drm_usereventhandlers {};
 		class vn_fnc_switchableTurrets_lock {allowedTargets = 2;};
 		class vn_fnc_burnit_action {};
+		class vn_fnc_bomb_blu82_crater {};
+		class vn_fnc_pylon_removeUnusedPylonWeapon {};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -348,6 +350,7 @@ class CfgRemoteExec {
 		class deleteMarkerLocal {allowedTargets = 1;};
 		class enableDynamicSimulation {allowedTargets = 2;};
 		class triggerDynamicSimulation {allowedTargets = 2;};
+		class say3D {};
 #ifdef __TT__
 		class setMarkerPosLocal {allowedTargets = 1;};
 #endif
@@ -358,6 +361,8 @@ class CfgRemoteExec {
 		class lockTurret {};
 		class globalRadio {};
 		class setVehicleAmmo {};
+		class setPylonLoadout {};
+		class setAmmoOnPylon {};
 #endif
 	};
 };

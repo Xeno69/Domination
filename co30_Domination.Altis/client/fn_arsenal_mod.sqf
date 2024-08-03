@@ -25,6 +25,10 @@ if (d_cup || {d_rhs} || {d_pracs} || {d_jsdf}) then {
 
 _items_no = _items_no apply {toLowerANSI _x};
 
+#ifdef __DEBUG__
+private _sourceaddonlistar = [];
+#endif
+
 private _findmodfnc = {
 	__TRACE_1("_findmodfnc","_this")
 	params ["_csal"];
@@ -88,6 +92,13 @@ private _findmodfnc = {
 			} forEach _helpercsal;
 #endif
 			__TRACE_1("","configSourceAddonList (configFile >> _kind >> _x)")
+#ifdef __DEBUG__
+			{
+				if ("viet" in _x) then {
+					_sourceaddonlistar pushBackUnique _x;
+				};
+			} forEach (configSourceAddonList (configFile >> _kind >> _x));
+#endif
 			if (_kind isNotEqualTo "" && {([configSourceAddonList (configFile >> _kind >> _x)] call _findmodfnc) == -1}) then {
 				__TRACE_1("","_ar select _forEachIndex")
 				_ar set [_forEachIndex, -1];
@@ -97,3 +108,11 @@ private _findmodfnc = {
 	_ar = _ar - [-1];
 	bis_fnc_arsenal_data set [_forEachIndex, _ar];
 } forEach bis_fnc_arsenal_data;
+
+#ifdef __DEBUG__
+	__TRACE("######################### configSourceAddonList #########################")
+	{
+		diag_log _x;
+	} forEach _sourceaddonlistar;
+	__TRACE("######################### configSourceAddonList #########################")
+#endif
