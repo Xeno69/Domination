@@ -95,6 +95,7 @@ if (d_showallnearusermarkers) then {
 				_col set [3, _m];
 			};
 			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
+			drawLine3D [_pos vectorAdd [0, 0, -10], _pos vectorAdd [0, 0, -1], _col, 5];
 		};
 	} forEach (_d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
 };
