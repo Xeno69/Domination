@@ -20,6 +20,7 @@
 - Added: Faction Islamic State updated vehicles, updated infantry AT, by longtimegamer
 - Added: Force RPG fire script improved, now creates incoming rocket with fn_moduleCAS_guidedmissile, by longtimegamer
 - Added: Pylon loadout change for spawned drones
+- Added: Rabbit rescue will announce if a player killed the rabbit, by longtimegamer
 - Changed: Added new 2.18 scripting commands and scripting command changes
 - Changed: AI group respawn times increased again
 - Changed: Better messages if farp/mash position is too close to base or slope is too steep
@@ -38,5 +39,6 @@
 - Fixed: Small variation in direction of spawned civilian cars, by longtimegamer
 - Fixed: Spawning a UAV is only available away from the the MHQ when d_enable_extra_cas == 1, by longtimegamer
 - Fixed: Minor bug when spawning civilians and group limit is reached, by longtimegamer
+- Fixed: Air Drop Aircraft map marker should be Air Drop Zone, by longtimegamer
 - Updated: Korean translation, by kkim
 - Opimizations (script profiling)
