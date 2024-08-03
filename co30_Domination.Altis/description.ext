@@ -342,6 +342,7 @@ class CfgRemoteExec {
 		class SPE_Fnc_System_Tanks_cookOff {};
 		class SPE_Fnc_System_Tanks_create_SmokeEruption {};
 		class SPE_Fnc_System_vehicleHitIndicator_remote {};
+		class SPE_fnc_setObjectFX {};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
