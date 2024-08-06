@@ -5,6 +5,7 @@
 ["West","SPE_WEHRMACHT","Infantry","SPE_GER_Lehr_Panzergrenadier_MG_Team"] call d_fnc_GetConfigGroup,
 ["West","SPE_WEHRMACHT","Infantry","SPE_GER_Lehr_Panzergrenadier_Squad"] call d_fnc_GetConfigGroup,
 ["West","SPE_WEHRMACHT","Infantry","SPE_GER_MG_team"] call d_fnc_GetConfigGroup,
+["West","SPE_WEHRMACHT","Infantry","SPE_GER_Panzerjaeger_squad"] call d_fnc_GetConfigGroup,
 ["West","SPE_WEHRMACHT","Infantry","SPE_GER_scout_squad"] call d_fnc_GetConfigGroup,
 ["West","SPE_WEHRMACHT","Infantry","SPE_GER_sentry_squad_2"] call d_fnc_GetConfigGroup,
 ["West","SPE_WEHRMACHT","Infantry","SPE_GER_sentry_squad_3"] call d_fnc_GetConfigGroup,
