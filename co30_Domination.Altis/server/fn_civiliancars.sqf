@@ -41,11 +41,12 @@ _make_veh = {
 	// vehicle created successfully, add vehicle to global array
 	d_cur_tgt_civ_vehicles pushBack _veh;
 	// remove cargo items, some cars initialize with items
-	if (count itemCargo _veh > 0) then {
-		clearItemCargoGlobal _veh;
-	};
-	_veh lockInventory true;
+	clearItemCargoGlobal _veh;
+	clearMagazineCargoGlobal _veh;
+	clearWeaponCargoGlobal _veh;
+	clearBackpackCargoGlobal _veh;
 	if (d_enable_civ_vehs_locked == 1) then {
+		_veh lockInventory true;
 		_veh lock true;
 	};
 	_veh allowDamage false;
@@ -95,9 +96,16 @@ if (d_enable_civ_vehs > 0) then {
 	// all roads in defined civ radius
 	private _road_seg_list_raw = _trg_center nearroads d_enable_civ_vehs_rad;
 	
-	// remove bad road segments such as intersections
-	// roadsConnectedTo is 2 and count nearroads within 15m is less than 2 and nearestBuilding is within 10m and road segment is not empty and is not pedestrian and is not bridge and is length (begPos distance2D endPos) greater than 5m
-	private _road_seg_list = _road_seg_list_raw select { count (roadsConnectedTo _x) == 2 && { count (_x nearroads 15) < 2 && { ((nearestBuilding _x) distance2D _x) > 10 && { _x isNotEqualTo [] && { !((getRoadInfo _x) select 2) && { !((getRoadInfo _x) select 8) && { ((getRoadInfo _x) select 6) distance2D ((getRoadInfo _x) select 7) > 5 }}}}}} };
+	// remove bad road segments
+	private _road_seg_list_filtered = _road_seg_list_raw select {
+		// road segment is not empty and road segment is not pedestrian and road segment is not bridge and road segment is ROAD or MAIN ROAD
+		//_x isNotEqualTo [] && { !((getRoadInfo _x) select 2) && { !((getRoadInfo _x) select 8) && { ((getRoadInfo _x) select 0) == "ROAD" || ((getRoadInfo _x) select 0) == "MAIN ROAD" }}}
+		_x isNotEqualTo [] && { !((getRoadInfo _x) select 2) && { !((getRoadInfo _x) select 8) }}
+	};
+	
+	// remove more bad road segments (intersections)
+	// roadsConnectedTo is 2 and count nearroads within 15m is less than 2 and nearestBuilding is within 10m and is length (begPos distance2D endPos) greater than 5m
+	private _road_seg_list = _road_seg_list_filtered select { count (roadsConnectedTo _x) == 2 && { count (_x nearroads 15) < 2 && { ((nearestBuilding _x) distance2D _x) > 10 && { ((getRoadInfo _x) select 6) distance2D ((getRoadInfo _x) select 7) > 5 }}}};
 		
 	_road_seg_list = _road_seg_list call BIS_fnc_arrayShuffle;
 	

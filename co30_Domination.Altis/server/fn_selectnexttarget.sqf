@@ -67,10 +67,19 @@ if (count d_mttargets_ar > 1) then {
 		};
 	} forEach d_next_sels_ar;
 	
-	__TRACE_2("","_idx","_highest")
+	// another forEach to check for a tie, if more than one d_selectionsmt is equal to value _highest then it's a tie
+	private _how_many_are_highest = 0;
+	{
+		private _cou = _x getVariable ["d_selectionsmt", 0];
+		if (_cou == _highest) then {
+			_how_many_are_highest = _how_many_are_highest + 1;
+		};
+	} forEach d_next_sels_ar;
+	
+	__TRACE_3("","_idx","_highest","_how_many_are_highest")
 	
 	private _was_selected = false;
-	if (_idx != -1) then {
+	if (_idx != -1 && { _how_many_are_highest == 1 }) then {
 		d_cur_tar_obj = d_next_sels_ar # _idx;
 		_was_selected = true;
 	} else {
