@@ -41,6 +41,6 @@
 - Fixed: Minor bug when spawning civilians and group limit is reached, by longtimegamer
 - Fixed: Air Drop Aircraft map marker should be Air Drop Zone, by longtimegamer
 - Fixed: If maintarget votes are a tie then target is selected randomly, by longtimegamer
-- Updated: Added some SPE 1.1 classes
+- Updated: Added new SPE 1.1 classes
 - Updated: Korean translation, by kkim
 - Opimizations (script profiling)
