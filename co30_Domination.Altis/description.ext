@@ -145,10 +145,10 @@ weaponholderRemovalMinTime = 60; // seconds. Default: 3600
 // Monitored weapon holders that exist for longer than weaponholderRemovalMaxTime will be considered for removal regardless of the weaponholderLimit.
 weaponholderRemovalMaxTime = 1200; // seconds. Default: 36000
 // If the total number of monitored weapon holders is higher than weaponholderLimit, the weapon holders that exist for longer than weaponholderRemovalMinTime will be considered for removal.
-// weaponholderLimit = 1; // Default: 50
+weaponholderLimit = 40; // Default: 50
 
 //How often the remains collector checks monitored remains for removal. The value can be between 1 and 60.
-disposalCheckPeriod = 5; // seconds. Default: 5
+disposalCheckPeriod = 10; // seconds. Default: 5
 
 // uncomment the following to delete corpses and wrecks only if players are at least 30m away; default is 0, means no nearby player check is done by the engine
 // minPlayerDistance = 30;
