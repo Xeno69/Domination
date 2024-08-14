@@ -111,6 +111,7 @@ private _av_check_fnc = {
 	{
 		_x addEventHandler ["handleDamage", {0}];
 		_x setCaptive true;
+		_x disableAI "PATH";
 	} forEach (crew _this);
 	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];

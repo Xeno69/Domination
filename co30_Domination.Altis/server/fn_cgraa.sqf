@@ -14,6 +14,10 @@ params ["_side", "_type", "_mname", ["_remdriver", true]];
 			_x lock 2;
 		};
 		
+		{
+			_x disableAI "PATH";
+		} forEach (crew _x);
+		
 		_x addEventhandler ["getIn", {
 			if (isPlayer [_this # 2]) then {
 				(_this # 2) action ["getOut", _this # 0];
