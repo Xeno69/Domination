@@ -597,6 +597,9 @@ _respawn_marker setMarkerPosLocal markerPos _base_spawn_m;
 // special triggers for engineers, AI version, everybody can repair and flip vehicles
 if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 	d_eng_can_repfuel = true;
+	if !(player getUnitTrait "engineer") then {
+		player setUnitTrait ["engineer", true];
+	};
 
 	if (d_engineerfull == 0 || {!d_no_ai}) then {
 #ifndef __TT__
