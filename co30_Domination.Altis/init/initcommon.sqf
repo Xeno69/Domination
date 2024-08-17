@@ -4,35 +4,41 @@
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom initcommon.sqf"];
 
 if (isNil "paramsArray") then {
-	if (hasInterface) then {
-		diag_log "CfgParams";
-	};
 	if (isClass (getMissionConfig "Params")) then {
 		private _conf = getMissionConfig "Params";
-		private ["_paramName", "_paramval"];
+		private ["_paramName", "_paramval", "_tidx"];
 		for "_i" from 0 to (count _conf - 1) do {
 			_paramName = configName (_conf select _i);
 			_paramval = getNumber (_conf>>_paramName>>"default");
 			if (_paramval != -66) then {
 				missionNamespace setVariable [_paramName, _paramval];
-				if (hasInterface) then {
-					diag_log [_paramName, _paramval];
-				};
+#ifndef __SPE__
+				_tidx = getArray (_conf>>_paramName>>"values") find _paramval;
+				diag_log ["Mission parameter: ", getText (_conf>>_paramName>>"title"), _paramName, " Value: ", getArray (_conf>>_paramName>>"texts") # _tidx, " Index: ", _paramval];
+#endif
+			} else {
+#ifndef __SPE__
+				diag_log ["Mission parameter: ", getText (_conf>>_paramName>>"title")];
+#endif
 			};
 		};
 	};
 } else {
-	private "_paramval";
-	if (hasInterface) then {
-		diag_log "CfgParams";
-	};
+	private _conf = getMissionConfig "Params";
+	private ["_paramName", "_paramval", "_tidx"];
 	for "_i" from 0 to (count paramsArray - 1) do {
+		_paramName = configName (_conf select _i);
 		_paramval = paramsArray select _i;
 		if (_paramval != -66) then {
-			missionNamespace setVariable [configName ((getMissionConfig "Params") select _i), _paramval];
-			if (hasInterface) then {
-				diag_log [configName ((getMissionConfig "Params") select _i), _paramval];
-			};
+			missionNamespace setVariable [configName (_conf select _i), _paramval];
+#ifndef __SPE__
+			_tidx = getArray (_conf>>_paramName>>"values") find _paramval;
+			diag_log ["Mission parameter: ", getText (_conf>>_paramName>>"title"), _paramName, " Value: ", getArray (_conf>>_paramName>>"texts") # _tidx, " Index: ", _paramval];
+#endif
+		} else {
+#ifndef __SPE__
+			diag_log ["Mission parameter: ", getText (_conf>>_paramName>>"title")];
+#endif
 		};
 	};
 };
