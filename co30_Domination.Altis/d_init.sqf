@@ -650,6 +650,8 @@ if (isServer) then {
 	addMissionEventHandler ["Drowned", {call d_fnc_v_hd}];
 	
 	addMissionEventHandler ["UAVCrewCreated", {call d_fnc_uavcreated}];
+	
+	addMissionEventHandler ["EntityRespawned", {call d_fnc_entityrespanwed}];
 };
 
 if (hasInterface) then {
