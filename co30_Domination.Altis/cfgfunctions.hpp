@@ -700,7 +700,8 @@ class cfgFunctions {
 			addc(entitycreated);
 			addc(disglobalsim);
 			addc(uavcreated);
-			addc(entityrespanwed);
+			addc(acurator);
+			addc(entityrespawned);
 		};
 		class Dom_PrePostInit {
 			file = "init";

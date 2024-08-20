@@ -14,4 +14,6 @@ if (d_MissionType != 2) then {
 [_pl] call d_fnc_addceo;
 #endif
 
+_pl setVariable ["d_lr_ti", time];
+
 true

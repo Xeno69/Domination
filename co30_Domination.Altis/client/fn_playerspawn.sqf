@@ -129,7 +129,16 @@ if (_rtype == 0) then { // player died
 	"RadialBlur" ppEffectEnable false;
 
 	if (d_WithRevive == 1) then {
-		deleteVehicle ((_this # 1) # 1);
+		(_this # 1) params ["_newu", "_oldu"];
+		private _cur = getAssignedCuratorLogic _oldu;
+		if !(isNull _cur) then {
+			[_newu, _cur] spawn {
+				params ["_newu", "_cur"];
+				waitUntil {sleep 1; alive _newu};
+				[_newu, _cur] remoteExec ["d_fnc_acurator", 2];
+			};
+		};
+		deleteVehicle _oldu;
 	};
 
 #ifndef __IFA3__

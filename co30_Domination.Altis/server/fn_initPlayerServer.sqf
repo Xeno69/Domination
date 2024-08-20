@@ -53,6 +53,8 @@ if (_uid isEqualTo "") exitWith {
 [_pl, 18] call d_fnc_setekmode;
 #endif
 
+_pl setVariable ["d_lr_ti", -1];
+
 private _name = _plid getUserInfo 3;
 
 private _p = d_player_hash getOrDefault [_uid, []];
