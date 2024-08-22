@@ -47,4 +47,5 @@
 - Updated: Added new SPE 1.1 classes
 - Updated: Korean translation, by kkim
 - Workaround: Zeus was not transfered to a logged in admin player object after respawn
+- Workaround: If some 3rd party mod/addon kills a camp at the main target (happens with some bombs using setdamage) change the camp to captured so that the main target can end
 - Opimizations (script profiling)
