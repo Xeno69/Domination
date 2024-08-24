@@ -13,7 +13,7 @@ set D_NUM_PLAYERS_CO=40
 rem set D_DO_ASC=1
 rem set D_DO_ASC_ALL=1
 
-set WORK_DIR=E:\DomSQFC
+set WORK_DIR=D:\DomSQFC
 
 del *.pbo
 
