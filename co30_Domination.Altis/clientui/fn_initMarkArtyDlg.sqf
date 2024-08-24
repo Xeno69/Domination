@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
 disableSerialization;
 
@@ -18,7 +18,7 @@ _ammonv resize (count _magsv);
 	_ammonv set [_forEachIndex, getText(configFile>>"CfgMagazines">>_x>>"displayName")];
 } forEach _magsv;
 
-//__TRACE_2("","_magsv","_ammonv")
+__TRACE_2("","_magsv","_ammonv")
 
 private _dispx = uiNamespace getVariable "d_MarkArtilleryDialog";
 private _ctrl = _dispx displayCtrl 888;
