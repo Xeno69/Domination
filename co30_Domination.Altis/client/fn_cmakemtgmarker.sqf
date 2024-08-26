@@ -13,15 +13,11 @@ if (isNil "d_mttarget_radius_patrol" || {d_mttarget_radius_patrol isEqualTo []})
 };
 
 __TRACE_1("","d_cur_tgt_pos")
-__TRACE_1("","d_mttarget_radius_patrol")
 
-private _tile_size = (d_mttarget_radius_patrol * 2) / 13;
-__TRACE_1("","_tile_size")
+private _tile_size = (d_mttarget_radius_patrol * 2) / 7;
 
-private _tilesfull_half = (_tile_size * 13) / 2;
-__TRACE_1("","_tilesfull_half")
+private _tilesfull_half = (_tile_size * 7) / 2;
 private _tilehalf = _tile_size / 2;
-__TRACE_1("","_tilehalf")
 
 private _xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf;
 private _ypos1 = (d_cur_tgt_pos # 1);
@@ -29,22 +25,22 @@ private _ypos1 = (d_cur_tgt_pos # 1);
 private _marcounter = 0;
 
 private _fnc_sevena = {
-	if (_this <= 2 || {_this >= 12}) exitWith {
+	if (_this == 1 || {_this == 7}) exitWith {
 		(d_e_marker_color_alpha - 0.3) max 0.5
 	};
-	if (_this <= 4 || {_this >= 10}) exitWith {
+	if (_this == 2 || {_this == 6}) exitWith {
 		(d_e_marker_color_alpha - 0.2) max 0.6
 	};
-	if (_this <= 6 || {_this >= 8}) exitWith {
+	if (_this == 3 || {_this == 5}) exitWith {
 		(d_e_marker_color_alpha - 0.1) max 0.7
 	};
 	d_e_marker_color_alpha
 };
 private _fnc_fivea = {
-	if (_this <= 2 || {_this >= 8}) exitWith {
+	if (_this == 1 || {_this == 5}) exitWith {
 		(d_e_marker_color_alpha - 0.3) max 0.5
 	};
-	if (_this <= 4 || {_this >= 6}) exitWith {
+	if (_this == 2 || {_this == 4}) exitWith {
 		(d_e_marker_color_alpha - 0.2) max 0.6
 	};
 	d_e_marker_color_alpha
@@ -59,10 +55,10 @@ d_mt_marker_triggers = [];
 private _fnc_make_trig_mar = {
 	params ["_num"];
 	private _fnc_2_use = call {
-		if (_num == 13) exitWith {
+		if (_num == 7) exitWith {
 			_fnc_sevena;
 		};
-		if (_num == 9) exitWith {
+		if (_num == 5) exitWith {
 			_fnc_fivea;
 		};
 		_fnc_threea
@@ -91,8 +87,6 @@ private _fnc_make_trig_mar = {
 		
 		_trigger setVariable ["d_trigmarker", _marname];
 		
-		_trigger setTriggerInterval 1;
-		
 		d_mt_marker_triggers pushBack _trigger;
 		
 		_xpos1 = _xpos1 + _tile_size;
@@ -101,72 +95,37 @@ private _fnc_make_trig_mar = {
 	};
 };
 
-[13] call _fnc_make_trig_mar;
+[7] call _fnc_make_trig_mar;
 
 _xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf;
 _ypos1 = _ypos1 + _tile_size;
 
-[13] call _fnc_make_trig_mar;
+[7] call _fnc_make_trig_mar;
 
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf;
-_ypos1 = _ypos1 + _tile_size;
-
-[13] call _fnc_make_trig_mar;
-
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 2);
-_ypos1 = _ypos1 + _tile_size;
-
-[9] call _fnc_make_trig_mar;
-
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 2);
-_ypos1 = _ypos1 + _tile_size;
-
-[9] call _fnc_make_trig_mar;
-
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 4);
+_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + _tile_size;
 _ypos1 = _ypos1 + _tile_size;
 
 [5] call _fnc_make_trig_mar;
 
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 4);
+_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 2);
 _ypos1 = _ypos1 + _tile_size;
 
-[5] call _fnc_make_trig_mar;
+[3] call _fnc_make_trig_mar;
 
 _xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf;
 _ypos1 = (d_cur_tgt_pos # 1) - _tile_size;
 
-[13] call _fnc_make_trig_mar;
+[7] call _fnc_make_trig_mar;
 
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf;
-_ypos1 = _ypos1 - _tile_size;
-
-[13] call _fnc_make_trig_mar;
-
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf;
-_ypos1 = _ypos1 - _tile_size;
-
-[13] call _fnc_make_trig_mar;
-
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 2);
-_ypos1 = _ypos1 - _tile_size;
-
-[9] call _fnc_make_trig_mar;
-
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 2);
-_ypos1 = _ypos1 - _tile_size;
-
-[9] call _fnc_make_trig_mar;
-
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 4);
+_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + _tile_size;
 _ypos1 = _ypos1 - _tile_size;
 
 [5] call _fnc_make_trig_mar;
 
-_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 4);
+_xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 2);
 _ypos1 = _ypos1 - _tile_size;
 
-[5] call _fnc_make_trig_mar;
+[3] call _fnc_make_trig_mar;
 
 /*
 #ifndef __TT__
