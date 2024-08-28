@@ -1,4 +1,4 @@
-dom_params2-- --------------------------------------------------------
+-- --------------------------------------------------------
 -- Host:                         127.0.0.1
 -- Server Version:               10.4.13-MariaDB - mariadb.org binary distribution
 -- Server Betriebssystem:        Win64
