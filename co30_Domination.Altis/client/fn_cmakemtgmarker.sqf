@@ -86,6 +86,7 @@ private _fnc_make_trig_mar = {
 		__TRACE_1("","_trigger")
 		
 		_trigger setVariable ["d_trigmarker", _marname];
+		_trigger setTriggerInterval (0.5 + random 0.5);
 		
 		d_mt_marker_triggers pushBack _trigger;
 		

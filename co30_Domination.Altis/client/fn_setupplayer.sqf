@@ -844,13 +844,13 @@ if (d_player_side == blufor) then {
 #endif
 if (markerPos "d_runwaymarker" isNotEqualTo [0,0,0]) then {
 	private _msize = markerSize "d_runwaymarker";
-	[[markerPos "d_runwaymarker" # 0, markerPos "d_runwaymarker" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker", true, 2], ["ANY", "PRESENT", true], ["(thislist unitsBelowHeight 1) isNotEqualTo []", "'d_runwaymarker' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
+	[[markerPos "d_runwaymarker" # 0, markerPos "d_runwaymarker" # 1, 15], [_msize # 0, _msize # 1, markerDir "d_runwaymarker", true, 2], ["ANY", "PRESENT", true], ["(thislist unitsBelowHeight 1) isNotEqualTo []", "'d_runwaymarker' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
 };
 #ifdef __TT__
 };
 if (d_player_side == opfor && {markerPos "d_runwaymarker_o" isNotEqualTo [0,0,0]}) then {
 	private _msize = markerSize "d_runwaymarker_o";
-	[[markerPos "d_runwaymarker_o" # 0, markerPos "d_runwaymarker_o" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker_o", true, 2], ["ANY", "PRESENT", true], ["(thislist unitsBelowHeight 1) isNotEqualTo []", "'d_runwaymarker_o' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker_o' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
+	[[markerPos "d_runwaymarker_o" # 0, markerPos "d_runwaymarker_o" # 1, 15], [_msize # 0, _msize # 1, markerDir "d_runwaymarker_o", true, 2], ["ANY", "PRESENT", true], ["(thislist unitsBelowHeight 1) isNotEqualTo []", "'d_runwaymarker_o' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker_o' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
 };
 #endif
 
