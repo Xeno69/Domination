@@ -3,7 +3,7 @@
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom init.sqf"];
 
-if (productVersion # 2 < 217) exitWith {
+if (productVersion # 2 < 218) exitWith {
 	diag_log [diag_frameno, diag_ticktime, time, "You need at least Arma 3 patch 2.18 to run Domination!!!!"];
 	endMission "LOSER";
 	forceEnd;
