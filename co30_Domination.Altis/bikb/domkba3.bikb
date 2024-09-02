@@ -641,6 +641,13 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+	class MTEventEnemyAmbushGroup {
+		text = "$STR_DOM_MISSIONSTRING_ENEMY_AMBUSH_GROUP";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
 	class MTHeadshot {
 		text = "$STR_DOM_MISSIONSTRING_HEADSHOT";
 		speech[] = {};

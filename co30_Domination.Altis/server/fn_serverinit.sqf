@@ -29,6 +29,7 @@ d_x_mt_event_types = [
 	"RESCUE_DEFUSE",
 	"CIV_RESISTANCE_INDEPENDENT",
 	"KILL_TRIGGERMAN",
+	"INFANTRY_AMBUSH",
 	"MARKED_FOR_DEATH_VIP_ESCORT"
 ];
 if (d_WithLessArmor == 2 && {"GUERRILLA_TANKS" in d_x_mt_event_types}) then {d_x_mt_event_types = d_x_mt_event_types - ["GUERRILLA_TANKS"]};
