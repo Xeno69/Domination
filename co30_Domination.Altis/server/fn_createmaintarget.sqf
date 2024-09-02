@@ -976,6 +976,9 @@ if (d_with_MainTargetEvents != 0) then {
 					_guerrilla_event_running = true;
 				};
 			};
+			case "INFANTRY_AMBUSH": {
+				[_radius, _trg_center] spawn d_fnc_event_infantry_ambush;
+			};
 			case "MARKED_FOR_DEATH_VIP_ESCORT": {
 				[_radius, _trg_center, true] spawn d_fnc_event_sidevipescort;
 			};
