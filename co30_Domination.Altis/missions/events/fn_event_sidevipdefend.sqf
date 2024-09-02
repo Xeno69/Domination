@@ -75,11 +75,11 @@ private _bldg = nil;
 private _marker = nil;
 
 {
-	_unitsNotGarrisoned = [getPos _x, _allActors, 199, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
+	_unitsNotGarrisoned = [getPos _x, _allActors, 199, false, false, false, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
 		_bldg = _x;
-		[getPos _x, _allActors, 199, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
+		[getPos _x, _allActors, 199, false, false, false, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
 	};
 
 } forEach _buildings_array_sorted_by_distance;
