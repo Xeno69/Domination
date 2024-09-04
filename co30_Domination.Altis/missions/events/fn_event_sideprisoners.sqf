@@ -97,7 +97,7 @@ private _marker = nil;
 private _spawnpos = _nposss;
 if !(_buildings_array_sorted_by_distance isEqualTo []) then {
 	_spawnpos = getPos (_buildings_array_sorted_by_distance # 0);
-	_unitsNotGarrisoned = [_spawnpos, _pilot1, 199, true, false, false, false, 2, false, true, false, -1, _buildings_array_sorted_by_distance # 0] call d_fnc_Zen_OccupyHouse;
+	_unitsNotGarrisoned = [_spawnpos, _pilot1, 199, false, false, false, false, 2, false, true, false, -1, _buildings_array_sorted_by_distance # 0] call d_fnc_Zen_OccupyHouse;
 };
 
 {

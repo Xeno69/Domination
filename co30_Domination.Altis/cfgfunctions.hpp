@@ -489,6 +489,7 @@ class cfgFunctions {
 			addc(event_sidekilltriggerman);
 			addc(event_civ_massacre);
 			addc(event_guerrillas_embedded_as_civilians);
+			addc(event_infantry_ambush);
 			addc(event_enemy_incoming);
 		};
 		class Dom_Server {

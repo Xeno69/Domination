@@ -62,7 +62,7 @@ for "_i" from 0 to _guerrillaGroupCount do {
 	private _spawn_pos = selectRandom _posArray;
 	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, _unitCount, true] call d_fnc_makemgroup;
 	_newgroup setCombatMode "BLUE";
-	private _unitsNotGarrisoned = [_spawn_pos, _units, 10, false, false, true, false, 0, true, true] call d_fnc_Zen_OccupyHouse;
+	private _unitsNotGarrisoned = [_spawn_pos, _units, 10, false, false, false, false, 0, true, true] call d_fnc_Zen_OccupyHouse;
 	{		
 		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["spotTime", 0.6];

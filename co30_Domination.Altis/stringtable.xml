@@ -14456,6 +14456,18 @@
 <Chinese>注意：一些平民已經武裝起來，準備戰鬥！</Chinese>
 <French>Attention: some of the civilians are armed and ready to fight!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENEMY_AMBUSH_GROUP">
+<English>Attention: enemy ambush group spotted in the maintarget!</English>
+<Spanish>Attention: enemy ambush group spotted in the maintarget!</Spanish>
+<Portuguese>Attention: enemy ambush group spotted in the maintarget!</Portuguese>
+<Korean>Attention: enemy ambush group spotted in the maintarget!</Korean>
+<Japanese>Attention: enemy ambush group spotted in the maintarget!</Japanese>
+<Original>Attention: enemy ambush group spotted in the maintarget!</Original>
+<Russian>Attention: enemy ambush group spotted in the maintarget!</Russian>
+<Chinesesimp>Attention: enemy ambush group spotted in the maintarget!</Chinesesimp>
+<Chinese>Attention: enemy ambush group spotted in the maintarget!</Chinese>
+<French>Attention: enemy ambush group spotted in the maintarget!</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028_RABBIT">
 <English>Attention: Our lucky pet rabbit is lost.  Find %1!</English>
 <Spanish>Atención: Nuestro conejo de la suerte está perdido. ¡Encontrar a %1!</Spanish>

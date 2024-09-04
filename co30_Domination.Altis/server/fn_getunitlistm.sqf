@@ -13,15 +13,24 @@ if (isNil "_ret") exitWith {
 	[]
 };
 
-if (!d_with_ace) then {
-	if (count _ret > 7) then {
-		_ret resize (selectRandom [6, 7]);
+	if (d_grp_size_override == 0) then {
+		// 0 = normal, resize the group if it is too large
+		if (!d_with_ace) then {
+			if (count _ret > 7) then {
+				_ret resize (selectRandom [6, 7]);
+			};
+		};
+	} else {
+		if (d_grp_size_override == 1) then {
+			// 1 = high, do not resize the group, do nothing
+		} else {
+			// 2 or higher, resize group to d_grp_size_override if possible
+			if (count _ret > d_grp_size_override) then {
+				_ret resize d_grp_size_override;
+			};
+		};
 	};
-} else {
-	if (d_grp_size_override != 1 && {count _ret > 5}) then {
-		_ret resize (selectRandom [4, 5, 6]);
-	};
-};
+
 
 if (_ret isEqualTo []) then {
 	diag_log ["Attention in getunitlistm!!! Current _grptype returns empty list, _grptype:", _grptype, ", _side:", _side];
