@@ -24,8 +24,10 @@ if (isNil "_ret") exitWith {
 		if (d_grp_size_override == 1) then {
 			// 1 = high, do not resize the group, do nothing
 		} else {
-			// 2 or higher, resize group to d_grp_size_override
-			_ret resize (selectRandom [d_grp_size_override -1, d_grp_size_override, d_grp_size_override + 1]);
+			// 2 or higher, resize group to d_grp_size_override if possible
+			if (count _ret > d_grp_size_override) then {
+				_ret resize d_grp_size_override;
+			};
 		};
 	};
 
