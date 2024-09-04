@@ -134,15 +134,17 @@ if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 
 sleep 3;
 
-if (d_WithMHQTeleport == 0) then {
-	"d_introtxt2" cutText [format ["<t color='#ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
-};
-
 4 fadeMusic 0;
 0 spawn {
 	scriptName "spawn_music_intro2";
 	sleep 120;
 	0 fadeMusic 1;
 };
+
+if (d_WithMHQTeleport == 0) then {
+	"d_introtxt2" cutText [format ["<t color='#ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
+	sleep 10;
+};
+"d_introtxt2" cutText [format ["<t color='#0000ff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2114"], "PLAIN DOWN", -1, true, true];
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom intro ended"];

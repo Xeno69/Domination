@@ -214,6 +214,9 @@ sleep 3;
 
 if (d_WithMHQTeleport == 0) then {
 	"d_introtxt2" cutText [format ["<t color='#ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
+	sleep 10;
 };
+
+"d_introtxt2" cutText [format ["<t color='#0000FF' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2114"], "PLAIN DOWN", -1, true, true];
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom intro ended"];

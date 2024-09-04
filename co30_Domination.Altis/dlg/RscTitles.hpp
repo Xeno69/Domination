@@ -27,7 +27,7 @@ class d_DomFour {
 	class controls {
 		class Picture: D_RscPicture {
 			idc=50;
-			x=2; y=0.35; w=0.15; h=0.15;
+			x=2.2; y=0.35; w=0.15; h=0.15;
 			text="pics\dfour.paa";
 			sizeEx = 256;
 		};
