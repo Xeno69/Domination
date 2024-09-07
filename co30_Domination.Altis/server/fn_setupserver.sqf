@@ -180,3 +180,5 @@ if (d_force_isstreamfriendlyui != 1) then {
 		}, 3] call d_fnc_eachframeadd;
 	};
 };
+
+0 spawn d_fnc_dynsimcheck;

@@ -703,6 +703,7 @@ class cfgFunctions {
 			addc(uavcreated);
 			addc(acurator);
 			addc(entityrespawned);
+			addc(dynsimcheck);
 		};
 		class Dom_PrePostInit {
 			file = "init";
