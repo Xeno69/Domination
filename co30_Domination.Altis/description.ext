@@ -160,7 +160,9 @@ vn_arsenalShowMelee = 1;
 
 missionGroup = "DominationMissionGroup";
 
-class CfgRemoteExec {
+import CfgRemoteExec as CfgRemoteExecMod;
+
+class CfgRemoteExec: CfgRemoteExecMod {
 	// List of script functions allowed to be sent from client via remoteExec
 	class Functions {
 		// State of remoteExec: 0-turned off, 1-turned on, taking whitelist into account (default because of security), 2-turned on, however, ignoring whitelists
@@ -344,6 +346,18 @@ class CfgRemoteExec {
 		class SPE_Fnc_System_Tanks_create_SmokeEruption {};
 		class SPE_Fnc_System_vehicleHitIndicator_remote {};
 		class SPE_fnc_setObjectFX {};
+		class SPE_fnc_bolt_onReload {};
+		class SPE_fnc_incendiary_local_HandleDamage {};
+		class SPE_Weapons_Static_fnc_addMagazine {};
+		class SPE_fnc_applyGasDamage {};
+		class SPE_fnc_GasFX {};
+		class SPE_Fnc_System_Artillery_Towing_remoteAddToTow {};
+		class SPE_Fnc_System_partDestruction_createDestructPart {};
+		class SPE_fnc_System_pintleMG_remoteMoveTo {};
+		class SPE_fnc_System_pintleMG_remoteUnlockLock {};
+		class SPE_Fnc_System_Tanks_ammo_rack_detonate {};
+		class SPE_Fnc_System_ViV_lockForTransport {};
+		class SPE_System_Artillery_Towing_Statement_Attach_Wheeled_APCs {};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -384,6 +398,8 @@ class CfgRemoteExec {
 		class setTurretLimits {};
 		class addweaponTurret {};
 		class setOwner {};
+		class lockTurret {};
+		class playActionNow {};
 #endif
 	};
 };

@@ -18,6 +18,7 @@
 - Added: Faction Islamic State updated vehicles, updated infantry AT, by longtimegamer
 - Added: Pylon loadout change for spawned drones
 - Added: Rabbit rescue will announce if a player killed the rabbit, by longtimegamer
+- Added: CfgRemoteExecMod import to CfgRemoteExec in description.ext
 - Changed: Added new 2.18 scripting commands and scripting command changes
 - Changed: AI group respawn times increased again
 - Changed: Better messages if farp/mash position is too close to base or slope is too steep
@@ -41,7 +42,7 @@
 - Fixed: texts array was missing in the SPE version in description.ext class Params -> class d_MainTargets_num
 - Fixed: The "Team Alpha MG Gunner" slot still had the vanilla A3 mg gunner class instead of the SPE class in the SPE GER version
 - Fixed: If a unit is in Team Delta (engineer) and the class doesn't have the trait "engineer" it is added now (for example the SPE version had the problem)
-- Updated: Added new SPE 1.1 classes
+- Updated: Added new SPE 1.1 classes and missing CfgRemoteExec entries
 - Updated: Korean translation, by kkim
 - Workaround: Zeus was not transfered to a logged in admin player object after respawn
 - Workaround: If some 3rd party mod/addon kills a camp at the main target (happens with some bombs using setdamage) change the camp to captured so that the main target can end
