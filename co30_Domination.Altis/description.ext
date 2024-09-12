@@ -160,9 +160,10 @@ vn_arsenalShowMelee = 1;
 
 missionGroup = "DominationMissionGroup";
 
-import CfgRemoteExec as CfgRemoteExecMod;
+//import CfgRemoteExec as CfgRemoteExecMod;
 
-class CfgRemoteExec: CfgRemoteExecMod {
+//class CfgRemoteExec: CfgRemoteExecMod {
+class CfgRemoteExec {
 	// List of script functions allowed to be sent from client via remoteExec
 	class Functions {
 		// State of remoteExec: 0-turned off, 1-turned on, taking whitelist into account (default because of security), 2-turned on, however, ignoring whitelists

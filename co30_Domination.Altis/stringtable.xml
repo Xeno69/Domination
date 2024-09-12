@@ -57,7 +57,7 @@
 <Korean>장비 정비</Korean>
 <Japanese>Vehicle Service</Japanese>
 <Original>Vehicle Service</Original>
-<Russian>Vehicle Service</Russian>
+<Russian>Обслуживание транспортных средств</Russian>
 <Chinesesimp>Vehicle Service</Chinesesimp>
 <Chinese>Vehicle Service</Chinese>
 <French>Vehicle Service</French>
@@ -1881,7 +1881,7 @@
 <Korean>배치할 수 없습니다. 다른 위치에 다시 시도하여 주십시오.</Korean>
 <Japanese>Place not valid, slope too steep. Try another location.</Japanese>
 <Original>Place not valid, slope too steep. Try another location.</Original>
-<Russian>Place not valid, slope too steep. Try another location.</Russian>
+<Russian>Место недействительно, склон слишком крутой. Попробуйте другое место.</Russian>
 <Chinesesimp>Place not valid, slope too steep. Try another location.</Chinesesimp>
 <Chinese>Place not valid, slope too steep. Try another location.</Chinese>
 <French>Place not valid, slope too steep. Try another location.</French>
@@ -1893,7 +1893,7 @@
 <Korean>Place not valid, too close to base. Try another location.</Korean>
 <Japanese>Place not valid, too close to base. Try another location.</Japanese>
 <Original>Place not valid, too close to base. Try another location.</Original>
-<Russian>Place not valid, too close to base. Try another location.</Russian>
+<Russian>Место недействительное, слишком близко к базе. Попробуйте другое место.</Russian>
 <Chinesesimp>Place not valid, too close to base. Try another location.</Chinesesimp>
 <Chinese>Place not valid, too close to base. Try another location.</Chinese>
 <French>Place not valid, too close to base. Try another location.</French>
@@ -3009,7 +3009,7 @@
 <Korean>Extra</Korean>
 <Japanese>Extra</Japanese>
 <Original>Extra</Original>
-<Russian>Extra</Russian>
+<Russian>Дополнительный</Russian>
 <Chinesesimp>Extra</Chinesesimp>
 <Chinese>Extra</Chinese>
 <French>Extra</French>
@@ -3105,7 +3105,7 @@
 <Korean>항상, 게릴라 및 방어진행</Korean>
 <Japanese>Always, guerrillas and defense only</Japanese>
 <Original>Always, guerrillas and defense only</Original>
-<Russian>Always, guerrillas and defense only</Russian>
+<Russian>Всегда только партизаны и оборона</Russian>
 <Chinesesimp>Always, guerrillas and defense only</Chinesesimp>
 <Chinese>Always, guerrillas and defense only</Chinese>
 <French>Always, guerrillas and defense only</French>
@@ -3117,7 +3117,7 @@
 <Korean>전부</Korean>
 <Japanese>全て</Japanese>
 <Original>All</Original>
-<Russian>All</Russian>
+<Russian>Все</Russian>
 <Chinesesimp>全部</Chinesesimp>
 <Chinese>全部</Chinese>
 <French>All</French>
@@ -3417,7 +3417,7 @@
 <Korean>장비 정비</Korean>
 <Japanese>Vehicle Service Point</Japanese>
 <Original>Vehicle Service Point</Original>
-<Russian>Vehicle Service Point</Russian>
+<Russian>Пункт технического обслуживания транспортных средств</Russian>
 <Chinesesimp>Vehicle Service Point</Chinesesimp>
 <Chinese>Vehicle Service Point</Chinese>
 <French>Vehicle Service Point</French>
@@ -3777,7 +3777,7 @@
 <Korean>%1 에 있는 고가치 표적을 찾아 사살하십시오.\n</Korean>
 <Japanese>Find a high value target in %1 and eliminate him\n</Japanese>
 <Original>Find a high value target in %1 and eliminate him\n</Original>
-<Russian>Find a high value target in %1 and eliminate him\n</Russian>
+<Russian>Найдите важную цель в %1 и устраните ее.\n</Russian>
 <Chinesesimp>Find a high value target in %1 and eliminate him\n</Chinesesimp>
 <Chinese>Find a high value target in %1 and eliminate him\n</Chinese>
 <French>Find a high value target in %1 and eliminate him\n</French>
@@ -5049,7 +5049,7 @@
 <Korean>%1 was killed by %2! Command has been notified...</Korean>
 <Japanese>%1 was killed by %2! Command has been notified...</Japanese>
 <Original>%1 was killed by %2! Command has been notified...</Original>
-<Russian>%1 was killed by %2! Command has been notified...</Russian>
+<Russian>%1 был убит %2! Командование уведомлено...</Russian>
 <Chinesesimp>%%1 was killed by %2! Command has been notified...</Chinesesimp>
 <Chinese>%1 was killed by %2! Command has been notified...</Chinese>
 <French>%1 was killed by %2! Command has been notified...</French>
@@ -6334,7 +6334,7 @@
 <Korean>아군이 고가치 표적을 사살하였습니다.</Korean>
 <Japanese>Your team killed the high value target.</Japanese>
 <Original>Your team killed the high value target.</Original>
-<Russian>Your team killed the high value target.</Russian>
+<Russian>Ваша команда уничтожила важную цель.</Russian>
 <Chinesesimp>Your team killed the high value target.</Chinesesimp>
 <Chinese>Your team killed the high value target.</Chinese>
 <French>Your team killed the high value target.</French>
@@ -6982,7 +6982,7 @@
 <Korean>수동 조종가능 낙하산:</Korean>
 <Japanese>Force steerable parachutes:</Japanese>
 <Original>Force steerable parachutes:</Original>
-<Russian>Force steerable parachutes:</Russian>
+<Russian>Управляемые парашюты:</Russian>
 <Chinesesimp>Force steerable parachutes:</Chinesesimp>
 <Chinese>Force steerable parachutes:</Chinese>
 <French>Force steerable parachutes:</French>
@@ -6994,7 +6994,7 @@
 <Korean>플레이어 어떤 위치로든 공수낙하 가능:</Korean>
 <Japanese>Players may parajump to any location:</Japanese>
 <Original>Players may parajump to any location:</Original>
-<Russian>Players may parajump to any location:</Russian>
+<Russian>Игроки могут прыгать с парашютом в любую точку:</Russian>
 <Chinesesimp>Players may parajump to any location:</Chinesesimp>
 <Chinese>Players may parajump to any location:</Chinese>
 <French>Players may parajump to any location:</French>
@@ -7487,7 +7487,7 @@
 <Korean>프롱크(Phronk's) 가구세트 활성화 (실험요소):</Korean>
 <Japanese>Enable Phronk's Furniture (experimental):</Japanese>
 <Original>Enable Phronk's Furniture (experimental):</Original>
-<Russian>Enable Phronk's Furniture (experimental):</Russian>
+<Russian>Включить Phronk's Furniture (экспериментальная):</Russian>
 <Chinesesimp>Enable Phronk's Furniture (experimental):</Chinesesimp>
 <Chinese>Enable Phronk's Furniture (experimental):</Chinese>
 <French>Enable Phronk's Furniture (experimental):</French>
@@ -7499,7 +7499,7 @@
 <Korean>주변 전장소리 비활성화:</Korean>
 <Japanese>Disable ambient battlefield sounds:</Japanese>
 <Original>Disable ambient battlefield sounds:</Original>
-<Russian>Disable ambient battlefield sounds:</Russian>
+<Russian>Отключить окружающие звуки поля боя:</Russian>
 <Chinesesimp>Disable ambient battlefield sounds:</Chinesesimp>
 <Chinese>Disable ambient battlefield sounds:</Chinese>
 <French>Disable ambient battlefield sounds:</French>
@@ -7955,7 +7955,7 @@
 <Korean>Drop Ammo Truck</Korean>
 <Japanese>Drop Ammo Truck</Japanese>
 <Original>Drop Ammo Truck</Original>
-<Russian>Drop Ammo Truck</Russian>
+<Russian>Сбросить грузовик с боеприпасами</Russian>
 <Chinesesimp>Drop Ammo Truck</Chinesesimp>
 <Chinese>Drop Ammo Truck</Chinese>
 <French>Drop Ammo Truck</French>
@@ -7967,7 +7967,7 @@
 <Korean>Drop APC</Korean>
 <Japanese>Drop APC</Japanese>
 <Original>Drop APC</Original>
-<Russian>Drop APC</Russian>
+<Russian>Сбросить БТР</Russian>
 <Chinesesimp>Drop APC</Chinesesimp>
 <Chinese>Drop APC</Chinese>
 <French>Drop APC</French>
@@ -7979,7 +7979,7 @@
 <Korean>Drop MRAP</Korean>
 <Japanese>Drop MRAP</Japanese>
 <Original>Drop MRAP</Original>
-<Russian>Drop MRAP</Russian>
+<Russian>Сбросить MRAP</Russian>
 <Chinesesimp>Drop MRAP</Chinesesimp>
 <Chinese>Drop MRAP</Chinese>
 <French>Drop MRAP</French>
@@ -7991,7 +7991,7 @@
 <Korean>Drop Tank</Korean>
 <Japanese>Drop Tank</Japanese>
 <Original>Drop Tank</Original>
-<Russian>Drop Tank</Russian>
+<Russian>Сбросить танк</Russian>
 <Chinesesimp>Drop Tank</Chinesesimp>
 <Chinese>Drop Tank</Chinese>
 <French>Drop Tank</French>
@@ -8003,7 +8003,7 @@
 <Korean>Drop Tank Special</Korean>
 <Japanese>Drop Tank Special</Japanese>
 <Original>Drop Tank Special</Original>
-<Russian>Drop Tank Special</Russian>
+<Russian>Сбросить специальны танк</Russian>
 <Chinesesimp>Drop Tank Special</Chinesesimp>
 <Chinese>Drop Tank Special</Chinese>
 <French>Drop Tank Special</French>
@@ -8639,7 +8639,7 @@
 <Korean>무장 무인기</Korean>
 <Japanese>Combat UAV</Japanese>
 <Original>Combat UAV</Original>
-<Russian>Combat UAV</Russian>
+<Russian>Боевой БПЛА</Russian>
 <Chinesesimp>Combat UAV</Chinesesimp>
 <Chinese>Combat UAV</Chinese>
 <French>Combat UAV</French>
@@ -11196,7 +11196,7 @@
 <Korean>메인미션 종료</Korean>
 <Japanese>End maintarget</Japanese>
 <Original>End maintarget</Original>
-<Russian>End maintarget</Russian>
+<Russian>Конец основного задания</Russian>
 <Chinesesimp>End maintarget</Chinesesimp>
 <Chinese>End maintarget</Chinese>
 <French>End maintarget</French>
@@ -11388,7 +11388,7 @@
 <Korean>포로가된 아군이 폭발조끼를 입고 있습니다. 표시된 위치로 이동하고 폭발격발기를 가진자를 제거 하십시오! 시간은 %1초 남았다.</Korean>
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Original>
-<Russian>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Russian>
+<Russian>Военнопленный носит жилет со взрывчаткой. Двигайтесь к отмеченной позиции и убейте того, кто стреляет! У вас есть %1 секунд.</Russian>
 <Chinesesimp>一名友军战俘身穿爆炸背心。前往标记位置找到并干掉爆破手！你有 %1 秒。</Chinesesimp>
 <Chinese>一名友軍戰俘身穿爆炸背心。前往標記位置找到並幹掉爆破手！你有 %1 秒。</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</French>
@@ -11400,7 +11400,7 @@
 <Korean>포로가된 아군 파일럿이 폭탄조끼를 입고 있습니다. 표시된 위치로 이동하고 우리의 파일럿을 구출 하십시오! 시간은 %1 초 남았다.</Korean>
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Original>
-<Russian>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Russian>
+<Russian>Военнопленный носит жилет со взрывчаткой. Двигайтесь к отмеченной позиции и спасите нашего пилота! У вас есть %1 секунд.</Russian>
 <Chinesesimp>一名友军战俘身穿爆炸背心。移动到标记的位置并营救我们的飞行员！您有 %1 秒。</Chinesesimp>
 <Chinese>一名友軍戰俘身穿爆炸背心。移動到標記的位置並營救我們的飛行員！您有 %1 秒。</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</French>
@@ -11412,7 +11412,7 @@
 <Korean>신관 제거중...</Korean>
 <Japanese>デバイスを解除中...</Japanese>
 <Original>Defusing device...</Original>
-<Russian>Defusing device...</Russian>
+<Russian>Устройство для обезвреживания...</Russian>
 <Chinesesimp>拆解装置...</Chinesesimp>
 <Chinese>拆解裝置...</Chinese>
 <French>Defusing device...</French>
@@ -12396,7 +12396,7 @@
 <Korean>%1 이(가) 적군의 표적으로 확인되었습니다. VIP를 안전가옥으로 무사히 피난시키길 바랍니다.</Korean>
 <Japanese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Japanese>
 <Original>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Original>
-<Russian>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Russian>
+<Russian>%1 отмечен как погибший. Безопасно сопроводите VIP в целевой центр для эвакуации.</Russian>
 <Chinesesimp>%1 已被标记为死亡。安全护送 VIP 到目标中心进行疏散。</Chinesesimp>
 <Chinese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Chinese>
 <French>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</French>
@@ -12408,7 +12408,7 @@
 <Korean>VIP가 아군을 따라가고 있습니다.  마을의 안전가옥으로 VIP를 이동시키세요!</Korean>
 <Japanese>The VIP is following you.  Escort them to the center of town!</Japanese>
 <Original>The VIP is following you.  Escort them to the center of town!</Original>
-<Russian>The VIP is following you.  Escort them to the center of town!</Russian>
+<Russian>VIP следует за вами. Сопроводите его в центр города!</Russian>
 <Chinesesimp>VIP 会跟着你。护送他们到市中心！</Chinesesimp>
 <Chinese>The VIP is following you.  Escort them to the center of town!</Chinese>
 <French>The VIP is following you.  Escort them to the center of town!</French>
@@ -12444,7 +12444,7 @@
 <Korean>%1 이(가) 사망하였습니다.  미션실패.</Korean>
 <Japanese>%1 did not survive.  Mission failed.</Japanese>
 <Original>%1 did not survive.  Mission failed.</Original>
-<Russian>%1 did not survive.  Mission failed.</Russian>
+<Russian>%1 не выжил. Миссия провалена.</Russian>
 <Chinesesimp>%1 did not survive.  Mission failed.</Chinesesimp>
 <Chinese>%1 did not survive.  Mission failed.</Chinese>
 <French>%1 did not survive.  Mission failed.</French>
@@ -12468,7 +12468,7 @@
 <Korean>성공.  %1 생존하였습니다. + %2</Korean>
 <Japanese>Success.  %1 survived. + %2</Japanese>
 <Original>Success.  %1 survived. + %2</Original>
-<Russian>Success.  %1 survived. + %2</Russian>
+<Russian>Успех. %1 выжил. + %2</Russian>
 <Chinesesimp>Success.  %1 survived. + %2</Chinesesimp>
 <Chinese>Success.  %1 survived. + %2</Chinese>
 <French>Success.  %1 survived. + %2</French>
@@ -12492,7 +12492,7 @@
 <Korean>서두르세요! 겨우 %1 초 남았다.</Korean>
 <Japanese>Move quickly! Only %1 seconds.</Japanese>
 <Original>Move quickly! Only %1 seconds.</Original>
-<Russian>Move quickly! Only %1 seconds.</Russian>
+<Russian>Двигайтесь быстрее! Всего %1 секунд.</Russian>
 <Chinesesimp>动作快点！仅剩 %1 秒。</Chinesesimp>
 <Chinese>動作快點！僅剩 %1 秒。</Chinese>
 <French>Move quickly! Only %1 seconds.</French>
@@ -12974,7 +12974,7 @@
 <Korean>실험요소</Korean>
 <Japanese>Experimental</Japanese>
 <Original>Experimental</Original>
-<Russian>Experimental</Russian>
+<Russian>Эксперементальная</Russian>
 <Chinesesimp>Experimental</Chinesesimp>
 <Chinese>Experimental</Chinese>
 <French>Experimental</French>
@@ -12986,7 +12986,7 @@
 <Korean>고급</Korean>
 <Japanese>Advanced</Japanese>
 <Original>Advanced</Original>
-<Russian>Advanced</Russian>
+<Russian>Расширенный</Russian>
 <Chinesesimp>Advanced</Chinesesimp>
 <Chinese>Advanced</Chinese>
 <French>Advanced</French>
@@ -13070,7 +13070,7 @@
 <Korean>Enemy infantry - enable randomized guard and patrol groups</Korean>
 <Japanese>Enemy infantry - enable randomized guard and patrol groups</Japanese>
 <Original>Enemy infantry - enable randomized guard and patrol groups</Original>
-<Russian>Enemy infantry - enable randomized guard and patrol groups</Russian>
+<Russian>Вражеская пехота — включить случайные группы охраны и патрулирования.</Russian>
 <Chinesesimp>Enemy infantry - enable randomized guard and patrol groups</Chinesesimp>
 <Chinese>Enemy infantry - enable randomized guard and patrol groups</Chinese>
 <French>Enemy infantry - always choose maximum number of groups</French>
@@ -13682,7 +13682,7 @@
 <Korean>%1 아머박스 근처 대기시간... 귀관은 %2 초 기다린 뒤에 재 발포 할수 있습니다!!!</Korean>
 <Japanese>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Japanese>
 <Original>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Original>
-<Russian>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Russian>
+<Russian>%1 фаза перезарядки возле ящика с боеприпасами... Вам придется подождать %2 секунды, чтобы снова выстрелить!!!</Russian>
 <Chinesesimp>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Chinesesimp>
 <Chinese>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Chinese>
 <French>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</French>
@@ -13875,7 +13875,7 @@
 <Korean>차량 MHQ</Korean>
 <Japanese>Vec MHQ</Japanese>
 <Original>Vec MHQ</Original>
-<Russian>Vec MHQ</Russian>
+<Russian>Транспорт MHQ</Russian>
 <Chinesesimp>Vec MHQ</Chinesesimp>
 <Chinese>Vec MHQ</Chinese>
 <French>Vec MHQ</French>
@@ -14439,7 +14439,7 @@
 <Korean>주의: 적군의 이동이 %1 에서 관측되었습니다 . 도시를 방어하세요!</Korean>
 <Japanese>Attention: Enemy units are moving into %1. Defend the city!</Japanese>
 <Original>Attention: Enemy units are moving into %1. Defend the city!</Original>
-<Russian>Attention: Enemy units are moving into %1. Defend the city!</Russian>
+<Russian>Внимание: Вражеские подразделения движутся в %1. Защитите город!</Russian>
 <Chinesesimp>Attention: Enemy units are moving into %1. Defend the city!</Chinesesimp>
 <Chinese>Attention: Enemy units are moving into %1. Defend the city!</Chinese>
 <French>Attention: Enemy units are moving into %1. Defend the city!</French>
@@ -14463,7 +14463,7 @@
 <Korean>Attention: enemy ambush group spotted in the maintarget!</Korean>
 <Japanese>Attention: enemy ambush group spotted in the maintarget!</Japanese>
 <Original>Attention: enemy ambush group spotted in the maintarget!</Original>
-<Russian>Attention: enemy ambush group spotted in the maintarget!</Russian>
+<Russian>Внимание: в районе главной цели обнаружена засадная группа противника!</Russian>
 <Chinesesimp>Attention: enemy ambush group spotted in the maintarget!</Chinesesimp>
 <Chinese>Attention: enemy ambush group spotted in the maintarget!</Chinese>
 <French>Attention: enemy ambush group spotted in the maintarget!</French>
@@ -14487,7 +14487,7 @@
 <Korean>토끼</Korean>
 <Japanese>rabbit</Japanese>
 <Original>rabbit</Original>
-<Russian>rabbit</Russian>
+<Russian>кролик</Russian>
 <Chinesesimp>rabbit</Chinesesimp>
 <Chinese>rabbit</Chinese>
 <French>lapin</French>
@@ -14583,7 +14583,7 @@
 <Korean>신관제거</Korean>
 <Japanese>解除</Japanese>
 <Original>defuse</Original>
-<Russian>defuse</Russian>
+<Russian>обезвредить</Russian>
 <Chinesesimp>拆除</Chinesesimp>
 <Chinese>拆除</Chinese>
 <French>defuse</French>
@@ -14595,7 +14595,7 @@
 <Korean>폭발물 격발자 사살</Korean>
 <Japanese>起爆装置所持者の射殺</Japanese>
 <Original>kill triggerman</Original>
-<Russian>kill triggerman</Russian>
+<Russian>убить triggerman</Russian>
 <Chinesesimp>杀死爆破手</Chinesesimp>
 <Chinese>殺死爆破手</Chinese>
 <French>kill triggerman</French>
@@ -14823,7 +14823,7 @@
 <Korean>이동거리,미터 단위(km):</Korean>
 <Japanese>移動距離 (km):</Japanese>
 <Original>Distance traveled, in kilometer:</Original>
-<Russian>Distance traveled, in kilometer:</Russian>
+<Russian>Пройденное расстояние, в километрах:</Russian>
 <Chinesesimp>Distance traveled, in kilometer：</Chinesesimp>
 <Chinese>Distance traveled, in kilometer：</Chinese>
 <French>Distance traveled, in kilometer:</French>
@@ -15042,7 +15042,7 @@
 <Korean>타켓 반경:</Korean>
 <Japanese>Target radius:</Japanese>
 <Original>Target radius:</Original>
-<Russian>Target radius:</Russian>
+<Russian>Радиус цели:</Russian>
 <Chinesesimp>目标半径：</Chinesesimp>
 <Chinese>目標半徑：</Chinese>
 <French>Target radius:</French>
@@ -15258,7 +15258,7 @@
 <Korean>추가 CAS 병기 활성화</Korean>
 <Japanese>Enable extra CAS ordnance</Japanese>
 <Original>Enable extra CAS ordnance</Original>
-<Russian>Enable extra CAS ordnance</Russian>
+<Russian>Включить дополнительные боеприпасы CAS</Russian>
 <Chinesesimp>启用额外的 CAS 弹药</Chinesesimp>
 <Chinese>Enable extra CAS ordnance</Chinese>
 <French>Enable extra CAS ordnance</French>
@@ -15426,7 +15426,7 @@
 <Korean>클라이언트 와 그룹만</Korean>
 <Japanese>Client and group</Japanese>
 <Original>Client and group</Original>
-<Russian>Client and group</Russian>
+<Russian>Клиент и группа</Russian>
 <Chinesesimp>客户和团队</Chinesesimp>
 <Chinese>Client and group</Chinese>
 <French>Client and group</French>
@@ -15462,7 +15462,7 @@
 <Korean>(+) %1 m</Korean>
 <Japanese>(+) %1 m</Japanese>
 <Original>(+) %1 m</Original>
-<Russian>(+) %1 m</Russian>
+<Russian>(+) %1 м</Russian>
 <Chinesesimp>(+) %1 M</Chinesesimp>
 <Chinese>(+) %1 m</Chinese>
 <French>(+) %1 m</French>
@@ -15522,7 +15522,7 @@
 <Korean>SQL 데이터베이스를 사용 할수 없는경우 플레이어 및 미션진행 상황을 미션 프로필네임스페이스에 저장합니다(서버랭킹 설정을 활성화합니다)</Korean>
 <Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Japanese>
 <Original>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Original>
-<Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Russian>
+<Russian>Сохранение прогресса миссии в missionProfileNamespace, если база данных SQL недоступна (включает настройки ранжированного сервера)</Russian>
 <Chinesesimp>如果没有可用的 SQL 数据库，则将玩家和任务进度保存到任务配置文件命名空间</Chinesesimp>
 <Chinese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Chinese>
 <French>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</French>
@@ -15534,7 +15534,7 @@
 <Korean>보병 가시거리 설정을 사용하여 모든 가시거리 설정을 지정:</Korean>
 <Japanese>Use only Inf VD slider to set all VD settings:</Japanese>
 <Original>Use only Inf VD slider to set all VD settings:</Original>
-<Russian>Use only Inf VD slider to set all VD settings:</Russian>
+<Russian>Исп. ползунок Inf VD для всех настроек VD.:</Russian>
 <Chinesesimp>仅使用 Inf VD 滑块设置所有 VD 设置：</Chinesesimp>
 <Chinese>Use only Inf VD slider to set all VD settings:</Chinese>
 <French>Use only Inf VD slider to set all VD settings:</French>
@@ -15546,7 +15546,7 @@
 <Korean>생성된 적 AI 유닛의 소음기제거:</Korean>
 <Japanese>Remove silencer from spawned enemy AI units:</Japanese>
 <Original>Remove silencer from spawned enemy AI units:</Original>
-<Russian>Remove silencer from spawned enemy AI units:</Russian>
+<Russian>Убрать глушитель у созданных вражеских юнитов ИИ.:</Russian>
 <Chinesesimp>生成的敌方 AI 单位移除消音器：</Chinesesimp>
 <Chinese>Remove silencer from spawned enemy AI units:</Chinese>
 <French>Remove silencer from spawned enemy AI units:</French>
@@ -15558,7 +15558,7 @@
 <Korean>예 (서버클라이언트가 설치된 이후)</Korean>
 <Japanese>Yes (after server initializes client)</Japanese>
 <Original>Yes (after server initializes client)</Original>
-<Russian>Yes (after server initializes client)</Russian>
+<Russian>Да (после того, как сервер инициализирует клиента)</Russian>
 <Chinesesimp>是（服务器初始化客户端后）</Chinesesimp>
 <Chinese>Yes (after server initializes client)</Chinese>
 <French>Yes (after server initializes client)</French>
@@ -15570,7 +15570,7 @@
 <Korean>서버시스템 시간을 게임시간으로 사용</Korean>
 <Japanese>Use server system time as game time</Japanese>
 <Original>Use server system time as game time</Original>
-<Russian>Use server system time as game time</Russian>
+<Russian>Использовать системное время сервера в качестве игрового времени</Russian>
 <Chinesesimp>使用服务器系统时间作为游戏时间</Chinesesimp>
 <Chinese>Use server system time as game time</Chinese>
 <French>Use server system time as game time</French>
@@ -15582,7 +15582,7 @@
 <Korean>예(미션진행사항 저장 비활성화)</Korean>
 <Japanese>Yes (missionprogress autosave disabled)</Japanese>
 <Original>Yes (missionprogress autosave disabled)</Original>
-<Russian>Yes (missionprogress autosave disabled)</Russian>
+<Russian>Да (автосохранение хода миссии отключено)</Russian>
 <Chinesesimp>Yes (missionprogress autosave disabled)</Chinesesimp>
 <Chinese>Yes (missionprogress autosave disabled)</Chinese>
 <French>Yes (missionprogress autosave disabled)</French>
@@ -15594,7 +15594,7 @@
 <Korean>모드가 요구됨 - 적 세력 (실험요소)</Korean>
 <Japanese>MODS REQUIRED - Enemy factions (experimental)</Japanese>
 <Original>MODS REQUIRED - Enemy factions (experimental)</Original>
-<Russian>MODS REQUIRED - Enemy factions (experimental)</Russian>
+<Russian>ТРЕБУЕТСЯ МОД - Вражеские фракции (экспериментально)</Russian>
 <Chinesesimp>MODS REQUIRED - Enemy factions (experimental)</Chinesesimp>
 <Chinese>MODS REQUIRED - Enemy factions (experimental)</Chinese>
 <French>MODS REQUIRED - Enemy factions (experimental)</French>
@@ -16014,7 +16014,7 @@
 <Korean>모드가 요구됨 - 여군 활성화 - Maxjoiner가 제작한 (Max_Women, Max Women Soldiers, Women At Work) 모드 (실험적요소)</Korean>
 <Japanese>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Japanese>
 <Original>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Original>
-<Russian>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Russian>
+<Russian>ТРЕБУЕТСЯ МОД - Включить женщин-военных - Max_Women, Max Women Soldiers, Women At Work от Maxjoiner (экспериментально)</Russian>
 <Chinesesimp>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinesesimp>
 <Chinese>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinese>
 <French>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</French>
@@ -16026,7 +16026,7 @@
 <Korean>모드가 요구됨 - 여성시민 활성화 -  Maxjoiner가 제작한 (Max_Women, Max Women Soldiers, Women At Work) (실험적요소)</Korean>
 <Japanese>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Japanese>
 <Original>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Original>
-<Russian>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Russian>
+<Russian>ТРЕБУЕТСЯ МОД - Включить гражданских женщин - Max_Women, Max Women Soldiers, Women At Work от Maxjoiner (экспериментально)</Russian>
 <Chinesesimp>MODS REQUIRED - Enable fighter women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinesesimp>
 <Chinese>MODS REQUIRED - Enable fighter women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinese>
 <French>MODS REQUIRED - Enable fighter women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</French>
@@ -16038,7 +16038,7 @@
 <Korean>팀당 한기의 전투 무인기만 허용됩니다.</Korean>
 <Japanese>Only one combat UAV allowed per team.</Japanese>
 <Original>Only one combat UAV allowed per team.</Original>
-<Russian>Only one combat UAV allowed per team.</Russian>
+<Russian>На команду допускается только один боевой БПЛА..</Russian>
 <Chinesesimp>Only one combat UAV allowed per team.</Chinesesimp>
 <Chinese>Only one combat UAV allowed per team.</Chinese>
 <French>Only one combat UAV allowed per team.</French>
@@ -16050,7 +16050,7 @@
 <Korean>플레이어 당 하나의 전투 무인기만 허용됩니다.</Korean>
 <Japanese>Only one combat UAV allowed per player.</Japanese>
 <Original>Only one combat UAV allowed per player.</Original>
-<Russian>Only one combat UAV allowed per player.</Russian>
+<Russian>Каждому игроку разрешено иметь только один боевой БПЛА.</Russian>
 <Chinesesimp>Only one combat UAV allowed per player.</Chinesesimp>
 <Chinese>Only one combat UAV allowed per player.</Chinese>
 <French>Only one combat UAV allowed per player.</French>
@@ -16062,7 +16062,7 @@
 <Korean>플레이가 %1 이(가) 기지 깃발 근처에 수류탄을 던졌습니다, Arma Key: %2</Korean>
 <Japanese>Player %1 threw a grenade near the flag at base, Arma Key: %2</Japanese>
 <Original>Player %1 threw a grenade near the flag at base, Arma Key: %2</Original>
-<Russian>Player %1 threw a grenade near the flag at base, Arma Key: %2</Russian>
+<Russian>Игрок %1 бросил гранату возле флага на базе, Arma Key: %2</Russian>
 <Chinesesimp>Player %1 threw a grenade near the flag at base, Arma Key: %2</Chinesesimp>
 <Chinese>Player %1 threw a grenade near the flag at base, Arma Key: %2</Chinese>
 <French>Player %1 threw a grenade near the flag at base, Arma Key: %2</French>
@@ -16074,7 +16074,7 @@
 <Korean>아군 플레이어 근접항공지원(미사일,폭탄)으로 부터 보조 미션/메인미션 목표물 보호</Korean>
 <Japanese>Side mission/main target protection from friendly player CAS missiles and bombs</Japanese>
 <Original>Side mission/main target protection from friendly player CAS missiles and bombs</Original>
-<Russian>Side mission/main target protection from friendly player CAS missiles and bombs</Russian>
+<Russian>Защита сайд миссии/основной цели от ракет и бомб CAS дружественного игрока</Russian>
 <Chinesesimp>Side mission/main target protection from friendly player CAS missiles and bombs</Chinesesimp>
 <Chinese>Side mission/main target protection from friendly player CAS missiles and bombs</Chinese>
 <French>Side mission/main target protection from friendly player CAS missiles and bombs</French>
@@ -16086,7 +16086,7 @@
 <Korean>아군 AI 근접항공지원 (미사일,폭탄)으로 부터 보조 미션/메인미션 목표물 보호 (근접항공지원 요청)</Korean>
 <Japanese>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Japanese>
 <Original>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Original>
-<Russian>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Russian>
+<Russian>Сайд миссия/защита основной цели от дружественных ракет и бомб ИИ CAS (вызов CAS)</Russian>
 <Chinesesimp>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Chinesesimp>
 <Chinese>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Chinese>
 <French>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</French>
@@ -16098,7 +16098,7 @@
 <Korean>사이드 미션만</Korean>
 <Japanese>Side mission only</Japanese>
 <Original>Side mission only</Original>
-<Russian>Side mission only</Russian>
+<Russian>Только сайд миссия</Russian>
 <Chinesesimp>Side mission only</Chinesesimp>
 <Chinese>Side mission only</Chinese>
 <French>Side mission only</French>
@@ -16110,7 +16110,7 @@
 <Korean>메인 미션만</Korean>
 <Japanese>Main target only</Japanese>
 <Original>Main target only</Original>
-<Russian>Main target only</Russian>
+<Russian>Только главная цель</Russian>
 <Chinesesimp>Main target only</Chinesesimp>
 <Chinese>Main target only</Chinese>
 <French>Main target only</French>
@@ -16122,7 +16122,7 @@
 <Korean>사이드 미션 및 메인미션</Korean>
 <Japanese>Side mission and main target</Japanese>
 <Original>Side mission and main target</Original>
-<Russian>Side mission and main target</Russian>
+<Russian>Сайд миссия и главная цель</Russian>
 <Chinesesimp>Side mission and main target</Chinesesimp>
 <Chinese>Side mission and main target</Chinese>
 <French>Side mission and main target</French>
@@ -16134,7 +16134,7 @@
 <Korean>아군 근접항공지원(미사일,폭탄)에 대한 보조미션지의 적군 발사체 보호기능이 활성화 되어 있습니다. 발사체를 제거하세요!</Korean>
 <Japanese>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Japanese>
 <Original>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Original>
-<Russian>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Russian>
+<Russian>Защита сайд миссии от дружественных ракет и бомб CAS активирована. Удаление снаряда!</Russian>
 <Chinesesimp>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Chinesesimp>
 <Chinese>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Chinese>
 <French>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</French>
@@ -16146,7 +16146,7 @@
 <Korean>아군 근접항공지원(미사일,폭탄)에 대한 메인미션지의 적군 발사체 보호기능이 활성화 되어 있습니다. 발사체를 제거하세요!</Korean>
 <Japanese>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Japanese>
 <Original>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Original>
-<Russian>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Russian>
+<Russian>Активирована защита главной цели от дружественных ракет и бомб CAS. Удаление снаряда!</Russian>
 <Chinesesimp>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Chinesesimp>
 <Chinese>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Chinese>
 <French>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</French>
@@ -16158,7 +16158,7 @@
 <Korean>AI 아군 근접항공지원(미사일,폭탄)에 대한 보조미션지의 적군 발사체 보호기능이 활성화 되어 있습니다. 요청을 수행 할 수 없습니다!</Korean>
 <Japanese>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Japanese>
 <Original>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Original>
-<Russian>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Russian>
+<Russian>Защита сайд миссии от дружественных ракет и бомб AI CAS активирована. Невозможно выполнить запрос!</Russian>
 <Chinesesimp>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Chinesesimp>
 <Chinese>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Chinese>
 <French>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</French>
@@ -16170,7 +16170,7 @@
 <Korean>AI 아군 근접항공지원(미사일,폭탄)에 대한 메인미션지의 적군 발사체 보호기능이 활성화 되어 있습니다. 요청을 수행 할 수 없습니다!</Korean>
 <Japanese>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Japanese>
 <Original>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Original>
-<Russian>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Russian>
+<Russian>Активирована защита главной цели от дружественных ракет и бомб AI CAS. Невозможно выполнить запрос!</Russian>
 <Chinesesimp>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Chinesesimp>
 <Chinese>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Chinese>
 <French>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</French>
@@ -16182,7 +16182,7 @@
 <Korean>메인미션지 최고 플레이어</Korean>
 <Japanese>Best main target players</Japanese>
 <Original>Best main target players</Original>
-<Russian>Best main target players</Russian>
+<Russian>Лучшие игроки основной цели</Russian>
 <Chinesesimp>Best main target players</Chinesesimp>
 <Chinese>Best main target players</Chinese>
 <French>Best main target players</French>
@@ -16194,7 +16194,7 @@
 <Korean>%1 사살로 인하여 포인트 차감</Korean>
 <Japanese>points subtracted because of killing a %1</Japanese>
 <Original>points subtracted because of killing a %1</Original>
-<Russian>points subtracted because of killing a %1</Russian>
+<Russian>Очки вычтены из-за убийства %1</Russian>
 <Chinesesimp>points subtracted because of killing a %1</Chinesesimp>
 <Chinese>points subtracted because of killing a %1</Chinese>
 <French>points subtracted because of killing a %1</French>
@@ -16206,7 +16206,7 @@
 <Korean>암닭/수닭</Korean>
 <Japanese>hen/cock</Japanese>
 <Original>hen/cock</Original>
-<Russian>hen/cock</Russian>
+<Russian>курица/петух</Russian>
 <Chinesesimp>hen/cock</Chinesesimp>
 <Chinese>hen/cock</Chinese>
 <French>hen/cock</French>
@@ -16218,7 +16218,7 @@
 <Korean>염소/양</Korean>
 <Japanese>goat/sheep</Japanese>
 <Original>goat/sheep</Original>
-<Russian>goat/sheep</Russian>
+<Russian>коза/овца</Russian>
 <Chinesesimp>goat/sheep</Chinesesimp>
 <Chinese>goat/sheep</Chinese>
 <French>goat/sheep</French>
@@ -16230,7 +16230,7 @@
 <Korean>개</Korean>
 <Japanese>dog</Japanese>
 <Original>dog</Original>
-<Russian>dog</Russian>
+<Russian>собака</Russian>
 <Chinesesimp>dog</Chinesesimp>
 <Chinese>dog</Chinese>
 <French>dog</French>
@@ -16242,7 +16242,7 @@
 <Korean>뱀</Korean>
 <Japanese>snake</Japanese>
 <Original>snake</Original>
-<Russian>snake</Russian>
+<Russian>змея</Russian>
 <Chinesesimp>snake</Chinesesimp>
 <Chinese>snake</Chinese>
 <French>snake</French>
@@ -16254,7 +16254,7 @@
 <Korean>Disable Domination weapon and inventory management</Korean>
 <Japanese>Disable Domination weapon and inventory management</Japanese>
 <Original>Disable Domination weapon and inventory management</Original>
-<Russian>Disable Domination weapon and inventory management</Russian>
+<Russian>Отключить управление оружием и инвентарем в Domination</Russian>
 <Chinesesimp>Disable Domination weapon and inventory management</Chinesesimp>
 <Chinese>Disable Domination weapon and inventory management</Chinese>
 <French>Disable Domination weapon and inventory management</French>
@@ -16266,7 +16266,7 @@
 <Korean>No restrictions on parajump target. Players can jump anywhere.</Korean>
 <Japanese>No restrictions on parajump target. Players can jump anywhere.</Japanese>
 <Original>No restrictions on parajump target. Players can jump anywhere.</Original>
-<Russian>No restrictions on parajump target. Players can jump anywhere.</Russian>
+<Russian>Никаких ограничений по цели парапрыжка. Игроки могут прыгать где угодно.</Russian>
 <Chinesesimp>No restrictions on parajump target. Players can jump anywhere.</Chinesesimp>
 <Chinese>No restrictions on parajump target. Players can jump anywhere.</Chinese>
 <French>No restrictions on parajump target. Players can jump anywhere.</French>
@@ -16278,7 +16278,7 @@
 <Korean>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</Korean>
 <Japanese>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</Japanese>
 <Original>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</Original>
-<Russian>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</Russian>
+<Russian>На главной цели вам нужно уничтожить радиовышку (иногда наверху военной вышки) с помощью ранцевых зарядов.!!!</Russian>
 <Chinesesimp>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</Chinesesimp>
 <Chinese>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</Chinese>
 <French>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</French>
