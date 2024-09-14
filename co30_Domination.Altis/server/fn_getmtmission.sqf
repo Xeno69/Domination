@@ -58,7 +58,12 @@ if (d_tanoa) then {
 	};
 };
 
-private _sec_kind = (floor (random 10)) + 1;
+private _sec_kind = call {
+	if (d_spe) exitWith {
+		selectRandom [1,2,3,4,6,7,8,9,10];
+	};
+	selectRandom [1,2,3,4,5,6,7,8,9,10];
+};
 
 d_fixor_var = objNull;
 

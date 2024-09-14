@@ -4,6 +4,8 @@
 
 __TRACE("Start")
 
+d_cmakemtgmarker_sqf_running = true;
+
 if (isNil "d_cur_tgt_pos" || {d_cur_tgt_pos isEqualTo []}) exitWith {
 	diag_log "Attention!!!!! cmakemtgmarker d_cur_tgt_pos is empty!!!!!!";
 };
@@ -68,7 +70,7 @@ private _fnc_make_trig_mar = {
 		private _marname = format ["d_dommtmxe_%1", _marcounter];
 		__TRACE_1("","_marname")
 		if (getMarkerType _marname isNotEqualTo "") then {
-			__TRACE_1("Marker exists already","_marname")
+			diag_log ["Attention!!!! The following marker exists already (cmakemtgmarker):", _marname];
 			deleteMarkerLocal _marname;
 		};
 		[_marname, [_xpos1, _ypos1], "RECTANGLE", "ColorGreen", [_tilehalf, _tilehalf], "", 0, "", "", _alpha] call d_fnc_CreateMarkerLocal;
@@ -127,6 +129,8 @@ _xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf + (_tile_size * 2);
 _ypos1 = _ypos1 - _tile_size;
 
 [3] call _fnc_make_trig_mar;
+
+d_cmakemtgmarker_sqf_running = nil;
 
 /*
 #ifndef __TT__

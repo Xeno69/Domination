@@ -332,7 +332,9 @@ if (d_MissionType != 2) then {
 			["d_obj00", "Succeeded", false] call d_fnc_taskSetState;
 		};
 #ifndef __TT__
-		call d_fnc_cmakemtgmarker;
+		if (isNil "d_cmakemtgmarker_sqf_running") then {
+			call d_fnc_cmakemtgmarker;
+		};
 #endif
 	};
 };

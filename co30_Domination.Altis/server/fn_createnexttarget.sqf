@@ -62,7 +62,15 @@ d_recapturedcamp = false;
 #endif
 
 d_pl_mt_score_hash = createHashMap;
+__TRACE("filling d_pl_mt_score_hash")
 {
+	__TRACE_1("","_x")
+#ifdef __DEBUG__
+	private _uid = getPlayerUID _x;
+	private _score = score _x;
+	private _name = name _x;
+	__TRACE_3("","_uid","_score","_name")
+#endif
 	d_pl_mt_score_hash set [getPlayerUID _x, [score _x, _x, name _x]];
 } forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F")}});
 

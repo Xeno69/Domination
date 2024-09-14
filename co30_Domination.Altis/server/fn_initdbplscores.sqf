@@ -31,8 +31,7 @@ __TRACE_1("2","getPlayerScores _pl")
 __TRACE_1("2","score _pl")
 
 if (!isNil "d_pl_mt_score_hash") then {
-	sleep 1;
-	if !((getPlayerUID _pl) in d_pl_mt_score_hash) then {
-		d_pl_mt_score_hash set [getPlayerUID _pl, [score _pl, _pl, name _pl]];
-	};
+	__TRACE_1("adding player to d_pl_mt_score_hash","getPlayerUID _pl")
+	__TRACE_3("","score _pl","_pl","name _pl")
+	d_pl_mt_score_hash set [getPlayerUID _pl, [score _pl, _pl, name _pl]];
 };
