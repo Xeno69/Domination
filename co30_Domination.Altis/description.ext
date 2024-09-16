@@ -166,9 +166,14 @@ missionGroup = "DominationMissionGroup";
 class CfgRemoteExec {
 	// List of script functions allowed to be sent from client via remoteExec
 	class Functions {
-		// State of remoteExec: 0-turned off, 1-turned on, taking whitelist into account (default because of security), 2-turned on, however, ignoring whitelists
+		// mode - operation mode:
+		// 0 - remote execution is blocked
+		// 1 - only whitelisted functions / commands are allowed
+		// 2 - remote execution is fully allowed, ignoring the whitelist (default, because of backward compatibility)
 		mode = 1;
-		// Ability to send jip messages: 0-disabled, 1-enabled (default)
+		// jip - Join In Progress settings
+		// 0 - JIP flag can not be set
+		// 1 - JIP flag can be set (default
 		jip = 0;
 		//your functions here
 		//class YourFunction1 {
