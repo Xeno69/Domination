@@ -6,10 +6,10 @@ params ["", "_dist", "", "_insti", "", "", "_ammoConf"];
 
 __TRACE_1("","_this")
 
+if (_dist > getNumber(_ammoConf>>"suppressionRadiusBulletClose")) exitWith {};
+
 if (!alive player || {isNull _insti || {player getVariable "xr_pluncon"}}) exitWith {};
 if (!isNull objectParent player && {!isTurnedOut player}) exitWith {};
-
-if (_dist > getNumber(_ammoConf>>"suppressionRadiusBulletClose")) exitWith {};
 
 private _cal = getNumber(_ammoConf>>"caliber");
 private _f = ((1 /_dist) * _cal) min 1;
