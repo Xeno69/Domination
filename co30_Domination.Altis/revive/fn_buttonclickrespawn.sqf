@@ -45,9 +45,11 @@ if (d_beam_target == "D_BASE_D") then {
 			} forEach (units player);
 		};
 		
-		__TRACE_1("3","_respawn_target")
 		// failed to find a respawn target
-		if (isNil "_respawn_target") exitWith {};
+		if (isNil "_respawn_target") exitWith {
+			__TRACE("_respawn_target is nil")
+		};
+		__TRACE_1("3","_respawn_target")
 		
 		_respawn_pos = [(vehicle _respawn_target) modelToWorldVisual [0, -8, 0], getPosASL _respawn_target] select (isNull objectParent _respawn_target);
 		_respawn_pos set [2, _respawn_target distance (getPos _respawn_target)];
