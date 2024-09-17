@@ -3620,8 +3620,19 @@ if (hasInterface) then {
 #endif
 
 #ifdef __OWN_SIDE_BLUFOR__
-	d_UAV_Small = "B_UAV_01_F";
-	d_UAV_CAS = "B_UAV_02_F";
+	d_UAV_Small = call {
+		if (d_cup) exitWith {
+			"CUP_B_AH6X_USA"
+		};
+		"B_UAV_01_F";
+	};
+	
+	d_UAV_CAS = call {
+		if (d_cup) exitWith {
+			"CUP_B_USMC_DYN_MQ9"
+		};
+		"B_UAV_02_F";
+	};
 	d_UAV_Terminal = "B_UavTerminal";
 #endif
 #ifdef __OWN_SIDE_OPFOR__

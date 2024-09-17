@@ -23,6 +23,10 @@ if (d_cup || {d_rhs} || {d_pracs} || {d_jsdf}) then {
 	_items_no append ["B_UavTerminal", "O_UavTerminal", "I_UavTerminal"];
 };
 
+if (d_cup) then {
+	_items_no append ["SmokeShell", "SmokeShellGreen", "SmokeShellRed", "SmokeShellYellow", "SmokeShellPurple", "SmokeShellBlue"];
+};
+
 _items_no = _items_no apply {toLowerANSI _x};
 
 #ifdef __DEBUG__
