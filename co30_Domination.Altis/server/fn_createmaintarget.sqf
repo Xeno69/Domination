@@ -932,6 +932,7 @@ if (d_with_MainTargetEvents != 0) then {
 	if (d_preemptive_special_event) exitWith {}; // a special event is already running
 	private _doMainTargetEvent = {
 		params ["_event_string"];
+		diag_log [format ["starting a maintarget event: %1", _event_string]];
 		switch (_event_string) do {
 			case "PILOT_RESCUE": {
 				[_radius, _trg_center] spawn d_fnc_event_sideevac;
