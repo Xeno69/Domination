@@ -97,19 +97,27 @@ private _marker = nil;
 private _spawnpos = _nposss;
 if !(_buildings_array_sorted_by_distance isEqualTo []) then {
 	_spawnpos = getPos (_buildings_array_sorted_by_distance # 0);
-	_unitsNotGarrisoned = [_spawnpos, _pilot1, 199, false, false, false, false, 2, false, true, false, -1, _buildings_array_sorted_by_distance # 0] call d_fnc_Zen_OccupyHouse;
+	_unitsNotGarrisoned = [_spawnpos, [_pilot1], 199, false, false, false, false, 2, false, true, false, -1, _buildings_array_sorted_by_distance # 0] call d_fnc_Zen_OccupyHouse;
 };
 
+private _use_starting_pos = false;
 {
+	_use_starting_pos = true;
+	_spawnpos = _nposss;
 	diag_log [format ["fn_event_sideprisoners: failed to garrison and will remain in starting position: %1", _x]];
 } forEach _unitsNotGarrisoned;
 
 _marker = ["d_mt_event_marker_sideprisoners", _spawnpos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
 [_marker, "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
+if !(_use_starting_pos) then {
+	_unitsNotGarrisoned = [_spawnpos, units _enemyGuardGroup, 199, false, false, false, false, 2, false, true, false, -1, _buildings_array_sorted_by_distance # 0] call d_fnc_Zen_OccupyHouse;
+};
+
 {
-	_x setPos ([getPos _pilot1, 5] call d_fnc_getfuzzyposition); // fuzzy position within 5m of pilot
-} forEach units _enemyGuardGroup;
+	deleteVehicle _x;
+} forEach _unitsNotGarrisoned;
+
 
 private _all_dead = false;
 private _is_rescued = false;
