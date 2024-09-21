@@ -12,12 +12,12 @@ if (count _unitliste > 2) then {
 	if (_unitsPerGroup > 0) then {
     	_maxunits = _unitsPerGroup;
     } else {
-		_maxunits = round (linearConversion [1, 40, _nump, 2, 6, true]);
-		if (_maxunits == 2) then {
-			_maxunits = selectRandom [2, 3];
+		_maxunits = round (linearConversion [1, 40, _nump, 3, 7, true]);
+		if (_maxunits == 3) then {
+			_maxunits = selectRandom [3, 4];
 		} else {
-			if (_maxunits == 6) then {
-				_maxunits = selectRandom [5, 6];
+			if (_maxunits == 7) then {
+				_maxunits = selectRandom [6, 7];
 			};
 		};
     };
