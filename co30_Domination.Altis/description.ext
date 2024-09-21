@@ -1519,6 +1519,13 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_limit_airai {
+		title = "$STR_DOM_MISSIONSTRING_2115";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 	class d_occ_bldgs {
 		title = "$STR_DOM_MISSIONSTRING_1896";

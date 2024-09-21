@@ -16283,6 +16283,18 @@
 <Chinese>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</Chinese>
 <French>At a main target you have to destroy the radio tower (sometimes on top of a military tower) with satchel charges!!!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2115">
+<English>Don't spawn AIR AI if player numbers are low:</English>
+<Spanish>Don't spawn AIR AI if player numbers are low:</Spanish>
+<Portuguese>Don't spawn AIR AI if player numbers are low:</Portuguese>
+<Korean>Don't spawn AIR AI if player numbers are low:</Korean>
+<Japanese>Don't spawn AIR AI if player numbers are low:</Japanese>
+<Original>Don't spawn AIR AI if player numbers are low:</Original>
+<Russian>Don't spawn AIR AI if player numbers are low:</Russian>
+<Chinesesimp>Don't spawn AIR AI if player numbers are low:</Chinesesimp>
+<Chinese>Don't spawn AIR AI if player numbers are low:</Chinese>
+<French>Don't spawn AIR AI if player numbers are low:</French>
+</Key>
 </Container>
 </Package>
 </Project>
