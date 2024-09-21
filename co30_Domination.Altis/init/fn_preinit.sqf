@@ -2367,7 +2367,7 @@ if (d_with_airdrop == 2) then {
 		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_cup) exitWith {
-					["CUP_B_USMC_DYN_MQ9"]
+					["B_UAV_02_F"]
 				};
 				if (d_ifa3) exitWith {
 					[]
@@ -3629,7 +3629,7 @@ if (hasInterface) then {
 	
 	d_UAV_CAS = call {
 		if (d_cup) exitWith {
-			"CUP_B_USMC_DYN_MQ9"
+			"B_UAV_02_F"
 		};
 		"B_UAV_02_F";
 	};
