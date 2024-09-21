@@ -378,6 +378,7 @@ if (d_player_side == blufor) then {
 player addEventHandler ["respawn", {call d_fnc_prespawned}];
 
 player setVariable ["d_currentvisionmode", 0];
+player addEventhandler ["VisionModeChanged", {call d_fnc_visionmodechanged}];
 
 // one entry: [box_object, color as array (R, G, B, Alpha), "Text to show above box"]
 d_all_p_a_boxes = [];

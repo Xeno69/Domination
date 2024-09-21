@@ -1,7 +1,7 @@
 // by Xeno
 //#define __DEBUG__
 //#include "..\x_setup.sqf"
-#include "..\defineDIKCodes.inc"
+#include "\A3\ui_f\hpp\defineDIKCodes.inc"
 
 if (_this # 1 == DIK_X) then {
 	xr_phd_invulnerable = false;

@@ -9,7 +9,6 @@ __TRACE_1("","_rtype")
 
 if (_rtype == 0) then { // player died
 	call d_fnc_save_respawngear;
-	player setVariable ["d_currentvisionmode", currentVisionMode player];
 	if (visibleMap) then {
 		openMap false;
 	};
@@ -143,8 +142,8 @@ if (_rtype == 0) then { // player died
 	};
 
 #ifndef __IFA3__
-	if (d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}) then {
-		player actionNow ["NVGoggles",player];
+	if (d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {player getVariable ["d_currentvisionmode", 0] == 1}}) then {
+		player actionNow ["NVGoggles", player];
 	};
 #endif
 

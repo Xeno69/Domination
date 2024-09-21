@@ -224,6 +224,7 @@ class cfgFunctions {
 			addc(ac_ai_check);
 			addc(showmtbest);
 			addc(sideorsyschat);
+			addc(visionmodechanged);
 		};
 		class Dom_UI {
 			file = "clientui";
