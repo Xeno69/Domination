@@ -34,6 +34,7 @@ _u reveal _target;
 _u doWatch _target;
 _u doTarget _target;
 sleep 1.25;
+_u doWatch objNull;
 
 // calculate the ballistic drop of the projectile so we can adjust the elevation (Z-axis)
 // distance d, initial velocity v, gravity g (9.8), height h
@@ -67,5 +68,5 @@ _u addMagazines [(_prim_weapon_ammo_mag_arr select 0), 5];
 _u addWeaponGlobal _prim_weapon;
 _u setAmmo [_prim_weapon, 999];
 _u selectWeapon primaryWeapon _u;
-_u doWatch objNull;
+
 _u setVariable ["d_is_force_shooting", false, true];

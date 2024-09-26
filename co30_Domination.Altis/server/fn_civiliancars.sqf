@@ -47,7 +47,9 @@ _make_veh = {
 	clearBackpackCargoGlobal _veh;
 	if (d_enable_civ_vehs_locked == 1) then {
 		_veh lockInventory true;
+		_veh lockCargo true;
 		_veh lock true;
+		_veh setVehicleLock "LOCKED";
 	};
 	_veh allowDamage false;
 	if (_direction isNotEqualTo []) then {
