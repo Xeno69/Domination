@@ -56,7 +56,7 @@ private _distanceSelfDetonate = 700;
 __TRACE_3("","_missile","getPos _missile","_missile distance _targetPos")
 
 
-while { alive _missile } do {
+while { alive _missile && { _targetPos distance _missile > 1.5 }} do {
 	private _dirVer = asin ((((getPosASL _missile) # 2) - (_targetPos # 2)) / (_targetPos distance _missile));
 	__TRACE_1("","_dirVer")
 	_flyingTime = (_targetPos distance _missile) / _missileSpeed;
