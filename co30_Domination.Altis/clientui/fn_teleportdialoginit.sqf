@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
 disableSerialization;
 
@@ -154,33 +154,40 @@ private _has_sql = 0;
 d_resp_lead_idx = -1;
 
 private _show_respawnatsql = false;
-if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false]) && {count units player > 1 && {player != leader (group player)}}}) then {
+if (d_respawnatsql in [0, 2]) then {
 	// d_respawnatsql == 2 always show respawn button, determine color later
-	_show_respawnatsql = true;
+	if (d_respawnatsql == 2) then {
+		if (count units player > 1) then {
+			_show_respawnatsql = true;
+		};
+	} else {
+		if (!(player getVariable ["xr_isleader", false]) && {player != leader (group player)}) then {
+			_show_respawnatsql = true;
+		};
+	};
 };
 
 private _respawn_target = nil;
 if (_show_respawnatsql) then {
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1705a");
 	_listctrl lbSetData [_cidx, "D_SQL_D"];
-	if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
-		// the squad leader is eligible as a spawn target
-		_respawn_target = leader (group player);
-		_has_sql = 1;
-	};
-	if (isNil "_respawn_target" && {d_respawnatsql == 2}) then {
-		// d_respawnatsql == 2 allows respawn on squadmates
+	_has_sql = 1;
+	if (d_respawnatsql == 0) then {
+		if ([leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
+			// the squad leader is eligible as a spawn target
+			_respawn_target = leader (group player);
+		};
+	} else {
+		// xr_respawnatsql == 2 allows respawn on squadmates
 		// are any squadmates alive and eligible as a spawn target?
-		(units player) findIf {
-			if (_x != player && {[_x] call d_fnc_iseligibletospawnnewunit}) then {
-				_respawn_target = _x;
-				_has_sql = 1;
-				true
-			} else {
-				false
-			};
+		// check closest to death position
+		private _unitsp = (((units player) - [player]) select {[_x] call d_fnc_iseligibletospawnnewunit}) apply {[_x distance2D (xr_death_pos # 0), _x]};
+		if (_unitsp isNotEqualTo []) then {
+			_unitsp sort false;
+			_respawn_target = (_unitsp # 0) # 1;
 		};
 	};
+	__TRACE_1("","_respawn_target")
 	private _lbcolor = if (!isNil "_respawn_target") then {
 		[1,1,1,1]
 	} else {
@@ -201,11 +208,13 @@ if (_show_respawnatsql) then {
 	};
 	if (isNil "_respawn_target") then {
 		_respawn_target = getPosASL d_FLAG_BASE;
+	} else {
+		_respawn_target = visiblePositionASL _respawn_target;
 	};
 	if (_has_sql == 1) then {
-		["D_SQL_D", visiblePositionASL _respawn_target, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
+		["D_SQL_D", _respawn_target, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 		d_respawn_anim_markers pushBack "D_SQL_D";
-		d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _respawn_target);
+		d_resp_lead_idx = d_respawn_posis pushBack _respawn_target;
 		d_respawn_ismhq pushBack false;
 	};
 };

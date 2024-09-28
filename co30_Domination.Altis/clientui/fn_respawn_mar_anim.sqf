@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
 private _old_respmar = "";
 private _cur_ang = 0;
@@ -31,15 +31,28 @@ while {!isNil "d_teleport_off" && {(xr_max_lives != -1 && {player getVariable ["
 		_old_respmar setMarkerDirLocal _cur_ang;
 	};
 	if (_has_sql == 1) then {
-		private _lpos = visiblePositionASL (leader (group player)); // assume squad leader
-		if (!([leader (group player)] call d_fnc_iseligibletospawnnewunit)) then {
-			(units player) findIf {
-				if (_x != player && {[_x] call d_fnc_iseligibletospawnnewunit}) then {
-					_lpos = visiblePositionASL _x;
-					true
+		private _lpos = if (d_respawnatsql == 0) then {
+			visiblePositionASL (leader (group player)); // assume squad leader
+		} else {
+			if (count units player > 0) then {
+				private _unitsp = (((units player) - [player]) select {[_x] call d_fnc_iseligibletospawnnewunit}) apply {[_x distance2D (xr_death_pos # 0), _x]};
+				if (_unitsp isNotEqualTo []) then {
+					_unitsp sort false;
+					__TRACE_1("_unitsp","")
+					visiblePositionASL ((_unitsp # 0) # 1);
 				} else {
-					false
+#ifndef __TT__
+					markerPos "base_spawn_1";
+#else
+					[markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+#endif
 				};
+			} else {
+#ifndef __TT__
+				markerPos "base_spawn_1";
+#else
+				[markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+#endif
 			};
 		};
 		"D_SQL_D" setMarkerPosLocal _lpos;

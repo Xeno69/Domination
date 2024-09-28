@@ -64,47 +64,42 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 				};
 			} else {
 				if (d_respawnatsql in [0, 2] && {_lbdata == "D_SQL_D"}) then {
-					// d_respawnatsql == 2 always show button, otherwise only show if isleader == false (a squadmate)
-					if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false])}) then {
-						if (leader (group player) != player && {[leader (group player)] call d_fnc_iseligibletospawnnewunit}) then {
+					// d_respawnatsql == 2 always show button, otherwise only show if isleader == false (a squadmate)						
+					if (d_respawnatsql == 0) then {
+						if (leader (group player) != player && {!(player getVariable ["xr_isleader", false]) && {[leader (group player)] call d_fnc_iseligibletospawnnewunit}}) then {
 							// the squad leader is eligible as a spawn target
 							_respawn_target = leader (group player);
 							__TRACE_1("1","_respawn_target")
 						};
-						if (isNil "_respawn_target" && {d_respawnatsql == 2}) then {
-							// d_respawnatsql == 2 allows respawn on squadmates
-							// are any squadmates alive and eligible as a spawn target?
-							(units player) findIf {
-								if (_x != player && {[_x] call d_fnc_iseligibletospawnnewunit}) then {
-									_respawn_target = _x;
-									__TRACE_1("2","_respawn_target")
-									true
-								} else {
-									false
-								};
+					} else {
+						if (count units player > 1) then {
+							private _unitsp = (((units player) - [player]) select {[_x] call d_fnc_iseligibletospawnnewunit}) apply {[_x distance2D (xr_death_pos # 0), _x]};
+							if (_unitsp isNotEqualTo []) then {
+								_unitsp sort false;
+								_respawn_target = (_unitsp # 0) # 1;
 							};
 						};
-						private _lbcolor = if (!isNil "_respawn_target") then {
-							[1,1,1,1]
-						} else {
-							__COLRED
-						};
-						_listctrl lbSetColor [_i, _lbcolor];
-						if (lbCurSel _listctrl == _i) then {
-							if (!isNil "_respawn_target") then {
-								private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
-									format [localize "STR_DOM_MISSIONSTRING_607", localize "STR_DOM_MISSIONSTRING_1705a"]
-								} else {
-									format [localize "STR_DOM_MISSIONSTRING_605", localize "STR_DOM_MISSIONSTRING_1705a"]
-								};
-								(_disp displayCtrl 100102) ctrlEnable true;
-								__TRACE_1("SQL enable true","_lbdata")
-								(_disp displayCtrl 100110) ctrlSetText _text;
+					};
+					private _lbcolor = if (!isNil "_respawn_target") then {
+						[1,1,1,1]
+					} else {
+						__COLRED
+					};
+					_listctrl lbSetColor [_i, _lbcolor];
+					if (lbCurSel _listctrl == _i) then {
+						if (!isNil "_respawn_target") then {
+							private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
+								format [localize "STR_DOM_MISSIONSTRING_607", localize "STR_DOM_MISSIONSTRING_1705a"]
 							} else {
-								(_disp displayCtrl 100102) ctrlEnable false;
-								__TRACE_1("SQL enable false","_lbdata")
-								(_disp displayCtrl 100110) ctrlSetText "";
+								format [localize "STR_DOM_MISSIONSTRING_605", localize "STR_DOM_MISSIONSTRING_1705a"]
 							};
+							(_disp displayCtrl 100102) ctrlEnable true;
+							__TRACE_1("SQL enable true","_lbdata")
+							(_disp displayCtrl 100110) ctrlSetText _text;
+						} else {
+							(_disp displayCtrl 100102) ctrlEnable false;
+							__TRACE_1("SQL enable false","_lbdata")
+							(_disp displayCtrl 100110) ctrlSetText "";
 						};
 					};
 				};
