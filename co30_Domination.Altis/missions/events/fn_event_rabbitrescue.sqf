@@ -14,6 +14,7 @@ if !(isServer) exitWith {};
 params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
+diag_log [format ["start event: %1", _mt_event_key]];
 
 private _trigger = [_target_center, [600,600,0,false,30], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
@@ -159,6 +160,9 @@ if (_is_rescued || {!_is_dead}) then {
 		];
 	};
 };
+
+// cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
 
 deleteVehicle [_rabbit, _ai, _trigger];
 deleteMarker _marker;

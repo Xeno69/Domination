@@ -18,6 +18,11 @@ params [
 	["_join_player", false] // deprecated
 ];
 
+private _event_name = "CIV_RESISTANCE_INDEPENDENT";
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
+
+diag_log [format ["start event: %1", _mt_event_key]];
+
 private _buildings = [_target_center, (_target_radius * 0.75)] call d_fnc_getbldgswithpositions;
 if (count _buildings < 1) exitWith {};
 
@@ -146,7 +151,9 @@ while {sleep 5; !d_mt_done} do {
 	};
 };
 
-//cleanup
+// cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
+
 deleteVehicle _newunits;
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";

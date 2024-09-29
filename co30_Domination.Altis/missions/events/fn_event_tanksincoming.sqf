@@ -80,7 +80,9 @@ switch (_with_less_armor) do {
 	};
 };
 
-private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, "GUERRILLA_TANKS"];
+
+diag_log [format ["start event: %1", _mt_event_key]];
 
 private _chosen = false;
 private _tries = 0;
@@ -184,7 +186,8 @@ if (d_ai_persistent_corpses == 0) then {
 	sleep 120;
 };
 
-//cleanup
+// cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
 d_event_trigger_tanks_guerr = nil;
 publicVariable "d_event_trigger_tanks_guerr";
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

@@ -13,7 +13,9 @@ if (!isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
-private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, "INFANTRYAMBUSH"];
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, "INFANTRY_AMBUSH"];
+diag_log [format ["start event: %1", _mt_event_key]];
+
 
 private _trigger = [_target_center, [(d_cur_target_radius * 0.90),(d_cur_target_radius * 0.90),0,false,10], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start_time', time];",""]] call d_fnc_CreateTriggerLocal;
 
@@ -46,4 +48,5 @@ private _enemyForceInf = ["allmen", "allmen", "allmen"];
 } forEach _enemyForceInf;
 
 // cleanup immediately, nothing to wait for
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
 deleteVehicle _trigger;

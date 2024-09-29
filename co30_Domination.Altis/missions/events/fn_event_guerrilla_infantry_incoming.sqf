@@ -14,7 +14,7 @@ if !(isServer) exitWith {};
 
 params ["_target_radius", "_target_center", ["_spawn_pos", []], ["_with_vehicles", false], ["_target_group_count_multiplier", 1]];
 
-private _event_name = "guerrilla_incoming";
+private _event_name = "GUERRILLA_INFANTRY";
 private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
 
 diag_log [format ["start event: %1", _mt_event_key]];
@@ -235,7 +235,7 @@ publicVariable "d_mt_event_messages_array";
 
 waitUntil {sleep 1; d_mt_radio_down && {d_mt_done}};
 
-//cleanup
+// cleanup
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
 deleteVehicle _trigger;
 deleteMarker _marker;
