@@ -15,7 +15,10 @@ if (!isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
-//private _mt_event_key = format ["d_X_MTEVENT_PRISONERDEFUSE_%1", d_cur_tgt_name];
+private _event_name = "KILL_TRIGGERMAN";
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
+
+diag_log [format ["start event: %1", _mt_event_key]];
 
 //position the event site at max distance 65% of target radius and min 25% of target radius
 private _poss = [[[_target_center, (d_cur_target_radius * 0.65)]],[[_target_center, (d_cur_target_radius * 0.25)]]] call BIS_fnc_randomPos;
@@ -74,8 +77,8 @@ d_kb_logic1 kbTell [
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
 __TRACE_1("","_prisonerGroup")
-private _pos = (getPos _bldg) findEmptyPosition [0, 25, d_sm_pilottype];
-if (_pos isEqualTo []) then { _pos = getPos _bldg };
+private _pos = (getPos _bldg) findEmptyPosition [0, 99, d_sm_pilottype];
+if (_pos isEqualTo []) then { _pos = _poss };
 
 // create pilot1
 private _pilot1 = _prisonerGroup createUnit [d_sm_pilottype, _pos, [], 0, "NONE"];
@@ -198,5 +201,6 @@ if (d_ai_persistent_corpses == 0) then {
 	sleep 120;
 };
 
-//cleanup
+// cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

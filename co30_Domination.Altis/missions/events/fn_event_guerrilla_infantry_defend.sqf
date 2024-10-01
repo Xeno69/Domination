@@ -14,7 +14,7 @@ if !(isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
-private _event_name = "guerrilla_defend";
+private _event_name = "RESCUE_DEFEND";
 private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
 
 diag_log [format ["start event: %1", _mt_event_key]];
@@ -116,7 +116,7 @@ waitUntil {sleep 1; d_mt_radio_down && {d_mt_done}};
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
 
-//cleanup
+// cleanup
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
 diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
 deleteMarker _marker;

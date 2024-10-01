@@ -13,7 +13,9 @@ if (!isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
-private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, "POW_RESCUE"];
+
+diag_log [format ["start event: %1", _mt_event_key]];
  
 //position the event site at max distance 50% of target radius and min 5% of target radius
 private _poss = [[[_target_center, (d_cur_target_radius * 0.50)]],[[_target_center, (d_cur_target_radius * 0.05)]]] call BIS_fnc_randomPos;
@@ -38,7 +40,7 @@ private _allActors = [];
 
 __TRACE_1("","_prisonerGroup")
 // select a starting point, units will be moved later to occupy a building if possible
-private _nposss = _poss findEmptyPosition [0, 25, d_sm_pilottype];
+private _nposss = _poss findEmptyPosition [0, 99, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
 
 // create pilot1
@@ -190,5 +192,6 @@ if (d_ai_persistent_corpses == 0) then {
 	sleep 120;
 };
 
-//cleanup
+// cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
