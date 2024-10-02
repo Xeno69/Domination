@@ -44,6 +44,7 @@
 - Fixed: If a unit is in Team Delta (engineer) and the class doesn't have the trait "engineer" it is added now (for example the SPE version had the problem)
 - Fixed: Smokeshells were missing in the CUP versions
 - Fixed: Using CUP UAV now instead of vanilla ones in the CUP blufor versions
+- Fixed: Respawning at SQL in a vehicle after beeing unconscious caused the player to stand in the vehicle
 - Updated: Added new SPE 1.1 classes and missing CfgRemoteExec entries
 - Updated: Korean translation, by kkim
 - Workaround: Zeus was not transfered to a logged in admin player object after respawn
