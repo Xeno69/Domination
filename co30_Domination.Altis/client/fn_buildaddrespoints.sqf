@@ -63,6 +63,7 @@ if (d_additional_respawn_points_orig isNotEqualTo []) then {
 				};
 #else
 				private _dadao = missionNamespace getVariable (_x # 1);
+				__TRACE_1("","_dadao")
 				_x set [1, getPos _dadao];
 				if (isNil {_dadao getVariable "d_teleidx"}) then {
 					_dadao setVariable ["d_teleidx", _dadao addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}, -1, 1.5, true, true, "", "true", 10]];
@@ -77,7 +78,10 @@ if (d_additional_respawn_points_orig isNotEqualTo []) then {
 				};
 				if (_x # 4) then {
 					if (isNil {_dadao getVariable "d_bikeidx"}) then {
-						_dadao setVariable ["d_bikeidx", _dadao addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_1816"], {[0, 0, 0, [d_create_bike # 0, 1]] spawn d_fnc_bike}, -1, 1.5, true, true, "", "true", 10]];
+						if ((nearestObjects [_dadao, ["Land_Carrier_01_base_F"], 150]) isEqualTo []) then {
+							__TRACE("No carrier nearby")
+							_dadao setVariable ["d_bikeidx", _dadao addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_1816"], {[0, 0, 0, [d_create_bike # 0, 1]] spawn d_fnc_bike}, -1, 1.5, true, true, "", "true", 10]];
+						};
 					};
 				};
 #endif
