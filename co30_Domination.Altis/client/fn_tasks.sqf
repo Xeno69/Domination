@@ -54,17 +54,13 @@ player createDiaryRecord ["Diary", ["Briefing", _bar joinString ""]];
 
 player createDiarySubject ["dLicense","License"];
 player createDiaryRecord ["dLicense", ["License", "
-Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)<br/><br/>
-http://creativecommons.org/licenses/by-nc-nd/4.0/<br/><br/>
-You are free to:<br/><br/>
-Share - copy and redistribute the material in any medium or format<br/><br/>
-The licensor cannot revoke these freedoms as long as you follow the license terms.<br/><br/><br/>
-Under the following terms:<br/><br/>
-Attribution - You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner,<br/>
-but not in any way that suggests the licensor endorses you or your use.<br/><br/>
-NonCommercial - You may not use the material for commercial purposes.<br/><br/>
-NoDerivatives - If you remix, transform, or build upon the material, you may not distribute the modified material.<br/><br/><br/>
-No additional restrictions - You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+Arma Public License Share Alike (APL-SA)<br/><br/>
+https://www.bohemia.net/community/licenses/arma-public-license-share-alike<br/><br/>
+With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:<br/><br/>
+Attribution — You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).<br/>
+Noncommercial — You may not use this material for any commercial purposes.<br/>
+Arma Only — You may not convert or adapt this material to be used in other games than Arma.<br/>
+Share Alike — If you adapt, or build upon this material, you may distribute the resulting material only under the same license.<br/>
 "]];
 
 if (d_database_found && {getClientStateNumber < 10}) then {
