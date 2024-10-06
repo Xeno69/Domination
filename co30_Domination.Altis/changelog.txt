@@ -18,7 +18,6 @@
 - Added: Faction Islamic State updated vehicles, updated infantry AT, by longtimegamer
 - Added: Pylon loadout change for spawned drones
 - Added: Rabbit rescue will announce if a player killed the rabbit, by longtimegamer
-- Added: CfgRemoteExecMod import to CfgRemoteExec in description.ext
 - Changed: Added new 2.18 scripting commands and scripting command changes
 - Changed: AI group respawn times increased again
 - Changed: Better messages if farp/mash position is too close to base or slope is too steep
