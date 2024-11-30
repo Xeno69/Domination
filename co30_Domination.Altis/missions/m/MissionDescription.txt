@@ -1,0 +1,141 @@
+fn_create_sm_bymarkers.sqf
+	private _infhelper_fnc = {
+		params ["_fidx", "_marar", "_curmar"];
+		["specops", parseNumber (_marar # (_fidx + 1)), "allmen", parseNumber (_marar # (_fidx + 2)), markerPos _curmar, parseNumber (_marar # (_fidx + 3)), _marar # (_fidx + 4) == "true"]
+	
+	_fidx = _marar find "sminf";		
+		if (_fidx != -1) then {
+			if (_marar # (_fidx + 1) == "no") then {
+				_onesmar set [4, false];
+			} else {
+				(_onesmar # 4) pushBack ([_fidx, _marar, _curmar] call _infhelper_fnc);
+			};
+		};
+d_fn_makevgroup
+	params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false], ["_nolift", false], ["_dyna", false], ["_nocargo", false]];
+
+	sminf|1|2|300|false -> "specops", #specops 1, "allmen", #allmend 2, actual position, radius 300, do_patrol
+
+mission/(d_fnc_)CreateInf.sqf
+// parameters:
+// 0. first type of infantry ie-- "specops"
+// 1. _nrg number of groups for first type (+2 added if parameters set to "no enemy armor") 
+// 2. _typenr second type of infantry ie-- "allmen" 
+// 3. _nrg number of groups for second type (+2 added if parameters set to "no enemy armor")
+// 4. _pos_center
+// 5. _radius
+// 6. _do_patrol
+// 7. _isArmorAdjustmentDisabled (optional, default: false) if true do not modify the specified number of groups regardless of "no enemy armor" setting
+// 8. _unitsPerGroup (optional) if defined then this number sets the number of units created per group (will not be randomized)
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+fn_create_sm_bymarkers.sqf	
+	private _armorhelper_fnc = {
+		params ["_fidx", "_marar", "_curmar"];
+		["aa", parseNumber (_marar # (_fidx + 1)), "tracked_apc", parseNumber (_marar # (_fidx + 2)), "tank", parseNumber (_marar # (_fidx + 3)), markerPos _curmar, parseNumber (_marar # (_fidx + 4)), parseNumber (_marar # (_fidx + 5)), _marar # (_fidx + 6) == "true"]
+	d_smm|50|radiotower|smarmor|1|2|1|1|400|true|sminf|1|2|300|false
+	private _fidx = _marar find "smarmor";
+		if (_fidx != -1) then {
+			if (_marar # (_fidx + 1) == "no") then {
+				_onesmar set [3, false];
+			} else {
+				(_onesmar # 3) pushBack ([_fidx, _marar, _curmar] call _armorhelper_fnc);
+			};
+		};
+	smarmor|1|2|3|4|400|true -> "aa", #aa 1, "tracked_apc", #tracked_apc 2, "tank", #tank 3, position, #of teams (aa+tracked_apc+tank) 4, radius 400, do_patrol
+	
+f_createarmor.sqf
+	params ["", "", "", "", "", "", "_pos_center", "_num_v", "_radius", ["_do_patrol", false], ["_dohc", true]];
+
+
+fn_makevgroup.sqf params 
+	["_numvecs", "_pos", "_vname", "_grp", "_dir" , ["_is_static", false], ["_nolift", false], ["_dyna", false], ["_nocargo", false]];
+_dir=-1.111 => random
+
+
+
+private _smtypes = ["convoy", "stealflag", "tankdepot", "arrest", "artibase", "deliver", "evac", "radiotower", "prisoners",
+	"stealapc", "stealchopper", "stealtank", "stealplane", "specops", "eliminateofficer", "eliminategovmember", "fuelstation",
+	"transformer", "barracks", "hangar", "eliminatesniper", "cargotruck", "minesland", "minesnaval", "dataterminal", "device",
+	"sam", "cache", "trucks", "artycannon", "gleak", "farp", "scud"] apply {toLowerANSI _x};
+private _subtypes = ["start", "end", "flag", "tank", "time", "radius"] 
+
+
+
+
+get paramters: markerDir "d_sm_xx_y"
+
+see missions/fn_getbymarkers.sqf for types:
+	convoy|stop/start	params ["_pos_start", "_pos_end", "_direction"];
+	stealflag|flag|#	[d_x_sm_pos]	params ["_posi_array"];
+	tankdepot|tank|#	forEach (_sm_ar # 2) params ["_posi_array", "_dirs"];
+	arrest			[ObjNull, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] params ["_officer", ["_docreatearmor", false], ["_docreateinf", false]];
+	artibase		[d_x_sm_pos # 0] params ["_poss"];
+	deliver			[d_x_sm_pos # 0, d_x_sm_pos # 1, markerDir "d_sm_loga", _sm_ar # 7] 	params ["_spos","_epos","_sdir","_edir"];
+	evac|time|#
+	radiotower
+		[d_x_sm_pos # 0,	d_illum_tower, 	_sm_ar # 7, 	true, 			false, false, 		(_sm_ar # 3) call _boolorarrayfnc, 	(_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
+		params ["_poss", 	"_type", 	["_dir", 0], 	["_dovup", true], 	["_dolock", false], 	["_killnormal", false], 		["_createarmor", false], 		["_createinf", false]];
+	prisoners
+	stealchopper
+	stealtank
+	stealapc
+	stealplane
+	specops|radius|#
+	eliminateofficer
+	eliminategovmember
+	eliminatesniper
+	fuelstation
+	transformer
+	barracks
+	hangar
+	cargotruck
+	minesland
+	minesnaval
+	artycannon
+	dataterminal
+	device
+	sam
+	cache
+	trucks
+	gleak	["_createarmor", false], ["_createinf", false]];
+	farp
+	scud
+	
+	
+	
+	
+0 radiotower	STR_DOM_MISSIONSTRING_1815	Our reconnaissance has detected a radio signal. It looks like this is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it
+1 eliminateofficer	STR_DOM_MISSIONSTRING_1813	Intel has got some information about the location of a high enemy officer. Find and eliminate him!
+2 normal	STR_DOM_MISSIONSTRING_1807	Enemy forces are preparing a prototype plane. This is a good chance to steal and bring it to your base, before enemy troops use it
+3 normal	STR_DOM_MISSIONSTRING_1808	Enemy forces are preparing an enhanced prototype tank. This is a good chance to steal and bring it to your base, before enemy troops use it
+4 normal	STR_DOM_MISSIONSTRING_786	The enemy is producing chemical weapons in a factory Solnichniy. Find the container that has some of the chemical for the production and destroy it.
+5 normal	STR_DOM_MISSIONSTRING_809	ntel reports about a train with vital military equipment leaving Chernogorsk habour soon. Find the train and destroy it!
+6 normal	STR_DOM_MISSIONSTRING_814	The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.
+7 normal	STR_DOM_MISSIONSTRING_816	There is an enemy training facility. Destroy the main building to cut down their possibilities to train new soldiers.
+8 normal	STR_DOM_MISSIONSTRING_1815	Our reconnaissance has detected a radio signal. It looks like this is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it!
+9 normal	STR_DOM_MISSIONSTRING_878	The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.
+10 artycannon	STR_DOM_MISSIONSTRING_1811	Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!
+11 normal	STR_DOM_MISSIONSTRING_732	There is a lighthouse on an island. Enemy ships use it to find their way to the around the coast, destroy it.
+12 normal	STR_DOM_MISSIONSTRING_1813	Intel has got some information about the location of a high enemy officer. Find and eliminate him!
+13 normal	STR_DOM_MISSIONSTRING_1817	High enemy government member is visiting some enemy troops. Find him and eliminate him!
+14 normal	STR_DOM_MISSIONSTRING_738	The enemy uses a radio tower to command its armored troops. Simple task, destroy it.
+15 normal	STR_DOM_MISSIONSTRING_1804	Energy is key in any modern war. We want you to sabotage the enemy power supplies. Destroy the transformer station!
+16 normal	STR_DOM_MISSIONSTRING_1815	Our reconnaissance has detected a radio signal. It looks like this is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it!
+21 convoy	STR_DOM_MISSIONSTRING_1801	Intel reports about an enemy convoy is on route. Find it and destroy the convoy, before it reaches its destination!
+25 specops	STR_DOM_MISSIONSTRING_1806	Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something
+29 normal	STR_DOM_MISSIONSTRING_1810	Intel has found an enemy tank depot. Destroy all tanks there to weaken the enemy troops.
+31 deliver	STR_DOM_MISSIONSTRING_1664	Our forces are in urgent need of supplies. Deliver the supply truck from our Base to the point of destination
+32 normal	STR_DOM_MISSIONSTRING_775	We want to provoke the enemy. Find the enemy flag and bring it back to the flag at your base.
+37 normal	STR_DOM_MISSIONSTRING_780	The enemy is building a prison. Destroy the building so that they can not arrest innocent people.
+38 normal	STR_DOM_MISSIONSTRING_782	The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.
+39 normal	STR_DOM_MISSIONSTRING_784	In the huge radio tower on top of mount Green Mountain is a IED, it looks like an ammobox. Your job is it to destroy the IED.
+40 prisoners	STR_DOM_MISSIONSTRING_1805	Some civilians are held hostage. You have to free them and bring at least 8 civilians/prisoners back alive to your base!
+42 normal	STR_DOM_MISSIONSTRING_1800	The enemy has a small outpost. Arrest the officer there and bring him back to your base to get some vital informations
+44 normal	STR_DOM_MISSIONSTRING_1809	Enemy forces are preparing an enhanced prototype chopper. This is a good chance to steal and bring it to your base, before enemy troops use it
+45 normal	STR_DOM_MISSIONSTRING_798	The enemy has all its gold in a bank in Elektrozavodsk. Destroy the building so that they can't pay their weapon shipments anymore.
+46 normal	STR_DOM_MISSIONSTRING_800	The enemy is producing ball bearings in a factory in Chernogorsk. Destroy the main building and the two chimneys to stop the production.
+47 normal	STR_DOM_MISSIONSTRING_802	The enemy is producing ammunition in a factory near Berezino. Destroy the main building and the pipelines to stop the production.
+51 evac		STR_DOM_MISSIONSTRING_1803	ne of our choppers was shot down. Find and rescue the crew and bring them back to base.

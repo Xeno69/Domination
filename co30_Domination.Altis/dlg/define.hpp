@@ -412,7 +412,7 @@ class xr_mouseHandler : RscControlsGroup {
 #define COMMON_BACKGROUND_VIGNETTE \
 	class Vignette: RscVignette { \
 		idc = 114998; \
-	};
+	}
 
 #define BCGTILE(posX,posY) \
 	class Tile_##posX##_##posY##: RscText { \

@@ -1,4 +1,4 @@
-rem Domination Build Batch, really shitty batch file :D
+jrem Domination Build Batch, really shitty batch file :D
 rem needs makepbo from mikero https://mikero.bytex.digital/Downloads needs makePBO and dePBO
 rem just copy MakePBO.exe and DePbo.dll in the dom_maker folder
 rem The ArmaScriptCompiler.exe which is needed for SQFC files can be found at https://github.com/dedmen/ArmaScriptCompiler/actions/workflows/ci.yml (click on the latest workflow runs link to download)
@@ -13,7 +13,7 @@ set D_NUM_PLAYERS_CO=40
 rem set D_DO_ASC=1
 rem set D_DO_ASC_ALL=1
 
-set WORK_DIR=D:\DomSQFC
+set WORK_DIR=C:\temp\DomSQFC
 
 del *.pbo
 
@@ -21,6 +21,45 @@ rmdir /S /Q %WORK_DIR%
 
 md %MASTER%
 xcopy ..\%BASE_MASTER%\*.* %MASTER% /E /Y
+
+rem Blufor Stubbhult
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.stubbhult
+set MISSION_SQM=..\mission_sqm\mission_blufor_stubbhult_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_stubbhult.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q ma3a
+rmdir /S /Q ma3m
+rmdir /S /Q ma3s
+rmdir /S /Q ma3t
+rmdir /S /Q mifa3
+rmdir /S /Q moa
+rmdir /S /Q msara
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+rem rmdir /S /Q %MASTER%
+rem pause
+rem exit
 
 rem Blufor Altis
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.altis
@@ -44,12 +83,13 @@ del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
+REM rmdir /S /Q ma3a
+rmdir /S /Q ma3m
+rmdir /S /Q ma3s
+rmdir /S /Q ma3t
+rmdir /S /Q mifa3
 rmdir /S /Q moa
 rmdir /S /Q msara
-rmdir /S /Q ma3t
-rmdir /S /Q ma3s
-rmdir /S /Q mifa3
-rmdir /S /Q ma3m
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
@@ -57,7 +97,6 @@ rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
 
 rem goto cleanup
-
 
 rem Blufor Normandy
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_ger.SPE_normandy
@@ -439,12 +478,13 @@ del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
+REM rmdir /S /Q ma3a
+rmdir /S /Q ma3am
+rmdir /S /Q ma3s
+rmdir /S /Q ma3t
+rmdir /S /Q mifa3
 rmdir /S /Q moa
 rmdir /S /Q msara
-rmdir /S /Q ma3t
-rmdir /S /Q ma3s
-rmdir /S /Q mifa3
-rmdir /S /Q ma3m
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
@@ -474,12 +514,13 @@ del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
+REM rmdir /S /Q ma3a
+rmdir /S /Q ma3am
+rmdir /S /Q ma3s
+rmdir /S /Q ma3t
 rmdir /S /Q mifa3
 rmdir /S /Q moa
 rmdir /S /Q msara
-rmdir /S /Q ma3t
-rmdir /S /Q ma3s
-rmdir /S /Q ma3a
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%

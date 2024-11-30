@@ -12847,6 +12847,18 @@
 <Chinese>Malden civilians (CFP) (static only, walking units not supported)</Chinese>
 <French>Malden civilians (CFP) (static only, walking units not supported)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_STUBBHULT">
+<English>Stubbhult civilians (CFP) (static only, walking units not supported)</English>
+<Spanish>Stubbhult civilians (CFP) (static only, walking units not supported)</Spanish>
+<Portuguese>Stubbhult civilians (CFP) (static only, walking units not supported)</Portuguese>
+<Korean>Stubbhult 시민 (CFP) (고정만 가능, 걸어가는 시민은 지원하지 않습니다)</Korean>
+<Japanese>Stubbhult civilians (CFP) (static only, walking units not supported)</Japanese>
+<Original>Stubbhult civilians (CFP) (static only, walking units not supported)</Original>
+<Russian>Stubbhult civilians (CFP) (static only, walking units not supported)</Russian>
+<Chinesesimp>Stubbhult civilians (CFP) (static only, walking units not supported)</Chinesesimp>
+<Chinese>Stubbhult civilians (CFP) (static only, walking units not supported)</Chinese>
+<French>Stubbhult civilians (CFjP) (static only, walking units not supported)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MIDDLE_EAST">
 <English>Middle East civilians (CFP) (static only, walking units not supported)</English>
 <Spanish>Middle East civilians (CFP) (static only, walking units not supported)</Spanish>
