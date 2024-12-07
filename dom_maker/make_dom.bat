@@ -1,4 +1,4 @@
-jrem Domination Build Batch, really shitty batch file :D
+rem Domination Build Batch, really shitty batch file :D
 rem needs makepbo from mikero https://mikero.bytex.digital/Downloads needs makePBO and dePBO
 rem just copy MakePBO.exe and DePbo.dll in the dom_maker folder
 rem The ArmaScriptCompiler.exe which is needed for SQFC files can be found at https://github.com/dedmen/ArmaScriptCompiler/actions/workflows/ci.yml (click on the latest workflow runs link to download)
