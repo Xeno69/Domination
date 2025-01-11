@@ -382,6 +382,7 @@ class cfgFunctions {
 			addc(moduleCAS_eachframeAI);
 			addc(moduleCASAI);
 			addc(moduleCAS_guidedmissile);
+			addc(moduleCAS_guidedmissile2);
 			addc(mando_chute);
 			addc(sandstorm);
 			addc(weather_winter);

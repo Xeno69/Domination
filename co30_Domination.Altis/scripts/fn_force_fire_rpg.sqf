@@ -3,7 +3,7 @@ params ["_u", "_target"];
 
 // in Arma 3, it isn't possible to reliably force a unit to fire a secondaryWeapon (RPG)
 // instead a) force the unit to use the weapon and point it at the target
-// and then b) use d_fnc_moduleCAS_guidedmissile to create the missile in flight
+// and then b) use d_fnc_moduleCAS_guidedmissile2 to create the missile in flight
 // note the greater randomPos deviation when further away from the target, just a messy first attempt and probably needs to be tuned
 
 _u setVariable ["d_is_force_shooting", true, true];
@@ -61,7 +61,7 @@ private _secWeaponMag = (secondaryWeaponMagazine _u) select 0;
 private _ammo = getText (configFile>>"CfgMagazines" >> _secWeaponMag >> "ammo");
 
 // fire the rocket
-[_targetpos, _missile_start_pos, _ammo, 0, _u, _projectileVelocity, 10, true] call d_fnc_moduleCAS_guidedmissile;
+[_targetpos, _missile_start_pos, _ammo, 0, _u, _projectileVelocity, 10, true] call d_fnc_moduleCAS_guidedmissile2;
 
 // restore the primary weapon and primary weapon magazines removed earlier, ignore handgun and grenades for now
 _u addMagazines [(_prim_weapon_ammo_mag_arr select 0), 5];
