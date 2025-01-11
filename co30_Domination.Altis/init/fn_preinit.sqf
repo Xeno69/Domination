@@ -3456,8 +3456,11 @@ if (d_with_airdrop == 2) then {
 		"CFP_C_ME_Civ_1_01", 1,
         "CFP_C_ME_Civ_2_01", 1
 	];
-	
-	
+
+
+	// default
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthHigh;
+
 #ifdef __ALTIS__
 	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthHigh;
 	d_civ_faces = _mixedFaces;
@@ -4067,7 +4070,7 @@ if (d_enemy_factions > 0) then {
 				["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamat"] call d_fnc_GetConfigGroup
 			];
 			d_specops_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup];
-			d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup];
+			// d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup]; // RWR sniper team is mostly non-snipers... just use default snipers
 		};
 		case 8: {
 			// 3CB - African Desert Civilian Militia (ADG)
@@ -4291,20 +4294,22 @@ switch (d_guerrilla_factions) do {
 			["I_CUPARMYASIA_T72_01", "I_CUPARMYASIA_BTR_60PB_01"]
 		];
 	};
-	// ION PMC
+	// ION PMC and AT
 	case 5: {
 		d_faction_independent_array = [
 			[
-				["Indep","CUP_I_PMC_ION","Infantry","CUP_I_PMC_ION_Security_Detail"] call d_fnc_GetConfigGroup
+				["Indep","CUP_I_PMC_ION","Infantry","CUP_I_PMC_ION_Security_Detail"] call d_fnc_GetConfigGroup,
+				["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup
 			],
 			["CUP_I_MATV_GMG_ION", "CUP_I_BTR80A_ION"]
 		];
 	};
-	// ION PMC Arctic
+	// ION PMC Arctic and AT
 	case 6: {
 		d_faction_independent_array = [
 			[
-				["Indep","CUP_I_PMC_ION","WinterInfantry","CUP_I_PMC_Winter_ION_Security_Detail"] call d_fnc_GetConfigGroup
+				["Indep","CUP_I_PMC_ION","WinterInfantry","CUP_I_PMC_Winter_ION_Security_Detail"] call d_fnc_GetConfigGroup,
+				["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup
 			],
 			["CUP_I_MATV_GMG_ION", "CUP_I_nM1025_Mk19_ION_WIN"]
 		];
