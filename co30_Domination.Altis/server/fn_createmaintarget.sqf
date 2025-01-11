@@ -812,7 +812,8 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
 				d_delinfsm append _unitstog;
 			};
-			
+			// DISABLED - avoid creating an extra overwatch group, creating two groups instead of one is confusing and it's not clear to the server admin how many groups are created in the server params
+			/*
 			// create an overwatch group in same building or area (cover the ambush group)
 			private _unitstog = [
 				_pos,
@@ -827,6 +828,7 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
 				d_delinfsm append _unitstog;
 			};
+			*/
 		};
 	};
 
