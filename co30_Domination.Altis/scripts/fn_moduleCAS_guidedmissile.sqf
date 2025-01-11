@@ -33,8 +33,11 @@ __TRACE_3("","_missile","getPos _missile","_missile distance _target")
 
 // todo - orient the missile to point toward the target?
 
+private _startTime = time;
+private _maxFlightTime = 10; // in seconds
+
 //ajusting missile pos while flying
-while {alive _missile && {_missile distance2D _target > 1}} do {
+while {alive _missile && {_missile distance2D _target > 1 && { time - _startTime < _maxFlightTime }}} do {
 	//__TRACE_2("flying","_missile","_missile distance2D _target")
 	//if (_missile distance _target > (_missileSpeed / 10)) then {
 	if (_missile distance _target > 5) then {
