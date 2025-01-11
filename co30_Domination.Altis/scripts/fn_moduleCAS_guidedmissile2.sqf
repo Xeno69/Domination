@@ -26,15 +26,6 @@ if (_missileHeight > 0) then {
 //creating missile
 private _missile = _missileType createVehicle _startPos;
 _missile setShotParents [_instigator, _instigator];
-private _startTime = time;
-private _initialDistanceToTarget = _missile distance _targetPos;
-private _distanceSelfDetonate = 700;
-private _shouldExit = false;
-private _maxFlightTime = 7; // in seconds
-__TRACE_3("","_missile","getPos _missile","_missile distance _targetPos")
-
-__TRACE_1("","alive _missile")
-
 _missile setDir (_missile getDir _targetPos);
 private _dirVer = asin ((((getPosASL _missile) # 2) - (_targetPos # 2)) / (_targetPos distance _missile));
 if (_dirVer isEqualType 0) then {// asin can return something like -1.#IND if the value isn't correct (asin 2 for example)
