@@ -2908,85 +2908,83 @@ if (d_with_airdrop == 2) then {
 	
 	d_chem_objs_ar = [];
 
-	if (d_enable_civs == 1) then {
-		//
-		//civilian vehicles
-		//
-		d_civVehiclesWeightedCityWealthHigh = [
-			"C_Offroad_01_F", 1,
-			"C_Hatchback_01_F", 1,
-			"C_Truck_02_covered_F", 0.25,
-			"C_Van_01_box_F", 0.25,
-			"C_Van_02_transport_F", 0.25,
-			"C_Offroad_02_unarmed_F", 0.5,
-			"C_SUV_01_F", 0.5,
-			"C_IDAP_Van_medevac_02_F", 0.25
-		];
+    //
+    //civilian vehicles
+    //
+    d_civVehiclesWeightedCityWealthHigh = [
+        "C_Offroad_01_F", 1,
+        "C_Hatchback_01_F", 1,
+        "C_Truck_02_covered_F", 0.25,
+        "C_Van_01_box_F", 0.25,
+        "C_Van_02_transport_F", 0.25,
+        "C_Offroad_02_unarmed_F", 0.5,
+        "C_SUV_01_F", 0.5,
+        "C_IDAP_Van_medevac_02_F", 0.25
+    ];
 
-		d_civVehiclesWeightedCityWealthLow = [
-			"C_Offroad_01_F", 1,
-			"C_Truck_02_covered_F", 0.25,
-			"C_Truck_02_transport_F", 0.25,
-			"C_Van_01_box_F", 0.25,
-			"C_Van_02_transport_F", 0.25,
-			"C_IDAP_Van_medevac_02_F", 0.25
-		];
+    d_civVehiclesWeightedCityWealthLow = [
+        "C_Offroad_01_F", 1,
+        "C_Truck_02_covered_F", 0.25,
+        "C_Truck_02_transport_F", 0.25,
+        "C_Van_01_box_F", 0.25,
+        "C_Van_02_transport_F", 0.25,
+        "C_IDAP_Van_medevac_02_F", 0.25
+    ];
 
-		d_civVehiclesWeightedRural = [
-			"C_Offroad_01_F", 1,
-			"C_Truck_02_covered_F", 0.25,
-			"C_Truck_02_transport_F", 0.25,
-			"C_Van_01_box_F", 0.10,
-			"C_Offroad_02_unarmed_F", 1,
-			"C_Tractor_01_F", 0.10,
-			"C_van_01_box_f", 0.10,
-			"C_Truck_02_fuel_f", 0.10,
-			"C_idap_truck_02_water_f", 0.10,
-			"C_van_01_transport_f", 0.25
-		];
+    d_civVehiclesWeightedRural = [
+        "C_Offroad_01_F", 1,
+        "C_Truck_02_covered_F", 0.25,
+        "C_Truck_02_transport_F", 0.25,
+        "C_Van_01_box_F", 0.10,
+        "C_Offroad_02_unarmed_F", 1,
+        "C_Tractor_01_F", 0.10,
+        "C_van_01_box_f", 0.10,
+        "C_Truck_02_fuel_f", 0.10,
+        "C_idap_truck_02_water_f", 0.10,
+        "C_van_01_transport_f", 0.25
+    ];
 
-		d_civVehiclesWeightedRuralCup = [
-			"CUP_C_pickup_unarmed_civ", 1,
-			"CUP_C_Datsun", 1,
-			"CUP_C_V3S_Covered_TKC", 1,
-			"CUP_B_hilux_unarmed_blu_g_f", 1,
-			"CUP_I_suv_ion", 0.25,
-			"C_Tractor_01_F", 0.10,
-			"CUP_C_tractor_old_civ", 0.10
-		];
+    d_civVehiclesWeightedRuralCup = [
+        "CUP_C_pickup_unarmed_civ", 1,
+        "CUP_C_Datsun", 1,
+        "CUP_C_V3S_Covered_TKC", 1,
+        "CUP_B_hilux_unarmed_blu_g_f", 1,
+        "CUP_I_suv_ion", 0.25,
+        "C_Tractor_01_F", 0.10,
+        "CUP_C_tractor_old_civ", 0.10
+    ];
 
-		d_civVehiclesWeightedRuralCupRemote = [
-			"CUP_C_Datsun", 1,
-			"CUP_C_Datsun_4seat", 1,
-			"CUP_C_V3S_Covered_TKC", 0.5,
-			"C_Tractor_01_F", 0.25
-		];
-		
-		d_civVehiclesWeightedCityWealthLowCup =+ d_civVehiclesWeightedCityWealthLow;
-		d_civVehiclesWeightedCityWealthLowCup =+ [
-			"CUP_C_lada_white_civ", 1,
-			"CUP_C_lada_red_civ", 1,
-			"CUP_C_skoda_white_civ", 1,
-			"CUP_C_skoda_green_civ", 1,
-			"CUP_C_skoda_blue_civ", 1,
-			"CUP_C_skoda_red_civ", 1,
-			"CUP_C_ikarus_chernarus", 0.25,
-			"CUP_C_bus_city_crciv", 0.25,
-			"CUP_B_S1203_Ambulance_CR", 0.25
-		];
-		
-		d_civVehiclesWeightedCityWealthLowCFP =+ d_civVehiclesWeightedCityWealthLowCup;
-		d_civVehiclesWeightedCityWealthLowCFP =+ [
-			"CFP_c_me_datsun_pickup_covered_01", 1,
-			"CFP_C_datsun_plain", 1,
-			"CFP_C_afg_skoda_105_L_01", 1,
-			"CFP_C_asia_praga_v3s_01", 1,
-			"CFP_B_caf_ural_01", 1,
-			"CFP_I_ssarmy_skoda_1203_01", 1,
-			"CFP_B_afgpolice_offroad_01", 0.25,
-			"CFP_B_uaz_01", 1
-		];
-	};
+    d_civVehiclesWeightedRuralCupRemote = [
+        "CUP_C_Datsun", 1,
+        "CUP_C_Datsun_4seat", 1,
+        "CUP_C_V3S_Covered_TKC", 0.5,
+        "C_Tractor_01_F", 0.25
+    ];
+
+    d_civVehiclesWeightedCityWealthLowCup =+ d_civVehiclesWeightedCityWealthLow;
+    d_civVehiclesWeightedCityWealthLowCup =+ [
+        "CUP_C_lada_white_civ", 1,
+        "CUP_C_lada_red_civ", 1,
+        "CUP_C_skoda_white_civ", 1,
+        "CUP_C_skoda_green_civ", 1,
+        "CUP_C_skoda_blue_civ", 1,
+        "CUP_C_skoda_red_civ", 1,
+        "CUP_C_ikarus_chernarus", 0.25,
+        "CUP_C_bus_city_crciv", 0.25,
+        "CUP_B_S1203_Ambulance_CR", 0.25
+    ];
+
+    d_civVehiclesWeightedCityWealthLowCFP =+ d_civVehiclesWeightedCityWealthLowCup;
+    d_civVehiclesWeightedCityWealthLowCFP =+ [
+        "CFP_c_me_datsun_pickup_covered_01", 1,
+        "CFP_C_datsun_plain", 1,
+        "CFP_C_afg_skoda_105_L_01", 1,
+        "CFP_C_asia_praga_v3s_01", 1,
+        "CFP_B_caf_ural_01", 1,
+        "CFP_I_ssarmy_skoda_1203_01", 1,
+        "CFP_B_afgpolice_offroad_01", 0.25,
+        "CFP_B_uaz_01", 1
+    ];
 
 	private _civVehiclesWeightedRuralLivonia = [
 		"C_Offroad_01_F", 0.30,
