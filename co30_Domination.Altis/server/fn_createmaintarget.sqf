@@ -6,10 +6,11 @@ private _selectit = {
 	(ceil (random (((_this # 0) select (_this # 1)) # 1)))
 };
 
+// select the number of infantry groups to spawn
 private _selectitmen = {
 	private _a_vng2 = (_this # 0) select (_this # 1);
 	if (_a_vng2 # 0 > 0) then {
-		if (d_always_max_groups == 1) then { 
+		if (d_always_max_groups == 1) then {
 			(_a_vng2 # 0)
 		} else {
 			private _num_ret = floor (random ((_a_vng2 # 0) + 1));
@@ -22,6 +23,7 @@ private _selectitmen = {
 	} else {0}
 };
 
+// select the number of vehicle groups to spawn
 private _selectitvec = {
 	private _a_vng2 = ((_this # 0) select (_this # 1)) # 0;
 	if (_a_vng2 # 0 > 0) then {
@@ -542,105 +544,134 @@ private _fnc_dospawnr = {
 
 private _comppost = [];
 // create guard groups (and a camp if allmen/specops)
-{
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1) then {
-		for "_xxx" from 1 to (_x # 2) do {
-			private _ppos = [];
-			private _iscompost = false;
-			if (_camp_enable_guard_current == 1 && {!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}}) then {
-				_idx = floor random (count _parray);
-				_nppos = _parray # _idx;
-				_ppos = _nppos;
-				if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
-					d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
+if (d_preemptive_special_event || { _camp_enable_guard_current == 0 }) then {
+    // do not create groups
+    if (d_preemptive_special_event) then {
+        diag_log ["skipping creating guard groups and camps, preemptive event is running"];
+    };
+    if (_camp_enable_guard_current == 0) then {
+        diag_log ["skipping creating guard groups and camps, _camp_enable_guard_current == 0"];
+    };
+} else {
+    {
+    	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1) then {
+    		for "_xxx" from 1 to (_x # 2) do {
+    			private _ppos = [];
+    			private _iscompost = false;
+                if (_camp_enable_guard_current == 1 && {!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}}) then {
+    				_idx = floor random (count _parray);
+    				_nppos = _parray # _idx;
+    				_ppos = _nppos;
+    				if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
+    					d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
 #ifdef __DEBUG__
-					[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+    					[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
-					_comppost pushBack _ppos;
-					_iscompost = true;
-					_parray deleteAt _idx;
-					sleep 0.2;
-				} else {
-					_ppos = [];
-				};
-			};
-			if (_ppos isEqualTo []) then {
-				private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-				private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-				_ppos = _curar # _wp_ran;
-				_curar deleteAt _wp_ran;
-			};
-			[_x # 0, [_ppos], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
-			sleep 0.2;
-		};
-	};
-} forEach (_type_list_guard select {_x # 2 > 0});
+    					_comppost pushBack _ppos;
+    					_iscompost = true;
+    					_parray deleteAt _idx;
+    					sleep 0.2;
+    				} else {
+    					_ppos = [];
+    				};
+    			};
+    			if (_ppos isEqualTo []) then {
+    				private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+    				private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+    				_ppos = _curar # _wp_ran;
+    				_curar deleteAt _wp_ran;
+    			};
+    			[_x # 0, [_ppos], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
+    			sleep 0.2;
+    		};
+    	};
+    } forEach (_type_list_guard select {_x # 2 > 0});
+};
 
 sleep 0.233;
 
-// create guard_static groups (and a camp if allmen/specops)
-{
-	if (d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}) then {
-		for "_xxx" from 1 to (_x # 2) do {
-			private _ppos = [];
-			private _iscompost = false;
-			if (_camp_enable_guard_current == 1 && {!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}}) then {
-				_idx = floor random (count _parray);
-				_nppos = _parray # _idx;
-				_ppos = _nppos;
-				if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
-					d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
-#ifdef __DEBUG__
-					[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
-#endif
-					_comppost pushBack _ppos;
-					_iscompost = true;
-					_parray deleteAt _idx;
-					sleep 0.2;
-				} else {
-					_ppos = [];
-				};
-			};
-			if (_ppos isEqualTo []) then {
-				private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-				private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-				_ppos = _curar # _wp_ran;
-				_curar deleteAt _wp_ran;
-			};
-			[_x # 0, [_ppos], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
-			sleep 0.2;
-		};
-	};
-} forEach (_type_list_guard_static select {_x # 2 > 0});
+if (d_preemptive_special_event || { _camp_enable_guard_current == 0 }) then {
+    if (d_preemptive_special_event) then {
+        diag_log ["skipping creating guard_static and guard_static2 groups, preemptive event is running"];
+    };
+    if (_camp_enable_guard_current == 0) then {
+        diag_log ["skipping creating guard_static and guard_static2 groups, _camp_enable_guard_current == 0"];
+    };
+} else {
+    // create guard_static groups (and a camp if allmen/specops)
+    {
+    	if (d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}) then {
+    		for "_xxx" from 1 to (_x # 2) do {
+    			private _ppos = [];
+    			private _iscompost = false;
+    			if (_camp_enable_guard_current == 1 && {!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}}) then {
+    				_idx = floor random (count _parray);
+    				_nppos = _parray # _idx;
+    				_ppos = _nppos;
+    				if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
+    					d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
+    #ifdef __DEBUG__
+    					[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+    #endif
+    					_comppost pushBack _ppos;
+    					_iscompost = true;
+    					_parray deleteAt _idx;
+    					sleep 0.2;
+    				} else {
+    					_ppos = [];
+    				};
+    			};
+    			if (_ppos isEqualTo []) then {
+    				private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+    				private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+    				_ppos = _curar # _wp_ran;
+    				_curar deleteAt _wp_ran;
+    			};
+    			[_x # 0, [_ppos], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
+    			sleep 0.2;
+    		};
+    	};
+    } forEach (_type_list_guard_static select {_x # 2 > 0});
 
-// create guard_static2 groups (static GL and/or MG)
-{
-	for "_xxx" from 1 to (_x # 2) do {
-		private _wp_ran = (count _wp_array_inf) call d_fnc_RandomFloor;
-		[_x # 0, [_wp_array_inf # _wp_ran], _trg_center, _x # 1, "guardstatic2", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
-		_wp_array_inf deleteAt _wp_ran;
-		sleep 0.1;
-	};
-} forEach (_type_list_guard_static2 select {_x # 2 > 0});
+    // create guard_static2 groups (static GL and/or MG)
+    {
+    	for "_xxx" from 1 to (_x # 2) do {
+    		private _wp_ran = (count _wp_array_inf) call d_fnc_RandomFloor;
+    		[_x # 0, [_wp_array_inf # _wp_ran], _trg_center, _x # 1, "guardstatic2", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
+    		_wp_array_inf deleteAt _wp_ran;
+    		sleep 0.1;
+    	};
+    } forEach (_type_list_guard_static2 select {_x # 2 > 0});
+};
 
-// create patrol groups
-{
-	__TRACE_1("patrol","_x")
-	if (d_grp_cnt_footpatrol > 0 || {d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}}) then {
-		if (d_grp_cnt_footpatrol == 0) exitWith {};
-		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-		private _group_count = (_x # 2);
-		if (d_grp_cnt_footpatrol > 0 && (_x # 0 == "allmen" || {_x # 0 == "specops"})) then {
-			_group_count = d_grp_cnt_footpatrol;
-		};
-		for "_xxx" from 1 to _group_count do {
-			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-			[_x # 0, [_curar # _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
-			_curar deleteAt _wp_ran;
-			sleep 0.2;
-		};
-	};
-} forEach (_type_list_patrol select {_x # 2 > 0});
+if (d_preemptive_special_event || { d_grp_cnt_footpatrol == 0 }) then {
+    if (d_preemptive_special_event) then {
+        diag_log ["skipping creating patrol groups, preemptive event is running"];
+
+    };
+    if (d_grp_cnt_footpatrol == 0) then {
+        diag_log ["skipping creating patrol groups, d_grp_cnt_footpatrol == 0"];
+    };
+} else {
+    // create patrol groups
+    {
+    	__TRACE_1("patrol","_x")
+    	if (d_grp_cnt_footpatrol > 0 || {d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}}) then {
+    		if (d_grp_cnt_footpatrol == 0) exitWith {};
+    		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+    		private _group_count = (_x # 2);
+    		if (d_grp_cnt_footpatrol > 0 && (_x # 0 == "allmen" || {_x # 0 == "specops"})) then {
+    			_group_count = d_grp_cnt_footpatrol;
+    		};
+    		for "_xxx" from 1 to _group_count do {
+    			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+    			[_x # 0, [_curar # _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
+    			_curar deleteAt _wp_ran;
+    			sleep 0.2;
+    		};
+    	};
+    } forEach (_type_list_patrol select {_x # 2 > 0});
+};
 
 _type_list_guard = nil;
 _type_list_guard_static = nil;
@@ -781,7 +812,8 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
 				d_delinfsm append _unitstog;
 			};
-			
+			// DISABLED - avoid creating an extra overwatch group, creating two groups instead of one is confusing and it's not clear to the server admin how many groups are created in the server params
+			/*
 			// create an overwatch group in same building or area (cover the ambush group)
 			private _unitstog = [
 				_pos,
@@ -796,6 +828,7 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
 				d_delinfsm append _unitstog;
 			};
+			*/
 		};
 	};
 
