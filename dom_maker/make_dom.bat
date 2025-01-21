@@ -5,15 +5,15 @@ rem The ArmaScriptCompiler.exe which is needed for SQFC files can be found at ht
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
-set D_VER=4_70
-set D_BNVER=4.70
+set D_VER=4_71
+set D_BNVER=4.71
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
 rem set D_DO_ASC=1
 rem set D_DO_ASC_ALL=1
 
-set WORK_DIR=D:\DomSQFC
+set WORK_DIR=E:\DomSQFC
 
 del *.pbo
 

@@ -158,7 +158,6 @@ while {true} do {
 	_grp allowFleeing 0;
 	_grp setCombatMode "RED";
 	_grp enableAttack true;
-	_grp call d_fnc_addgrp2hc;
 
 	while {true} do {
 		sleep 0.323;
@@ -169,7 +168,7 @@ while {true} do {
 	private _wp = _grp addWayPoint [d_cur_tgt_pos, 0];
 	_wp setWaypointType "SAD";
 	private _pat_pos =+ d_cur_tgt_pos;
-	[_grp, 1] setWaypointStatements ["never", ""];
+	[_grp, 1] setWaypointStatements ["true", ""];
 	_wp setWaypointCompletionRadius 50;
 	private _old_pos = [0,0,0];
 	private _xcounter = 0;
@@ -238,7 +237,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 					_x flyInHeight _height;
 					_x flyInHeightASL _heightASL;
 				} forEach (_vehicles select {alive _x});
-				sleep 35.821 + random 15;
+				sleep 16.821 + random 15;
 			} else {
 				__patternpos;
 				_pat_pos = _pat_pos call d_fnc_WorldBoundsCheck;

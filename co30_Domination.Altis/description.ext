@@ -1995,7 +1995,7 @@ class Params {
 	class d_maxnum_tks_forkick {
 		title = "$STR_DOM_MISSIONSTRING_1197";
 		values[] = {1,2,3,5,10,20,30,40,1000000};
-		default = 10;
+		default = 3;
 		texts[] = {"1","2","3","5","10","20","30","40","$STR_DOM_MISSIONSTRING_1198"};
 	};
 

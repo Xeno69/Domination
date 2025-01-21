@@ -18,18 +18,14 @@ if (isNull _pl) exitWith {
 	diag_log "This may break scripts!!!!";
 };
 
-if (remoteExecutedOwner != owner _pl || {_pl isKindOf "VirtualSpectator_F"}) exitWith {
-	__TRACE_2("","_pl","owner _pl")
-};
-
 private _plid = getPlayerID _pl;
-
 __TRACE_1("","_plid")
+__TRACE_1("","getUserInfo _plid")
 
 if (_plid getUserInfo 7) exitWith {
 	__TRACE_2("","_pl","owner _pl")
 #ifdef __DEBUG__
-	diag_log ["Dom initplayerserver headleass client connected"];
+	diag_log ["Dom initplayerserver headless client connected"];
 #endif
 	d_hc_array pushBack _pl;
 	if (time > 10) then {
@@ -38,6 +34,10 @@ if (_plid getUserInfo 7) exitWith {
 		};
 		d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 	};
+};
+
+if (remoteExecutedOwner != owner _pl || {_pl isKindOf "VirtualSpectator_F"}) exitWith {
+	__TRACE_2("","_pl","owner _pl")
 };
 
 private _uid = _plid getUserInfo 2;

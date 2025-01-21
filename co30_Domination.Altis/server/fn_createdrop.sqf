@@ -173,6 +173,7 @@ if (_may_exit) exitWith {
 		4 remoteExecCall ["d_fnc_dropansw", _player];
 	};
 };
+_unit doMove _end_pos;
 sleep 30;
 while {_chopper distance2D _end_pos > 600} do {
 	sleep 3.14;

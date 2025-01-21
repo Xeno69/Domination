@@ -8,6 +8,6 @@ private _ltime = _newu getVariable "d_lr_ti";
 
 if (isNil "_ltime") exitWith {};
 
-if (time - _ltime > 10) exitWith {};
+if (time - _ltime < 10) exitWith {};
 
 _newu assignCurator _cur;

@@ -502,7 +502,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log "Internal D Version: 4.70";
+diag_log "Internal D Version: 4.71";
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -1392,5 +1392,14 @@ if (isMultiplayer) then {
 
 // disable the FIR AWS dialog, use the internal one. Weapons like the GBU24 cause too much FPS drops
 AWS_AMS_Disable = true;
+
+[missionNamespace, "onGameInterrupt", {
+	params ["_disp"];
+	if (!isNil "d_goto_jail") then {
+		(_disp displayCtrl 1010) ctrlEnable false;
+	} else {
+		(_disp displayCtrl 1010) ctrlEnable true;
+	};
+}] call BIS_fnc_addScriptedEventHandler;
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
