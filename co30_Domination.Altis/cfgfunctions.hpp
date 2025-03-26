@@ -706,6 +706,8 @@ class cfgFunctions {
 			addc(acurator);
 			addc(entityrespawned);
 			addc(dynsimcheck);
+			addc(addbarrelsfun);
+			addc(bfunexp);
 		};
 		class Dom_PrePostInit {
 			file = "init";

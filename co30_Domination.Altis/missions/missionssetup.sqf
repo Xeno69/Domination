@@ -19,10 +19,12 @@ d_sm_array =
 	[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,
 	20,21,22,23,24,25,26,27,28,29,31,32,33,34,36,37,38,39,40,
 	41,42,44,45,46,47,49,50,51,52];
-	
-if (worldName != "cup_chernarus_A3") then {
-	d_sm_array pushBack 48;
-};
+#endif
+#ifdef __CUP_CHERNARUS2020__
+d_sm_array =
+	[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,
+	20,21,22,23,24,25,26,27,28,29,31,32,33,34,36,37,38,39,40,
+	41,42,44,45,46,47,48,49,50,51,52];
 #endif
 #ifdef __CUP_TAKISTAN__
 d_sm_array =
@@ -139,6 +141,13 @@ if (isServer) then {
 	};
 #endif
 #ifdef __CUP_CHERNARUS__
+	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
+		case "E": {["CUP_O_GAZ_Vodnik_PK_RU","CUP_O_BTR90_RU", "CUP_O_BRDM2_RUS", "CUP_O_Ural_Repair_RU", "CUP_O_Ural_Refuel_RU", "CUP_O_Ural_Reammo_RU", "CUP_O_BTR90_RU"]};
+		case "W": {["B_MRAP_01_gmg_F","B_APC_Tracked_01_rcws_F", "B_MBT_01_cannon_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Tracked_01_AA_F"]};
+		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
+	};
+#endif
+#ifdef __CUP_CHERNARUS2020__
 	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
 		case "E": {["CUP_O_GAZ_Vodnik_PK_RU","CUP_O_BTR90_RU", "CUP_O_BRDM2_RUS", "CUP_O_Ural_Repair_RU", "CUP_O_Ural_Refuel_RU", "CUP_O_Ural_Reammo_RU", "CUP_O_BTR90_RU"]};
 		case "W": {["B_MRAP_01_gmg_F","B_APC_Tracked_01_rcws_F", "B_MBT_01_cannon_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Tracked_01_AA_F"]};
@@ -281,6 +290,9 @@ if (isServer) then {
 };
 
 #ifdef __CUP_CHERNARUS__
+d_sm_folder = "m";
+#endif
+#ifdef __CUP_CHERNARUS2020__
 d_sm_folder = "m";
 #endif
 #ifdef __CUP_TAKISTAN__

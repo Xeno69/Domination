@@ -59,6 +59,13 @@ if (isNil "d_UnitsToRecruit") then {
 		case independent: {[]};
 	};
 #endif
+#ifdef __CUP_CHERNARUS2020__
+	d_UnitsToRecruit = switch (d_player_side) do {
+		case blufor: {["CUP_B_USMC_Soldier", "CUP_B_USMC_Soldier_AR", "CUP_B_FR_Soldier_Exp", "CUP_B_USMC_Soldier_GL", "CUP_B_USMC_Soldier_MG", "CUP_B_USMC_Medic", "CUP_B_USMC_Engineer", "CUP_B_USMC_Soldier_AT"]};
+		case opfor: {[]};
+		case independent: {[]};
+	};
+#endif
 #ifdef __CUP_TAKISTAN__
 	d_UnitsToRecruit = switch (d_player_side) do {
 		case blufor: {["CUP_B_US_Soldier", "CUP_B_US_Soldier_AR", "CUP_B_US_Soldier_Engineer_EOD", "CUP_B_US_Soldier_GL", "CUP_B_US_Soldier_MG", "CUP_B_US_Medic", "CUP_B_US_Engineer", "CUP_B_US_Soldier_AT"]};

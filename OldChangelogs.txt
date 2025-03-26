@@ -2,6 +2,17 @@ Changelogs
 
 Old...
 
+4.71
+
+- Fixed: Distribution to headless clients did not work at all anymore
+- Fixed: Currator status was gone after respawn
+- Fixed: Jail didn't work anymore ("Respawn" button disabled as long as a player is in jail to avoid further issues)
+- Fixed: Rollback fn_moduleCAS_guidedmissile.sqf to 4.69 to resolve problems with bomb drop skipping in a loop, by longtimegamer
+- Fixed: When creating an ambush group do not spawn an accompanying overwatch group, too many groups, by longtimegamer
+- Fixed: Do not create static, guard, patrol groups when preemptive event is running, by longtimegamer
+- Fixed: Some INDFOR groups did not have sniper, AT capabilities (RWR, ION, ION Arctic), by longtimegamer
+- Fixed: Disabled Dom menu UAV for DLCs withoutg UAVs (like SPE)
+
 4.70
 
 - Added: Civilian east Asian types from CFP and CUP mods, by longtimegamer

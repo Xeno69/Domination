@@ -102,3 +102,6 @@ if (!d_carrier && {!d_ifa3 && {!d_spe && {d_with_base_sabotage == 0 && {d_transp
 0 spawn d_fnc_ai_loop;
 
 0 spawn d_fnc_uav_loop;
+
+// only available in CUP
+[] call d_fnc_addbarrelsfun;

@@ -210,6 +210,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __CUP_CHERNARUS__
 #include "sm_bonus_vec_ar_cup.sqf"
 #endif
+#ifdef __CUP_CHERNARUS2020__
+#include "sm_bonus_vec_ar_cup.sqf"
+#endif
 #ifdef __CUP_TAKISTAN__
 #include "sm_bonus_vec_ar_cup.sqf"
 #endif
@@ -278,6 +281,9 @@ d_e_marker_color_alpha = 0.8;
 #include "mt_bonus_vec_ar_gmcwg.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
+#include "mt_bonus_vec_ar_cup.sqf"
+#endif
+#ifdef __CUP_CHERNARUS2020__
 #include "mt_bonus_vec_ar_cup.sqf"
 #endif
 #ifdef __CUP_TAKISTAN__
@@ -430,6 +436,9 @@ d_cargotower =
 #ifdef __CUP_CHERNARUS__
 	"Land_Cargo_Tower_V1_F";
 #endif
+#ifdef __CUP_CHERNARUS2020__
+	"Land_Cargo_Tower_V1_F";
+#endif
 #ifdef __CUP_TAKISTAN__
 	"Land_Cargo_Tower_V3_F";
 #endif
@@ -481,6 +490,9 @@ d_wcamp =
 	"Land_Cargo_Patrol_V1_F";
 #endif
 #ifdef __CUP_CHERNARUS__
+	"Land_Cargo_Patrol_V4_F";
+#endif
+#ifdef __CUP_CHERNARUS2020__
 	"Land_Cargo_Patrol_V4_F";
 #endif
 #ifdef __CUP_TAKISTAN__
@@ -986,6 +998,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_CHERNARUS__
 #include "d_allmen_O_CUP_CHER.sqf"
 #endif
+#ifdef __CUP_CHERNARUS2020__
+#include "d_allmen_O_CUP_CHER.sqf"
+#endif
 #ifdef __CUP_TAKISTAN__
 #include "d_allmen_O_CUP_TAKI.sqf"
 #endif
@@ -1095,6 +1110,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_CHERNARUS__
 #include "d_allmen_G_default.sqf"
 #endif
+#ifdef __CUP_CHERNARUS2020__
+#include "d_allmen_G_default.sqf"
+#endif
 #ifdef __CUP_TAKISTAN__
 #include "d_allmen_G_default.sqf"
 #endif
@@ -1154,6 +1172,9 @@ if (!d_gmcwgwinter) then {
 }
 #endif
 #ifdef __CUP_CHERNARUS__
+#include "d_specops_O_CUP_CHER.sqf"
+#endif
+#ifdef __CUP_CHERNARUS2020__
 #include "d_specops_O_CUP_CHER.sqf"
 #endif
 #ifdef __CUP_TAKISTAN__
@@ -1275,6 +1296,11 @@ if (!d_pracs) then {
 	d_sniper_W = [[["gm_ge_army_squadleader_g3a3_p2a1_80_ols", "gm_ge_army_rifleman_g3a3_80_ols"], ["gm_ge_army_squadleader_g3a3_p2a1_parka_80_win", "gm_ge_army_rifleman_g3a3_parka_80_win"]] select d_gmcwgwinter];
 #endif
 #ifdef __CUP_CHERNARUS__
+	d_sniper_E = [["East","CUP_O_RU","Infantry_VDV_EMR","CUP_O_RU_SniperTeam_VDV_EMR"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_USMC","Infantry","CUP_B_USMC_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","CUP_I_NAPA","Infantry","CUP_I_NAPA_GrpInf_TeamSniper"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __CUP_CHERNARUS2020__
 	d_sniper_E = [["East","CUP_O_RU","Infantry_VDV_EMR","CUP_O_RU_SniperTeam_VDV_EMR"] call d_fnc_GetConfigGroup];
 	d_sniper_W = [["West","CUP_B_USMC","Infantry","CUP_B_USMC_SniperTeam"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","CUP_I_NAPA","Infantry","CUP_I_NAPA_GrpInf_TeamSniper"] call d_fnc_GetConfigGroup];

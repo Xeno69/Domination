@@ -166,6 +166,9 @@ if (d_weather == 0) then {
 #ifdef __CUP_CHERNARUS__
 		d_withsandstorm = 1;
 #endif
+#ifdef __CUP_CHERNARUS2020__
+		d_withsandstorm = 1;
+#endif
 #ifdef __IFA3__
 		d_withsandstorm = 1;
 #endif
@@ -502,7 +505,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log "Internal D Version: 4.71";
+diag_log "Internal D Version: 4.72";
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {

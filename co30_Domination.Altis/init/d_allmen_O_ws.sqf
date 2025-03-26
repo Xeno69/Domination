@@ -4,6 +4,6 @@
 ["East","OPF_SFIA_lxWS","Infantry","OSFIA_InfSquad_lxWS"] call d_fnc_GetConfigGroup,
 ["East","OPF_SFIA_lxWS","Infantry","OSFIA_InfSquad_Weapons_lxWS"] call d_fnc_GetConfigGroup,
 ["East","OPF_SFIA_lxWS","Infantry","OSFIA_InfTeam_lxWS"] call d_fnc_GetConfigGroup,
-["East","OPF_TURA_lxWS","Infantry","B_Tura_InfSentry_lxWS"] call d_fnc_GetConfigGroup,
-["East","OPF_TURA_lxWS","Infantry","B_Tura_InfSquad_lxWS"] call d_fnc_GetConfigGroup,
-["East","OPF_TURA_lxWS","Infantry","B_Tura_InfTeam_lxWS"] call d_fnc_GetConfigGroup
+["East","OPF_TURA_lxWS","Infantry","O_Tura_InfSentry_lxWS"] call d_fnc_GetConfigGroup,
+["East","OPF_TURA_lxWS","Infantry","O_Tura_InfSquad_lxWS"] call d_fnc_GetConfigGroup,
+["East","OPF_TURA_lxWS","Infantry","O_Tura_InfTeam_lxWS"] call d_fnc_GetConfigGroup

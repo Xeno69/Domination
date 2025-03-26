@@ -24,15 +24,18 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 	if (d_va_percentage == 0) then {
 		private _perc = _box getVariable "d_abox_perc";
 		if (!isNil "_perc") then {
-			__TRACE("Calling sub box")
-			_box remoteExecCall ["d_fnc_sub_box", 2];
 			if (_perc == 0) then {
 				_canopen = false;
-			};		
+			} else {
+				if ((_this # 0) == player) then {
+					d_cur_pl_gear_xx =+ getUnitLoadout player;
+				};
+			};
 		};
 	};
 	if (_canopen) then {
-		_box spawn {
+		d_arsenalbox_cur_o = _box;
+		0 spawn {
 			scriptName "spawn_inventoryopened1";
 			if (!d_with_ranked) then {
 				if (d_with_ace && {d_arsenal_mod == 1}) then {
