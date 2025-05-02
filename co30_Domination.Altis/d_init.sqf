@@ -443,7 +443,7 @@ if (isServer) then {
 		private _mmm = markerPos "d_base_sb_ammoload";
 		__TRACE_1("","_mmm")
 
-		if (_mmm isNotEqualTo [0,0,0]) then {
+		if (_mmm isNotEqualTo [0,0,0] && {d_servicepoint_building isNotEqualTo ""}) then {
 			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
 			_mmm set [2, 3.3];
 			private _fac = createSimpleObject [_stype # 1, _mmm];
