@@ -157,6 +157,11 @@ disposalCheckPeriod = 10; // seconds. Default: 5
 // minPlayerDistance = 30;
 // Array variant of the above that allows setting individual minPlayerDistance for {corpses, wrecks, weaponholders}
 // minPlayerDistance[] = {50, 60, 70}; // meters. Default: {0, 0, 0}
+// A3 2.20 change: The array supports override times now, format { corpsesMinDist, wrecksMinDist, weaponholdersMinDist, corpsesOverrideTime, wrecksOverrideTime, weaponholdersOverrideTime } Override times are "force-remove after" times. For example a corpse is scheduled for deletion but cannot be deleted because a player is nearby. If override time is set, the corpse will be deleted regardless of player proximity. So if for example removalMaxTime is 3600 and override time is 300, the remains will be definitely deleted within 3600 + 300 = 3900 seconds even if a player is close by.
+// minPlayerDistance[] = { // metres. Default: { 0, 0, 0, -1, -1, -1 }
+// 	50,		60,		70,		// corpsesMinDist,		wrecksMinDist,		weaponholdersMinDist
+// 	300,	120,	60		// corpsesOverrideTime,	wrecksOverrideTime,	weaponholdersOverrideTime
+// };
 
 // Only for SOG
 vn_arsenalShowMelee = 1;

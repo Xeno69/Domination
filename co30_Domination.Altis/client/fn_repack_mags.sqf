@@ -189,4 +189,5 @@ hintSilent parseText format ["<t color='#00ff00' size='1.5' align='center'>%1</t
 } forEach _ular;
 #endif
 
+waitUntil {!isSwitchingWeapon player};
 player setUnitLoadout _ular;

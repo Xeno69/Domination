@@ -5,3 +5,4 @@
 - Fixed: Empty east groups in the Western Sahara version
 - Fixed: Simplified enemy RPG force fire script to avoid stuttering, by longtime
 - Changed: If d_servicepoint_building is an empty string it won't spawn the service point side buildings (the service point itself is still spawned)
+- Changed: setUnitLoadOut change in 2.20 (switching weapons check)

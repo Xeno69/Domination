@@ -41,6 +41,7 @@ private _secs = [_numtk * 60, _isjip] select (_isjip > 0);
 player setVariable ["d_jailar", [serverTime, _secs], true];
 
 private _laodout =+ getUnitLoadout player;
+waitUntil {!isSwitchingWeapon player};
 player setUnitLoadout (configFile >> "EmptyLoadout");
 
 private _jailpos = if (d_cur_tgt_pos isNotEqualTo []) then {
@@ -159,6 +160,7 @@ terminate _movecheck_fnc;
 
 player setVariable ["d_jailar", nil, true];
 
+waitUntil {!isSwitchingWeapon player};
 player setUnitLoadout _laodout;
 
 #ifndef __TT__
