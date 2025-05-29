@@ -2480,7 +2480,7 @@ if (d_with_airdrop == 2) then {
 				if (d_spe) exitWith {
 					[]
 				};
-				["B_Heli_Attack_01_F"]
+				["B_Heli_Attack_01_F", "B_Heli_Attack_01_pylons_dynamicLoadout_F"]
 			};
 		};
 		if (d_enemy_side_short == "G") exitWith {

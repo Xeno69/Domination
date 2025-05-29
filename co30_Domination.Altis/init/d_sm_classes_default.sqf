@@ -64,7 +64,7 @@ d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
 };
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"O_Heli_Attack_02_black_F"};
-	case "W": {"B_Heli_Attack_01_F"};
+	case "W": {"B_Heli_Attack_01_pylons_dynamicLoadout_F"};
 	case "G": {"I_Heli_light_03_F"};
 };
 d_sm_pilottype = switch (d_enemy_side_short) do {
