@@ -708,6 +708,8 @@ class cfgFunctions {
 			addc(dynsimcheck);
 			addc(addbarrelsfun);
 			addc(bfunexp);
+			addc(airagdoll);
+			addc(airddo);
 		};
 		class Dom_PrePostInit {
 			file = "init";

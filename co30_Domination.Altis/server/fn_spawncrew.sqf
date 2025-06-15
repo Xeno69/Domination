@@ -65,6 +65,9 @@ if (count _crew > 0) then {
 							if (d_with_dynsim == 0) then {
 								[_one_unit, 10] spawn d_fnc_enabledynsim;
 							};
+							if (d_doairagdoll == 1) then {
+								_one_unit addEventHandler ["HandleDamage", {call d_fnc_airagdoll}];
+							};
 #ifdef __GROUPDEBUG__
 							// does not subtract if a unit dies!
 							if (side _grp == d_side_enemy) then {

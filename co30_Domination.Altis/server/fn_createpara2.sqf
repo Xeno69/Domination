@@ -122,6 +122,9 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 		//_one_unit enableFatigue false;
 		_one_unit disableAI "RADIOPROTOCOL";
 		[_one_unit, _nightorfog, true] call d_fnc_changeskill;
+		if (d_doairagdoll == 1) then {
+			_one_unit addEventHandler ["HandleDamage", {call d_fnc_airagdoll}];
+		};
 		sleep 0.551;
 	} forEach _real_units;
 	_paragrp allowFleeing 0;

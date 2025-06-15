@@ -16295,6 +16295,18 @@
 <Chinese>Don't spawn AIR AI if player numbers are low:</Chinese>
 <French>Don't spawn AIR AI if player numbers are low:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2116">
+<English>Ragdoll for AI enemy units hit by weapons:</English>
+<Spanish>Ragdoll for AI enemy units hit by weapons:</Spanish>
+<Portuguese>Ragdoll for AI enemy units hit by weapons:</Portuguese>
+<Korean>Ragdoll for AI enemy units hit by weapons:</Korean>
+<Japanese>Ragdoll for AI enemy units hit by weapons:</Japanese>
+<Original>Ragdoll for AI enemy units hit by weapons:</Original>
+<Russian>Ragdoll for AI enemy units hit by weapons:</Russian>
+<Chinesesimp>Ragdoll for AI enemy units hit by weapons:</Chinesesimp>
+<Chinese>Ragdoll for AI enemy units hit by weapons:</Chinese>
+<French>Ragdoll for AI enemy units hit by weapons:</French>
+</Key>
 </Container>
 </Package>
 </Project>
