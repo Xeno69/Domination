@@ -4,7 +4,7 @@
 // github: https://github.com/Moerderhoschi/arma3_mdhRagdoll
 // steam mod version: https://steamcommunity.com/sharedfiles/filedetails/?id=3387437564
 
-#define __DEBUG__
+//#define __DEBUG__
 #include "..\x_setup.sqf"
 
 __TRACE_1("","_this")

@@ -2,7 +2,7 @@
 
 - Added: More targets and side missions to the Chernarus 2020 version
 - Added: AH-99 Blackfoot (Stub Wings)
-- Added: Enemy AI ragdoll based on the MDH ragdoll addon from Moerderhoschi (see https://steamcommunity.com/sharedfiles/filedetails/?id=3387437564)
+- Added: Enemy AI ragdoll based on the MDH ragdoll addon from Moerderhoschi (see https://steamcommunity.com/sharedfiles/filedetails/?id=3387437564 ), can be disabled in description.ext (d_doairagdoll)
 - Fixed: Resources were subracted from dropped ammo boxes even if a player didn't take or change gear
 - Fixed: Empty east groups in the Western Sahara version
 - Fixed: Simplified enemy RPG force fire script to avoid stuttering, by longtime
