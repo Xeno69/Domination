@@ -2,6 +2,17 @@ Changelogs
 
 Old...
 
+4.72
+
+- Added: More targets and side missions to the Chernarus 2020 version
+- Added: AH-99 Blackfoot (Stub Wings)
+- Added: Enemy AI ragdoll based on the MDH ragdoll addon from Moerderhoschi (see https://steamcommunity.com/sharedfiles/filedetails/?id=3387437564 ), can be disabled in description.ext (d_doairagdoll)
+- Fixed: Resources were subtracted from dropped ammo boxes even if a player didn't take or change gear
+- Fixed: Empty east groups in the Western Sahara version
+- Fixed: Simplified enemy RPG force fire script to avoid stuttering, by longtime
+- Changed: If d_servicepoint_building is an empty string it won't spawn the service point side buildings (the service point itself is still spawned)
+- Changed: setUnitLoadOut change in 2.20 (switching weapons check)
+
 4.71
 
 - Fixed: Distribution to headless clients did not work at all anymore
