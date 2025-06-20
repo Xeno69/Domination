@@ -281,7 +281,7 @@ if (!d_database_found) then {
 			if !(_uid in d_pl_mt_score_hash) then {
 				__TRACE_1("adding player to d_pl_mt_score_hash","_uid")
 				__TRACE_3("","score _pl","_pl","_name")
-				d_pl_mt_score_hash set [_uid, [score _pl, _pl, _name]];
+				d_pl_mt_score_hash set [_uid, [score _pl, _pl, _name, -11211]];
 			};
 		};
 	};

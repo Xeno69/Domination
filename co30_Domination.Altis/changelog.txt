@@ -2,3 +2,4 @@
 
 - Fixed: Script error in fn_call_cas_bomb.sqf
 - Fixed: Script error in fn_teleportdialoginit.sqf
+- Fixed: Top player list after a main target is done (hopefully)

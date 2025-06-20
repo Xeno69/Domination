@@ -19,6 +19,10 @@ private _alllist = [];
 		__TRACE_1("","_score")
 #endif
 		_alllist pushBack [score (_y # 1) - (_y # 0), _y # 2];
+	} else {
+		if ((_y # 3) != -11211) then {
+			_alllist pushBack [_y # 3, _y # 2];
+		};
 	};
 } forEach d_pl_mt_score_hash;
 

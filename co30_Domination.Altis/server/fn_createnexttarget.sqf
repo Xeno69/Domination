@@ -71,7 +71,7 @@ __TRACE("filling d_pl_mt_score_hash")
 	private _name = name _x;
 	__TRACE_3("","_uid","_score","_name")
 #endif
-	d_pl_mt_score_hash set [getPlayerUID _x, [score _x, _x, name _x]];
+	d_pl_mt_score_hash set [getPlayerUID _x, [score _x, _x, name _x, -11211]];
 } forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F")}});
 
 #ifndef __TT__
