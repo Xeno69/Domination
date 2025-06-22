@@ -68,14 +68,16 @@ if (d_beam_target == "D_BASE_D") then {
 		} else {
 			_typepos = 2;
 		};
-		if (d_with_ranked || {d_database_found}) then {
-			[_respawn_target, 12] remoteExecCall ["d_fnc_addscore", 2];
-		};
+		if (_global_pos distance2D [0, 0, 0] >= 60) then {
+			if (d_with_ranked || {d_database_found}) then {
+				[_respawn_target, 12] remoteExecCall ["d_fnc_addscore", 2];
+			};
 #ifndef __TT__
-		d_player_in_base = player inArea d_base_array;
+			d_player_in_base = player inArea d_base_array;
 #else
-		d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
+			d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
 #endif
+		};
 	} else {
 		private _uidx = d_add_resp_points_uni find d_beam_target;
 		__TRACE_1("","_uidx")
@@ -133,6 +135,20 @@ d_beam_target = "";
 if (d_database_found) then {
 	player setVariable ["d_move_stop", getPosWorld player];
 	call d_fnc_updatemove;
+};
+
+if (_global_pos distance2D [0, 0, 0] < 60) then {
+#ifndef __TT__
+	_global_pos = markerPos "base_spawn_1";
+#else
+	_global_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+#endif
+	if (!d_carrier) then {
+		_global_pos set [2, 0];
+	} else {
+		_global_pos set [2, (getPosASL D_FLAG_BASE) # 2];
+	};
+	d_player_in_base = true;
 };
 
 if (_typepos == 1) then {

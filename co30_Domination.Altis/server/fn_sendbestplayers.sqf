@@ -21,7 +21,18 @@ private _alllist = [];
 		_alllist pushBack [score (_y # 1) - (_y # 0), _y # 2];
 	} else {
 		if ((_y # 3) != -11211) then {
+			__TRACE("y3 is -11211")
 			_alllist pushBack [_y # 3, _y # 2];
+		} else {
+			__TRACE("unit is null trying to find via UID")
+			private _uid = _x;
+			private _idx = allPlayers findIf {
+				_uid == getPlayerUID _x;
+			};
+			__TRACE_1("","_idx")
+			if (_idx != -1) then {
+				_alllist pushBack [score (allPlayers # _idx) - (_y # 0), _y # 2];
+			};
 		};
 	};
 } forEach d_pl_mt_score_hash;

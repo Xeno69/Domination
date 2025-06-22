@@ -54,19 +54,7 @@ if (d_beam_target == "D_BASE_D") then {
 		_respawn_pos = [(vehicle _respawn_target) modelToWorldVisual [0, -8, 0], getPosASL _respawn_target] select (isNull objectParent _respawn_target);
 		_respawn_pos set [2, _respawn_target distance (getPos _respawn_target)];
 		
-		if (_respawn_pos distance2D [0, 0, 0] < 30) then {
-#ifndef __TT__
-			_respawn_pos = markerPos "base_spawn_1";
-#else
-			_respawn_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
-#endif
-			if (!d_carrier) then {
-				_respawn_pos set [2, 0];
-			} else {
-				_respawn_pos set [2, (getPosASL D_FLAG_BASE) # 2];
-			};
-			d_player_in_base = true;
-		} else {		
+		if (_respawn_pos distance2D [0, 0, 0] >= 60) then {
 			if (d_with_ranked || {d_database_found}) then {
 				[_respawn_target, 12] remoteExecCall ["d_fnc_addscore", 2];
 			};
@@ -169,6 +157,21 @@ if (!isNull _mhqobj) then {
 	if (!_domovevec) then {
 		[player, 105] remoteExecCall ["xr_fnc_handlenet"];
 		player allowDamage false;
+		
+		if (_respawn_pos distance2D [0, 0, 0] < 60) then {
+#ifndef __TT__
+			_respawn_pos = markerPos "base_spawn_1";
+#else
+			_respawn_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+#endif
+			if (!d_carrier) then {
+				_respawn_pos set [2, 0];
+			} else {
+				_respawn_pos set [2, (getPosASL D_FLAG_BASE) # 2];
+			};
+			d_player_in_base = true;
+		};
+		
 		if (surfaceIsWater _respawn_pos) then {
 			__TRACE("is water")
 			player setPosASL _respawn_pos;

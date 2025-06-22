@@ -87,7 +87,7 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 		};
 	};
 	if (_pos_flat_empty isEqualTo []) then {
-		diag_log ["fn_spawnvehicle could not find a flat and empty spot after 99 attempts, giving up and using original position"];
+		diag_log ["fn_spawnvehicle could not find a flat and empty spot after 99 attempts, giving up and using original position, vtype:", _typev1];
 		_pos_flat_empty = _posv1;
 	};
 	// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL
