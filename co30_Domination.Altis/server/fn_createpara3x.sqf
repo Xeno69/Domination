@@ -339,6 +339,8 @@ private _make_jump = {
 						_grp call d_fnc_addgrp2hc;
 					};
 				};
+				
+				_vec call d_fnc_vfireflares;
 			};
 		};
 

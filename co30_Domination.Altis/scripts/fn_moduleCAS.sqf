@@ -274,14 +274,7 @@ if (!scriptDone _fire) then {
 	terminate _fire;
 };
 
-if (canMove _plane && {alive driver _plane}) then {
-	for "_i" from 0 to 5 do {
-		driver _plane forceWeaponfire ["CMFlareLauncher", "Burst"];
-		_time = time + 1.1;
-		waitUntil {time > _time || {isNull _logico || {!alive _plane}}};
-		if (!alive _plane || {!alive driver _plane}) exitwith {};
-	};
-};
+_plane call d_fnc_vfireflares;
 
 if !(isNull _logico) then {
 	sleep 1;

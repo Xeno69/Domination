@@ -174,6 +174,7 @@ if (_may_exit) exitWith {
 	};
 };
 _unit doMove _end_pos;
+_chopper call d_fnc_vfireflares;
 sleep 30;
 while {_chopper distance2D _end_pos > 600} do {
 	sleep 3.14;
