@@ -278,7 +278,7 @@ class D_StatusDialog {
 			shadow = 0;
 		};
 #ifdef __TT__
-	class BarracksCaption: RscText {
+		class BarracksCaption: RscText {
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.482 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
@@ -384,7 +384,7 @@ class D_StatusDialog {
 		};
 		class VDCombiCheckBox: RscCheckBox {
 			idc = 1613;
-			x = "0.48 * safezoneW + safezoneX";
+			x = "0.5 * safezoneW + safezoneX";
 			y = "0.258 * safezoneH + safezoneY";
 			w = "0.02 * safezoneW";
 			h = "0.025 * safezoneH";
@@ -397,7 +397,7 @@ class D_StatusDialog {
 		};
 		class AutoVDCheckBox: RscCheckBox {
 			idc = 1610;
-			x = "0.48 * safezoneW + safezoneX";
+			x = "0.5 * safezoneW + safezoneX";
 			y = "0.289 * safezoneH + safezoneY";
 			w = "0.02 * safezoneW";
 			h = "0.025 * safezoneH";

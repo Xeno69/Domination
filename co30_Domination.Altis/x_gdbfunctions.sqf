@@ -8,7 +8,7 @@ d_fnc_map_group_count_marker = {
 	scriptName "d_fnc_map_group_count_marker";
 	_mname = "all_groups_yeah";
 	_mtext = "Groups: %1, alive units: %2, inf without leader: %3";
-	[_mname, [3000,1000,0],"ICON","ColorBlack",[2,2],format [_mtext, 0,0],0,"mil_dot"] call d_fnc_CreateMarkerLocal;
+	[_mname, [3000,1000,0],"ICON","ColorBlack",[2,2],format [_mtext, 0,0,0],0,"mil_dot"] call d_fnc_CreateMarkerLocal;
 	while {true} do {
 		d_all_marker_groups = d_all_marker_groups - [objNull, grpNull];
 		_grpcounter = count d_all_marker_groups;
