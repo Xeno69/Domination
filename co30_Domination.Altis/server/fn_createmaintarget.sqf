@@ -399,10 +399,13 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_vec setVariable ["d_v_pos", getPos _vec];
 	private _nump = count ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 	private _dist_trig_p = call {
-		if (_nump < 25) exitWith {35};
-		if (_nump < 30) exitWith {30};
-		if (_nump < 35) exitWith {25};
-		20
+		if (_nump < 10) exitWith {50};
+		if (_nump < 15) exitWith {40};
+		if (_nump < 20) exitWith {30};
+		if (_nump < 25) exitWith {25};
+		if (_nump < 30) exitWith {20};
+		if (_nump < 35) exitWith {15};
+		10
 	};
 	private _trig = [_vec, [_dist_trig_p, _dist_trig_p, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
