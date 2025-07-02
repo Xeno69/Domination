@@ -52,6 +52,7 @@ sleep 1.0123;
 d_update_target = false;
 d_main_target_ready = false;
 d_side_main_done = false;
+if (isNil "d_sum_camps") then {0 spawn d_fnc_campshelper};
 d_sum_camps = -91;
 
 #ifdef __TT__
