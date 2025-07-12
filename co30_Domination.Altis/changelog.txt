@@ -4,3 +4,4 @@
 - Fixed: Script error in fn_teleportdialoginit.sqf
 - Fixed: Top player list after a main target is done completely broken (finally fixed)
 - Fixed: It could happen that selecting respawn at squad leader ended at position [0, 0, 0] when the squad leader died shortly before respawn
+- Fixed: It could happen that the number of camps captured were higher than the number of camps available

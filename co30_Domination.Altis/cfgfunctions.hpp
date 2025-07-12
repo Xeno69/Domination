@@ -711,7 +711,6 @@ class cfgFunctions {
 			addc(airagdoll);
 			addc(airddo);
 			addc(vfireflares);
-			addc(campshelper);
 		};
 		class Dom_PrePostInit {
 			file = "init";
