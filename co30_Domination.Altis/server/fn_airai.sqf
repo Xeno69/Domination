@@ -69,8 +69,13 @@ while {true} do {
 		if (_type == "AP") exitWith {
 			_heli_type = selectRandom d_airai_attack_plane;
 			_numair = [d_number_attack_planes, ceil (random d_number_attack_planes)] select (d_number_attack_planes > 1);
-			_height = 700;
-			_heightASL = [700, 500 + (random 100), 700 + (random 700)];
+			if (!d_spe) then {
+				_height = 500;
+				_heightASL = [500, 300 + (random 100), 200 + (random 200)];
+			} else {
+				_height = 200;
+				_heightASL = [200, 100 + (random 100), 300 - (random 200)];
+			};
 		};
 		if (_type == "LAC") exitWith {
 			_heli_type = selectRandom d_light_attack_chopper;
