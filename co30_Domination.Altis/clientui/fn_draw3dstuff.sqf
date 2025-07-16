@@ -76,7 +76,6 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 	};
 };
 
-#ifndef __TT__
 if (d_showallnearusermarkers) then {
 	private "_pos";
 	private _col_s = d_color_hash;
@@ -97,8 +96,9 @@ if (d_showallnearusermarkers) then {
 			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
 			drawLine3D [_pos vectorAdd [0, 0, -10], _pos vectorAdd [0, 0, -1], _col, 5];
 		};
-	} forEach (_d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
+	} forEach (_d_allnearusermarkers # currentChannel);
 };
+#ifndef __TT__
 if (!isNull d_near_player_flag && {d_force_isstreamfriendlyui != 1 && {!isStreamFriendlyUIEnabled}}) then {
 	drawLaser [
 		d_near_player_flag_pos,

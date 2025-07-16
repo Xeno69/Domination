@@ -245,20 +245,10 @@ if (hasInterface) then {
 	_ll kbAddTopic["PL" + _strp, _kbscript];
 #endif
 	if (d_disable_player_arty == 0) then {
-		if (d_no_ai) then {
-			if ((str player) in d_can_use_artillery || {(str player) in d_can_mark_artillery}) then {
-				call {
-					if (_pside == blufor) exitWith {player kbAddTopic ["HQ_ART_W", _kbscript]};
-					if (_pside == opfor) exitWith {player kbAddTopic ["HQ_ART_E", _kbscript]};
-					player kbAddTopic ["HQ_ART_I", _kbscript];
-				};
-			};
-		} else {
-			call {
-				if (_pside == blufor) exitWith {player kbAddTopic ["HQ_ART_W", _kbscript]};
-				if (_pside == opfor) exitWith {player kbAddTopic ["HQ_ART_E", _kbscript]};
-				player kbAddTopic ["HQ_ART_I", _kbscript];
-			};
+		call {
+			if (_pside == blufor) exitWith {player kbAddTopic ["HQ_ART_W", _kbscript]};
+			if (_pside == opfor) exitWith {player kbAddTopic ["HQ_ART_E", _kbscript]};
+			player kbAddTopic ["HQ_ART_I", _kbscript];
 		};
 	};
 };

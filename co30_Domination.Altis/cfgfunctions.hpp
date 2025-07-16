@@ -711,6 +711,7 @@ class cfgFunctions {
 			addc(airagdoll);
 			addc(airddo);
 			addc(vfireflares);
+			addc(createrpoint);
 		};
 		class Dom_PrePostInit {
 			file = "init";

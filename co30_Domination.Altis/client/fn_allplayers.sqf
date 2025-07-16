@@ -21,12 +21,12 @@ while {true} do {
 			d_allplayerai append ((units _x) select {alive _x && {!(isPlayer _x)}});
 		} forEach _tmpgrps;
 	};
-#ifndef __TT__
 	if (d_showallnearusermarkers) then {
 		sleep 0.1;
 		d_allnearusermarkers = [];
 		d_allnearusermarkers resize [16, []];
-		{	
+#ifndef __TT__
+		{
 			private _split_ar = _x splitString "#/";
 			if ((_split_ar # 3) isNotEqualTo "") then {
 				private _chan = parseNumber (_split_ar # 3);
@@ -34,8 +34,15 @@ while {true} do {
 					(d_allnearusermarkers # _chan) pushBack _x;
 				};
 			};
-		} forEach (allMapMarkers select {_x find "_USER_DEFINED #" == 0 && {markerPos _x distance2D player < 800}});
-	};
+		} forEach (allMapMarkers select {_x find "_USER_DEFINED #" == 0 && {markerPos _x distance2D player < 1000 && {getMarkerColor _x isNotEqualTo ""}}});
 #endif
+		private _strg = "d_grp_" + (str group player);
+		private _idx = allMapMarkers findIf {
+			_x find _strg == 0 && {markerPos _x distance2D player < 1000 && {getMarkerColor _x isNotEqualTo ""}}
+		};
+		if (_idx != -1) then {
+			(d_allnearusermarkers # 3) pushBack (allMapMarkers # _idx);
+		};
+	};
 	sleep 2;
 };

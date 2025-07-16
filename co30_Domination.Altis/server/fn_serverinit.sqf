@@ -105,3 +105,13 @@ if (!d_carrier && {!d_ifa3 && {!d_spe && {d_with_base_sabotage == 0 && {d_transp
 
 // only available in CUP
 [] call d_fnc_addbarrelsfun;
+
+if (d_showallnearusermarkers) then {
+	addMissionEventHandler ["GroupDeleted", {
+		params ["_grp"];
+		private _mar = _grp getVariable "d_rally_point";
+		if (!isNil "_mar") then {
+			deleteMarker _mar;
+		};
+	}];
+};

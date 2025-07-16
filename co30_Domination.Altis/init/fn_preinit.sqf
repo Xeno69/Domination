@@ -624,19 +624,6 @@ d_can_use_artillery = ["d_artop_1", "d_artop_2"]; // case has to be the same as 
 d_can_use_artillery = ["d_artop_blufor", "d_artop_opfor"];
 #endif
 
-// those units can mark artillery targets but can not call in artillery strikes (only d_can_use_artillery can call in artillery strikes and also mark arty targets)
-#ifndef __TT__
-d_can_mark_artillery = ["d_alpha_1", "d_bravo_1", "d_charlie_1", "d_echo_1"];
-#else
-d_can_mark_artillery = ["d_blufor_1", "d_blufor_2", "d_blufor_3", "d_opfor_1", "d_opfor_2", "d_opfor_3"];
-#endif
-
-#ifndef __TT__
-d_can_call_cas = ["d_alpha_1", "d_bravo_1", "d_charlie_1", "d_echo_1"];
-#else
-d_can_call_cas = ["d_blufor_1", "d_blufor_2", "d_blufor_3", "d_opfor_1", "d_opfor_2", "d_opfor_3"];
-#endif
-
 d_arty_m_marker =
 #ifdef __OWN_SIDE_OPFOR__
 	"o_art";
@@ -3681,10 +3668,8 @@ if (hasInterface) then {
 	d_allplayers = [];
 	d_allplayermapd = [];
 	d_allplayerai = [];
-#ifndef __TT__
 	d_showallnearusermarkers = true;
 	d_allnearusermarkers = [];
-#endif
 
 	// ammobox handling (default, loading and dropping boxes) it means the time diff in seconds before a box can be loaded or dropped again in a vehicle
 	d_drop_ammobox_time = 10;
@@ -3764,7 +3749,6 @@ if (hasInterface) then {
 	d_rscspect_on = false;
 	d_player_can_call_drop = 0;
 	d_player_can_call_arti = 0;
-	d_player_can_call_cas = 0;
 	d_eng_can_repfuel = false;
 	d_there_are_enemies_atbase = false;
 	d_enemies_near_base = false;

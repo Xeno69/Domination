@@ -84,7 +84,6 @@ if (side (group player) == blufor) then {
 };
 d_side_player = d_player_side;
 d_can_call_drop_ar = [];
-d_can_call_cas = [d_string_player];
 #endif
 
 d_player_can_call_extended_ordnance = d_enable_extra_cas;
@@ -489,9 +488,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 
 	if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 		"d_fpsresource" cutRsc ["d_fpsresource", "PLAIN"];
-		if (d_player_can_call_arti > 0 || {d_player_can_call_drop > 0 || {d_string_player in d_can_call_cas || {!d_no_ai}}}) then {
-			"d_RscSupportL" cutRsc ["d_RscSupportL", "PLAIN"];
-		};
+		"d_RscSupportL" cutRsc ["d_RscSupportL", "PLAIN"];
 	};
 
 	xr_phd_invulnerable = false;
@@ -540,7 +537,6 @@ if (!d_no_ai) then {
 	if (d_with_airdrop == 0 || {d_with_airdrop == 2}) then {
 		d_player_can_call_drop = 1;
 	};
-	d_player_can_call_cas = 1;
 	player setUnitTrait ["Medic", true];
 	player setUnitTrait ["engineer", true];
 } else {
@@ -551,9 +547,6 @@ if (!d_no_ai) then {
 	};
 	if (d_with_airdrop == 0 && {d_string_player in d_can_call_drop_ar}) then {
 		d_player_can_call_drop = 1;
-	};
-	if (d_string_player in d_can_call_cas) then {
-		d_player_can_call_cas = 1;
 	};
 };
 
@@ -818,13 +811,12 @@ if (d_with_bis_dynamicgroups == 0) then {
 };
 
 _dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_earplugs}];
-#ifndef __TT__
+
 if (!d_with_ace) then {
 	_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_toggle3dm}];
 } else {
 	d_showallnearusermarkers = false;
 };
-#endif
 
 // by R34P3R
 d_p_isju = false;
@@ -905,7 +897,7 @@ call {
 		};
 		if !("ItemRadio" in assigneditems player) then {player linkItem "ItemRadio"};
 	};
-	if ((d_disable_player_arty == 0 && {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) || {d_string_player in d_can_call_cas}) then {
+	if (d_disable_player_arty == 0) then {
 		if (!d_with_ranked && {_bino != "LaserDesignator"}) then {
 			if (_bino isNotEqualTo "") then {
 				player removeWeapon _bino;
@@ -961,17 +953,14 @@ private _fnc_artvec = {
 #endif
 
 if (d_disable_player_arty == 0) then {
-	if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
-		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
-			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
-		} else {
-			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
-		};
+	if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
+		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
+	} else {
+		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
 	};
 };
 
 if (isNil "d_cas_plane_avail" && {d_disable_player_cas == 0}) then {
-	if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 #ifndef __TT__
 		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
@@ -1003,7 +992,6 @@ if (isNil "d_cas_plane_avail" && {d_disable_player_cas == 0}) then {
 			};
 		};
 #endif
-	};
 };
 
 player addEventhandler["InventoryOpened", {call d_fnc_inventoryopened}];
@@ -1066,6 +1054,12 @@ player setVariable ["xr_isleader", false];
 		} forEach ((units player) - [player]);
 	};
 };
+
+addMissionEventHandler ["MapSingleClick", {
+	if (_this # 2 && {d_player_canu && {player == leader group player}}) then {
+		[_this # 1, player] remoteExecCall ["d_fnc_createrpoint", 2];
+	};
+}];
 
 player addEventhandler ["WeaponAssembled", {
 	["aw", d_player_uid, _this # 1] remoteExecCall ["d_fnc_p_o_ar", 2];
