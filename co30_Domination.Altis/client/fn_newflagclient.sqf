@@ -3,7 +3,7 @@
 
 if (!hasInterface) exitWith {};
 
-private _flag = _this;
+params ["_flag", "_marker"];
 
 player reveal _flag;
 
@@ -15,5 +15,8 @@ if (d_jumpflag_vec isEqualTo "") then {
 
 #ifndef __TT__
 d_near_player_flag_pos = getPosASL _flag vectorAdd [0, 0, 10];
+d_near_player_flag_marker = _marker;
+d_near_player_flag_pos2 = getPosASL _flag;
+d_near_player_flag_pos2 set [2, 15];
 d_near_player_flag = _flag;
 #endif
