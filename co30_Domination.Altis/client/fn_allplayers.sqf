@@ -36,12 +36,11 @@ while {true} do {
 			};
 		} forEach (allMapMarkers select {_x find "_USER_DEFINED #" == 0 && {markerPos _x distance2D player < 1000 && {getMarkerColor _x isNotEqualTo ""}}});
 #endif
-		private _strg = "d_grp_" + (str group player);
-		private _idx = allMapMarkers findIf {
-			_x find _strg == 0 && {markerPos _x distance2D player < 1000 && {getMarkerColor _x isNotEqualTo ""}}
-		};
-		if (_idx != -1) then {
-			(d_allnearusermarkers # 3) pushBack (allMapMarkers # _idx);
+		private _mar = (group player) getVariable "d_rally_point";
+		if (!isNil "_mar") then {
+			if (markerPos _mar distance2D player < 1000 && {getMarkerColor _mar isNotEqualTo ""}) then {
+				(d_allnearusermarkers # 3) pushBack _mar;
+			};
 		};
 	};
 	sleep 2;

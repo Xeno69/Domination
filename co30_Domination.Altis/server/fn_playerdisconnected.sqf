@@ -120,13 +120,6 @@ d_player_hash set [_usc, _ps];
 __TRACE_3("","_infkills","_softveckills","_armorkills")
 __TRACE_3("","_airkills","_deaths","_totalscore")
 
-if (_scpl != -1 && {!isNil "d_pl_mt_score_hash"}) then {
-	private _hash = d_pl_mt_score_hash get _uid;
-	if (!isNil "_hash") then {
-		_hash set [3, _scpl];
-	};
-};
-
 #ifdef __DEBUG__
 diag_log ["DOM playerdisconnected: _totalscore", _totalscore];
 #endif

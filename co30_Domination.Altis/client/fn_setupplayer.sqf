@@ -1057,7 +1057,14 @@ player setVariable ["xr_isleader", false];
 
 addMissionEventHandler ["MapSingleClick", {
 	if (_this # 2 && {d_player_canu && {player == leader group player}}) then {
-		[_this # 1, player] remoteExecCall ["d_fnc_createrpoint", 2];
+		private _mode = 0;
+		private _mar = (group player) getVariable "d_rally_point";
+		if (!isNil "_mar") then {
+			if ((_this # 1) distance2D markerPos _mar < 50) then {
+				_mode = 1;
+			};
+		};
+		[_this # 1, player, _mode] remoteExecCall ["d_fnc_createrpoint", 2];
 	};
 }];
 

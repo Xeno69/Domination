@@ -250,6 +250,7 @@ class CfgRemoteExec {
 		class bis_fnc_settasklocal {allowedTargets = 1;};
 		class bis_fnc_setIdentity {};
 		class bis_fnc_curatorrespawn {};
+		class bis_fnc_kbtelllocal {};
 		class d_fnc_dynamicGroups {};
 		class d_fnc_delproj {};
 		class d_fnc_addppoints {allowedTargets = 2;};

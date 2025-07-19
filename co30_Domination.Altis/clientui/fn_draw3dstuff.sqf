@@ -76,9 +76,9 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 	};
 };
 
+private _col_s = d_color_hash;
 if (d_showallnearusermarkers) then {
 	private "_pos";
-	private _col_s = d_color_hash;
 	private _d_allnearusermarkers = d_allnearusermarkers;
 	_iaar = [_pos_cam, 1000, 1000, 0, false];
 	{
@@ -110,12 +110,12 @@ if (!isNull d_near_player_flag && {d_force_isstreamfriendlyui != 1 && {!isStream
 		120,
 		false
 	];
-	if (d_near_player_flag_pos distance2D player < 500) then {
-		_col = d_color_hash get (getMarkerColor d_near_player_flag_marker);
-		if (_col isEqualTo []) then {
+	if (d_near_player_flag_pos2 distance2D player < 500) then {
+		_col = _col_s get (getMarkerColor d_near_player_flag_marker);
+		if (_col isEqualType 1 || {_col isEqualTo []}) then {
 			_col = [1, 1, 1, 1];
 		};
-		drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType d_near_player_flag_marker)>>"icon"), _col, d_near_player_flag_pos2, 1, 1, 0, "Parajump", 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
+		drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType d_near_player_flag_marker)>>"icon"), _col, d_near_player_flag_pos2, 1, 1, 0, "Parajump", 1];
 		drawLine3D [d_near_player_flag_pos2 vectorAdd [0, 0, -15], d_near_player_flag_pos2 vectorAdd [0, 0, -1], _col, 5];
 	};
 };

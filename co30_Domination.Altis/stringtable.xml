@@ -16307,6 +16307,18 @@
 <Chinese>Ragdoll for AI enemy units hit by weapons:</Chinese>
 <French>Ragdoll for AI enemy units hit by weapons:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2117">
+<English>Rally Point</English>
+<Spanish>Rally Point</Spanish>
+<Portuguese>Rally Point</Portuguese>
+<Korean>Rally Point</Korean>
+<Japanese>Rally Point</Japanese>
+<Original>Rally Point</Original>
+<Russian>Rally Point</Russian>
+<Chinesesimp>Rally Point</Chinesesimp>
+<Chinese>Rally Point</Chinese>
+<French>Rally Point</French>
+</Key>
 </Container>
 </Package>
 </Project>

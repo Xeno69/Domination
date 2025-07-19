@@ -63,17 +63,17 @@ while {true} do {
 		if (_type == "HAC") exitWith {
 			_heli_type = selectRandom d_airai_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
-			_height = 250;
+			_height = 150;
 			_heightASL = [250, 100 + (random 100), 250 + (random 250)];
 		};
 		if (_type == "AP") exitWith {
 			_heli_type = selectRandom d_airai_attack_plane;
 			_numair = [d_number_attack_planes, ceil (random d_number_attack_planes)] select (d_number_attack_planes > 1);
 			if (!d_spe) then {
-				_height = 500;
+				_height = 250;
 				_heightASL = [500, 300 + (random 100), 200 + (random 200)];
 			} else {
-				_height = 200;
+				_height = 100;
 				_heightASL = [200, 100 + (random 100), 300 - (random 200)];
 			};
 		};
@@ -86,7 +86,7 @@ while {true} do {
 		if (_type == "UAV") exitWith {
 			_heli_type = selectRandom d_airai_attack_uav;
 			_numair = [d_number_attack_uavs, ceil (random d_number_attack_uavs)] select (d_number_attack_uavs > 1);
-			_height = 400;
+			_height = 250;
 			_heightASL = [400, 250 + (random 100), 400 + (random 200)];
 		};
 	};
