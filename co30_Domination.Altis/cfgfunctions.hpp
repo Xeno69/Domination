@@ -225,6 +225,7 @@ class cfgFunctions {
 			addc(showmtbest);
 			addc(sideorsyschat);
 			addc(visionmodechanged);
+			addc(updategrpmarker);
 		};
 		class Dom_UI {
 			file = "clientui";

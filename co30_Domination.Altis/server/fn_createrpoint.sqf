@@ -16,6 +16,7 @@ if (_mode == 0) then {
 
 	_marker = createMarker ["d_grp_" + str _grp, _pos, 3, _caller];
 	_grp setVariable ["d_rally_point", _marker, true];
+	_grp setVariable ["d_rally_point_pos", _pos, true];
 	_marker setMarkerShape "ICON";
 	_marker setMarkerType "hd_end_noShadow";
 	_marker setMarkerText (localize "STR_DOM_MISSIONSTRING_2117");
@@ -24,4 +25,6 @@ if (_mode == 0) then {
 	if (!isNil "_marker") then {
 		deleteMarker _marker;
 	};
+	_grp setVariable ["d_rally_point", nil, true];
+	_grp setVariable ["d_rally_point_pos", nil, true];
 };

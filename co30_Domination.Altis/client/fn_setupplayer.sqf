@@ -1406,4 +1406,8 @@ AWS_AMS_Disable = true;
 	};
 }] call BIS_fnc_addScriptedEventHandler;
 
+if (didJIP) then {
+	call d_fnc_updategrpmarker;
+}; 
+
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
