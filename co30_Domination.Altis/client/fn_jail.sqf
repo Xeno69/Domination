@@ -35,6 +35,11 @@ if (vehicle player != player) then {
 	moveOut player;
 };
 
+if (!isNull getConnectedUAV player) then {
+	getConnectedUAV player action ["UAVTerminalReleaseConnection", player];
+	player connectTerminalToUAV objNull;
+};
+
 params ["_numtk", ["_isjip", 0]];
 
 private _secs = [_numtk * 60, _isjip] select (_isjip > 0);

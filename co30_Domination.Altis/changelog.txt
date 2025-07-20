@@ -9,3 +9,4 @@
 - Fixed: It could happen that the number of camps captured were higher than the number of camps available
 - Fixed: In the SPE version air AI attack planes were flying too high
 - Fixed: Enemy vehicle MHQ in the SPE version had no destroyed object
+- Fixed: Disconnect a player from an UAV if he does a teamkill and is moved to jail
