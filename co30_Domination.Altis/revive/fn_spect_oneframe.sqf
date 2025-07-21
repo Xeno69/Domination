@@ -196,7 +196,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 			_ret
 		};
 		if (isNull _visobj) then {_visobj = player};
-		private _nposvis = ASLToATL (visiblePositionASL (vehicle _visobj));
+		private _nposvis = ASLToAGL (visiblePositionASL (vehicle _visobj));
 		private _campos = [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 2];
 		xr_spectcam = "camera" camCreate _campos;
 		xr_spectcamtarget = _visobj;
@@ -211,7 +211,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 	"xr_revtxt" cutText ["","BLACK IN", 1];
 };
 if (isNull xr_spectcamtarget) then { // player disconnect !?!
-	//private _nposvis = ASLToATL (visiblePositionASL (vehicle player));
+	//private _nposvis = ASLToAGL (visiblePositionASL (vehicle player));
 	//private _campos = [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 2];
 	xr_spectcamtarget = player;
 	xr_spectcamtargetstr = getPlayerUID player;
@@ -227,7 +227,7 @@ private _l = ((_bb # 1) # 1) - ((_bb # 0) # 1);
 if (isNil "xr_hhx") then {xr_hhx = 2};
 xr_hhx = ((((_bb # 1) # 2) - ((_bb # 0) # 2)) * __hstr) + (xr_hhx * (1 - __hstr));
 
-private _vpmtw = ASLToATL (visiblePositionASL (vehicle xr_spectcamtarget));
+private _vpmtw = ASLToAGL (visiblePositionASL (vehicle xr_spectcamtarget));
 xr_spectcam camSetTarget (_vpmtw vectorAdd [0, 0, xr_hhx * 0.6]);
 xr_spectcam camSetFov xr_szoom;
 

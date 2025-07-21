@@ -136,7 +136,7 @@ _aaa = lbSize _lbctr;
 //__TRACE_1("","xr_pl_no_lifes")
 showCinemaBorder false;
 if (!xr_pl_no_lifes) then {
-	private _nposvis = ASLToATL (visiblePositionASL (vehicle player));
+	private _nposvis = ASLToAGL (visiblePositionASL (vehicle player));
 	xr_spectcam = "camera" camCreate [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 2];
 	xr_spectcamtarget = player;
 	xr_spectcamtargetstr = getPlayerUID player;
@@ -162,7 +162,7 @@ if (!xr_pl_no_lifes) then {
 		_ret
 	};
 	if (isNull _visobj) then {_visobj = player};
-	private _nposvis = ASLToATL (visiblePositionASL (vehicle _visobj));
+	private _nposvis = ASLToAGL (visiblePositionASL (vehicle _visobj));
 	xr_spectcam = "camera" camCreate [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 2];
 	xr_spectcamtarget = _visobj;
 	xr_spectcamtargetstr = getPlayerUID _visobj;
