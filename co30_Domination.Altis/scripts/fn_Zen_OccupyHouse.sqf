@@ -312,8 +312,8 @@ __TRACE("start of forEach _buildingPosArray")
 			_startAngle = (round random 10) * (round random 36);
 			for "_i" from _startAngle to (_startAngle + 350) step 10 do {
 				_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, _housePos select 2] call _Zen_ExtendPosition;
-				if (!lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) + 25], objNull, objNull] || {_skipAngleCheck}) then {
-					if (!lineIntersects [_housePos, _checkPos, objNull, objNull] || {_skipAngleCheck}) then {
+				if (!lineIntersects [_checkPos, _checkPos vectorAdd [0, 0, 25], objNull, objNull] || {_skipAngleCheck}) then {
+					if (_skipAngleCheck || {!lineIntersects [_housePos, _checkPos, objNull, objNull]}) then {
 						_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) + (CHECK_DISTANCE * tan FOV_ANGLE)] call _Zen_ExtendPosition;
 						if (!lineIntersects [_housePos, _checkPos, objNull, objNull] || {_skipAngleCheck}) then {
 							_hitCount = 0;
@@ -328,13 +328,13 @@ __TRACE("start of forEach _buildingPosArray")
 								};
 							};
 	
-							_isRoof = (_hitCount < ROOF_CHECK) && {!(lineIntersects [_housePos, [_housePos select 0, _housePos select 1, (_housePos select 2) + 25], objNull, objNull])};
+							_isRoof = (_hitCount < ROOF_CHECK) && {!(lineIntersects [_housePos, _checkPos vectorAdd [0, 0, 25], objNull, objNull])};
 							if (!_isRoof || {_isRoof && {_putOnRoof}}) then {
 								if (_isRoof) then {
 									_edge = false;
 									for "_k" from 30 to 360 step 30 do {
 										_checkPos = [_housePos, ROOF_EDGE, 90 - _k, _housePos select 2] call _Zen_ExtendPosition;
-										_edge = !(lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) - EYE_HEIGHT - 1], objNull, objNull]);
+										_edge = !(lineIntersects [_checkPos,_checkPos vectorAdd [0, 0, -(EYE_HEIGHT - 1)], objNull, objNull]);
 	
 										if (_edge) exitWith {
 											_i = _k;

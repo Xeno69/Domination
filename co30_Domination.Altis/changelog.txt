@@ -1,12 +1,3 @@
-4.73
+4.74
 
-- Added: Squad leaders can now set rally points in the map with ALT-Mouse left click (visible for group members at the map and in 3D world if less than 1000m away and in group radio channel)
-- Changed: All players can mark artillery and call in CAS in versions without AI recruitment or AI features
-- Fixed: Script error in fn_call_cas_bomb.sqf
-- Fixed: Script error in fn_teleportdialoginit.sqf
-- Fixed: Top player list after a main target is done completely broken (finally fixed)
-- Fixed: It could happen that selecting respawn at squad leader ended at position [0, 0, 0] when the squad leader died shortly before respawn
-- Fixed: It could happen that the number of camps captured were higher than the number of camps available
-- Fixed: In the SPE version air AI attack planes were flying too high
-- Fixed: Enemy vehicle MHQ in the SPE version had no destroyed object
-- Fixed: Disconnect a player from an UAV if he does a teamkill and is moved to jail
+- Changed: All players can now call in a drop aircraft in versions without AI recruitment or AI features

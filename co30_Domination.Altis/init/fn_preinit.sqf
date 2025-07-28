@@ -3726,13 +3726,6 @@ if (hasInterface) then {
 	d_is_engineer = ["d_blufor_17","d_blufor_18","d_blufor_19","d_opfor_17","d_opfor_18","d_opfor_19"];
 #endif
 
-	// can call in air drop
-#ifndef __TT__
-	d_can_call_drop_ar = ["d_alpha_1","d_charlie_1","d_echo_1"];
-#else
-	d_can_call_drop_ar = [];
-#endif
-
 	d_chophud_on = true;
 
 	d_drop_max_dist = 500;

@@ -83,7 +83,6 @@ if (side (group player) == blufor) then {
 	};
 };
 d_side_player = d_player_side;
-d_can_call_drop_ar = [];
 #endif
 
 d_player_can_call_extended_ordnance = d_enable_extra_cas;
@@ -545,9 +544,11 @@ if (!d_no_ai) then {
 	} else {
 		enableEngineArtillery false;
 	};
-	if (d_with_airdrop == 0 && {d_string_player in d_can_call_drop_ar}) then {
+#ifndef __TT__
+	if (d_with_airdrop == 0) then {
 		d_player_can_call_drop = 1;
 	};
+#endif
 };
 
 //Set ace medic and engineer traits
