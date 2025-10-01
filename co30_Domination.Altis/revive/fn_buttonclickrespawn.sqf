@@ -140,7 +140,7 @@ if (!isNull _mhqobj) then {
 		player switchMove "";
 		player moveInCargo _mhqobj;
 	};
-	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank", "Ship"], 30]) + (player nearSupplies 30));
+	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank", "Ship"], 100]) + (player nearSupplies 100));
 	if ((player nearEntities  ["ReammoBox_F", 30]) isNotEqualTo []) then {
 		call d_fnc_retrieve_layoutgear;
 	};

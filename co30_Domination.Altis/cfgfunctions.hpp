@@ -713,6 +713,7 @@ class cfgFunctions {
 			addc(airddo);
 			addc(vfireflares);
 			addc(createrpoint);
+			addc(db_pl_save);
 		};
 		class Dom_PrePostInit {
 			file = "init";

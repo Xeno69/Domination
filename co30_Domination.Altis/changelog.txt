@@ -1,3 +1,4 @@
 4.74
 
 - Changed: All players can now call in a drop aircraft in versions without AI recruitment or AI features
+- Fixed: Fix race condition causing stat losswhen using missionProfileNamespace, by horstio
