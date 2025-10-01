@@ -111,6 +111,12 @@ if (_p isEqualTo []) then {
 	__TRACE_1("player store after change","_p")
 };
 
+// Wait until missionProfileNamespace is loaded on the server before using it when running without an external DB
+if (d_db_type == 2) then {
+	// Arma 3 2.10+ adds isMissionProfileNamespaceLoaded. Only wait on server side.
+    waitUntil { isMissionProfileNamespaceLoaded };
+};
+
 if (d_database_found) then {
 	private _dbresult = [];
 	call {
@@ -126,8 +132,8 @@ if (d_database_found) then {
 			_dbresult = ["playerGetTS", [_uid]] call d_fnc_queryconfig;
 		};
 		if (d_db_type == 2) exitWith {
-			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
-			if (!isNil "_tmphash") then {
+            private _tmphash = missionProfileNamespace getVariable ["d_player_hashmap", createHashMap];
+if (!isNil "_tmphash") then {
 				__TRACE_1("","_tmphash")
 				private _tmpar = _tmphash get _uid;
 				if (!isNil "_tmpar") then {
@@ -159,8 +165,8 @@ if (d_database_found) then {
 #endif
 			};
 			if (d_db_type == 2) exitWith {
-				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
-				if (!isNil "_tmphash") then {
+                private _tmphash = missionProfileNamespace getVariable ["d_player_hashmap", createHashMap];
+if (!isNil "_tmphash") then {
 					_tmphash set [_uid, [_name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [], 0, 0]];
 					__TRACE_1("player insert","_tmphash")
 					saveMissionProfileNamespace;
@@ -186,8 +192,8 @@ if (d_database_found) then {
 #endif
 			};
 			if (d_db_type == 2) exitWith {
-				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
-				if (!isNil "_tmphash") then {
+                private _tmphash = missionProfileNamespace getVariable ["d_player_hashmap", createHashMap];
+if (!isNil "_tmphash") then {
 					__TRACE_1("num played","_tmphash")
 					private _tmpar = _tmphash get _uid;
 					if (!isNil "_tmpar") then {
@@ -226,8 +232,8 @@ if (d_database_found) then {
 				_dbresult = ["playerGet", [_uid]] call d_fnc_queryconfig;
 			};
 			if (d_db_type == 2) exitWith {
-				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
-				if (!isNil "_tmphash") then {
+                private _tmphash = missionProfileNamespace getVariable ["d_player_hashmap", createHashMap];
+if (!isNil "_tmphash") then {
 					__TRACE_1("playerGet","_tmphash")
 					private _tmpar = _tmphash get _uid;
 					if (!isNil "_tmpar") then {
@@ -305,3 +311,4 @@ if (d_MissionType != 2) then {
 };
 
 (group _pl) setVariable ["d_pl_gr", true];
+
