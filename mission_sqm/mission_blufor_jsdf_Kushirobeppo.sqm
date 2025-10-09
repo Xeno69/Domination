@@ -329,7 +329,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="co40 Domination! Blufor [4.73]";
+		briefingName="co40 Domination! Blufor [4.74]";
 		overviewText="by Xeno";
 		startWeather=0;
 		startWind=0;
