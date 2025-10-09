@@ -1,8 +1,10 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #include "..\x_setup.sqf"
 
 __TRACE_1("","_this")
+
+if (isNil "_this" || {isNull _this}) exitWith {};
 
 params ["_proj"];
 
