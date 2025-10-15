@@ -452,7 +452,8 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 		d_allai_recruit_objs = [d_AI_HUT] + d_additional_recruit_buildings;
 		private _sign = d_AI_HUT getVariable "d_ai_sign";
 		if (!isNil "_sign") then {
-			d_allai_recruit_objs pushBack _sign;
+			d_allai_recruit_objs = d_allai_recruit_objs - [d_AI_HUT];
+			d_allai_recruit_objs = [_sign] + d_allai_recruit_objs;
 		};
 	};
 #else

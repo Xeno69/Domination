@@ -3,3 +3,4 @@
 - Changed: All players can now call in a drop aircraft in versions without AI recruitment or AI features
 - Fixed: Fix race condition causing stat losswhen using missionProfileNamespace, by horstio
 - Fixed: Save player stats when mission ends
+- Fixed: Sometimes two "Recruit AI" action menus were shown on base when "with AI" is enabled
