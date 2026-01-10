@@ -29,4 +29,3 @@ if (d_WithMHQTeleport == 0 && {d_WithRevive == 1}) then {
 } forEach d_player_vecs;
 
 d_player_vecs = d_player_vecs - [-1];
-

@@ -54,6 +54,8 @@ class CfgVehicles {
 	class B_Heli_Light_01_dynamicLoadout_F: Default {};
 
 	class B_Heli_Attack_01_dynamicLoadout_F: Default {};
+	
+	class B_Heli_Attack_01_pylons_dynamicLoadout_F: Default {};
 
 	class B_Plane_CAS_01_dynamicLoadout_F: Default {
 		class TransportPylons: TransportPylons {

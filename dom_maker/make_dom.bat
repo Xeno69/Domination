@@ -5,15 +5,15 @@ rem The ArmaScriptCompiler.exe which is needed for SQFC files can be found at ht
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
-set D_VER=4_70
-set D_BNVER=4.70
+set D_VER=4_74
+set D_BNVER=4.74
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
 rem set D_DO_ASC=1
 rem set D_DO_ASC_ALL=1
 
-set WORK_DIR=C:\temp\DomSQFC
+set WORK_DIR=H:\DomSQFC
 
 del *.pbo
 
@@ -21,116 +21,6 @@ rmdir /S /Q %WORK_DIR%
 
 md %MASTER%
 xcopy ..\%BASE_MASTER%\*.* %MASTER% /E /Y
-
-
-rem Kunduz River kunduz_valley
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.kunduz_valley
-set MISSION_SQM=..\mission_sqm\mission_blufor_kunduz_valley_bin.sqm
-set X_SETUP=..\mission_sqm\x_setup_blufor_kunduz_valley.sqf
-md %WORK_DIR%
-xcopy %MASTER%\*.* %WORK_DIR% /E /Y
-echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
-echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
-if defined D_DO_ASC ArmaScriptCompiler.exe
-md %NEW_VER%
-xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
-cd %NEW_VER%
-del i_weapons_rhs.sqf
-del i_weapons_CUP.sqf
-del i_weapons_IFA3.sqf
-del i_weapons_UNSUNG.sqf
-del i_weapons_gmcwg.sqf
-del i_weapons_csla.sqf
-del i_weapons_vn.sqf
-del i_weapons_PRACS.sqf
-cd missions
-rmdir /S /Q m
-rmdir /S /Q ma3a
-rmdir /S /Q ma3m
-rmdir /S /Q ma3s
-rmdir /S /Q ma3t
-rmdir /S /Q mifa3
-rmdir /S /Q moa
-rmdir /S /Q msara
-cd ..
-cd ..
-makePbo -A -B -P -X %NEW_VER% %NEW_VER%
-rmdir /S /Q %NEW_VER%
-rmdir /S /Q %WORK_DIR%
-rem Blufor Virolahti - Valtatie 7 - vt7
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.vt7
-set MISSION_SQM=..\mission_sqm\mission_blufor_vt7_bin.sqm
-set X_SETUP=..\mission_sqm\x_setup_blufor_vt7.sqf
-md %WORK_DIR%
-xcopy %MASTER%\*.* %WORK_DIR% /E /Y
-echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
-echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
-if defined D_DO_ASC ArmaScriptCompiler.exe
-md %NEW_VER%
-xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
-cd %NEW_VER%
-del i_weapons_rhs.sqf
-del i_weapons_CUP.sqf
-del i_weapons_IFA3.sqf
-del i_weapons_UNSUNG.sqf
-del i_weapons_gmcwg.sqf
-del i_weapons_csla.sqf
-del i_weapons_vn.sqf
-del i_weapons_PRACS.sqf
-cd missions
-rmdir /S /Q m
-rmdir /S /Q ma3a
-rmdir /S /Q ma3m
-rmdir /S /Q ma3s
-rmdir /S /Q ma3t
-rmdir /S /Q mifa3
-rmdir /S /Q moa
-rmdir /S /Q msara
-cd ..
-cd ..
-makePbo -A -B -P -X %NEW_VER% %NEW_VER%
-rmdir /S /Q %NEW_VER%
-rmdir /S /Q %WORK_DIR%
-
-
-rem Blufor Stubbhult
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.stubbhult
-set MISSION_SQM=..\mission_sqm\mission_blufor_stubbhult_bin.sqm
-set X_SETUP=..\mission_sqm\x_setup_blufor_stubbhult.sqf
-md %WORK_DIR%
-xcopy %MASTER%\*.* %WORK_DIR% /E /Y
-echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
-echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
-if defined D_DO_ASC ArmaScriptCompiler.exe
-md %NEW_VER%
-xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
-cd %NEW_VER%
-del i_weapons_rhs.sqf
-del i_weapons_CUP.sqf
-del i_weapons_IFA3.sqf
-del i_weapons_UNSUNG.sqf
-del i_weapons_gmcwg.sqf
-del i_weapons_csla.sqf
-del i_weapons_vn.sqf
-del i_weapons_PRACS.sqf
-cd missions
-rmdir /S /Q m
-rmdir /S /Q ma3a
-rmdir /S /Q ma3m
-rmdir /S /Q ma3s
-rmdir /S /Q ma3t
-rmdir /S /Q mifa3
-rmdir /S /Q moa
-rmdir /S /Q msara
-cd ..
-cd ..
-makePbo -A -B -P -X %NEW_VER% %NEW_VER%
-rmdir /S /Q %NEW_VER%
-rmdir /S /Q %WORK_DIR%
-
-rmdir /S /Q %MASTER%
-pause
-exit
 
 rem Blufor Altis
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.altis
@@ -154,13 +44,12 @@ del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
-REM rmdir /S /Q ma3a
-rmdir /S /Q ma3m
-rmdir /S /Q ma3s
-rmdir /S /Q ma3t
-rmdir /S /Q mifa3
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
@@ -168,6 +57,7 @@ rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
 
 rem goto cleanup
+
 
 rem Blufor Normandy
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_ger.SPE_normandy
@@ -549,13 +439,12 @@ del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
-REM rmdir /S /Q ma3a
-rmdir /S /Q ma3am
-rmdir /S /Q ma3s
-rmdir /S /Q ma3t
-rmdir /S /Q mifa3
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
@@ -585,13 +474,12 @@ del i_weapons_vn.sqf
 del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
-REM rmdir /S /Q ma3a
-rmdir /S /Q ma3am
-rmdir /S /Q ma3s
-rmdir /S /Q ma3t
 rmdir /S /Q mifa3
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3a
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%

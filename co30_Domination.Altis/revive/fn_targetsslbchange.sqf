@@ -17,7 +17,7 @@ if (isNil "_unit" || {isNull _unit}) exitWith {};
 //__TRACE_1("","_unit")
 xr_spectcamtargetstr = _data;
 xr_spectcamtarget = _unit;
-private _posunit = ASLToATL (visiblePositionASL (vehicle _unit));
+private _posunit = ASLToAGL (visiblePositionASL (vehicle _unit));
 _posunit set [2, 2];
 xr_spectcam camSetTarget xr_spectcamtarget;
 xr_spectcam camSetPos _posunit;

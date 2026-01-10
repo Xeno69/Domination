@@ -52,24 +52,20 @@ if (d_player_can_call_drop > 0) then {
 };
 
 _ctrl = _disp displayCtrl 52;
-if (d_player_can_call_cas > 0) then {
-	if (!d_tt_ver) then {
-		if (d_cas_available) then {
-			_ctrl ctrlShow true;
-			_ctrl ctrlsettextcolor __availcol;
-		} else {
-			_ctrl ctrlShow false;
-			//_ctrl ctrlsettextcolor __notavailcol;
-		};
+if (!d_tt_ver) then {
+	if (d_cas_available) then {
+		_ctrl ctrlShow true;
+		_ctrl ctrlsettextcolor __availcol;
 	} else {
-		if (d_player_side == blufor && {d_cas_available_w} || {d_player_side == opfor && {d_cas_available_e}}) then {
-			_ctrl ctrlShow true;
-			_ctrl ctrlsettextcolor __availcol;
-		} else {
-			_ctrl ctrlShow false;
-			//_ctrl ctrlsettextcolor __notavailcol;
-		};
+		_ctrl ctrlShow false;
+		//_ctrl ctrlsettextcolor __notavailcol;
 	};
 } else {
-	_ctrl ctrlShow false;
+	if (d_player_side == blufor && {d_cas_available_w} || {d_player_side == opfor && {d_cas_available_e}}) then {
+		_ctrl ctrlShow true;
+		_ctrl ctrlsettextcolor __availcol;
+	} else {
+		_ctrl ctrlShow false;
+		//_ctrl ctrlsettextcolor __notavailcol;
+	};
 };

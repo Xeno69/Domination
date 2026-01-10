@@ -221,4 +221,8 @@ private _multiplyMatrixFunc = {
 	};
 } forEach _objs;
 
+if (isServer) then {
+	_newObjs call d_fnc_addbarrelsfun;
+};
+
 _newObjs

@@ -225,6 +225,7 @@ class cfgFunctions {
 			addc(showmtbest);
 			addc(sideorsyschat);
 			addc(visionmodechanged);
+			addc(updategrpmarker);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -382,6 +383,7 @@ class cfgFunctions {
 			addc(moduleCAS_eachframeAI);
 			addc(moduleCASAI);
 			addc(moduleCAS_guidedmissile);
+			addc(moduleCAS_guidedmissile2);
 			addc(mando_chute);
 			addc(sandstorm);
 			addc(weather_winter);
@@ -705,6 +707,13 @@ class cfgFunctions {
 			addc(acurator);
 			addc(entityrespawned);
 			addc(dynsimcheck);
+			addc(addbarrelsfun);
+			addc(bfunexp);
+			addc(airagdoll);
+			addc(airddo);
+			addc(vfireflares);
+			addc(createrpoint);
+			addc(db_pl_save);
 		};
 		class Dom_PrePostInit {
 			file = "init";

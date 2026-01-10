@@ -10,6 +10,7 @@ if (isNull _box) exitWith {};
 
 private _perc = _box getVariable "d_abox_perc";
 if (!isNil "_perc") then {
+	__TRACE_1("","_perc")
 	_perc = _perc - 0.1;
 	if (_perc < 0) then {
 		_box spawn {

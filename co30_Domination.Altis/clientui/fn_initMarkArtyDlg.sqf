@@ -7,6 +7,7 @@ disableSerialization;
 private _magsv = [];
 private _cfgmagx = configFile>>"CfgMagazines";
 private _marray = getArray(configFile>>"CfgVehicles">>typeOf (d_ao_arty_vecs # 0)>>"Turrets">>"MainTurret">>"magazines");
+__TRACE_1("","_marray")
 _marray = _marray - ["6Rnd_155mm_Mo_AT_mine", "6Rnd_155mm_Mo_mine", "6Rnd_155mm_Mo_AT_mine_O", "6Rnd_155mm_Mo_mine_O"];
 {
 	_magsv pushBackUnique _x;

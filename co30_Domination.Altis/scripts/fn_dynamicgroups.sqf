@@ -155,6 +155,11 @@ switch (_mode) do {
 
 	case "DeleteGroup": {
 		private _group = _params param [0, grpNull, [grpNull]];
+		
+		private _marker = _group getVariable "d_rally_point";
+		if (!isNil "_marker") then {
+			deleteMarker _marker;
+		};
 
 		if (local _group) then {
 			["DeleteGroupLocal", [_group]] call d_fnc_dynamicgroups;
@@ -764,6 +769,8 @@ switch (_mode) do {
 		if (!isNull _leader && {!isNull _who && {_leader != _who}}) then {
 			["LocalShowNotification", ["DynamicGroups_PlayerJoined", [name _who], _leader]] remoteExecCall ["d_fnc_dynamicGroups", _leader];
 		};
+		
+		call d_fnc_updategrpmarker;
 	};
 
 	/**

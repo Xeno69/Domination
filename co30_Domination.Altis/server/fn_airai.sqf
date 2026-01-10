@@ -63,14 +63,19 @@ while {true} do {
 		if (_type == "HAC") exitWith {
 			_heli_type = selectRandom d_airai_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
-			_height = 250;
+			_height = 150;
 			_heightASL = [250, 100 + (random 100), 250 + (random 250)];
 		};
 		if (_type == "AP") exitWith {
 			_heli_type = selectRandom d_airai_attack_plane;
 			_numair = [d_number_attack_planes, ceil (random d_number_attack_planes)] select (d_number_attack_planes > 1);
-			_height = 700;
-			_heightASL = [700, 500 + (random 100), 700 + (random 700)];
+			if (!d_spe) then {
+				_height = 250;
+				_heightASL = [500, 300 + (random 100), 200 + (random 200)];
+			} else {
+				_height = 100;
+				_heightASL = [200, 100 + (random 100), 300 - (random 200)];
+			};
 		};
 		if (_type == "LAC") exitWith {
 			_heli_type = selectRandom d_light_attack_chopper;
@@ -81,7 +86,7 @@ while {true} do {
 		if (_type == "UAV") exitWith {
 			_heli_type = selectRandom d_airai_attack_uav;
 			_numair = [d_number_attack_uavs, ceil (random d_number_attack_uavs)] select (d_number_attack_uavs > 1);
-			_height = 400;
+			_height = 250;
 			_heightASL = [400, 250 + (random 100), 400 + (random 200)];
 		};
 	};
@@ -158,7 +163,6 @@ while {true} do {
 	_grp allowFleeing 0;
 	_grp setCombatMode "RED";
 	_grp enableAttack true;
-	_grp call d_fnc_addgrp2hc;
 
 	while {true} do {
 		sleep 0.323;
@@ -169,7 +173,7 @@ while {true} do {
 	private _wp = _grp addWayPoint [d_cur_tgt_pos, 0];
 	_wp setWaypointType "SAD";
 	private _pat_pos =+ d_cur_tgt_pos;
-	[_grp, 1] setWaypointStatements ["never", ""];
+	[_grp, 1] setWaypointStatements ["true", ""];
 	_wp setWaypointCompletionRadius 50;
 	private _old_pos = [0,0,0];
 	private _xcounter = 0;
@@ -238,7 +242,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 					_x flyInHeight _height;
 					_x flyInHeightASL _heightASL;
 				} forEach (_vehicles select {alive _x});
-				sleep 35.821 + random 15;
+				sleep 16.821 + random 15;
 			} else {
 				__patternpos;
 				_pat_pos = _pat_pos call d_fnc_WorldBoundsCheck;

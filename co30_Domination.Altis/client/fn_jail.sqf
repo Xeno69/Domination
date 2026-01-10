@@ -27,9 +27,15 @@ if (player getVariable "xr_pluncon") then {
 	d_uncon_finally_over = false;
 };
 
-cutText [localize "STR_DOM_MISSIONSTRING_1999", "BLACK", 0];
-
 player allowDamage false;
+
+(findDisplay 160) closeDisplay 1;
+if (!isNull getConnectedUAV player) then {
+	getConnectedUAV player action ["UAVTerminalReleaseConnection", player];
+	player connectTerminalToUAV objNull;
+};
+
+cutText [localize "STR_DOM_MISSIONSTRING_1999", "BLACK", 0];
 
 if (vehicle player != player) then {
 	moveOut player;
@@ -41,6 +47,7 @@ private _secs = [_numtk * 60, _isjip] select (_isjip > 0);
 player setVariable ["d_jailar", [serverTime, _secs], true];
 
 private _laodout =+ getUnitLoadout player;
+waitUntil {!isSwitchingWeapon player};
 player setUnitLoadout (configFile >> "EmptyLoadout");
 
 private _jailpos = if (d_cur_tgt_pos isNotEqualTo []) then {
@@ -90,37 +97,45 @@ if (_todelete != -1) then {
 
 ["aj", d_player_uid, _jailobjects] remoteExecCall ["d_fnc_p_o_ar", 2];
 
+__TRACE_1("","_pmovepos")
+
 player setPos _pmovepos;
 
 sleep 0.1;
 player setDamage 0;
 
-private _movecheck_fnc = _pmovepos spawn {
+private _movecheck_fnc = [_pmovepos] spawn {
+	params ["_pmovepos"];
+	__TRACE_1("_movecheck_fnc","_pmovepos")
 	scriptname "spawn jail3";
 	private _notfirst = false;
 	while {true} do {
-		if (player distance _this > 12) then {
-			player setPos _pmovepos;
-			if (!_notfirst) then {
-				_notfirst = true;
-				(getPlayerUID player) remoteExecCall ["d_fnc_incjail", 2];
-				d_player_jescape = d_player_jescape + 1;
-				if (d_player_jescape > 10) then {
-					0 spawn {
-						scriptname "spawn jail4";
-						"d_jescape" cutText [format ["<t color='#ffffff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2043"], "PLAIN DOWN", -1, true, true];
-						sleep 5;
-						endMission "End2";
-						forceEnd;
+		if (alive player) then {
+			if (player distance _pmovepos > 14) then {
+				player setPos _pmovepos;
+				if (!_notfirst) then {
+					_notfirst = true;
+					(getPlayerUID player) remoteExecCall ["d_fnc_incjail", 2];
+					d_player_jescape = d_player_jescape + 1;
+					if (d_player_jescape > 10) then {
+						0 spawn {
+							scriptname "spawn jail4";
+							"d_jescape" cutText [format ["<t color='#ffffff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2043"], "PLAIN DOWN", -1, true, true];
+							sleep 5;
+							endMission "End2";
+							forceEnd;
+						};
 					};
 				};
 			};
 		};
 		sleep 1;
 	};
+	__TRACE_1("_movecheck_fnc","alive player")
 };
 
 sleep 2;
+__TRACE("1 BLACK IN")
 cutText ["", "BLACK IN", 2];
 sleep 2;
 
@@ -140,6 +155,7 @@ while {_secs > 0} do {
 "d_jail" cutText ["", "PLAIN"];
 "d_jail2" cutText ["", "PLAIN DOWN"];
 
+__TRACE("2 BLACK OUT")
 cutText [localize "STR_DOM_MISSIONSTRING_2000", "BLACK OUT", 0];
 
 sleep 2;
@@ -150,6 +166,7 @@ terminate _movecheck_fnc;
 
 player setVariable ["d_jailar", nil, true];
 
+waitUntil {!isSwitchingWeapon player};
 player setUnitLoadout _laodout;
 
 #ifndef __TT__
@@ -163,6 +180,7 @@ if (!d_carrier) then {
 } else {
 	_respawn_pos set [2, (getPosASL D_FLAG_BASE) # 2];
 };
+__TRACE_1("","_respawn_pos")
 d_player_in_base = true;
 if (surfaceIsWater _respawn_pos) then {
 	__TRACE("is water")
@@ -175,6 +193,7 @@ player setDamage 0;
 d_goto_jail = nil;
 player allowDamage true;
 
+__TRACE("3 BLACK IN")
 cutText ["", "BLACK IN", 0.2];
 
 __TRACE("Deleting objects")

@@ -140,7 +140,7 @@ d_base_array = [
 
 "d_isledefense_marker" setMarkerAlphaLocal 0;
 
-setMissionOptions createHashMapFromArray [["IgnoreNoDamage", true], ["IgnoreFakeHeadHit", true], ["IgnoreUpsideDownDamage", true]];
+setMissionOptions createHashMapFromArray [["IgnoreNoDamage", true], ["IgnoreFakeHeadHit", true], ["IgnoreUpsideDownDamage", true], ["AIThinkOnlyLocal", true]];
 
 if (isServer) then {
 #include "i_server.sqf"
@@ -443,7 +443,7 @@ if (isServer) then {
 		private _mmm = markerPos "d_base_sb_ammoload";
 		__TRACE_1("","_mmm")
 
-		if (_mmm isNotEqualTo [0,0,0]) then {
+		if (_mmm isNotEqualTo [0,0,0] && {d_servicepoint_building isNotEqualTo ""}) then {
 			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
 			_mmm set [2, 3.3];
 			private _fac = createSimpleObject [_stype # 1, _mmm];

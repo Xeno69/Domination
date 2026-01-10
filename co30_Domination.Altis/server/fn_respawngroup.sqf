@@ -45,7 +45,7 @@ if (_isman) then {
 	while {true} do {
 		sleep 1;
 		if (_old_add != d_groups_respawn_time_add) then {
-			_endtime = _endtime + (d_groups_respawn_time_add - _old_add) + random 2;
+			_endtime = _endtime + (d_groups_respawn_time_add - _old_add) + random 1;
 			_old_add = d_groups_respawn_time_add;
 			__TRACE_3("111","_endtime","_old_add","d_groups_respawn_time_add")
 		};

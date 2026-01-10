@@ -188,6 +188,9 @@ private _make_jump = {
 					d_delinfsm pushBack _one_unit;
 					[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 					[_one_unit, 3] call d_fnc_setekmode;
+					if (d_doairagdoll == 1) then {
+						_one_unit addEventHandler ["HandleDamage", {call d_fnc_airagdoll}];
+					};
 					sleep 0.01;
 					private _bino = binocular _one_unit;
 					if (_bino isNotEqualTo "") then {
@@ -336,6 +339,8 @@ private _make_jump = {
 						_grp call d_fnc_addgrp2hc;
 					};
 				};
+				
+				_vec call d_fnc_vfireflares;
 			};
 		};
 

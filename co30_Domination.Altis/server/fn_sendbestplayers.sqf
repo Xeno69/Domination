@@ -19,6 +19,22 @@ private _alllist = [];
 		__TRACE_1("","_score")
 #endif
 		_alllist pushBack [score (_y # 1) - (_y # 0), _y # 2];
+	} else {
+		__TRACE("unit is null trying to find via UID")
+		private _uid = _x;
+		private _foundpl = objNull;
+		private _idx = allPlayers findIf {
+			if (_uid == getPlayerUID _x) then {
+				_foundpl = _x;
+				true
+			} else {
+				false
+			};
+		};
+		__TRACE_1("","_foundpl")
+		if (!isNull _foundpl) then {
+			_alllist pushBack [score _foundpl - (_y # 0), _y # 2];
+		};
 	};
 } forEach d_pl_mt_score_hash;
 

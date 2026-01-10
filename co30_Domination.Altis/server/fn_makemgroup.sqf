@@ -134,6 +134,9 @@ _women_infantry = [
 	if (_bino isNotEqualTo "") then {
 		_one_unit removeWeapon _bino;
 	};
+	if (d_doairagdoll == 1) then {
+		_one_unit addEventHandler ["HandleDamage", {call d_fnc_airagdoll}];
+	};
 	_one_unit setDamage 0;
 	_one_unit allowDamage true;
 } forEach _unitliste;

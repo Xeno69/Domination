@@ -112,7 +112,7 @@ _object setDir _dir;
 	fix simple object vertical offset, animations and selections
 
 --------------------------------------------------------------------------------------------------*/
-if (_superSimple) then {
+if (_superSimple && {d_EnableSimulationCamps == 0}) then {
 	[_object, _data] call BIS_fnc_adjustSimpleObject;
 };
 

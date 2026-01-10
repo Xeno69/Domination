@@ -43,7 +43,7 @@ if (!_withresp) then {
 };
 
 showCinemaBorder false;
-private _nposvis = ASLToATL (visiblePositionASL (vehicle player));
+private _nposvis = ASLToAGL (visiblePositionASL (vehicle player));
 xr_no_spect_campos = [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 3];
 xr_spectcam = "camera" camCreate xr_no_spect_campos;
 xr_spectcamtarget = player;

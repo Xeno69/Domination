@@ -237,6 +237,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __CUP_CHERNARUS__
 #include "sm_bonus_vec_ar_cup.sqf"
 #endif
+#ifdef __CUP_CHERNARUS2020__
+#include "sm_bonus_vec_ar_cup.sqf"
+#endif
 #ifdef __CUP_TAKISTAN__
 #include "sm_bonus_vec_ar_cup.sqf"
 #endif
@@ -314,6 +317,9 @@ d_e_marker_color_alpha = 0.8;
 #include "mt_bonus_vec_ar_gmcwg.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
+#include "mt_bonus_vec_ar_cup.sqf"
+#endif
+#ifdef __CUP_CHERNARUS2020__
 #include "mt_bonus_vec_ar_cup.sqf"
 #endif
 #ifdef __CUP_TAKISTAN__
@@ -475,6 +481,9 @@ d_cargotower =
 #ifdef __CUP_CHERNARUS__
 	"Land_Cargo_Tower_V1_F";
 #endif
+#ifdef __CUP_CHERNARUS2020__
+	"Land_Cargo_Tower_V1_F";
+#endif
 #ifdef __CUP_TAKISTAN__
 	"Land_Cargo_Tower_V3_F";
 #endif
@@ -535,6 +544,9 @@ d_wcamp =
 	"Land_Cargo_Patrol_V1_F";
 #endif
 #ifdef __CUP_CHERNARUS__
+	"Land_Cargo_Patrol_V4_F";
+#endif
+#ifdef __CUP_CHERNARUS2020__
 	"Land_Cargo_Patrol_V4_F";
 #endif
 #ifdef __CUP_TAKISTAN__
@@ -664,19 +676,6 @@ d_farp_classes = ["Land_HelipadSquare_F", "vn_us_komex_medium_01"];
 d_can_use_artillery = ["d_artop_1", "d_artop_2"]; // case has to be the same as in mission.sqm, d_artop_1 D_ARTOP_1 is not the same :)
 #else
 d_can_use_artillery = ["d_artop_blufor", "d_artop_opfor"];
-#endif
-
-// those units can mark artillery targets but can not call in artillery strikes (only d_can_use_artillery can call in artillery strikes and also mark arty targets)
-#ifndef __TT__
-d_can_mark_artillery = ["d_alpha_1", "d_bravo_1", "d_charlie_1", "d_echo_1"];
-#else
-d_can_mark_artillery = ["d_blufor_1", "d_blufor_2", "d_blufor_3", "d_opfor_1", "d_opfor_2", "d_opfor_3"];
-#endif
-
-#ifndef __TT__
-d_can_call_cas = ["d_alpha_1", "d_bravo_1", "d_charlie_1", "d_echo_1"];
-#else
-d_can_call_cas = ["d_blufor_1", "d_blufor_2", "d_blufor_3", "d_opfor_1", "d_opfor_2", "d_opfor_3"];
 #endif
 
 d_arty_m_marker =
@@ -1049,6 +1048,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_CHERNARUS__
 #include "d_allmen_O_CUP_CHER.sqf"
 #endif
+#ifdef __CUP_CHERNARUS2020__
+#include "d_allmen_O_CUP_CHER.sqf"
+#endif
 #ifdef __CUP_TAKISTAN__
 #include "d_allmen_O_CUP_TAKI.sqf"
 #endif
@@ -1167,6 +1169,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_CHERNARUS__
 #include "d_allmen_G_default.sqf"
 #endif
+#ifdef __CUP_CHERNARUS2020__
+#include "d_allmen_G_default.sqf"
+#endif
 #ifdef __CUP_TAKISTAN__
 #include "d_allmen_G_default.sqf"
 #endif
@@ -1235,6 +1240,9 @@ if (!d_gmcwgwinter) then {
 }
 #endif
 #ifdef __CUP_CHERNARUS__
+#include "d_specops_O_CUP_CHER.sqf"
+#endif
+#ifdef __CUP_CHERNARUS2020__
 #include "d_specops_O_CUP_CHER.sqf"
 #endif
 #ifdef __CUP_TAKISTAN__
@@ -1356,6 +1364,11 @@ if (!d_pracs) then {
 	d_sniper_W = [[["gm_ge_army_squadleader_g3a3_p2a1_80_ols", "gm_ge_army_rifleman_g3a3_80_ols"], ["gm_ge_army_squadleader_g3a3_p2a1_parka_80_win", "gm_ge_army_rifleman_g3a3_parka_80_win"]] select d_gmcwgwinter];
 #endif
 #ifdef __CUP_CHERNARUS__
+	d_sniper_E = [["East","CUP_O_RU","Infantry_VDV_EMR","CUP_O_RU_SniperTeam_VDV_EMR"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_USMC","Infantry","CUP_B_USMC_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","CUP_I_NAPA","Infantry","CUP_I_NAPA_GrpInf_TeamSniper"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __CUP_CHERNARUS2020__
 	d_sniper_E = [["East","CUP_O_RU","Infantry_VDV_EMR","CUP_O_RU_SniperTeam_VDV_EMR"] call d_fnc_GetConfigGroup];
 	d_sniper_W = [["West","CUP_B_USMC","Infantry","CUP_B_USMC_SniperTeam"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","CUP_I_NAPA","Infantry","CUP_I_NAPA_GrpInf_TeamSniper"] call d_fnc_GetConfigGroup];
@@ -2579,7 +2592,7 @@ if (d_with_airdrop == 2) then {
 				if (d_spe) exitWith {
 					[]
 				};
-				["B_Heli_Attack_01_F"]
+				["B_Heli_Attack_01_F", "B_Heli_Attack_01_pylons_dynamicLoadout_F"]
 			};
 		};
 		if (d_enemy_side_short == "G") exitWith {
@@ -3087,85 +3100,83 @@ if (d_with_airdrop == 2) then {
 	
 	d_chem_objs_ar = [];
 
-	if (d_enable_civs == 1) then {
-		//
-		//civilian vehicles
-		//
-		d_civVehiclesWeightedCityWealthHigh = [
-			"C_Offroad_01_F", 1,
-			"C_Hatchback_01_F", 1,
-			"C_Truck_02_covered_F", 0.25,
-			"C_Van_01_box_F", 0.25,
-			"C_Van_02_transport_F", 0.25,
-			"C_Offroad_02_unarmed_F", 0.5,
-			"C_SUV_01_F", 0.5,
-			"C_IDAP_Van_medevac_02_F", 0.25
-		];
+    //
+    //civilian vehicles
+    //
+    d_civVehiclesWeightedCityWealthHigh = [
+        "C_Offroad_01_F", 1,
+        "C_Hatchback_01_F", 1,
+        "C_Truck_02_covered_F", 0.25,
+        "C_Van_01_box_F", 0.25,
+        "C_Van_02_transport_F", 0.25,
+        "C_Offroad_02_unarmed_F", 0.5,
+        "C_SUV_01_F", 0.5,
+        "C_IDAP_Van_medevac_02_F", 0.25
+    ];
 
-		d_civVehiclesWeightedCityWealthLow = [
-			"C_Offroad_01_F", 1,
-			"C_Truck_02_covered_F", 0.25,
-			"C_Truck_02_transport_F", 0.25,
-			"C_Van_01_box_F", 0.25,
-			"C_Van_02_transport_F", 0.25,
-			"C_IDAP_Van_medevac_02_F", 0.25
-		];
+    d_civVehiclesWeightedCityWealthLow = [
+        "C_Offroad_01_F", 1,
+        "C_Truck_02_covered_F", 0.25,
+        "C_Truck_02_transport_F", 0.25,
+        "C_Van_01_box_F", 0.25,
+        "C_Van_02_transport_F", 0.25,
+        "C_IDAP_Van_medevac_02_F", 0.25
+    ];
 
-		d_civVehiclesWeightedRural = [
-			"C_Offroad_01_F", 1,
-			"C_Truck_02_covered_F", 0.25,
-			"C_Truck_02_transport_F", 0.25,
-			"C_Van_01_box_F", 0.10,
-			"C_Offroad_02_unarmed_F", 1,
-			"C_Tractor_01_F", 0.10,
-			"C_van_01_box_f", 0.10,
-			"C_Truck_02_fuel_f", 0.10,
-			"C_idap_truck_02_water_f", 0.10,
-			"C_van_01_transport_f", 0.25
-		];
+    d_civVehiclesWeightedRural = [
+        "C_Offroad_01_F", 1,
+        "C_Truck_02_covered_F", 0.25,
+        "C_Truck_02_transport_F", 0.25,
+        "C_Van_01_box_F", 0.10,
+        "C_Offroad_02_unarmed_F", 1,
+        "C_Tractor_01_F", 0.10,
+        "C_van_01_box_f", 0.10,
+        "C_Truck_02_fuel_f", 0.10,
+        "C_idap_truck_02_water_f", 0.10,
+        "C_van_01_transport_f", 0.25
+    ];
 
-		d_civVehiclesWeightedRuralCup = [
-			"CUP_C_pickup_unarmed_civ", 1,
-			"CUP_C_Datsun", 1,
-			"CUP_C_V3S_Covered_TKC", 1,
-			"CUP_B_hilux_unarmed_blu_g_f", 1,
-			"CUP_I_suv_ion", 0.25,
-			"C_Tractor_01_F", 0.10,
-			"CUP_C_tractor_old_civ", 0.10
-		];
+    d_civVehiclesWeightedRuralCup = [
+        "CUP_C_pickup_unarmed_civ", 1,
+        "CUP_C_Datsun", 1,
+        "CUP_C_V3S_Covered_TKC", 1,
+        "CUP_B_hilux_unarmed_blu_g_f", 1,
+        "CUP_I_suv_ion", 0.25,
+        "C_Tractor_01_F", 0.10,
+        "CUP_C_tractor_old_civ", 0.10
+    ];
 
-		d_civVehiclesWeightedRuralCupRemote = [
-			"CUP_C_Datsun", 1,
-			"CUP_C_Datsun_4seat", 1,
-			"CUP_C_V3S_Covered_TKC", 0.5,
-			"C_Tractor_01_F", 0.25
-		];
-		
-		d_civVehiclesWeightedCityWealthLowCup =+ d_civVehiclesWeightedCityWealthLow;
-		d_civVehiclesWeightedCityWealthLowCup =+ [
-			"CUP_C_lada_white_civ", 1,
-			"CUP_C_lada_red_civ", 1,
-			"CUP_C_skoda_white_civ", 1,
-			"CUP_C_skoda_green_civ", 1,
-			"CUP_C_skoda_blue_civ", 1,
-			"CUP_C_skoda_red_civ", 1,
-			"CUP_C_ikarus_chernarus", 0.25,
-			"CUP_C_bus_city_crciv", 0.25,
-			"CUP_B_S1203_Ambulance_CR", 0.25
-		];
-		
-		d_civVehiclesWeightedCityWealthLowCFP =+ d_civVehiclesWeightedCityWealthLowCup;
-		d_civVehiclesWeightedCityWealthLowCFP =+ [
-			"CFP_c_me_datsun_pickup_covered_01", 1,
-			"CFP_C_datsun_plain", 1,
-			"CFP_C_afg_skoda_105_L_01", 1,
-			"CFP_C_asia_praga_v3s_01", 1,
-			"CFP_B_caf_ural_01", 1,
-			"CFP_I_ssarmy_skoda_1203_01", 1,
-			"CFP_B_afgpolice_offroad_01", 0.25,
-			"CFP_B_uaz_01", 1
-		];
-	};
+    d_civVehiclesWeightedRuralCupRemote = [
+        "CUP_C_Datsun", 1,
+        "CUP_C_Datsun_4seat", 1,
+        "CUP_C_V3S_Covered_TKC", 0.5,
+        "C_Tractor_01_F", 0.25
+    ];
+
+    d_civVehiclesWeightedCityWealthLowCup =+ d_civVehiclesWeightedCityWealthLow;
+    d_civVehiclesWeightedCityWealthLowCup =+ [
+        "CUP_C_lada_white_civ", 1,
+        "CUP_C_lada_red_civ", 1,
+        "CUP_C_skoda_white_civ", 1,
+        "CUP_C_skoda_green_civ", 1,
+        "CUP_C_skoda_blue_civ", 1,
+        "CUP_C_skoda_red_civ", 1,
+        "CUP_C_ikarus_chernarus", 0.25,
+        "CUP_C_bus_city_crciv", 0.25,
+        "CUP_B_S1203_Ambulance_CR", 0.25
+    ];
+
+    d_civVehiclesWeightedCityWealthLowCFP =+ d_civVehiclesWeightedCityWealthLowCup;
+    d_civVehiclesWeightedCityWealthLowCFP =+ [
+        "CFP_c_me_datsun_pickup_covered_01", 1,
+        "CFP_C_datsun_plain", 1,
+        "CFP_C_afg_skoda_105_L_01", 1,
+        "CFP_C_asia_praga_v3s_01", 1,
+        "CFP_B_caf_ural_01", 1,
+        "CFP_I_ssarmy_skoda_1203_01", 1,
+        "CFP_B_afgpolice_offroad_01", 0.25,
+        "CFP_B_uaz_01", 1
+    ];
 
 	private _civVehiclesWeightedRuralLivonia = [
 		"C_Offroad_01_F", 0.30,
@@ -3645,8 +3656,11 @@ if (d_with_airdrop == 2) then {
 		"CFP_C_ME_Civ_1_01", 1,
         "CFP_C_ME_Civ_2_01", 1
 	];
-	
-	
+
+
+	// default
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthHigh;
+
 #ifdef __ALTIS__
 	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthHigh;
 	d_civ_faces = _mixedFaces;
@@ -3858,10 +3872,8 @@ if (hasInterface) then {
 	d_allplayers = [];
 	d_allplayermapd = [];
 	d_allplayerai = [];
-#ifndef __TT__
 	d_showallnearusermarkers = true;
 	d_allnearusermarkers = [];
-#endif
 
 	// ammobox handling (default, loading and dropping boxes) it means the time diff in seconds before a box can be loaded or dropped again in a vehicle
 	d_drop_ammobox_time = 10;
@@ -3918,13 +3930,6 @@ if (hasInterface) then {
 	d_is_engineer = ["d_blufor_17","d_blufor_18","d_blufor_19","d_opfor_17","d_opfor_18","d_opfor_19"];
 #endif
 
-	// can call in air drop
-#ifndef __TT__
-	d_can_call_drop_ar = ["d_alpha_1","d_charlie_1","d_echo_1"];
-#else
-	d_can_call_drop_ar = [];
-#endif
-
 	d_chophud_on = true;
 
 	d_drop_max_dist = 500;
@@ -3941,7 +3946,6 @@ if (hasInterface) then {
 	d_rscspect_on = false;
 	d_player_can_call_drop = 0;
 	d_player_can_call_arti = 0;
-	d_player_can_call_cas = 0;
 	d_eng_can_repfuel = false;
 	d_there_are_enemies_atbase = false;
 	d_enemies_near_base = false;
@@ -4271,7 +4275,7 @@ if (d_enemy_factions > 0) then {
 				["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamat"] call d_fnc_GetConfigGroup
 			];
 			d_specops_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup];
-			d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup];
+			// d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup]; // RWR sniper team is mostly non-snipers... just use default snipers
 		};
 		case 8: {
 			// 3CB - African Desert Civilian Militia (ADG)
@@ -4495,20 +4499,22 @@ switch (d_guerrilla_factions) do {
 			["I_CUPARMYASIA_T72_01", "I_CUPARMYASIA_BTR_60PB_01"]
 		];
 	};
-	// ION PMC
+	// ION PMC and AT
 	case 5: {
 		d_faction_independent_array = [
 			[
-				["Indep","CUP_I_PMC_ION","Infantry","CUP_I_PMC_ION_Security_Detail"] call d_fnc_GetConfigGroup
+				["Indep","CUP_I_PMC_ION","Infantry","CUP_I_PMC_ION_Security_Detail"] call d_fnc_GetConfigGroup,
+				["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup
 			],
 			["CUP_I_MATV_GMG_ION", "CUP_I_BTR80A_ION"]
 		];
 	};
-	// ION PMC Arctic
+	// ION PMC Arctic and AT
 	case 6: {
 		d_faction_independent_array = [
 			[
-				["Indep","CUP_I_PMC_ION","WinterInfantry","CUP_I_PMC_Winter_ION_Security_Detail"] call d_fnc_GetConfigGroup
+				["Indep","CUP_I_PMC_ION","WinterInfantry","CUP_I_PMC_Winter_ION_Security_Detail"] call d_fnc_GetConfigGroup,
+				["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup
 			],
 			["CUP_I_MATV_GMG_ION", "CUP_I_nM1025_Mk19_ION_WIN"]
 		];

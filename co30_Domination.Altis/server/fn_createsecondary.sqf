@@ -262,7 +262,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 
 		sleep 0.5;
 
-		if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 30}) then {
+		if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 10}) then {
 			if (d_preemptive_special_event) exitWith {}; // no secondary when a special event is already running
 			private _retgr = ["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
 			(_retgr # 1) spawn {

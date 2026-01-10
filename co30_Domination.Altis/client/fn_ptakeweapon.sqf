@@ -47,7 +47,7 @@ private _exit_it = false;
 if (!_isvalid) then {
 	private _prw = player getVariable "d_pprimweap";
 	if (_prw != primaryWeapon player) then {
-		player removeWeapon (primaryWeapon player);
+		player removeWeapon [primaryWeapon player, false];
 		player addWeapon _prw;
 		
 		private _secits = player getVariable "d_pprimweapitems";

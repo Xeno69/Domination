@@ -226,6 +226,7 @@ private _reloadtime = getNumber(configFile>>"CfgWeapons">>_aweapon>>"reloadTime"
 __TRACE_2("","_aweapon","_reloadtime")
 
 for "_series" from 1 to _ari_salvos do {
+__TRACE_1("","_series")
 #ifndef __TT__
 	if (d_arty_stopp) exitWith {
 		_logic1 kbTell [_logic, _topicside, "ArtilleryCanceled", _channel];
@@ -248,13 +249,15 @@ for "_series" from 1 to _ari_salvos do {
 
 		private _radius = 20 + random 10;
 		private _angle = floor random 360;
-
+		__TRACE_1("magazines","magazines _x")
 		_x doArtilleryFire [[(_ari_tgt_pos # 0) - ((random _radius) * sin _angle), (_ari_tgt_pos # 1) - ((random _radius) * cos _angle), 0], _ari_type, 1];
+		__TRACE_1("Arty firing","_x")
 		sleep 0.2;
 	} forEach _ari_vecs;
 
 	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
+	__TRACE_1("","_aop")
 	if (d_force_isstreamfriendlyui == 1) then {	
 		_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTWNoText", _channel];
 	} else {
@@ -400,3 +403,5 @@ if (markerPos _sel_ari_mkr isNotEqualTo [0,0,0] && {_ari_tgt_pos isEqualTo (mark
 	};
 #endif
 };
+
+__TRACE("Arty ended")

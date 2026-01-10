@@ -331,6 +331,7 @@ if (d_maintargets_list isNotEqualTo []) then {
 					};
 				};
 			};
+			[false] call d_fnc_db_pl_save;
 		};
 		d_the_end = true; publicVariable "d_the_end";
 		0 spawn d_fnc_DomEnd;

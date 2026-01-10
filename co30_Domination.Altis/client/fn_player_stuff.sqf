@@ -50,6 +50,7 @@ if (_lo # 0 isNotEqualTo []) then {
 		scriptName "spawn_player_stuff";
 		waitUntil {!isNil "d_player_side"};
 		if (_this # 1 == d_player_side) then {
+			waitUntil {!isSwitchingWeapon player};
 			player setUnitLoadout [_this # 0, false];
 			call d_fnc_save_respawngear;
 			call d_fnc_save_layoutgear;

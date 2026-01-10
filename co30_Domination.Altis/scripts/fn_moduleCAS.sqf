@@ -274,6 +274,8 @@ if (!scriptDone _fire) then {
 	terminate _fire;
 };
 
+_plane call d_fnc_vfireflares;
+
 if !(isNull _logico) then {
 	sleep 1;
 	deleteVehicle _logico;
