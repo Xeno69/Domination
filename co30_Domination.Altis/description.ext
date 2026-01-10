@@ -55,6 +55,15 @@ class Header {
 #ifdef __ALTIS__
 	maxPlayers = 46;
 #endif
+#ifdef __STUBBHULT__
+	maxPlayers = 41;
+#endif
+#ifdef __VT7__
+	maxPlayers = 41;
+#endif
+#ifdef __KUNDUZ__
+	maxPlayers = 41;
+#endif
 #ifdef __CUP_CHERNARUS__
 	maxPlayers = 41;
 #endif
@@ -434,6 +443,18 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,34};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","34"};
 #endif
+#ifdef __STUBBHULT__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,34};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","34"};
+#endif
+#ifdef __VT7__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,34};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","34"};
+#endif
+#ifdef __KUNDUZ__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,34};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","34"};
+#endif
 #ifdef __CUP_CHERNARUS__
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
@@ -526,6 +547,15 @@ class Params {
 		default = 7;
 #endif
 #ifdef __ALTIS__
+		default = 5;
+#endif
+#ifdef __STUBBHULT__
+		default = 5;
+#endif
+#ifdef __VT7__
+		default = 5;
+#endif
+#ifdef __KUNDUZ__
 		default = 5;
 #endif
 #ifdef __CUP_SARA__
@@ -699,6 +729,15 @@ class Params {
 		default = 1;
 #endif
 #ifdef __ALTIS__
+		default = 1;
+#endif
+#ifdef __STUBBHULT__
+		default = 1;
+#endif
+#ifdef __VT7__
+		default = 1;
+#endif
+#ifdef __KUNDUZ__
 		default = 1;
 #endif
 #ifdef __CUP_SARA__
@@ -982,6 +1021,15 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1732";
 		values[] = {0,1};
 #ifdef __ALTIS__
+		default = 0;
+#endif
+#ifdef __STUBBHULT__
+		default = 0;
+#endif
+#ifdef __VT7__
+		default = 0;
+#endif
+#ifdef __KUNDUZ__
 		default = 0;
 #endif
 #ifdef __STRATIS__
@@ -1444,7 +1492,7 @@ class Params {
 	
 	class d_civ_type {
 		title = "$STR_DOM_MISSIONSTRING_CIVILIAN_TYPE";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_AFRICAN",
@@ -1459,6 +1507,9 @@ class Params {
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFRICAN_ISLAMIC",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_ASIAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MALDEN",
+			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_STUBBHULT",
+			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_VT7",
+			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_KUNDUZ",			
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MIDDLE_EAST",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CUP_TAKISTAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_ASIAN_CUP",
@@ -2498,6 +2549,108 @@ class CfgDebriefing {
 
 class CfgIdentities {
 #ifdef __ALTIS__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __STUBBHULT__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __VT7__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __KUNDUZ__
 	class DHQ_BF1 {
 		name = "Winters, HQ";
 		face = "whiteHead_04";

@@ -213,7 +213,7 @@ __TRACE("start of forEach _buildingPosArray")
 {
 	scopeName "for";
 	private _posArray = _x;
-	__TRACE_2("","_building","_posArray")
+	__TRACE_1("","_posArray")
 
 	if (count _posArray == 0) then {
 		diag_log ["_posArray is empty, non-fatal but should never happen (causes the next 'while' loop to be skipped)"];
@@ -235,6 +235,7 @@ __TRACE("start of forEach _buildingPosArray")
 		if !(isNull _targetBuilding) then {
 			//diag_log ["target building was provided, no need to redetect"];
 			_theBuilding = _targetBuilding;
+			__TRACE_1("","_theBuilding")
 		} else {
 			// collect a list of buildings so we can attempt to redetect the target building
 			_bldgs_list = [_housePos, 199] call d_fnc_getbldgswithpositions;

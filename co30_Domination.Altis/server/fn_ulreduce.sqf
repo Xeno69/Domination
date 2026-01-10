@@ -10,8 +10,8 @@ if (count _unitliste > 2) then {
 	private "_maxunits";
 	
 	if (_unitsPerGroup > 0) then {
-    	_maxunits = _unitsPerGroup;
-    } else {
+		_maxunits = _unitsPerGroup;
+	} else {
 		_maxunits = round (linearConversion [1, 40, _nump, 3, 7, true]);
 		if (_maxunits == 3) then {
 			_maxunits = selectRandom [3, 4];
@@ -20,9 +20,9 @@ if (count _unitliste > 2) then {
 				_maxunits = selectRandom [6, 7];
 			};
 		};
-    };
+	};
 	
-	__TRACE_3("","_nump","_factor","_maxunits")
+	__TRACE_2("","_nump","_maxunits")
 	if (_maxunits < count _unitliste) then {
 		private _tmpar =+ _unitliste;
 		_unitliste = [_tmpar # 0];

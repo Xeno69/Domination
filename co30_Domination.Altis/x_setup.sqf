@@ -8,7 +8,7 @@
 
 // uncomment to see where all AI units spawn, what kind of group it is, their current waypoint line to waypoint and the number of units alive
 // ONLY FOR DEBUGGING !!!!
-#define __GROUPDEBUG__
+//#define __GROUPDEBUG__
 
 #define __ALLOW_RECOMPILE__
 

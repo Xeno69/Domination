@@ -80,7 +80,7 @@ __TRACE_1("","_eee")
 #endif
 
 {
-	__TRACE_1("","_x")
+	__TRACE_1("Sidemisson","_x")
 	private _curmar = _x;
 	private _marar = _curmar splitString "|";
 	__TRACE_1("","_marar")
@@ -117,7 +117,7 @@ __TRACE_1("","_eee")
 			[]
 		};
 
-		_onesmar = [_idx, _smtype, _smposis, [], [], "", "", -4.5]; // array idx 2 = sm positions like convoy start/end or flags or tanks, etc; idx 3 = armor positions, idx 4 = inf positions, client only: idx 5 = d_cur_sm_txt, idx 7 = d_current_mission_resolved_text
+		_onesmar = [_idx, _smtype, _smposis, [], [], "", "", -4.5]; // array idx 2 = sm positions like convoy start/end or flags or tanks, etc; idx 3 = armor positions, idx 4 = inf positions, client only: idx 5 = d_cur_sm_txt, idx 6 = d_current_mission_resolved_text
 	} else {
 		_onesmar = d_sm_hash get _idx;
 	};

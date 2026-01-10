@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-__TRACE("In fn_sidemissionresolved")
+__TRACE_1("","_this")
 
 0 spawn d_fnc_clearsidemission;
 
