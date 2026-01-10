@@ -21,7 +21,7 @@ Remember that your modifications can only be shared with the community if you co
 explanation: **_1-X** means **_1** **_2** ... **_X**
 e.g. `sample_1-#` #1-3 => `sample_1`,`sample_2`,`sample_3`
 ## Markers
-### neddded for gameplay
+### Needed for gameplay
 - `base_spawn_1` spwan point if revived
 - `d_camstart` for intro
 - `d_player_ammobox_pos_1-X`	amoboxes
@@ -99,12 +99,12 @@ see missions\fn_create_sm_bymarkers.sqf and  ./fn_getbymarkersm.sqf
 		- `eliminategovmember` - kill
 		- `eliminatesniper` (rem) - kill
 		- `fuelstation` - destroy
-		- `transformer` - destroy
+		- `transformer` - destroy
 		- `barracks` - destroy
-		- `hangar` - destroy
+		- `hangar` - destroy
 		- `cargotruck` - destroy
 		- `minesland` - destroy
-		- `minesnaval` - destroy
+		- `minesnaval` - destroy
 		- `artycannon` - destroy
 		- `dataterminal` - destroy
 		- `device` - destroy
