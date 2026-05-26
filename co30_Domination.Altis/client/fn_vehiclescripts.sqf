@@ -33,7 +33,7 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 if (!_do_exit && {_vec isKindOf "Air" && {d_database_found && {d_score_needed_to_fly > -1 && {score player < d_score_needed_to_fly}}}}) then {
 	if (_vec getVariable ["d_s2fly", false]) exitWith {};
 	if (_vec getVariable ["d_is_airtaxi", false]) exitWith {};
-	if (player == driver _vec || {player == gunner _vec || {player == commander _vec || {player == currentPilot _vec || {[_vec, player] call d_fnc_iscopilot || {(fullCrew [_vec, "Turret"]) findIf {_x # 0 == player} > -1}}}}}) then {
+	if (player == driver _vec || {player == gunner _vec || {player == commander _vec || {player ==   _vec || {[_vec, player] call d_fnc_iscopilot || {(fullCrew [_vec, "Turret"]) findIf {_x # 0 == player} > -1}}}}}) then {
 		if (isMultiplayer) then {
 			player action ["getOut", _vec];
 			[format [localize "STR_DOM_MISSIONSTRING_2059", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName, d_score_needed_to_fly, score player], "HQ"] call d_fnc_HintChatMsg;
@@ -84,7 +84,7 @@ if (_vec isKindOf "Air") then {
 					/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 					/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 					/* 4 condition to show */			"[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action_Check",
-					/* 5 condition for action */		"player isNotEqualTo (currentPilot _target) && {speed _target < 50}",
+					/* 5 condition for action */		"player isNotEqualTo (currentPilot _target) && {player isNotEqualTo (gunner _target) && {speed _target < 50}}",
 					/* 6 code executed on start */		{},
 					/* 7 code executed per tick */		{},
 					/* 8 code executed on completion */	{
@@ -96,7 +96,7 @@ if (_vec isKindOf "Air") then {
 					/* 12 priority */					-1,
 					/* 13 remove on completion */		false,
 					/* 14 show unconscious */			false
-				] call bis_fnc_holdActionAdd
+				] call bis_fnc_sssssssssssholdActionAdd
 			];
 
 			if (d_with_ai) then {

@@ -448,7 +448,6 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 		[d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0, 0] call d_fnc_addto3drawar;
 	};
 	if (d_with_ai) then {
-		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
 		d_allai_recruit_objs = [d_AI_HUT] + d_additional_recruit_buildings;
 		private _sign = d_AI_HUT getVariable "d_ai_sign";
 		if (!isNil "_sign") then {

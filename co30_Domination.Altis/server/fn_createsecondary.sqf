@@ -168,10 +168,10 @@ if (d_ao_check_for_ai in [0, 1]) then {
 			_wf allowDamage false;
 			_wf setDir (_wf getDir _trg_center);
 			_wf addEventHandler ["HandleDamage", {0}];
-			_wf addEventHandler ["killed", {(_this #0) setDamage 0}];
-			if (d_with_dynsim == 0) then {
+			_wf addEventHandler ["killed", {(_this # 0) setDamage 0}];
+			/*if (d_with_dynsim == 0) then {
 				[_wf, 5] spawn d_fnc_enabledynsim;
-			};
+			};*/
 			sleep 0.3;
 			_poss = getPosASL _wf;
 			_isFirstCamp = false;
@@ -209,9 +209,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 			_wf allowDamage false;
 			_wf setDir (_wf getDir _trg_center);
 			_wf addEventHandler ["HandleDamage", {0}];
-			/*if (d_with_dynsim == 0) then {
-				[_wf, 5] spawn d_fnc_enabledynsim;
-			};*/
+			_wf addEventHandler ["killed", {(_this # 0) setDamage 0}];
 			sleep 0.3;
 			__TRACE_1("1111","_wf")
 

@@ -37,6 +37,10 @@ _this setVariable ["d_plyonloadoutaction", [
 		/* 11 action duration */			1,
 		/* 12 priority */					-1,
 		/* 13 remove on completion */		false,
-		/* 14 show unconscious */			false
+		/* 14 show unconscious */			false,
+		/* 15 show window */				true,
+		/* 16 radius */						15,
+		/* 17 selection */					"",
+		/* 18 memoryPoint */				""
 	] call bis_fnc_holdActionAdd
 ];

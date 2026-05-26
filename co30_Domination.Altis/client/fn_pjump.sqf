@@ -27,4 +27,5 @@ d_jump_action_id = player addAction [localize "str_a3_rscgrouprootmenu_items_ope
 	player moveInDriver _chute;
 	player removeAction d_jump_action_id;
 	d_jump_action_id = nil;
+	call d_fnc_chutesmoke;
 }, 0, 6, false, false, "", "if (!d_player_canu || {getPos player # 2 < 1.5}) then {player removeAction d_jump_action_id;d_jump_action_id = nil; false} else {true}"];

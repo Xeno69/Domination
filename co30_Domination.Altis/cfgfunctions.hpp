@@ -226,6 +226,7 @@ class cfgFunctions {
 			addc(sideorsyschat);
 			addc(visionmodechanged);
 			addc(updategrpmarker);
+			addc(chutesmoke);
 		};
 		class Dom_UI {
 			file = "clientui";
