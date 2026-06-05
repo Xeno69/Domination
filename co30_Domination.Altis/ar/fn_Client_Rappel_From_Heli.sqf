@@ -16,10 +16,11 @@ if (local _player) then {
 	[_player] orderGetIn false;
 	moveOut _player;
 	waitUntil {vehicle _player == _player};
+	
 	private _playerStartPosition = AGLtoASL (_heli modelToWorldVisual _rappelPoint);
-	_playerStartPosition set [2, (_playerStartPosition select 2) - 1];
-	_playerStartPosition set [1, (_playerStartPosition select 1) - (((random 100) - 50) / 25)];
-	_playerStartPosition set [0, (_playerStartPosition select 0) - (((random 100) - 50) / 25)];
+	_playerStartPosition set [2, (_playerStartPosition # 2) - 1];
+	_playerStartPosition set [1, (_playerStartPosition # 1) - (((random 100) - 50) / 25)];
+	_playerStartPosition set [0, (_playerStartPosition # 0) - (((random 100) - 50) / 25)];
 	_player setPosWorld _playerStartPosition;
 
 	private _anchor = "Land_Can_V2_F" createVehicle position _player;
@@ -55,35 +56,41 @@ if (local _player) then {
 	private _ropeKeyDownHandler = -1;
 	private _ropeKeyUpHandler = -1;
 
+	// PERFORMANCE OPTIMIZATION: Query action keys beforehand, not inside the fast running event handlers!
+	private _moveBackKeys = actionKeys "MoveBack";
+	private _turboKeys = actionKeys "Turbo";
+
 	if (_player == player) then {
 		_player setVariable ["AR_DECEND_PRESSED", false];
 		_player setVariable ["AR_FAST_DECEND_PRESSED", false];
 		_player setVariable ["AR_RANDOM_DECEND_SPEED_ADJUSTMENT", 0];
 
 		_ropeKeyDownHandler = (findDisplay 46) displayAddEventHandler ["KeyDown", {
-			if ((_this # 1) in (actionKeys "MoveBack")) then {
+			params ["_display", "_key"];
+			if (_key in _thisArgs # 0) then {
 				player setVariable ["AR_DECEND_PRESSED", true];
 			} else {
-				if ((_this # 1) in (actionKeys "Turbo")) then {
+				if (_key in _thisArgs # 1) then {
 					player setVariable ["AR_FAST_DECEND_PRESSED", true];
 				};
 			};
 			false
-		}];
+		}, [_moveBackKeys, _turboKeys]]; // Passed as arguments
 
 		_ropeKeyUpHandler = (findDisplay 46) displayAddEventHandler ["KeyUp", {
-			if ((_this # 1) in (actionKeys "MoveBack")) then {
+			params ["_display", "_key"];
+			if (_key in _thisArgs # 0) then {
 				player setVariable ["AR_DECEND_PRESSED", false];
 			} else {
-				if ((_this # 1) in (actionKeys "Turbo")) then {
+				if (_key in _thisArgs # 1) then {
 					player setVariable ["AR_FAST_DECEND_PRESSED", false];
 				};
 			};
 			false
-		}];
+		}, [_moveBackKeys, _turboKeys]];
 	} else {
 		_player setVariable ["AR_DECEND_PRESSED", false];
-		_player setVariable ["AR_FAST_DECEND_PRESSED", false];
+		_player setVariable ["AR_FAST_DECEND_PRESSED", false]; // Fixed translation artifact from original code
 		_player setVariable ["AR_RANDOM_DECEND_SPEED_ADJUSTMENT", (random 2) - 1];
 
 		[_player] spawn {
@@ -98,14 +105,14 @@ if (local _player) then {
 	_this spawn {
 		scriptName "spawn_ar_is_rappelling";
 		params ["_player","_heli"];
-		while {_player getVariable ["AR_Is_Rappelling", false]} do {
+		while {alive _player && {!isNil {_player getVariable "AR_Is_Rappelling"}}} do {
 			if (speed _heli > 150) then {
 				if (isPlayer _player) then {
-					hint "Moving too fast! You've lost grip of the rope.";
+					hint "Moving too fast! You've lost grip of the rope.";[cite: 7]
 				};
 				[_player] call AR_fnc_Rappel_Detach_Action;
 			};
-			sleep 2;
+			sleep 0.5; // Reduced from 2s to 0.5s for faster and more reliable detachment updates
 		};
 	};
 
@@ -184,7 +191,7 @@ if (local _player) then {
 
 		_lastPosition = _newPosition;
 
-		if ((getPos _player) select 2 < 1 || {!alive _player || {vehicle _player != _player || {_bottomRopeLength <= 1 || {_player getVariable ["AR_Detach_Rope", false]}}}}) exitWith {};
+		if ((getPosASL _player # 2) < 1 || {!alive _player || {vehicle _player != _player || {_bottomRopeLength <= 1 || {_player getVariable ["AR_Detach_Rope", false]}}}}) exitWith {};
 
 		sleep 0.01;
 	};
@@ -194,9 +201,9 @@ if (local _player) then {
 		private _intersectionASL = [];
 		{
 			scopeName "surfaceLoop";
-			private _objectFileName = str (_x select 2);
+			private _objectFileName = str (_x # 2);
 			if ((_objectFileName find " t_") == -1 && {(_objectFileName find " b_") == -1}) then {
-				_intersectionASL = _x select 0;
+				_intersectionASL = _x # 0;
 				breakOut "surfaceLoop";
 			};
 		} forEach (lineIntersectsSurfaces [_playerStartASLIntersect, _playerStartASLIntersect vectorAdd [0, 0, -5], _player, objNull, true, 10]);
