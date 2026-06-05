@@ -283,7 +283,7 @@ if (isServer) then {
 #ifdef __JSDF__
 	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
 		case "E": {["rhs_btr80a_vdv","rhs_btr80a_vdv", "rhs_btr70_vdv", "RHS_Ural_Repair_VDV_01", "RHS_Ural_Fuel_VDV_01", "RHS_Ural_VDV_01", "RHS_Ural_Zu23_VDV_01"]};
-		case "W": {["Sparky_JSDF_Overhaul_JSDF_JGSDF_RCV","Sparky_JSDF_Overhaul_JSDF_JGSDF_Type89IFV", "Sparky_JSDF_Overhaul_JSDF_JGSDF_87SPAAG", "Sparky_JSDF_Overhaul_gac_JGSDF_35t_resupply", "Sparky_JSDF_Overhaul_gac_JGSDF_35t_fuel", "Sparky_JSDF_Overhaul_gac_JGSDF_35t_resupply", "Sparky_JSDF_Overhaul_gac_JGSDF_WAPC_GMG"]};
+		case "W": {["Sparky_JSDF_Overhaul_JSDF_JGSDF_RCV","Sparky_JSDF_Overhaul_JSDF_JGSDF_Type89IFV", "Sparky_JSDF_Overhaul_JSDF_JGSDF_87SPAAG", "Sparky_JSDF_Overhaul_gac_JGSDF_35t_resupply", "Sparky_JSDF_Overhaul_gac_JGSDF_35t_fuel", "Sparky_JSDF_Overhaul_gac_JGSDF_WAPC_GMG"]};
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	};
 #endif

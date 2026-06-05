@@ -501,7 +501,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log "Internal D Version: 4.74";
+diag_log "Internal D Version: 4.75";
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -690,10 +690,10 @@ if (d_playerspectateatbase == 0) then {
 #endif
 
 if (d_with_bis_dynamicgroups == 0) then {
-	d_FLAG_BASE addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_552"], {call d_fnc_showdynamicgroupsdialog}, _d_vec, -1, false, true, "", "true", 7];
+	d_FLAG_BASE addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_552"], {call d_fnc_showdynamicgroupsdialog}, objNull, -1, false, true, "", "true", 7];
 };
 
-d_FLAG_BASE addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_304"], {0 call d_fnc_DomCommandingMenuExec}, _d_vec, -1, false, true, "", "true", 7];
+d_FLAG_BASE addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_304"], {0 call d_fnc_DomCommandingMenuExec}, 0, -1, false, true, "", "true", 7];
 
 
 if (d_ParaAtBase == 1) then {
