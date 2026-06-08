@@ -92,14 +92,11 @@ if (d_ai_persistent_corpses != 0) then {
 
 if (_ar # 4 > 0) then {
 	call {
-		if (_ar # 4 == 1) exitWith {
+		if (_ar # 4 in [1, 3]) exitWith {
 			[8, _this # 1, _this # 2] spawn d_fnc_addkillsai
 		};
 		if (_ar # 4 == 2) exitWith {
 			[5, _this # 1, _this # 2] spawn d_fnc_addkillsai
-		};
-		if (_ar # 4 == 3) exitWith {
-			[8, _this # 1, _this # 2] spawn d_fnc_addkillsai
 		};
 	};
 };
