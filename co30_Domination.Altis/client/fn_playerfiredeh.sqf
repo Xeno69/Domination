@@ -126,10 +126,11 @@ if (d_launcher_cooldown > 0 && {isNull (_this # 7) && {(_this # 1) isKindOf ["La
 		__TRACE_1("1","_w")
 		if (!isNil "_w") then {
 			if (time < _w) then {
+#ifdef __DEBUG__
 				_mmm = typeOf (_this # 6);
 				__TRACE_1("","_mmm")
+#endif
 				(_this # 6) remoteExecCall ["d_fnc_delproj"];
-				//deleteVehicle (_this # 6);
 				__TRACE("projectile deleted")
 				private _ul =+ getUnitLoadout player;
 				(_ul # 1) set [4, [_this # 5, 1]];
