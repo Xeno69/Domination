@@ -12,6 +12,8 @@ private _last_threatened_ts = (agent teamMember _unit) getVariable ["civ_last_fi
 private _last_dangerclose_ts = (agent teamMember _unit) getVariable ["civ_last_dangerclose", 0];
 private _civ_is_walking = (agent teamMember _unit) getVariable ["civ_is_walking", false];
 private _civ_startpos = (agent teamMember _unit) getVariable ["civ_startpos", []];
+
+private _posUnit = getPos _unit;
 {
 	// if weapon is raised close by then immediately lay down and set threatend timestamp
 	if !(weaponLowered _x) exitWith {
@@ -26,7 +28,7 @@ private _civ_startpos = (agent teamMember _unit) getVariable ["civ_startpos", []
 		if (_x distance _unit < 1.75 ) then {
 			// calculate a position to retreat
 			private _posPlayer = getPos _x;
-			private _fleeVec = _posUnit vectorSubtract _posPlayer;
+			private _fleeVec = _posUnit vectorDiff _posPlayer;
 			private _newpos = _posUnit vectorAdd (vectorNormalized _fleeVec vectorMultiply 2);
 			
 			_unit forceSpeed -1;
