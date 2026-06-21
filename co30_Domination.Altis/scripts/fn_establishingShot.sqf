@@ -19,14 +19,16 @@
 		_this select 7 (Optional): NUMBER - Mode (0: normal (default), 1: world scenes)
 */
 
-private _tgt = [_this, 0, objNull, [objNull, []]] call BIS_fnc_param;
-private _txt = [_this, 1, "", [""]] call BIS_fnc_param;
-private _alt = [_this, 2, 500, [500]] call BIS_fnc_param;
-private _rad = [_this, 3, 200, [200]] call BIS_fnc_param;
-private _ang = [_this, 4, random 360, [0]] call BIS_fnc_param;
-private _dir = [_this, 5, round random 1, [0]] call BIS_fnc_param;
-
-private _mode = [_this, 7, 0, [0]] call BIS_fnc_param;
+params [
+	["_tgt", objNull, [objNull, []]],
+	["_txt", "", [""]],
+	["_alt", 500, [0]],
+	["_rad", 200, [0]],
+	["_ang", random 360, [0]],
+	["_dir", round random 1, [0]],
+	["_iconsOpt", [], [[]]], // Unused in script body but kept for syntax mapping
+	["_mode", 0, [0]]
+];
 
 d_is_sat_on = true;
 BIS_fnc_establishingShot_fakeUAV = nil;
@@ -289,14 +291,15 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 					"Draw3D",
 					{
 						{
-							private _icon = [_x, 0, "", [""]] call BIS_fnc_param;
+							/*private _icon = [_x, 0, "", [""]] call BIS_fnc_param;
 							private _color = [_x, 1, [], [[]]] call BIS_fnc_param;
 							private _target = [_x, 2, [], [[], objNull, grpNull]] call BIS_fnc_param;
 							private _sizeX = [_x, 3, 1, [1]] call BIS_fnc_param;
 							private _sizeY = [_x, 4, 1, [1]] call BIS_fnc_param;
 							private _angle = [_x, 5, random 360, [0]] call BIS_fnc_param;
 							private _text = [_x, 6, "", [""]] call BIS_fnc_param;
-							private _shadow = [_x, 7, 0, [0]] call BIS_fnc_param;
+							private _shadow = [_x, 7, 0, [0]] call BIS_fnc_param;*/
+							_x params ["_icon", "_color", "_target", "_sizeX", "_sizeY", "_angle", "_text", "_shadow"];
 
 							// Determine condition and position
 							private _condition = true;
