@@ -5,8 +5,8 @@ diag_log [diag_frameno, diag_ticktime, time, "Executing Dom init.sqf"];
 
 diag_log [diag_frameno, diag_ticktime, time, "Domination Arma 3 product version:", productVersion];
 
-if (productVersion # 2 < 218) exitWith {
-	diag_log [diag_frameno, diag_ticktime, time, "You need at least Arma 3 patch 2.20 to run Domination!!!!"];
+if (productVersion # 2 < 222) exitWith {
+	diag_log [diag_frameno, diag_ticktime, time, "You need at least Arma 3 patch 2.22 to run Domination!!!!"];
 	endMission "LOSER";
 	forceEnd;
 };
