@@ -913,16 +913,16 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 		} else {
 			// take top 2N then randomize then resize
 			private _tmp = _buildingsArraySorted select [0, (_snp_cnt * 2)]; // 2x extra elements
-			_tmp =  _tmp call BIS_fnc_arrayShuffle;
+			_tmp =  [_tmp] call BIS_fnc_arrayShuffle;
 			_tmp resize _snp_cnt; // resize to correct size
 			_buildingsArray = _tmp # 0;
 		};
 		
 		// replace 3 of the tallest buildings in the elevation array
 		if (count _buildingsArraySortedByHeight > 3) then {		
-			_buildingsArray set [0, (_buildingsArraySortedByHeight select 0)];
-			_buildingsArray set [1, (_buildingsArraySortedByHeight select 1)];
-			_buildingsArray set [2, (_buildingsArraySortedByHeight select 2)];
+			_buildingsArray set [0, _buildingsArraySortedByHeight # 0];
+			_buildingsArray set [1, _buildingsArraySortedByHeight # 1];
+			_buildingsArray set [2, _buildingsArraySortedByHeight # 2];
 		};
 	
 		__TRACE_1("","_buildingsArray")
