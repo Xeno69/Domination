@@ -12,6 +12,8 @@ private _last_threatened_ts = (agent teamMember _unit) getVariable ["civ_last_fi
 private _last_dangerclose_ts = (agent teamMember _unit) getVariable ["civ_last_dangerclose", 0];
 private _civ_is_walking = (agent teamMember _unit) getVariable ["civ_is_walking", false];
 private _civ_startpos = (agent teamMember _unit) getVariable ["civ_startpos", []];
+
+private _posUnit = getPos _unit;
 {
 	// if weapon is raised close by then immediately lay down and set threatend timestamp
 	if !(weaponLowered _x) exitWith {
@@ -25,12 +27,15 @@ private _civ_startpos = (agent teamMember _unit) getVariable ["civ_startpos", []
 		// this is very similar to the firedNear EH beahavior but here the movement order is only applied during a single cycle of the loop whereas the EH stores a threat ts and the unit is allowed to flee for a while
 		if (_x distance _unit < 1.75 ) then {
 			// calculate a position to retreat
-			private _newx = (getPos _x # 0) - (getPos _unit # 0);
-			private _newy = (getPos _x # 1) - (getPos _unit # 1);
-			private _newpos = [(getPos _x # 0) - (1.15 * _newx), (getPos _unit # 1) - (1.15 * _newy)];
+			private _posPlayer = getPos _x;
+			private _fleeVec = _posUnit vectorDiff _posPlayer;
+			private _newpos = _posUnit vectorAdd (vectorNormalized _fleeVec vectorMultiply 2);
+			
 			_unit forceSpeed -1;
 			_unit moveTo _newpos;
+			
 			_last_dangerclose_ts = time;
+			_unit setVariable ["civ_last_dangerclose", _last_dangerclose_ts];
 		};
 	};
 } forEach (allPlayers select { _x distance2D _unit < 6 });

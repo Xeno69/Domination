@@ -63,7 +63,7 @@ if (count _crew > 0) then {
 								[_one_unit, 4] call d_fnc_setekmode;
 							};
 							if (d_with_dynsim == 0) then {
-								[_one_unit, 10] spawn d_fnc_enabledynsim;
+								[_one_unit, 20] spawn d_fnc_enabledynsim;
 							};
 							if (d_doairagdoll == 1) then {
 								_one_unit addEventHandler ["HandleDamage", {call d_fnc_airagdoll}];

@@ -282,7 +282,7 @@ if (!isNil "d_pl_mt_score_hash") then {
 	[_uid, _pl, _name] spawn {
 		params ["_uid", "_pl", "_name"];
 		scriptName "spawn_init_playerserver3";
-		sleep 1;
+		sleep 15;
 		if (!isNil "d_pl_mt_score_hash" && {!isNull _pl}) then {
 			if !(_uid in d_pl_mt_score_hash) then {
 				__TRACE_1("adding player to d_pl_mt_score_hash","_uid")

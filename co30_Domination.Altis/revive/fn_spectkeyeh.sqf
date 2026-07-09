@@ -7,51 +7,52 @@
 //__TRACE_1("","_this")
 
 private _res = false;
+private _disp = uiNamespace getVariable "xr_SpectDlg";
 if ((_this # 1) == DIK_N) then {
 	if (!xr_camnvgon) then {
 		camUseNVG true;
 		xr_camnvgon = true;
-		((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1004) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1335a");
+		(_disp displayCtrl 1004) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1335a");
 	} else {
 		camUseNVG false;
 		xr_camnvgon = false;
-		((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1004) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1335");
+		(_disp displayCtrl 1004) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1335");
 	};
 	_res = true;
 } else {
 	if ((_this # 1) == DIK_M) then {
 		//__TRACE("DIK M")
-		if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1000)) then {
+		if (ctrlShown (_disp displayCtrl 1000)) then {
 			//__TRACE("1000 shown")
 			ctrlShow [1000, false];
-			((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334");
+			(_disp displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334");
 		};
-		if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 3000)) then {
+		if (ctrlShown (_disp displayCtrl 3000)) then {
 			//__TRACE("3000 shown")
 			ctrlShow [3000, false];
-			((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333");
+			(_disp displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333");
 			d_x_loop_end = true;
 		} else {
 			//__TRACE("3000 NOT shown")
 			ctrlShow [3000, true];
-			((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333a");
+			(_disp displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333a");
 			call xr_fnc_updaterlb;
 		};
 		_res = true;
 	} else {
 		if ((_this # 1) == DIK_P) then {
 			//__TRACE("DIK P")
-			if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 3000)) then {
+			if (ctrlShown (_disp displayCtrl 3000)) then {
 				ctrlShow [3000, false];
-				((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333");
+				(_disp displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333");
 				d_x_loop_end = true;
 			};
-			if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1000)) then {
+			if (ctrlShown (_disp displayCtrl 1000)) then {
 				ctrlShow [1000, false];
-				((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334");
+				(_disp displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334");
 			} else {
 				ctrlShow [1000, true];
-				((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334a");
+				(_disp displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334a");
 			};
 			_res = true;
 		} else {

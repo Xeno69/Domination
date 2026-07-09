@@ -23,7 +23,7 @@ if (_buildingsArrayRaw isEqualTo []) exitWith {
 private _buildingsArrayUsableUnfiltered = _buildingsArrayRaw select {(_x buildingPos -1) isNotEqualTo []};
 
 // do not select if inString with any string in the defined blacklist strings array
-private _blacklist_building_strings = ["dyke"];
+private _blacklist_building_strings = ["dyke", "container"];
 private _buildingsArrayUsableFiltered2 = _buildingsArrayUsableUnfiltered select {
 	private _ret = true;
 	private _the_bldg = _x;

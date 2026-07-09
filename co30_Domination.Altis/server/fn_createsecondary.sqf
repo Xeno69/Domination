@@ -21,7 +21,6 @@ private _mslope = 0.3;
 
 private _dobigtower = call {
 	if (d_cargotower isEqualTo "" || {d_cup || {d_ifa3 || {d_gmcwg || {d_unsung || {d_csla || {d_vn || {d_spe}}}}}}}) exitWith {
-		_dobigtower = false;
 		false;
 	};
 	_mindists = 24;
@@ -168,10 +167,10 @@ if (d_ao_check_for_ai in [0, 1]) then {
 			_wf allowDamage false;
 			_wf setDir (_wf getDir _trg_center);
 			_wf addEventHandler ["HandleDamage", {0}];
-			_wf addEventHandler ["killed", {(_this #0) setDamage 0}];
-			if (d_with_dynsim == 0) then {
+			_wf addEventHandler ["killed", {(_this # 0) setDamage 0}];
+			/*if (d_with_dynsim == 0) then {
 				[_wf, 5] spawn d_fnc_enabledynsim;
-			};
+			};*/
 			sleep 0.3;
 			_poss = getPosASL _wf;
 			_isFirstCamp = false;
@@ -195,7 +194,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 				private _fidx = d_currentcamps findIf {_x distance2D _poss < 130};
 				if (_fidx != -1) then {
 					private _icounter = 0;
-					while {_icounter < 50 || {_fidx != -1}} do {
+					while {_icounter < 50 && {_fidx != -1}} do {
 						_idx = floor random (count _parray);
 						_poss = _parray # _idx;
 						_fidx = d_currentcamps findIf {_x distance2D _poss < 130};
@@ -209,9 +208,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 			_wf allowDamage false;
 			_wf setDir (_wf getDir _trg_center);
 			_wf addEventHandler ["HandleDamage", {0}];
-			/*if (d_with_dynsim == 0) then {
-				[_wf, 5] spawn d_fnc_enabledynsim;
-			};*/
+			_wf addEventHandler ["killed", {(_this # 0) setDamage 0}];
 			sleep 0.3;
 			__TRACE_1("1111","_wf")
 
@@ -310,9 +307,8 @@ if (d_with_minefield == 0 && {!d_preemptive_special_event && {random 100 > 80}})
 
 sleep 1;
 
-private _speedboatavailable = !isNil "d_sm_speedboat";
 if (!isNil "d_sm_speedboat") then {
-	_speedboatavailable = if (d_sm_speedboat isEqualType []) then {d_sm_speedboat isNotEqualTo []} else {d_sm_speedboat isNotEqualTo ""};
+	private _speedboatavailable = if (d_sm_speedboat isEqualType []) then {d_sm_speedboat isNotEqualTo []} else {d_sm_speedboat isNotEqualTo ""};
 	if (_speedboatavailable && {!d_preemptive_special_event}) then {
 		[_trg_center, _mtradius] spawn d_fnc_seapatrol;
 	};
@@ -341,12 +337,12 @@ if (!isNil "d_cur_tgt_civ_units" && {count d_cur_tgt_civ_units != 0}) then {
 	// civilians exist, remove civilians spawned too close to any maintarget objectives
 	{
 		private _civ = _x;
-		if ((getPos _civ) distance2D d_mt_tower_pos < 15) exitWith {
+		if ((getPos _civ) distance2D d_mt_tower_pos < 15) then {
 			diag_log ["civ cleanup - too close to tower"];
 			deleteVehicle _civ;
 		};
 		{
-			if ((getPos _civ) distance2D (getPos _x) < 15) exitWith {
+			if ((getPos _civ) distance2D (getPos _x) < 15) then {
 				diag_log ["civ cleanup - too close to something in d_mt_barracks_obj_ar"];
 				deleteVehicle _civ;
 			};

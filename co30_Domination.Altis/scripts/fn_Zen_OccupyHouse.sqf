@@ -27,7 +27,7 @@
 //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
 //  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
 //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
-//  (opt.) 13. _targetBuilding Object, target building may be passed
+//  (opt.) 13. _targetBuilding Object, target building may be passeda
 // Return: Array of objects, the units that were not garrisoned
 
 #define I(X) X = X + 1;
@@ -158,7 +158,7 @@ _check_vertical_jumps = {
 		private _startposz = (getPosASL _this) select 2;
 		sleep 3; 
 		private _posz = (getPosASL _this) select 2;
-		if (_posz != _startposz) exitWith {
+		if (abs (_posz - _startposz) > 0.1) exitWith {
 			// found a jumper (unit hovers up and down)
 			deleteVehicle _this;
 		};
@@ -405,8 +405,8 @@ __TRACE("start of forEach _buildingPosArray")
 													};
 													
 													// enable movement if hit
-													if (isNil {_uuidx getVariable "d_zen_hiteh"}) then {
-														_uuidx setVariable ["d_zen_hiteh", _uuidx addEventHandler ["Hit", {
+													if (isNil {_unit getVariable "d_zen_hiteh"}) then {
+														_unit setVariable ["d_zen_hiteh", _unit addEventHandler ["Hit", {
 														__TRACE_1("hit 1","_this")
 															params ["_unit", "_source", "_damage", "_instigator"];
 															scriptName "spawn_zoh_hiteh";

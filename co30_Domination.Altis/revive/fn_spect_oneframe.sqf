@@ -35,7 +35,7 @@ if (xr_MouseButtons # 0) then {
 	if (!isNull _cursObj && {!(_cursObj getEntityInfo 0)}) then {
 		if (crew _cursObj isNotEqualTo []) then {
 			(crew _cursObj) findIf {
-				_ret = isPlayer [_x];
+				private _ret = isPlayer [_x];
 				if (_ret) then {
 					_cursObj = _x;
 				};
@@ -189,7 +189,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 		private _sfm = markerPos "xr_playerparkmarker";
 		private _visobj = objNull;
 		d_allplayers findIf {
-			_ret = _x != player && {_x distance2D _sfm > 100};
+			private _ret = _x != player && {_x distance2D _sfm > 100};
 			if (_ret) then {
 				_visobj = _x;
 			};

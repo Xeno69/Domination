@@ -50,7 +50,7 @@ __TRACE_1("","_this")
 // assign or calculate the number of enemy groups for overwatch, ambush and occupy infantry
 // occupy group count
 d_occ_cnt_current = 0;
-if (d_occ_cnt == -1 || d_occ_cnt == -2 || d_occ_cnt == -3 || d_occ_cnt == -4 || d_occ_cnt == -5) then {
+if (d_occ_cnt in [-1, -2, -3, -4, -5]) then {
 	//adaptive group count
 	//calculate number of occupy groups by counting the number of building in the maintarget area * spawn factor
 	private _occ_spawn_factor = 0;
@@ -78,7 +78,7 @@ if (d_occ_cnt == -1 || d_occ_cnt == -2 || d_occ_cnt == -3 || d_occ_cnt == -4 || 
 };
 // overwatch group count
 d_ovrw_cnt_current = 0;
-if (d_ovrw_cnt == -1 || d_ovrw_cnt == -2 || d_ovrw_cnt == -3 || d_ovrw_cnt == -4 || d_ovrw_cnt == -5) then {
+if (d_ovrw_cnt in [-1, -2, -3, -4, -5]) then {
 	//adaptive group count
 	//calculate number of overwatch groups by counting the number of building in the maintarget area * spawn factor
 	private _ovrw_spawn_factor = 0;
@@ -106,7 +106,7 @@ if (d_ovrw_cnt == -1 || d_ovrw_cnt == -2 || d_ovrw_cnt == -3 || d_ovrw_cnt == -4
 };
 // ambush group count
 d_amb_cnt_current = 0;
-if (d_amb_cnt == -1 || d_amb_cnt == -2 || d_amb_cnt == -3 || d_amb_cnt == -4 || d_amb_cnt == -5) then {
+if (d_amb_cnt in [-1, -2, -3, -4, -5]) then {
 	//adaptive group count
 	//calculate number of ambush groups by counting the number of building in the maintarget area * spawn factor
 	private _amb_spawn_factor = 0;
@@ -381,7 +381,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 		private _fidx = _allbars findIf {_x distance2D _poss < 115};
 		if (_fidx != -1) then {
 			private _icounter = 0;
-			while {_icounter < 50 || {_fidx != -1}} do {
+			while {_icounter < 50 && {_fidx != -1}} do {
 				_idx = floor random (count _parray);
 				_poss = _parray # _idx;
 				_fidx = _allbars findIf {_x distance2D _poss < 115};
@@ -656,24 +656,25 @@ if (d_preemptive_special_event || { d_grp_cnt_footpatrol == 0 }) then {
         diag_log ["skipping creating patrol groups, d_grp_cnt_footpatrol == 0"];
     };
 } else {
-    // create patrol groups
-    {
-    	__TRACE_1("patrol","_x")
-    	if (d_grp_cnt_footpatrol > 0 || {d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}}) then {
-    		if (d_grp_cnt_footpatrol == 0) exitWith {};
-    		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-    		private _group_count = (_x # 2);
-    		if (d_grp_cnt_footpatrol > 0 && (_x # 0 == "allmen" || {_x # 0 == "specops"})) then {
-    			_group_count = d_grp_cnt_footpatrol;
-    		};
-    		for "_xxx" from 1 to _group_count do {
-    			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-    			[_x # 0, [_curar # _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
-    			_curar deleteAt _wp_ran;
-    			sleep 0.2;
-    		};
-    	};
-    } forEach (_type_list_patrol select {_x # 2 > 0});
+	if (d_grp_cnt_footpatrol != 0) then {
+		// create patrol groups
+		{
+			__TRACE_1("patrol","_x")
+			if (d_grp_cnt_footpatrol > 0 || {d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}}) then {
+				private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+				private _group_count = (_x # 2);
+				if (d_grp_cnt_footpatrol > 0 && (_x # 0 == "allmen" || {_x # 0 == "specops"})) then {
+					_group_count = d_grp_cnt_footpatrol;
+				};
+				for "_xxx" from 1 to _group_count do {
+					private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+					[_x # 0, [_curar # _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
+					_curar deleteAt _wp_ran;
+					sleep 0.2;
+				};
+			};
+		} forEach (_type_list_patrol select {_x # 2 > 0});
+	};
 };
 
 _type_list_guard = nil;
@@ -837,24 +838,26 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 
 	//create garrisoned "sniper" groups of AI (static, never leave spawn position)
 	private _snp_cnt = 0;
-	if (d_snp_cnt == -1 || d_snp_cnt == -2 || d_snp_cnt == -3 || d_snp_cnt == -4 || d_snp_cnt == -5) then {
+	if (d_snp_cnt in [-1, -2, -3, -4, -5]) then {
 		//adaptive group count
 		//calculate number of sniper groups by counting the number of building in the maintarget area * spawn factor
-		private _snp_spawn_factor = 0;
-		if (d_snp_cnt == -1) then {
-			_snp_spawn_factor = 0.02;  // adaptive (low)
-		};
-		if (d_snp_cnt == -2) then {
-			_snp_spawn_factor = 0.05;  // adaptive (normal)
-		};
-		if (d_snp_cnt == -3) then {
-			_snp_spawn_factor = 0.10;  // adaptive (high)
-		};
-		if (d_snp_cnt == -4) then {
-			_snp_spawn_factor = 0.20;  // adaptive (very high)
-		};
-		if (d_snp_cnt == -5) then {
-			_snp_spawn_factor = 0.75;  // adaptive (extreme)
+		private _snp_spawn_factor = call {
+			if (d_snp_cnt == -1) exitWith {
+				_snp_spawn_factor = 0.02;  // adaptive (low)
+			};
+			if (d_snp_cnt == -2) exitWith {
+				_snp_spawn_factor = 0.05;  // adaptive (normal)
+			};
+			if (d_snp_cnt == -3) exitWith {
+				_snp_spawn_factor = 0.10;  // adaptive (high)
+			};
+			if (d_snp_cnt == -4) exitWith {
+				_snp_spawn_factor = 0.20;  // adaptive (very high)
+			};
+			if (d_snp_cnt == -5) exitWith {
+				_snp_spawn_factor = 0.75;  // adaptive (extreme)
+			};
+			0
 		};
 		private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
 		private _snp_cnt_max = floor(_snp_spawn_factor * 100);
@@ -910,16 +913,16 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 		} else {
 			// take top 2N then randomize then resize
 			private _tmp = _buildingsArraySorted select [0, (_snp_cnt * 2)]; // 2x extra elements
-			_tmp = [ _tmp ] call BIS_fnc_arrayShuffle;
+			_tmp =  [_tmp] call BIS_fnc_arrayShuffle;
 			_tmp resize _snp_cnt; // resize to correct size
 			_buildingsArray = _tmp # 0;
 		};
 		
 		// replace 3 of the tallest buildings in the elevation array
 		if (count _buildingsArraySortedByHeight > 3) then {		
-			_buildingsArray set [0, (_buildingsArraySortedByHeight select 0)];
-			_buildingsArray set [1, (_buildingsArraySortedByHeight select 1)];
-			_buildingsArray set [2, (_buildingsArraySortedByHeight select 2)];
+			_buildingsArray set [0, _buildingsArraySortedByHeight # 0];
+			_buildingsArray set [1, _buildingsArraySortedByHeight # 1];
+			_buildingsArray set [2, _buildingsArraySortedByHeight # 2];
 		};
 	
 		__TRACE_1("","_buildingsArray")
@@ -1039,11 +1042,26 @@ if (d_with_MainTargetEvents != 0) then {
 		if (d_with_MainTargetEvents != -3 && {d_with_MainTargetEvents != -4}) then {
 			// some events are only eligible if d_with_MainTargetEvents == -3 or -4
 			// remove ineligible events from the temp array (remove guerrilla events and shock events)
-			_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
-			_tmpMtEvents deleteAt (_tmpMtEvents find "MARKED_FOR_DEATH");
-			_tmpMtEvents deleteAt (_tmpMtEvents find "RESCUE_DEFEND");
-			_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_INDEPENDENT");
-			_tmpMtEvents deleteAt (_tmpMtEvents find "MARKED_FOR_DEATH_VIP_ESCORT");
+			private _aidx = _tmpMtEvents find "GUERRILLA_INFANTRY";
+			if (_aidx != -1) then {
+				_tmpMtEvents deleteAt _aidx;
+			};
+			_aidx = _tmpMtEvents find "MARKED_FOR_DEATH";
+			if (_aidx != -1) then {
+				_tmpMtEvents deleteAt _aidx;
+			};
+			_aidx = _tmpMtEvents find "RESCUE_DEFEND";
+			if (_aidx != -1) then {
+				_tmpMtEvents deleteAt _aidx;
+			};
+			_aidx = _tmpMtEvents find "CIV_RESISTANCE_INDEPENDENT";
+			if (_aidx != -1) then {
+				_tmpMtEvents deleteAt _aidx;
+			};
+			_aidx = _tmpMtEvents find "MARKED_FOR_DEATH_VIP_ESCORT";
+			if (_aidx != -1) then {
+				_tmpMtEvents deleteAt _aidx;
+			};
 		};
 		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3 || {d_with_MainTargetEvents == -4}}) then {
 			// create multiple simultaneous events
@@ -1089,8 +1107,8 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai
 	_pos = getpos _mapDyke;
 	hideObjectGlobal _mapDyke;
 	_dyke setDir _dir; 
-	_dyke setpos [_pos#0,_pos#1,.3];
-} foreach ([nearestTerrainObjects [_trg_center, [], 1000], {(getModelInfo _x # 1) find "vn_dyke"> 0 }] call BIS_fnc_conditionalSelect);
+	_dyke setpos [_pos # 0,_pos # 1, .3];
+} forEach ([nearestTerrainObjects [_trg_center, [], 1000], {(getModelInfo _x # 1) find "vn_dyke"> 0 }] call BIS_fnc_conditionalSelect);
 #endif
 
 diag_log [format ["total count of d_delinfsm: %1", count d_delinfsm]];

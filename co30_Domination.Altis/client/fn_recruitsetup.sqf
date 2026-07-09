@@ -5,6 +5,10 @@ if (!hasInterface) exitWith {};
 
 player reveal d_AI_HUT;
 
+if (isNil "d_d3d_locsaire") then {
+	d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
+};
+
 d_AI_HUT addAction [format ["<t color='#AAD9EF'>%1</t>", d_d3d_locsaire], {call d_fnc_recruitaiaction}, -1, 1.5, true, true, "", "true", 10];
 
 if (!isNil "d_additional_recruit_buildings") then {

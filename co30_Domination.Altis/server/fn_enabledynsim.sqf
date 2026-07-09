@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-params ["_obj", ["_stime", 20]];
+params ["_obj", ["_stime", 12]];
 
 if (_stime > 0) then {
 	sleep _stime;

@@ -695,7 +695,7 @@ switch (_mode) do {
 		if (isNull _to) exitWith {};
 
 		// Get current invites and requests
-		private _invitations = _to getVariable ["BIS_dg_kic", []];
+		private _invitations = _to getVariable ["BIS_dg_inv", []];
 
 		// The index if group already in list
 		private _index = _invitations findIf {_x # 0 == _group};
@@ -708,7 +708,7 @@ switch (_mode) do {
 		};
 
 		// Broadcast changes
-		_to setVariable ["BIS_dg_kic", _invitations, true];
+		_to setVariable ["BIS_dg_inv", _invitations, true];
 
 		// Fire event on target computer
 		["OnInvitationReceived", [_group, _to, _from]] remoteExecCall ["d_fnc_dynamicGroups", _to];
@@ -728,7 +728,7 @@ switch (_mode) do {
 		if (isNull _player) exitWith {};
 
 		// Get current invites and requests
-		private _container      = [] + (_player getVariable ["BIS_dg_kic", []]);
+		private _container      = [] + (_player getVariable ["BIS_dg_inv", []]);
 
 		// Go through the container, find matching group id, get index within container and delete it
 		private _index = _container findIf {_group == _x # 0 && {_player == _x # 2}};
@@ -736,7 +736,7 @@ switch (_mode) do {
 		if (_index < 0) exitWith {};
 
 		_container deleteAt _index;
-		_player setVariable ["BIS_dg_kic", _container, true];
+		_player setVariable ["BIS_dg_inv", _container, true];
 	};
 
 	/**
@@ -746,7 +746,7 @@ switch (_mode) do {
 		private _group	= _params param [0, grpNull, [grpNull]];
 		private _player	= _params param [1, objNull, [objNull]];
 
-		((_player getVariable ["BIS_dg_kic", []]) findIf {_group == (_x # 0) && {_player == (_x # 2) && {time <= (_x # 3) + 60}}} > -1)
+		((_player getVariable ["BIS_dg_inv", []]) findIf {_group == (_x # 0) && {_player == (_x # 2) && {time <= (_x # 3) + 60}}} > -1)
 	};
 
 	/**
@@ -756,7 +756,7 @@ switch (_mode) do {
 		private _player         = _params param [0, objNull, [objNull]];
 		private _maxLifeTime    = _params param [1, 99999999, [0]];
 
-		((_player getVariable ["BIS_dg_kic", []]) select {!isNull (_x # 0) && {time - (_x # 3) < _maxLifeTime}})
+		((_player getVariable ["BIS_dg_inv", []]) select {!isNull (_x # 0) && {time - (_x # 3) < _maxLifeTime}})
 	};
 
 	/**

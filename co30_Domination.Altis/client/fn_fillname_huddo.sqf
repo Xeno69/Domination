@@ -25,7 +25,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 					} else {
 						_vu = vehicle _x;
 						call {
-							if (crew _vu isEqualTo 1) exitWith {
+							if (count crew _vu isEqualTo 1) exitWith {
 								_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
 								true
 							};
