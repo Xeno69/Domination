@@ -11,17 +11,12 @@ while {true} do {
 		
 		__TRACE_1("","_vec_a")
 		
-		private _disabled = false;
+		private _disabled = !alive _vec || {damage _vec >= 0.9 || {underwater _vec || {!(_vec isKindOf "Ship") && surfaceIsWater (getPosASL _vec) && !canMove _vec}}};
 		
-		private _empty = false;
+		__TRACE_1("","_vec call d_fnc_OutOfBounds")
 		
-		if (alive _vec) then {
-			_disabled = damage _vec >= 0.9;
-			_empty = (crew _vec) findIf {alive _x} == -1;
-			
-			__TRACE_1("","_vec call d_fnc_OutOfBounds")
-			
-			if (_empty && {!_disabled && {alive _vec && {_vec call d_fnc_OutOfBounds}}}) then {
+		if (!_disabled) then {
+			if (_vec call d_fnc_OutOfBounds) then {
 				private _outb = _vec getVariable "d_OUT_OF_SPACE";
 				if (!isNil "_outb") then {
 					if (_outb != -1) then {
@@ -35,13 +30,12 @@ while {true} do {
 			} else {
 				_vec setVariable ["d_OUT_OF_SPACE", -1];
 			};
-			sleep 0.01;
 		};
+		sleep 0.01;
 
-		__TRACE_3("","_empty","_disabled","alive _vec")
-		__TRACE_1("","underwater _vec")
+		__TRACE_1("","_disabled")
 		
-		if (!alive _vec || {_empty && {_disabled || {underwater _vec}}}) then {
+		if (_disabled) then {
 			private _number_v = _vec_a # 1;
 			private _fuelleft = _vec getVariable ["d_fuel", 1];
 			if (_vec getVariable ["d_ammobox", false]) then {
