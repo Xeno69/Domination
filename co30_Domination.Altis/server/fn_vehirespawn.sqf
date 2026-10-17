@@ -47,8 +47,8 @@ if (surfaceIsWater _startpos) then {
 	_startposasl = ATLToASL _startpos;
 	if (_vec isKindOf "Helicopter") then {
 		__TRACE("vector add")
-		_startposasl vectorAdd [0, 0, 2];
-		_startpos vectorAdd [0, 0, 1];
+		_startposasl = _startposasl vectorAdd [0, 0, 2];
+		_startpos = _startpos vectorAdd [0, 0, 1];
 	};
 	__TRACE_1("","_startposasl")
 };
