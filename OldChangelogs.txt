@@ -2,6 +2,17 @@ Changelogs
 
 Old...
 
+4.75
+
+ATTENTION: Altis, Malden and Tanoa Blufor versions have changed (Ghost Hawks on base replaced with CTRG Aussault Hawks (same as the changed entry below)
+
+- Added: CTRG DAP and Stub Wings Ghost Hawks to side mission vehicles that you can win
+- Changed: Replaced the normal Ghost Hawks on base with the CTRG Assault Hawks (Altis, Malden and Tanoa Blufor versions)
+- Fixed: Camps could be "killed" thus stopping camp handling
+- Fixed: At recruit stations text "Recruit AI" wasn't shown but "Any"
+- Fixed: Yet another try to fix wrong main target scores (timing problem)
+- Fixed: Don't put AI in container (some are not accessible, specially on Tanoa)
+
 4.74
 
 - Changed: All players can now call in a drop aircraft in versions without AI recruitment or AI features
